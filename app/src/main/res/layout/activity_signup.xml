@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:customviews="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@android:color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/app_base_color"
+            android:minHeight="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+            android:fillViewport="true"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:padding="@dimen/activity_login_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:layout_marginTop="20dp"
+                    android:padding="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/note_heading"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.dazone.crewchat.customs.CustomTextView
+                        android:padding="10dp"
+                        android:layout_gravity="center_horizontal"
+                        style="@style/signupTextViewNote"
+                        android:text="@string/signup_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+            <LinearLayout
+                    android:layout_marginTop="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <com.dazone.crewchat.customs.CustomEditText
+                            android:id="@+id/sign_up_edt_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/button_height"
+                            android:hint="@string/enter_your_email"
+                            android:textSize="17sp"
+                            android:background="@drawable/signup_editext_line_buttom_background"
+                            android:textColor="@android:color/black"
+                            android:paddingLeft="8dp"
+                            android:singleLine="true"
+                            android:gravity="bottom"
+                            android:paddingBottom="5dp"
+                            style="@style/SignupEditText"
+                            android:inputType="textEmailAddress|textNoSuggestions|text"
+                            android:textCursorDrawable="@null"
+                            android:imeOptions="flagNoExtractUi"
+                            android:layout_marginTop="2dp"/>
+
+                    <com.dazone.crewchat.customs.IconButton
+                            android:id="@+id/login_btn_register"
+                            style="@style/RegisterButton"
+                            customviews:fontStyle="medium"
+                            android:text="@string/send"
+                            android:layout_gravity="center_horizontal"
+                            customviews:iconPadding="10dp"
+                            android:drawableLeft="@drawable/profile_ic_email"
+                            android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,243 @@
+<resources>
+    <string name="app_name">CrewChat</string>
+    <string name="unknown">Unknown</string>
+    <!-- Back Exit app -->
+    <string name="press_again_to_exit_message">Nếu click nút back thêm lần nữa, ứng dụng sẽ được đóng.</string>
+
+    <string name="set_permissions">Set Permissions</string>
+    <string name="permission_denied">Permission Denied</string>
+
+
+    <!-- PROFILE -->
+    <string name="profile_label_user_id">User ID</string>
+    <string name="profile_label_name">Name</string>
+    <string name="profile_label_mail_address">Mail Address</string>
+    <string name="profile_label_sex">Sex</string>
+    <string name="profile_label_phone_number">Phone Number</string>
+    <string name="profile_label_company_number">Company Number</string>
+    <string name="profile_label_extension_number">Extension Number</string>
+    <string name="profile_label_entrance_date">Entrance Date</string>
+    <string name="profile_label_birthday">Birthday</string>
+    <string name="profile_label_belong">Belong To Department</string>
+
+    <string name="aaaa">text example</string>
+
+    <string name="navigation_drawer_open">Mở navication</string>
+    <string name="navigation_drawer_close">Bật navication</string>
+
+    <string name="action_settings">Cài đặt</string>
+    <string name="action_search">Tìm kiếm</string>
+    <string name="action_status">Trạng thái</string>
+
+    <string name="action_working">Làm việc</string>
+    <string name="action_away">Vắng mặt</string>
+    <string name="action_resting">Offline</string>
+    <string name="action_work_outside">Làm việc ngoài</string>
+    <string name="action_in_a_call">Điện thoại</string>
+    <string name="action_meeting">Họp</string>
+
+    <string name="loading_title">Đang load...</string>
+    <string name="loading_content">Vui lòng chờ chút.</string>
+    <string name="string_status_no_result">Không có dữ liệu.</string>
+    <string name="string_ok">OK</string>
+    <string name="no_connection_error">Không có liên kết internet</string>
+    <string name="no_wifi_error">Vui lòng bật wifi hoặc 3G để tiếp tục sử dụng</string>
+    <string name="turn_wifi_on">Bật Wifi</string>
+    <string name="string_skip">Bỏ qua</string>
+    <string name="string_cancel">Hủy</string>
+
+    <string name="string_server_site">ID Tổ chức(Công ty)</string>
+
+    <!-- Login screen -->
+    <string name="login_username">ID người dùng</string>
+    <string name="login_password">Số bí mật</string>
+    <string name="login_Required">Cần thiết</string>
+    <string name="login_login">Đăng nhập</string>
+    <string name="have_no_id">Nếu chưa có ID</string>
+    <string name="for_got_string">Quên mật khẩu</string>
+    <string name="slash_string"> / </string>
+    <string name="sign_up_string">Đăng ký tài khoản</string>
+    <string name="string_help">Giúp đỡ</string>
+    <string name="copy_right_string">CopyRight © 2016 Dazone Tech., INC.</string>
+    <string name="string_sign_up">Tạo tổ chức(công ty) mới</string>
+    <string name="no_network_error">Không thể kết nối với server.</string>
+    <string name="string_wrong_server_site">Không thể kết nối với server.</string>
+    <string name="login_empty_input">Không được để trống</string>
+    <string name="string_error_code_2">사용자 아이디 맞지 않습니다</string>
+    <string name="string_error_code_3">비밀번호가 맞지 않습니다</string>
+    <string name="string_error_code_4">User left</string>
+    <string name="string_error_code_5">Access Deny</string>
+    <string name="string_error_code_9">Lỗi không xác định</string>
+    <string name="string_error_code_default">Lỗi server</string>
+    <string name="title_activity_base_pager">BasePagerActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_base_single">BaseSingleActivity</string>
+    <string name="chat_hint">Enter text</string>
+    <string name="send">Gửi</string>
+
+    <string name="string_take_photo">Camera</string>
+    <string name="string_get_from_gallery">Album</string>
+    <string name="imv_desc">Giải thích ảnh</string>
+
+    <string name="string_temp">Text temp</string>
+
+    //register 28/12/2015 update version
+    <string name="string_update">Update</string>
+    <string name="string_update_content">Tồn tại phiên bản mới, vui lòng cập nhật.</string>
+    <string name="wating_app_download">Đang tải file, vui lòng chờ một chút.</string>
+    <string name="string_update_content_new">Tồn tại phiên bản mới. Bạn có muốn cập nhật phiên bản mới?</string>
+
+    <string name="today">Hôm nay</string>
+    <string name="yesterday">Hôm qua</string>
+
+    <string name="delete">Xóa</string>
+    <string name="please_wait">Vui lòng chờ một chút....</string>
+    <string name="notice_delete">Bạn có muốn xóa tập tin đã chọn?</string>
+    <string name="yes">Yes</string>
+    <string name="no">Hủy</string>
+
+    <string name="group_list">Nhóm chat</string>
+    <string name="add_user">Thêm người</string>
+    <string name="remove_user">Rời khỏi nhóm</string>
+    <string name="can_not_chat">Không thể chat</string>
+
+    <string name="download_file_error">Không tồn tại file trên server.</string>
+    <string name="notice_download">Bạn có muốn tải xuống file này?</string>
+    <string name="product_applicaiton_version">Thông tin sản phẩm</string>
+    <string name="product_user_id">ID người dùng</string>
+    <string name="product_company">ID tổ chức</string>
+    <string name="product_utilities">Chức năng</string>
+    <string name="product_lock_screen">Khóa màn hình</string>
+
+    <string name="image">Ảnh</string>
+    <string name="video">Video</string>
+    <string name="camera">Camera</string>
+    <string name="video_record">Quay phim</string>
+    <string name="done">Xác nhận</string>
+    <string name="images_tab">Ảnh</string>
+    <string name="videos_tab">Videos</string>
+    <string name="max_limit_reach_error">Tối đa là 10 file.</string>
+    <string name="max_limit_file">Giới hạn</string>
+    <string name="please_wait_text">Vui lòng chờ một chút.</string>
+    <string name="refreshing">Làm mới</string>
+    <string name="file_size_exeeded">Độ lớn file vượt quá mức cho phép.</string>
+    <string name="selected_file_size">Độ lớn file đã chọn:</string>
+    <string name="mb"> MB</string>
+    <string name="please_select_file">Vui lòng chọn file.</string>
+    <string name="file">File</string>
+    <string name="files">File</string>
+    <string name="no_media_file_available">Không có file media</string>
+
+    <string name="pre_file_name">DaZone_</string>
+    <string name="notification_file">Đã nhận file....</string>
+    <string name="notification_add_user">Đã thêm mới tài khoản vào nhóm.</string>
+
+    <string name="error_server">Phát sinh lỗi, không thể rời khỏi nhóm.</string>
+
+    <string name="writing">Đang nhập&#8230;</string>
+
+    <string name="description_back_space">Trở lại</string>
+    <string name="description_cell">Cell</string>
+    <string name="emoji_no_recent">Các icon gần đây không sử dụng</string>
+
+    <string name="add_fav">Yêu thích</string>
+    <string name="developing">Chức năng này đang phát triển, chúng tôi sẽ cập nhật sớm.</string>
+
+    <!-- notification settings -->
+    <string name="settings_notification">Cấu hình hiện thông báo</string>
+    <string name="settings_notification_time">Thời gian hiển thông báo</string>
+    <string name="settings_notification_sound">Âm thanh</string>
+    <string name="settings_notification_vibrate">Báo rung</string>
+    <string name="settings_notification_new_mail">Hiện thông báo khi có tin nhắn</string>
+    <string name="settings_notification_method">Cách hiển thị thông báo</string>
+    <string name="settings_notification_disable_when_using_pc_version">Khi chat bằng PC hiển thị thông báo</string>
+
+    <string name="settings_general">Cấu hình chung</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="my_profile">Trang cá nhân</string>
+
+    <!-- Profile page -->
+    <string name="personal_id">PERSONAL ID</string>
+    <string name="email">EMAIL</string>
+    <string name="company_name">COMPANY NAME</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="send_file">Gửi file</string>
+    <string name="chat_setting">Cấu hình chat</string>
+    <string name="close">Đóng</string>
+    <string name="contact">Liên hệ</string>
+    <string name="logout_confirm">Bạn có chắc chắn?</string>
+    <string name="logout_confirm_title">Xác nhận đăng xuất</string>
+    <string name="delete_confirm_title">Xác nhận xóa</string>
+    <!-- Attach Latest MSG-->
+    <string name="attach_image">Hình ảnh</string>
+    <string name="attach_file">Tập tin</string>
+    <string name="attach_contact">Danh bạ</string>
+
+    !-- room menu context -->
+    <string name="room_name">Room rename</string>
+    <string name="room_open">Mở phòng trò chuyện</string>
+    <string name="room_favorite">Thêm yêu thích</string>
+    <string name="alarm_on">Bật thông báo</string>
+    <string name="alarm_off">Tắt thông báo</string>
+    <string name="room_left">Rời phòng trò chuyện</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="room_rename">Đổi tên nhóm</string>
+    <string name="warning_change_title">Please change room title string !</string>
+    <string name="room_rename_note">Vui lòng nhập tên phòng chat muốn thay đổi.</string>
+    <!-- Menu context -->
+    <string name="favorite_remove">Hủy yêu thích</string>
+    <string name="chatting">Trò chuyện</string>
+    <string name="favorite_add">Thêm vào yêu thích</string>
+    <string name="room_remove_favorite">Hủy yêu thích</string>
+    <string name="favorite_remove_failed">Hủy yêu thích thất bại</string>
+    <string name="view_profile">Thông tin người dùng</string>
+
+    <string name="organization_expand_all">Xem tất cả bộ phận</string>
+    <string name="organization_collapse_all">Rút gọn các bộ phận</string>
+    <string name="organization_group_chat">Chat nhóm</string>
+    <string name="organization_add_favorite">Thêm vào yêu thích</string>
+    <string name="organization_remove_favorite">Hủy yêu thích</string>
+
+    <!-- Add room to favorites message  -->
+    <string name="favorite_add_success">It has been added</string>
+    <string name="favorite_add_failed">Add room to favorite failed</string>
+    <string name="favorite_remove_success">It has been removed</string>
+    <!-- ROOM USER INFORMATION -->
+    <string name="room_user_info_heading">Thông tin người dùng</string>
+
+    <!-- Login activity -->
+    <string name="login_button">새로운 단체 생성</string>
+
+    <!-- Signup activity -->
+    <string name="sign_up_suggest">Bạn chưa có ID tổ chức(công ty)?</string>
+    <string name="enter_your_email">Địa chỉ mail</string>
+    <string name="register">Tạo tổ chức mới</string>
+    <string name="signup_note">Chúng tôi sẽ gửi link để bạn có thể tạo cho mình một tổ chức(công ty) mới trên CrewCloud.</string>
+    <string name="note_heading">Vui lòng nhập địa chỉ mail</string>
+
+    <string name="title_sign_up_screen">Tạo tổ chức(công ty) mới</string>
+    <string name="choose_group">Choose Groups</string>
+    <string name="room_info_participant_count">%1$s participants</string>
+
+    <string name="confirm">Xác nhận</string>
+    <string name="cancel">Hủy</string>
+    <string name="group_name">Tên nhóm</string>
+
+    <!-- Menu context string -->
+    <string name="open">Open</string>
+    <string name="copy">Copy</string>
+    <string name="download">Download</string>
+    <string name="share">Share</string>
+    <string name="registered_users">Thêm người trò chuyện</string>
+    <string name="modifying_group">Đổi tên nhóm</string>
+    <string name="delete_group">Xóa nhóm</string>
+
+    <string name="remove_from_favorite">Remove from favorite list</string>
+    <string name="open_chat_room">Open Chat room</string>
+    <!-- Favorite tab -->
+    <string name="favorite_group_delete_warning">Bạn chắc rằng muốn xóa nhóm này. Tất cả người dùng trong nhóm sẽ di chuyển đến thùng rác</string>
+    <!-- QUYET TEST -->
+    <string name="multiplied_expanding">Multiplied expanding</string>
+    <string name="always_expanded">Always expanded</string>
+</resources>

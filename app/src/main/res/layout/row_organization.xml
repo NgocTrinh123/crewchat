@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_org_main_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_org_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_12_24"
+        android:paddingRight="@dimen/dimen_12_24">
+
+        <LinearLayout
+            android:id="@+id/icon_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/ic_folder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimen_10_20"
+                android:src="@drawable/home_folder_open_ic"/>
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/tree_user_avatar_dimen"
+                android:layout_height="@dimen/tree_user_avatar_dimen"
+                android:id="@+id/relAvatar"
+                android:visibility="gone">
+                <ImageView
+                    android:id="@+id/avatar"
+                    style="@style/tree_user_avatar"/>
+                <ImageView
+                    android:id="@+id/status_imv"
+                    android:src="@drawable/home_big_status_01"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dimen_3_6">
+
+            <TextView
+                android:id="@+id/name"
+                android:text="@string/aaaa"
+                style="@style/tv_tree_user_style"
+                android:textColor="@android:color/black"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/position"
+                android:text="@string/aaaa"
+                style="@style/tv_tree_user_style"
+                android:textColor="@color/tree_user_position_color"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/row_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@drawable/custom_checkbox_design"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/row_border"
+        style="@style/border"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/child_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</LinearLayout>

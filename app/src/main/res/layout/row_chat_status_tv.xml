@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/chat_status_tv"
+    android:textColor="@color/chat_status_tv"
+    android:textSize="@dimen/text_status_tv_size"
+    android:background="@color/chat_list_bg_color"
+    android:paddingBottom="5dp"
+    android:paddingLeft="15dp"
+    android:layout_height="wrap_content">
+</TextView>

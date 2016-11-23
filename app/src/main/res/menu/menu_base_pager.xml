@@ -1,0 +1,65 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.Base.BasePagerActivity">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/nav_search_c"
+        android:orderInCategory="100"
+        android:title="@string/action_search"
+        android:visible="false"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always|collapseActionView" />
+    <item
+        android:id="@+id/action_status"
+        android:icon="@drawable/nav_mnu_ver_ic"
+        android:orderInCategory="100"
+        android:title="@string/action_status"
+        android:visible="false"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/action_working"
+                android:icon="@drawable/home_big_status_01"
+                android:orderInCategory="100"
+                android:title="@string/action_working"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_away"
+                android:icon="@drawable/home_big_status_02"
+                android:orderInCategory="100"
+                android:title="@string/action_away"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_resting"
+                android:icon="@drawable/home_big_status_03"
+                android:orderInCategory="100"
+                android:title="@string/action_resting"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_work_outside"
+                android:icon="@drawable/home_big_status_04"
+                android:orderInCategory="100"
+                android:title="@string/action_work_outside"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_in_a_call"
+                android:icon="@drawable/home_big_status_05"
+                android:orderInCategory="100"
+                android:title="@string/action_in_a_call"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_meeting"
+                android:icon="@drawable/home_big_status_06"
+                android:orderInCategory="100"
+                android:title="@string/action_meeting"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_logout"
+                android:icon="@drawable/home_menu_logout"
+                android:orderInCategory="100"
+                android:title="Log out"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

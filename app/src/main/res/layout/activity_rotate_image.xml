@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@android:color/darker_gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/iv_main_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <!-- HEADER -->
+    <RelativeLayout
+            android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_header_layout"
+        android:background="@color/black_70_color">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/common_icon"
+            android:layout_height="@dimen/common_icon"
+            android:adjustViewBounds="true"
+            android:background="@drawable/selector_trans_to_white"
+            android:padding="@dimen/padding_normal_2"
+            android:src="@drawable/nav_back_ic" />
+
+        <ImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="@dimen/common_avatar"
+            android:layout_height="@dimen/common_avatar"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@+id/btn_back"
+            android:padding="@dimen/padding_small"
+            android:src="@drawable/avatar_l" />
+
+        <LinearLayout
+                android:layout_toLeftOf="@+id/iv_tick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_avatar"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/padding_normal">
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Lam Thi Hong Diem"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="2015 11-10"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+        <ImageView
+                android:id="@+id/iv_tick"
+                android:layout_marginRight="10dp"
+                android:padding="5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/add_check"
+                android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <!-- FOOTER -->
+    <LinearLayout
+            android:id="@+id/ln_footer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_footer_layout"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black_70_color"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/btn_download"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_trans_to_white"
+            android:padding="@dimen/padding_normal_2"
+            android:src="@drawable/image_gallery_img" />
+
+        <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/selector_trans_to_white"
+                android:padding="@dimen/padding_normal_2"
+                android:src="@drawable/image_gallery_delete"/>
+
+        <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            <Spinner
+                    android:id="@+id/sp_resolution"
+                    style="@style/image_size"
+                    android:popupBackground="#000"
+                    android:entries="@array/image_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:spinnerMode="dropdown"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

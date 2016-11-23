@@ -1,0 +1,38 @@
+Applications Memory Usage (kB):
+Uptime: 33813058 Realtime: 33813328
+
+** MEMINFO in pid 5463 [com.dazone.crewchat] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap        0        0        0        0    49152    26421    22730
+  Dalvik Heap    74980    74756        0        0    95171    79840    15331
+ Dalvik Other      672      672        0        0                           
+        Stack       40       40        0        0                           
+       Ashmem      128      128        0        0                           
+    Other dev        4        0        4        0                           
+     .so mmap     2134      288     1040        0                           
+    .apk mmap      625        0      408        0                           
+    .ttf mmap       25        0       24        0                           
+    .dex mmap     6251        0     6208        0                           
+    .oat mmap     6916        0     5476        0                           
+    .art mmap     6120     4304     1460        0                           
+   Other mmap       65        8       40        0                           
+      Unknown    26929    26888        0        0                           
+        TOTAL   124889   107084    14660        0   144323   106261    38061
+ 
+ Objects
+               Views:      814         ViewRootImpl:        2
+         AppContexts:        5           Activities:        3
+              Assets:        6        AssetManagers:        6
+       Local Binders:       25        Proxy Binders:       27
+       Parcel memory:        9         Parcel count:       32
+    Death Recipients:        0      OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:      142
+  PAGECACHE_OVERFLOW:       56          MALLOC_SIZE:       62
+ 
+ DATABASES
+      pgsz     dbsz   Lookaside(b)          cache  Dbname
+         4       28             63      1533/22/8  /data/data/com.dazone.crewchat/databases/crewchat.db

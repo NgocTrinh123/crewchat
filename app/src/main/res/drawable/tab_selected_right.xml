@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/actionbar_background" />
+    <corners android:bottomRightRadius="@dimen/button_tab_radius" android:topRightRadius="@dimen/button_tab_radius" />
+    <stroke android:color="@color/actionbar_background" android:width="0.67dp" />
+</shape>

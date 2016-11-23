@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item><layer-list>
+        <item><shape>
+            <gradient android:angle="90" android:endColor="@color/text_view_time_bg" android:startColor="@color/text_view_time_bg" android:type="linear" />
+
+            <stroke android:width="0.67dp" android:color="@color/text_view_time_bg" />
+
+            <corners android:radius="@dimen/dimen_textview_time" />
+
+            <padding android:bottom="0dp" android:left="@dimen/dimen_textview_time"
+                android:right="@dimen/dimen_textview_time" android:top="0dp" />
+        </shape></item>
+    </layer-list></item>
+
+</selector>  

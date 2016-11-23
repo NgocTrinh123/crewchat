@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#277bcd</color>
+    <color name="colorPrimaryDark">#C51162</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="disable_text_color">#8e8e8e</color>
+    <color name="time_color_current_chat">#777777</color>
+    <color name="divide_color">#b6b6b6</color>
+    <color name="secondary_text_color">#76000000</color>
+    <color name="text_view_time_bg">#BDBDBD</color>
+    <color name="button_selected_color">#878787</color>
+    <color name="login_btn_color">#1b6bb9</color>
+    <color name="chat_list_bg_color">#d6ebff</color>
+    <color name="chat_status_tv">#6a6a6a</color>
+    <color name="input_text_color">#868686</color>
+    <color name="badge_bg_color">#ff8400</color>
+    <color name="fab_bg_color">#277bcd</color>
+    <color name="tree_user_position_color">#777777</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black_70_color">#73000000</color>
+    <color name="light_black">#CC000000</color>
+    <color name="headerbar_color"> #81D4FA</color>
+    <color name="tabs_color"> #81D4FA </color>
+    <color name="tabs_title_color"> #FFFFFF </color>
+    <color name="headerbar_title_color"> #FFFFFF </color>
+    <color name="headerbar_selected_tab_color"> #34b4e3 </color>
+    <color name="note_title">#eeeeee</color>
+    <color name="note_background">#cecece</color>
+    <color name="view_attach">#AA808080</color>
+    <color name="view_detail">#e5e5e5</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_light">#DFDFDF</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="indicator_color">#ff33b5e5</color>
+
+    <!-- COMMON -->
+    <color name="gray_pressed">#b4dfdfdf</color>
+    <color name="white_pressed">#b4ffffff</color>
+    <color name="text_unread">#4d93ce</color>
+    <color name="avatar_group_bg">#878787</color>
+    <color name="gray">#acacac</color>
+    <color name="black">#000000</color>
+    <color name="colorLink">#277bcd</color>
+
+    <!-- PROFILE -->
+    <color name="profile_label">#5d5d5d</color>
+    <color name="profile_content">#000000</color>
+
+    <!-- setting notification -->
+    <color name="notification_item_background">#eeeeee</color>
+    <color name="notification_heading_background">#dfdfdf</color>
+    <color name="notification_heading_text_color">#8e8e8e</color>
+    <color name="notification_toggle_activated">#2579c8</color>
+    <color name="notification_toggle_inactivated">#a6a6a6</color>
+    <color name="notification_divider">#d3d3d3</color>
+    <!-- custom actionBar color -->
+    <color name="actionbar_background">#4391dd</color>
+    <color name="title_text_color">#656565</color>
+    <color name="mdtp_accent_color">#009688</color>
+    <color name="mdtp_accent_color_dark">#00796b</color>
+    <color name="profile_banner_background">#7f7f7f</color>
+
+    <!-- Login screen color -->
+    <color name="button_login">#3f95e9</color>
+    <color name="app_base_color">#4282bf</color>
+    <color name="button_signup_background">#3374b3</color>
+
+    <color name="status_bar_background">#4391bf</color>
+    <color name="login_main_background">#52afe7</color>
+    <color name="login_button_login_background">#37a3e4</color>
+    <color name="login_button_signup_background">#277bcd</color>
+
+    <!-- Color -->
+    <color name="level_0">#1abc9c</color>
+    <color name="level_1">#3498db</color>
+    <color name="level_2">#e67e22</color>
+    <color name="level_3">#8e44ad</color>
+    <color name="level_4">#f1c40f</color>
+    <color name="level_5">#2ecc71</color>
+    <color name="level_default">#000000</color>
+
+</resources>

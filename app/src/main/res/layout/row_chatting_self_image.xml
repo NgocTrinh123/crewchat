@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+              android:id="@+id/ln_row_chatting_self_image"
+    android:gravity="end"
+    android:orientation="horizontal"
+    android:paddingRight="10dp">
+
+    <LinearLayout style="@style/lnl_chat_right_style">
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:id="@+id/chatting_imv"
+                    style="@style/chatting_image"
+                    android:layout_margin="@dimen/dimen_2_4"/>
+            <ProgressBar
+                    android:id="@+id/progressbar_image_loading"
+                    android:layout_centerInParent="true"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_progress_bar"
+            android:layout_marginTop="@dimen/margin_small"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_tv"
+                style="@style/tv_chat_time_style" />
+
+            <TextView
+                android:id="@+id/text_unread"
+                style="@style/tv_chat_time_style"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:textColor="@color/text_unread" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

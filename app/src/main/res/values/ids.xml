@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="room_rename" />
+    <item type="id" name="room_open" />
+    <item type="id" name="alarm_on" />
+    <item type="id" name="alarm_off" />
+    <item type="id" name="room_out" />
+    <item type="id" name="txt_spinner" />
+
+</resources>

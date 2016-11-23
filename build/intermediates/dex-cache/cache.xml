@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4c2b01baa64ba25f8dbdf7f7f828bc5664dab55e">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.2.1_f4888455c666b9ae0ac2fc741574c5bc5435b7c3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1c65cc9720cd607b1e4bd29a622e46ad686b82a1">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_07c6c0a4f94e96f936e8a23978d876ead3dd1d75\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6a0f2d219f82db499ac03d5a985c4eb3e83fc422">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.2.1_f785f5bf3b396187ac40607616634428e3e9c1bc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="07c569a77f437c5c71eac8b1b636a50bebb69a93">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.2.1_a38a1e6b7e3b3f52bcc50476b977462e8b8256b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="36e2b438f9b0d68fb2482c8f389e249e32840cff">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.2.1_da5bb7933dbfa8ee563ee54d715d50ddf02e2163\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e1bec33f1ec5367e25676638b430b9d585f3dbec">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.2.1_17b3ddb71681c4af8982455ffadf6adaa5e6f72c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.amulyakhare\com.amulyakhare.textdrawable\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d237556caead5b93d97e18a071059a2c0045978e">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.amulyakhare-com.amulyakhare.textdrawable-1.0.1_bcc3788bece566f91ff00fdd8e2c987d4e30d936\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_5d1710c58a9b62bfbbd259f7d1dde727b19205b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\me.leolin\ShortcutBadger\1.1.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b346a5d3fc5d6d1d36c6262c8cc865b76df9f40c">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\me.leolin-ShortcutBadger-1.1.4_81a79e2b6d1eafacbbd6d70e0b63df849cbd4e6c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\xyz.danoz\recyclerviewfastscroller\0.1.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="752bfaeaf44b9c4b63c98ceca421348a20ff10be">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\xyz.danoz-recyclerviewfastscroller-0.1.3_7189d2ebd981dfc0b47844116a76e52ca9c78165\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0979debb5b4d955ddc0e80bb192f4f00c2f91750">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.2.1_934fd3b6333b4de369fd36d240309463ff6146cf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_1f3ddf859a86296da03fddcf50d19f29d652df81\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_a0aedf35b52e4310d91e08933f1ec850bc5170d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-2.0.0_a73f315dce20aeedc45301e95d3b3fd5ea63ffcb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4b515e6e269bfe848f5b43ac09bce54d6617d4fd">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.2.1_366b5b5c688c7a10c6f10064221ba5f22ca06aa5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.nononsenseapps\filepicker\2.4.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5d6e507c13c01bdea67918bf86561893d15bbac1">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.nononsenseapps-filepicker-2.4.2_a04b8069ac83919e1dbc7e1ea1161251bbf0bbd2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="357a8702c49044417d4856861c8f435e7c74ef09">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.2.1_8ab6f34592443189b2617bf8697954da85106a5d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ac78f93fc89c497a65f9d9a352cd405996d2f65a">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.2.1_34bd35b58460cdda069d01f2aae52f398a7fcd99\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b24c1a80d8ccaecee7b8b80209b4e273dc22b14d">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.2.1_c2c66a9736be87bf2b7fe4f7f5d24e094f7bd9f7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6b896c1067633db41e9c10a3a5d0919c5c4cfc8c">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.2.1_829a1a4f2af4d04516c3ca7c72eb9d23d09f7a4b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e719de687ac45141de3dd613907860a495580af0">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.2.1_5b8b4d6fb9eacecd54c4704bcf55aa3a77169f9b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="def5530cb13311617fc8f962e2a90225bb6904e2">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.2.1_3e2dd99cfbd9c6cd2eccf1210e689beb5b708771\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\jp.wasabeef\glide-transformations\2.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="df451c6f391e3e32022fc964ed87bd57a5869128">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\jp.wasabeef-glide-transformations-2.0.1_91a94fac5b78ac021770d8dde53ac9d6e2a1967c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\android-sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_dcdc7b36a9058978faa3cf64f636e360ee288e68\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="05d2e01f33fb2097b51fce3f938dc37a75fe2d6b">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.2.1_04761889b1018e36de7364e0d2e115882c6f19cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.2.1_bab14bc429b5b634a63740c1af7fd9f77a801255\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.2.1_aecd8b359502b161b81f4e32a612a27cfc34b48b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_37e10b71de241319a8b0f62b4c558310abf50b75\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="35a01d7cb4ff6b5976777bf5827fd8f206fb8757">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.2.1_b1d0ee2881f2a9195f8be9082bb1fe93ba888b2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.5.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="611605b6b640c1558f9bdea41de8ff837ab68ca8">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-crashlytics-2.5.5_315d202e9440c7a959ec8fd24b49db04787d47a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="90eeba67a669f8fb24db0f821ef81703fe7a02bc">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.2.1_2f103e69df836d41abfb9cabe7e1a7b48d153c8b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.10\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a5db9a2dd46d84285ef737f65030b74b6e8ee2a4">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.fabric.sdk.android-fabric-1.3.10_eb8eb858bfa8a9f712703c6502ec8700ad9cf375\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_5a883c4e6140eb63758c6289f1cb761748d8442c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="05a2710d284c03087013a667a324c9e2aba5bc91">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.2.1_d833f8c23f1bcc9a8398229d29c30eb908957ec3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="89ab748a6c0ab6ac1d3671f2356d6181e8108bc5">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.2.1_029f9bc5dfbc20514cb6eb17cd72321bf02cbfc6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_2428dbd5eabf65ae69bc01abd6e4b72d08e545aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dd1907a2e855eeb2be8aa3486f3d4d4f1c8b22af">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.2.1_20948fe6401938d2213387e7872675d8cf3d4bb9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d064f813cd835f17853e39221b247cf6a997a2db">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.2.1_3dae0daab7020f6f73dc3eb1f1e19ca755d2908d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6c09228ff931eb30b68dd27fe34ed90d978b6892">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.2.1_82198b4ac576e213c4baf2f38c3ce6cdba18128f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_a1a7aa4b438d5744ee2a712de747515c9ebc7609\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a65d98c9409f271d3209f4cc1f7d8e0391665fa5">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.2.1_1c076800fb93953f0f192607503f6ca2c7cafad4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="988d0a9173baab972c3aca1a092f5c139a644cff">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_ddec8b696de35138ee2ea83e428d9305e15c14e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.1gravity\android-contactpicker\1.0.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="30ef87e00b7c0a979e3451f7435e4af4893096c3">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.1gravity-android-contactpicker-1.0.3_7a06567cb20952be24d1368aa103d26733ceb424\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d41b5d21cc9dd7d210f0ae82ac509ba7f091d611">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.2.1_ec9101390f458c1eca78a2d492e4d7c65ae615a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6d2f508d1a9fa0fbe1653595e484800c08afb42c">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.2.1_909c9fdaa495f9f6eac6f32c527da6e8351fef54\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-contextmanager\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ccc963cafe59ce185c49f47baff7eedcb8589bdf">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-contextmanager-9.2.1_5bdb2776df5715a91ec6b7b1bbc5c1acd8398f03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.2.1_5522c4e417c370083be4a1b1e8c1123627f9ebc0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.wdullaer\materialdatetimepicker\2.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a95fd025efad7b05be3d29737bec37652e0fdb9e">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.wdullaer-materialdatetimepicker-2.3.0_371d527fa5670c79da7a871ca43ccc3e82232477\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_0bb5339b76f7b7b907c56c5efb4edbb895e2e6cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ee409046028e5657a2a69edaa2eba00d6511a74c">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.2.1_b0965da8c0bdd3f274479a075ab307a1f02e6b59\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\libs\universal-image-loader-1.9.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.5_269dc3c982d7385b443f8f5aca810d4d73f4ec79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.8\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c9ef45dcbd082cd63aac09a5e2cd443adb5df837">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-crashlytics-core-2.3.8_d10edfd8396e97c14b8a31d572b39e811b406fc0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_764e377e290e6748bc96886b7e2a53bfde409e70\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_ba8bf1c9ff54ee9b5aafd5828fda33451b3b3a6b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2506c5893e125e2f9cfc522378e893620c21b109">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.2.1_5300799328b9398b9efa5427051326b391fa9bdd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f06a0705d7b8b9d18b00d056fe0e07bec75514e6">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.2.1_f250f3ef56fff8d729fb68f43605023bd77d2f7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.19\a8f23f65fc1e522ee4a1a697ee569901a46741fa\library-1.0.19.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\library-1.0.19_78f0bb23743784ba5177d1b9659f6fa6d6a7bd06\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_338198e230e883acd6c9c82ca46ba5fc3096755c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="77e2e4803396fa79009ace04d9be84184aafcc31">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.2.1_cd2b54acaa7cc75dd423dbbc2cc6cfc83467fb8b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.2_002b7fbf7a0de167c934ae8280ecce1c989b18df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.6\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9af3b9b8114e685291aa00e6572b0a9131244956">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-answers-1.3.6_ab3d05166579328dcb1bef7873cce62455ef6150\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_2a6fb60e3cae403392234a34b3e574547eb5cdb9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="48917c60ea81213ea39cbd7123996a5401106dc3">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.2.1_e73038340628f2f06e61d30e52793987df84c9a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="bbd51be332bace144b3d16501ec0af379c3c8750">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.2.1_47e4fbe6f8b786fac63db254ecbbcd8477ce135a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="081ced8ab77e606b6743c27cfe93dc450447b046">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.2.1_458d5b673deeec3a41fb3b10aa37419a2e1eeb9a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="152cba5ca28fd4a5191a8577a0fa96d61122041e">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.2.1_13ba5d0578c79736ad6840e3fdc74a682dedaf84\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="310ef01419435979cc82847cf085799a8d00e7e9">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.2.1_1cdf069921bb7460056964fb0c5c215af161f474\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="edf9a22ebf25281619265079aec8f5d433da1a5c">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.2.1_1efef16814cf4fe523687e592433468c4bf5b8f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ee19e33a798d11a5cf309a40155b8223fadcdeea">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.2.1_10fd7e414d10f83613ea63138147d4a17cca3d39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="428c9bac95b2f72921224e289553a04bea61cda5">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.2.1_c0e7ebd299cbe7671e9d32f2ad3b03767b073398\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8aada8a0e9e9b3ecdda5e80f17c6a51a468e302a">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.2.1_b1641ffe3e06e77d354d24ab844d38f962f9da8c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9f2282b9fc24f24c69665032dede1bc7201cf006">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.2.1_540f012ada9e3cb427ca3fc76aa8f0c4471bd1a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.1.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ad5bb101ced4d3939225c9b57e5a3d81547c1fbb">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.crashlytics.sdk.android-beta-1.1.4_e5be22929897ef0b3a76f2d29eafc77991be3b65\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f3b0ff905873c91ab64addba30cc1e77bed34c4d">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.2.1_17116efe3cf68f9bac2e8306f906ebc71aeec1bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7bb417e9ac8645285342935679e75d371b58b62b">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.2.1_7c85132d63fedd0fc9b60aa9ab9aa959afb06c68\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5337354083e89ed67151859ab0b6b80935c60eaf">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.2.1_0289f00f61970aab83ce7ba06410fcba24223063\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-23.0.0_7da4e72ca9c564af3f2cecd58f593bbafc49fdd1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3a42c5696fa39930d39770f7e5552a9c965fbe09">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.2.1_1744e6a85848715568588776243ba34dc078d617\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1141496362c8876f0da4b645fbaf22c0a3618372">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.2.1_99daaf98dc32956f61e906b2e07b50fb84a7c851\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0765979e802b1669c90dc36076559461d5eb6ad1">
+        <dex dex="E:\3.Mobile_Project\5.CrewChat\crewchat\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.2.1_3950d845b64017897d6b4faec2830f1bab44cc28\classes.dex" />
+    </item>
+
+</items>

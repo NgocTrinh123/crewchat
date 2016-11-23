@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/main_attach">
+    <ImageView
+        android:id="@+id/file_thumb"
+        android:src="@drawable/file"
+        style="@style/chatting_avatar_small"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/file_name_tv"
+            style="@style/tv_chat_file_info_style"/>
+        <TextView
+            android:id="@+id/file_size_tv"
+            style="@style/tv_chat_file_info_style"/>
+        <TextView
+            android:id="@+id/file_receive_tv"
+            style="@style/tv_chat_file_info_style"/>
+
+    </LinearLayout>
+</LinearLayout>

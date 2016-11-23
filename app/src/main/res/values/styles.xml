@@ -1,0 +1,304 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/actionbar_background</item>
+        <item name="colorPrimaryDark">@color/navigationBarColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
+        <item name="android:textColorLink">@color/colorLink</item>
+        <item name="android:textColor">@color/black</item>
+
+        <!-- add this for custom switch on control in notification settings -->
+        <item name="colorControlActivated">@color/notification_toggle_activated</item>
+        <item name="colorSwitchThumbNormal">@android:color/white</item>
+        <item name="android:colorForeground">@color/notification_toggle_inactivated</item>
+
+        <!-- Custom ActionBar -->
+        <item name="android:actionBarStyle"   tools:ignore="NewApi">@style/CustomActionBar</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="CustomActionBar"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse" >
+        <item name="android:background">@color/actionbar_background</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/actionbar_background</item>
+    </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DialogButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:background">@drawable/btn_dialog_press_state</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <style name="AppButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:background">@drawable/btn_press_state</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <style name="btn_style">
+        <item name="android:background">@drawable/gradient_btn</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="btn_small_style" parent="btn_style">
+        <item name="android:layout_height">@dimen/button_height_small</item>
+        <item name="android:textSize">@dimen/button_text_size_small</item>
+    </style>
+
+    <style name="btn_small_style_white" parent="btn_style_white">
+        <item name="android:layout_height">@dimen/button_height_small</item>
+        <item name="android:textSize">@dimen/button_text_size_small</item>
+    </style>
+
+    <style name="btn_style_white">
+        <item name="android:background">@drawable/gradient_btn_white</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="default_avatar_medium">
+        <item name="android:layout_width">@dimen/common_avatar</item>
+        <item name="android:layout_height">@dimen/common_avatar</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="chatting_avatar_small">
+        <item name="android:layout_width">@dimen/dimen_chatting_avatar</item>
+        <item name="android:layout_height">@dimen/dimen_chatting_avatar</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="chatting_image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxHeight">@dimen/dimen_150_300</item>
+        <item name="android:maxWidth">@dimen/dimen_150_300</item>
+    </style>
+
+    <style name="video_image">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxHeight">@dimen/dimen_150_300</item>
+        <item name="android:maxWidth">@dimen/dimen_150_300</item>
+    </style>
+
+    <style name="menu_icon">
+        <item name="android:layout_width">@dimen/dimen_menu_icon</item>
+        <item name="android:layout_height">@dimen/dimen_menu_icon</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="tree_user_avatar">
+        <item name="android:layout_width">@dimen/tree_user_avatar_dimen</item>
+        <item name="android:layout_height">@dimen/tree_user_avatar_dimen</item>
+        <item name="android:src">@drawable/avatar_l</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <!-- You can also inherit from NNF_BaseTheme.Light -->
+    <style name="FilePickerTheme" parent="NNF_BaseTheme">
+        <!-- Set these to match your theme -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Need to set this also to style create folder dialog -->
+        <item name="alertDialogTheme">@style/FilePickerAlertDialogTheme</item>
+
+        <!-- If you want to set a specific toolbar theme, do it here -->
+        <!-- <item name="nnf_toolbarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item> -->
+    </style>
+
+    <style name="FilePickerAlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="StyledDialog" parent="@android:style/Theme.Panel">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">@color/transparent</item>
+        <item name="android:bottomDark">@color/transparent</item>
+        <item name="android:bottomMedium">@color/transparent</item>
+        <item name="android:centerBright">@color/transparent</item>
+        <item name="android:centerDark">@color/transparent</item>
+        <item name="android:centerMedium">@color/transparent</item>
+        <item name="android:fullBright">@drawable/dialog</item>
+        <item name="android:fullDark">@drawable/dialog</item>
+        <item name="android:topBright">@color/transparent</item>
+        <item name="android:topDark">@color/transparent</item>
+    </style>
+
+    <style name="border">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_1_2</item>
+        <item name="android:background">@color/gray_light</item>
+    </style>
+
+    <!-- PROFILE -->
+    <!-- Row Layout -->
+    <style name="profile_row_layout">
+        <item name="android:background">@drawable/bg_underline</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingBottom">@dimen/padding_normal_2</item>
+        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:paddingTop">@dimen/padding_normal_2</item>
+    </style>
+
+    <style name="profile_row_layout_horizontal">
+        <item name="android:background">@drawable/bg_underline</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingBottom">@dimen/padding_normal_2</item>
+        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:paddingTop">@dimen/padding_normal_2</item>
+    </style>
+
+    <!-- Label -->
+    <style name="profile_label">
+        <item name="android:textSize">@dimen/profile_text_size_label</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/profile_label</item>
+    </style>
+    <!-- Content -->
+    <style name="profile_content">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:textSize">@dimen/profile_text_size_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/profile_content</item>
+    </style>
+
+    <!-- COMMON -->
+    <style name="Button">
+       <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Notification settings -->
+    <style name="setting_heading">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">12sp</item>
+        <item name="android:paddingBottom">12sp</item>
+    </style>
+
+    <style name="setting_item">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="setting_switch_compat">
+        <item name="android:paddingBottom">22dp</item>
+        <item name="android:paddingTop">22dp</item>
+    </style>
+
+    <style name="more_page_item">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingBottom">17dp</item>
+        <item name="android:paddingTop">17dp</item>
+        <item name="android:textColor">@color/light_black</item>
+    </style>
+
+    <style name="LoginButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/background_login_button_radius_thin</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="SignupButton">
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <!--
+        <item name="android:background">@drawable/button_signup_background</item>
+        -->
+        <item name="android:background">@drawable/background_signup_button_radius_thin</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+
+    </style>
+    <style name="SignupEditText">
+        <item name="android:textColorHint">#8d8d8d</item>
+    </style>
+
+    <style name="RegisterButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/background_signup_button_radius_thin</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="signupTextViewNote">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="loginTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/status_bar_background</item>
+    </style>
+
+    <style name="dialog_title_bold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="image_size" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:spinnerStyle">@style/spinner_style</item>
+        <item name="android:dropDownSpinnerStyle">@style/spinner_style</item>
+    </style>
+
+    <style name="spinner_style">
+        <item name="android:background">@android:color/black</item>
+    </style>
+</resources>

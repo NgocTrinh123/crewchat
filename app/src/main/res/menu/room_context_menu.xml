@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mnu_room_name"
+          android:title="@string/room_name" />
+    <item android:id="@+id/mnu_room_open"
+          android:title="@string/room_open" />
+    <item android:id="@+id/mnu_alarm_on"
+          android:title="@string/alarm_on" />
+    <item android:id="@+id/mnu_alarm_off"
+          android:title="@string/alarm_off" />
+    <item android:id="@+id/mnu_room_out"
+          android:title="@string/room_left" />
+</menu>

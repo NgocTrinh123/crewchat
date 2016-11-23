@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_white_to_gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <RelativeLayout
+            android:layout_width="@dimen/common_avatar"
+            android:layout_height="@dimen/common_avatar">
+
+            <RelativeLayout
+                android:id="@+id/avatar_group"
+                android:layout_width="@dimen/common_avatar"
+                android:layout_height="@dimen/common_avatar">
+
+                <ImageView
+                    android:id="@+id/avatar_group_1"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="@dimen/common_avatar_group"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/avatar_group_2"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="@dimen/common_avatar_group"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/avatar_group_3"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="@dimen/common_avatar_group"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/avatar_group_4"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="@dimen/common_avatar_group"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+                <!--<ImageView
+                    android:src="@drawable/chatting"
+                    android:id="@+id/avatar_group_5"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+                <ImageView
+                    android:src="@drawable/avatar_l"
+                    android:id="@+id/avatar_group_6"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />-->
+
+                <TextView
+                    android:id="@+id/avatar_group_number"
+                    android:layout_width="@dimen/common_avatar_group"
+                    android:layout_height="@dimen/common_avatar_group"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="3dp"
+                    android:paddingTop="@dimen/padding_smallest"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/text_size_avatar_group" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/avatar_imv"
+                style="@style/default_avatar_medium"
+                android:src="@drawable/avatar_l"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <TextView
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                    android:id="@+id/user_name_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_4_8"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/text_size_row_current_chat_name"
+                    android:textStyle="bold" />
+
+                <TextView
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:drawablePadding="2dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:drawableLeft="@drawable/home_attach_ic_contact"
+                        android:id="@+id/tv_user_total"
+                        android:textSize="12sp"
+                        android:padding="3dp"
+                        android:text="10"
+                        android:background="@drawable/bg_gray_light_radius_thin"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/time_color_current_chat"
+                        android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"/>
+
+                <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:visibility="gone"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/chatting_ic_no_alarm"
+                        android:id="@+id/iv_notification"
+                        android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:singleLine="true"
+                    android:textColor="@color/time_color_current_chat"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/dimen_2_4">
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                              android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:padding="5dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/home_attach_ic_images"
+                            android:id="@+id/iv_lasted_attach"
+                            android:background="@drawable/bg_circle_gray"
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/content_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/text_size_row_current_chat_content" />
+                </LinearLayout>
+
+                <ImageView
+                        android:visibility="gone"
+                        android:contentDescription="@string/app_name"
+                        android:id="@+id/iv_favorite"
+                        android:src="@drawable/chatting_ic_star"
+                        android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+
+                <include
+                    android:id="@+id/badge_layout"
+                    layout="@layout/badge_layout"
+                    android:layout_width="@dimen/common_badge"
+                    android:layout_height="@dimen/common_badge" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/text_view_time_bg" />
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="@dimen/padding_normal">
+
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        style="@style/tree_user_avatar"
+        android:layout_width="@dimen/common_avatar"
+        android:layout_height="@dimen/common_avatar"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/iv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_avatar"
+        android:layout_alignRight="@+id/iv_avatar"
+        android:src="@drawable/home_status_01" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_small">
+
+        <TextView
+            android:id="@+id/tv_username"
+            style="@style/tv_tree_user_style"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tv_position"
+            style="@style/tv_tree_user_style"
+            android:textColor="@color/tree_user_position_color" />
+    </LinearLayout>
+</RelativeLayout>

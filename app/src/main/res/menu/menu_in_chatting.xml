@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_list_chat"
+        android:title="@string/group_list" />
+    <item
+        android:id="@+id/menu_add_chat"
+        android:title="@string/add_user" />
+
+
+    <!-- added 6/6/2016 -->
+    <item
+            android:id="@+id/menu_send_file"
+            android:title="@string/send_file" />
+    <item
+            android:id="@+id/menu_chat_setting"
+            android:title="@string/chat_setting" />
+    <item
+            android:id="@+id/menu_close"
+            android:title="@string/close" />
+
+    <!-- don't show -->
+    <item
+        android:id="@+id/menu_left_group"
+        android:title="@string/remove_user"
+        android:visible="false" />
+</menu>

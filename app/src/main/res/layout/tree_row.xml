@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainParent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_small">
+
+    <RelativeLayout
+        android:id="@+id/layout_avatar"
+        android:layout_width="@dimen/tree_user_avatar_dimen"
+        android:layout_height="@dimen/tree_user_avatar_dimen">
+
+        <ImageView
+            android:id="@+id/avatar_imv"
+            style="@style/tree_user_avatar" />
+
+        <ImageView
+            android:id="@+id/status_imv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/home_status_01" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/layout_avatar"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:paddingLeft="4dp">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/tv_tree_user_style"
+            android:text="@string/aaaa"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/position"
+            style="@style/tv_tree_user_style"
+            android:text="@string/aaaa"
+            android:textColor="@color/tree_user_position_color" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/status_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_bg_status"
+            android:ellipsize="end"
+            android:lines="2"
+            android:paddingBottom="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="8dp"
+            android:paddingTop="4dp"
+            android:text="@string/aaaa"
+            android:textColor="@android:color/black" />
+
+        <CheckBox
+            android:id="@+id/row_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:button="@drawable/custom_checkbox_design"
+            android:checked="false"
+            android:visibility="visible" />
+    </RelativeLayout>
+</RelativeLayout>

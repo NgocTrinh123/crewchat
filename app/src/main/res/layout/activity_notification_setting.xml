@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/notification_item_background"
+              tools:context=".activity.NotificationSettingActivity">
+
+    <LinearLayout
+            android:background="@color/notification_item_background"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.dazone.crewchat.customs.CustomTextView
+                android:layout_weight="1"
+                style="@style/setting_item"
+                android:text="@string/settings_notification_new_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.SwitchCompat
+                android:id="@+id/sw_enable_notification"
+                style="@style/setting_switch_compat"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <com.dazone.crewchat.customs.CustomTextView
+
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            style="@style/setting_heading"
+            android:background="@color/notification_heading_background"
+            android:text="@string/settings_notification_method"
+            android:textColor="@color/notification_heading_text_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:background="@color/notification_item_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.dazone.crewchat.customs.CustomTextView
+                android:text="@string/settings_notification_sound"
+                android:layout_weight="1"
+                style="@style/setting_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.SwitchCompat
+                android:id="@+id/sw_enable_sound"
+                style="@style/setting_switch_compat"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <View
+            android:background="@color/notification_heading_background"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    <LinearLayout
+            android:background="@color/notification_item_background"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.dazone.crewchat.customs.CustomTextView
+                android:text="@string/settings_notification_vibrate"
+                android:layout_weight="1"
+                style="@style/setting_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <android.support.v7.widget.SwitchCompat
+                android:id="@+id/sw_enable_vibrate"
+                style="@style/setting_switch_compat"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <com.dazone.crewchat.customs.CustomTextView
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            style="@style/setting_heading"
+            android:background="@color/notification_heading_background"
+            android:textColor="@color/notification_heading_text_color"
+            android:text="@string/settings_notification_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+            android:background="@color/notification_item_background"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:text="@string/settings_notification_time"
+                    android:layout_weight="1"
+                    style="@style/setting_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/sw_enable_notification_time"
+                    style="@style/setting_switch_compat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:id="@+id/tv_start_time"
+                    android:background="@drawable/bg_gray_radius"
+                    android:text="AM 8:00"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:text="~"
+                    android:padding="10dp"
+                    android:textColor="@color/notification_heading_text_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:id="@+id/tv_end_time"
+                    android:text="PM 19:00"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:background="@drawable/bg_gray_radius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <View
+                android:background="@color/notification_heading_background"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:text="@string/settings_notification_disable_when_using_pc_version"
+                    android:layout_weight="1"
+                    style="@style/setting_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/sw_enable_chat_by_pc_version"
+                    style="@style/setting_switch_compat"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+            android:background="@color/notification_heading_background"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+
+</LinearLayout>

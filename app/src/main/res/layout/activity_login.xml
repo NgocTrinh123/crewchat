@@ -1,0 +1,364 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customviews="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_main_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scl_login"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_login_logo_margin"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_login_logo_margin">
+
+                <!-- Image logo -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/loginBlock"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+                    <!-- Image logo -->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/loading_ic_chatting" />
+
+                    <com.dazone.crewchat.customs.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/app_name"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
+                <com.dazone.crewchat.customs.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_login_btn_margin"
+                    android:gravity="center_horizontal"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/white"
+                    android:textSize="35sp"
+                    android:visibility="gone" />
+
+                <!-- Username & Password fields -->
+
+                <!--
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/activity_login_user_margin"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:src="@drawable/login_server"
+                        android:textSize="14sp" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/login_edt_server"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/string_server_site"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textEmailAddress|textNoSuggestions|text"
+                        android:paddingLeft="8dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/disable_text_color"
+                        android:textCursorDrawable="@null"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/activity_login_edtn_margin"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:src="@drawable/login_username"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/login_edt_username"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/login_username"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textEmailAddress|textNoSuggestions|text"
+                        android:paddingLeft="8dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/disable_text_color"
+                        android:textCursorDrawable="@null"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/primary_material_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/activity_login_edtn_margin"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:src="@drawable/login_password"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/login_edt_passsword"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/login_password"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword|textNoSuggestions|text"
+                        android:paddingLeft="8dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/disable_text_color"
+                        android:textCursorDrawable="@null"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/primary_material_light" />
+
+
+                <Button
+                    android:id="@+id/btn_login"
+                    style="@style/AppButton"
+                    android:layout_marginTop="@dimen/activity_login_edtn_margin"
+                    android:text="@string/login_login" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/activity_login_edtn_margin"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/have_no_id_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/have_no_id"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"
+                            android:text="@string/slash_string"
+                            android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:id="@+id/help_login"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/string_help"
+                            android:textColor="@android:color/white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/forgot_pass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_login_edtn_margin"
+                        android:text="@string/for_got_string"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/sign_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_login_edtn_margin"
+                        android:text="@string/string_sign_up"
+                        android:textColor="@android:color/white"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                -->
+
+
+                <LinearLayout
+                    android:id="@+id/loginBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <!-- Username & Password fields -->
+                    <AutoCompleteTextView
+                        android:id="@+id/login_edt_server"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:background="@drawable/editext_line_buttom_background"
+                        android:gravity="bottom"
+                        android:hint="@string/string_server_site"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textEmailAddress|textNoSuggestions|text"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="8dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="#60FFFFFF"
+                        android:textCursorDrawable="@null"
+                        android:textSize="18sp" />
+
+
+                    <com.dazone.crewchat.customs.CustomEditText
+                        android:id="@+id/login_edt_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/editext_line_buttom_background"
+                        android:gravity="bottom"
+                        android:hint="@string/login_username"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textEmailAddress|textNoSuggestions|text"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="8dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="#60FFFFFF"
+                        android:textCursorDrawable="@null"
+                        android:textSize="18sp" />
+
+
+                    <com.dazone.crewchat.customs.CustomEditText
+                        android:id="@+id/login_edt_passsword"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/editext_line_buttom_background"
+                        android:gravity="bottom"
+                        android:hint="@string/login_password"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword|textNoSuggestions|text"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="8dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="#60FFFFFF"
+                        android:textCursorDrawable="@null"
+                        android:textSize="18sp" />
+
+
+                    <!-- Login button -->
+
+                    <com.dazone.crewchat.customs.CustomButton
+                        android:id="@+id/login_btn_login"
+                        style="@style/LoginButton"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/login_login"
+                        customviews:fontStyle="medium" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="90dp"
+                    android:orientation="vertical">
+
+                    <com.dazone.crewchat.customs.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="@string/sign_up_suggest"
+                        android:textColor="@android:color/white"
+                        android:textSize="17sp" />
+
+                    <com.dazone.crewchat.customs.IconButton
+                        android:id="@+id/login_btn_signup"
+                        style="@style/SignupButton"
+                        android:layout_marginTop="10dp"
+                        android:drawableLeft="@drawable/ic_group_add_white_24dp"
+                        android:text="@string/register"
+                        customviews:fontStyle="medium"
+                        customviews:iconPadding="20dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <com.dazone.crewchat.customs.CustomTextView
+        android:id="@+id/coppy_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:text="@string/copy_right_string"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:visibility="gone" />
+</RelativeLayout>

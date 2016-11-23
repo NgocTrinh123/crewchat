@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TOOLBAR -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:contentInsetEnd="0dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_centerVertical="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/padding_block"
+                android:src="@drawable/nav_back_ic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_more"
+                android:layout_toRightOf="@+id/btn_back"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_small"
+                android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_profile_title" />
+
+            <ImageView
+                android:id="@+id/btn_more"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/padding_block"
+                android:src="@drawable/nav_mnu_ver_ic" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- ROW AVATAR -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_underline" android:paddingBottom="30dp">
+                <!-- AVATAR -->
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="@dimen/profile_avatar"
+                    android:layout_height="@dimen/profile_avatar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/profile_avatar_margin_bottom"
+                    android:layout_marginTop="@dimen/profile_avatar_margin_top"
+                    android:src="@drawable/avatar_l" />
+                <!-- FULL NAME -->
+                <TextView
+                    android:id="@+id/tv_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_avatar"
+                    android:gravity="center"
+                    android:textSize="@dimen/profile_text_size_username" />
+                <!-- POSITION NAME -->
+                <TextView
+                    android:id="@+id/tv_position_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_full_name"
+                    android:gravity="center"
+                    android:textSize="@dimen/profile_text_size_company" />
+                <!-- PHONE AND MAIL -->
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_position_name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_normal_2"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/padding_block" android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/btn_call"
+                        android:layout_width="@dimen/profile_button_call_email"
+                        android:layout_height="@dimen/profile_button_call_email"
+                        android:background="@drawable/bg_circle_red"
+                        android:padding="@dimen/profile_button_call_email_padding"
+                        android:src="@drawable/profile_ic_call" />
+
+                    <ImageView
+                        android:id="@+id/btn_email"
+                        android:layout_width="@dimen/profile_button_call_email"
+                        android:layout_height="@dimen/profile_button_call_email"
+                        android:layout_marginLeft="@dimen/profile_space_between_button_call_email"
+                        android:layout_toRightOf="@+id/btn_call"
+                        android:background="@drawable/bg_circle_blue"
+                        android:padding="@dimen/profile_button_call_email_padding"
+                        android:src="@drawable/profile_ic_email" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <!-- ROW USER ID -->
+            <LinearLayout style="@style/profile_row_layout">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/personal_id" />
+
+                <TextView
+                        android:id="@+id/tv_user_id"
+                        style="@style/profile_content" />
+            </LinearLayout>
+
+            <!-- ROW NAME -->
+            <LinearLayout style="@style/profile_row_layout" android:visibility="gone">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/profile_label_name" />
+
+                <TextView
+                        android:id="@+id/tv_name"
+                        style="@style/profile_content" />
+            </LinearLayout>
+
+            <!-- ROW MAIL ADDRESS -->
+            <LinearLayout style="@style/profile_row_layout_horizontal">
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            style="@style/profile_label"
+                            android:text="@string/email" />
+
+                    <TextView
+                            android:id="@+id/tv_mail_address"
+                            style="@style/profile_content" />
+                </LinearLayout>
+
+
+                <ImageView
+                        android:id="@+id/iv_email_email"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/profile_ic_email_blue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- ROW SEX -->
+            <LinearLayout style="@style/profile_row_layout" android:visibility="gone">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/profile_label_sex" />
+
+                <TextView
+                        android:id="@+id/tv_sex"
+                        style="@style/profile_content" />
+            </LinearLayout>
+
+            <!-- ROW PHONE NUMBER -->
+            <LinearLayout style="@style/profile_row_layout">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/company_name" />
+
+                <TextView
+                        android:id="@+id/tv_company_number"
+                        style="@style/profile_content" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                    android:id="@+id/ln_phone"
+                    style="@style/profile_row_layout_horizontal">
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                    <TextView
+                            style="@style/profile_label"
+                            android:text="@string/phone_number" />
+
+                    <TextView
+                            android:id="@+id/tv_phone_number"
+                            style="@style/profile_content" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/iv_phone_call"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/profile_ic_call_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <ImageView
+                            android:id="@+id/iv_phone_email"
+                            android:layout_gravity="center_vertical"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/profile_ic_email_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ROW COMPANY NUMBER -->
+
+            <!-- ROW EXTENSION NUMBER -->
+            <LinearLayout
+                    android:id="@+id/ln_ex_phone"
+                    style="@style/profile_row_layout_horizontal">
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                    <TextView
+                            style="@style/profile_label"
+                            android:text="@string/phone_number" />
+
+                    <TextView
+                            android:id="@+id/tv_extension_number"
+                            style="@style/profile_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/iv_ex_phone_call"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/profile_ic_call_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <ImageView
+                            android:id="@+id/iv_ex_phone_email"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/profile_ic_email_blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <!-- ROW ENTRANCE DATE -->
+            <LinearLayout style="@style/profile_row_layout" android:visibility="gone">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/profile_label_entrance_date" />
+
+                <TextView
+                        android:id="@+id/tv_entrance_date"
+                        style="@style/profile_content" />
+            </LinearLayout>
+
+            <!-- ROW BIRTHDAY -->
+            <LinearLayout style="@style/profile_row_layout" android:visibility="gone">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/profile_label_birthday" />
+
+                <TextView
+                        android:id="@+id/tv_birthday"
+                        style="@style/profile_content" />
+            </LinearLayout>
+
+            <!-- ROW BELONG TO DEPARTMENT -->
+            <LinearLayout style="@style/profile_row_layout" android:visibility="gone">
+
+                <TextView
+                        style="@style/profile_label"
+                        android:text="@string/profile_label_belong" />
+
+                <TextView
+                        android:id="@+id/tv_belong_to_department"
+                        style="@style/profile_content"
+                        android:singleLine="false" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

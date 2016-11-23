@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_domain">
+        <item>vn.bizsw.co.kr:8080</item>
+        <item>ubimobile.crewcloud.net</item>
+        <item>crewcloud.net</item>
+        <item>dazone.crewcloud.net</item>
+    </string-array>
+</resources>

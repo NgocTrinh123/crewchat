@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/windowBackground"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:padding="20dp"
+        android:fontFamily="sans-serif"
+        android:id="@+id/textView" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/disable_text_color"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:padding="20dp"
+        android:visibility="gone"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/contentTextView" />
+    <LinearLayout
+        android:id="@+id/add_ln_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/add_btn_log_time"
+            style="@style/DialogButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/string_ok" />
+
+        <Button
+            android:id="@+id/add_btn_cancel"
+            style="@style/DialogButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/string_cancel" />
+    </LinearLayout>
+</LinearLayout>

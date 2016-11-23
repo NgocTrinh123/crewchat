@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/chat_list_bg_color"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_horizontal_margin"
+              android:paddingBottom="@dimen/activity_horizontal_margin"
+             tools:context="com.dazone.crewchat.fragment.RenameRoomFragmen">
+
+    <com.dazone.crewchat.customs.CustomTextView
+            android:id="@+id/tv_old_title"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="@string/room_rename_note"
+            android:textColor="@color/secondary_text_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+        <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="32dp"
+                android:background="@drawable/bg_white_gray_border_radius"
+                android:inputType="text"
+                android:textColor="#000"
+                android:maxLength="50"
+                android:singleLine="true" />
+
+        <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/search_ic_clear"
+                android:visibility="visible" />
+    </FrameLayout>
+
+    <com.dazone.crewchat.customs.CustomTextView
+            android:id="@+id/tv_remain_character_count"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/secondary_text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>

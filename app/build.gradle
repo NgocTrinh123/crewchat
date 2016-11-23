@@ -1,0 +1,91 @@
+//buildscript {
+//    repositories {
+//        maven { url 'https://maven.fabric.io/public' }
+//    }
+//
+//    dependencies {
+//        classpath 'io.fabric.tools:gradle:1.+'
+//    }
+//}
+apply plugin: 'com.android.application'
+//apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+
+    def versionMajor = 1
+    def versionMinor = 0
+    def versionPatch = 1
+
+    signingConfigs {
+        release {
+            storeFile file("DazoneKeyStore.jks")
+            storePassword 'tranquoctrung'
+            keyAlias 'dazone'
+            keyPassword 'tranquoctrung'
+        }
+    }
+    defaultConfig {
+        applicationId "com.dazone.crewchat"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 10202;
+        versionName "1.2.8";
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ENABLE_DEBUG", "false"
+        }
+        debug {
+            buildConfigField "boolean", "ENABLE_DEBUG", "true"
+        }
+    }
+
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "12g"
+    }
+
+    // avoid check default constructor
+    lintOptions {
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
+    compile project(':multi-level-listview')
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile 'com.google.android.gms:play-services:9.8.0'
+    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    compile 'com.nononsenseapps:filepicker:2.4.2'
+    compile 'com.google.android.gms:play-services-ads:9.8.0'
+    compile 'com.google.android.gms:play-services-auth:9.8.0'
+    compile 'com.google.android.gms:play-services-gcm:9.8.0'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'com.wdullaer:materialdatetimepicker:2.3.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.1gravity:android-contactpicker:1.0.3'
+    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+}

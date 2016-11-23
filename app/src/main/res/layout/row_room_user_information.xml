@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingLeft="@dimen/activity_vertical_margin"
+              android:id="@+id/item_org_main_wrapper"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="?android:attr/selectableItemBackground"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:id="@+id/item_org_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/dimen_12_24">
+
+        <LinearLayout
+                android:id="@+id/icon_wrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <ImageView
+                    android:id="@+id/ic_folder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/selector_trans_to_gray"
+                    android:padding="@dimen/padding_small"
+                    android:src="@drawable/home_folder_open_ic"/>
+
+            <RelativeLayout
+
+                    android:id="@+id/relAvatar"
+                    android:layout_width="@dimen/tree_user_avatar_dimen"
+                    android:layout_height="@dimen/tree_user_avatar_dimen"
+                    android:layout_margin="@dimen/margin_small"
+                    android:visibility="visible">
+
+                <ImageView
+                        android:scaleType="fitXY"
+                        android:id="@+id/avatar"
+                        style="@style/tree_user_avatar"/>
+
+                <ImageView
+                        android:id="@+id/status_imv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/home_status_01"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dimen_3_6">
+
+                <TextView
+                        android:text="Tien Dat / Staff"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/name"
+                        style="@style/tv_tree_user_style"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"/>
+
+                <TextView
+                        android:text="0909.009.009"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/position"
+                        style="@style/tv_tree_user_style"
+                        android:gravity="center"
+                        android:textColor="@color/tree_user_position_color"
+                        android:visibility="visible"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_weight="1"
+                android:visibility="visible"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:id="@+id/tv_work_phone"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/group_ic_phone_02"
+                    android:text="01275922"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:drawablePadding="5dp"
+                    android:id="@+id/tv_personal_phone"
+                    android:drawableLeft="@drawable/group_ic_phone_01"
+                    android:text="01275928332"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+            android:id="@+id/row_border"
+            style="@style/border"
+            android:visibility="gone"/>
+
+    <LinearLayout
+            android:id="@+id/child_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    </LinearLayout>
+</LinearLayout>

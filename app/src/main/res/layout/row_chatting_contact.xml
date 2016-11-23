@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    android:orientation="vertical"
+    android:paddingRight="10dp">
+
+    <LinearLayout style="@style/lnl_chat_right_style">
+
+        <include
+
+            layout="@layout/row_chatting_contact_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_tv"
+                style="@style/tv_chat_time_style" />
+
+            <TextView
+                android:id="@+id/text_unread"
+                style="@style/tv_chat_time_style"
+                android:layout_marginLeft="@dimen/margin_normal"
+                android:textColor="@color/text_unread" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_progress_bar"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

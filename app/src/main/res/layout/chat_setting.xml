@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:paddingLeft="@dimen/dimen_20_40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:layout_marginBottom="@dimen/dimen_5_10">
+            <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/avatar_test"
+                    android:scaleType="centerCrop"
+            />
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/tv_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_16_32"
+                    android:textColor="@color/light_black"
+                    android:text="@string/my_profile"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/dimen_4_8"/>
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.67dp"
+                android:background="@color/notification_divider"/>
+
+        <!-- General setting -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_20_40"
+                android:layout_marginBottom="@dimen/dimen_5_10">
+
+            <RelativeLayout
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bg_circle_blue_more_page"
+                    android:layout_width="30dp"
+                  android:layout_height="30dp">
+
+                <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/setting_ic_setting"/>
+
+            </RelativeLayout>
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:id="@+id/tv_general_setting"
+                    style="@style/more_page_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_general"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/dimen_4_8"/>
+        </LinearLayout>
+
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.67dp"
+                android:background="@color/notification_divider"/>
+        <!-- Notification settings -->
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_20_40"
+                android:layout_marginBottom="@dimen/dimen_5_10">
+
+            <RelativeLayout
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bg_circle_blue_more_page"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp">
+
+                <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/setting_ic_notice"/>
+
+            </RelativeLayout>
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    style="@style/more_page_item"
+                    android:id="@+id/tv_notification_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_notification"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/dimen_4_8"/>
+        </LinearLayout>
+
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.67dp"
+                android:background="@color/notification_divider"/>
+
+        <!-- Logout -->
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimen_20_40"
+                android:layout_marginBottom="@dimen/dimen_5_10">
+            <RelativeLayout
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bg_circle_blue_more_page"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp">
+
+                <ImageView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/setting_ic_logout"/>
+
+            </RelativeLayout>
+
+            <com.dazone.crewchat.customs.CustomTextView
+                    android:id="@+id/tv_logout"
+                    style="@style/more_page_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/logout"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/dimen_4_8"/>
+        </LinearLayout>
+
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0.67dp"
+                android:background="@color/notification_divider"/>
+    </LinearLayout>
+
+
+</ScrollView>

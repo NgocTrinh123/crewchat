@@ -1,0 +1,251 @@
+<resources>
+    <!-- <string name="app_name">크루쳇팅</string> -->
+
+    <string name="app_name">크루챗</string>
+
+    <string name="unknown">Unknown</string>
+    <!-- Back Exit app -->
+    <string name="press_again_to_exit_message">뒤로 버튼을 한번 더 누르시면 종료됩니다.</string>
+
+    <string name="set_permissions">Set Permissions</string>
+    <string name="permission_denied">Permission Denied</string>
+
+
+    <!-- PROFILE -->
+    <string name="profile_label_user_id">User ID</string>
+    <string name="profile_label_name">Name</string>
+    <string name="profile_label_mail_address">Mail Address</string>
+    <string name="profile_label_sex">Sex</string>
+    <string name="profile_label_phone_number">Phone Number</string>
+    <string name="profile_label_company_number">Company Number</string>
+    <string name="profile_label_extension_number">Extension Number</string>
+    <string name="profile_label_entrance_date">Entrance Date</string>
+    <string name="profile_label_birthday">Birthday</string>
+    <string name="profile_label_belong">Belong To Department</string>
+
+    <string name="aaaa">text example</string>
+
+    <string name="navigation_drawer_open">네비케이선 열기</string>
+    <string name="navigation_drawer_close">네비케이선 닫기</string>
+
+    <string name="action_settings">설정</string>
+    <string name="action_search">검색</string>
+    <string name="action_status">상태</string>
+
+    <string name="action_working">근무중</string>
+    <string name="action_away">자리 비움</string>
+    <string name="action_resting">어프라이</string>
+    <string name="action_work_outside">외근</string>
+    <string name="action_in_a_call">전화중</string>
+    <string name="action_meeting">회의중</string>
+
+    <string name="loading_title">로딩 중...</string>
+    <string name="loading_content">잠시만 기다리세요.</string>
+    <string name="string_status_no_result">데이터가 없습니다.</string>
+    <string name="string_ok">OK</string>
+    <string name="no_connection_error">인터넷을 연결 못 했습니다.</string>
+    <string name="no_wifi_error">Wifi나 3G 켜주세요.</string>
+    <string name="turn_wifi_on">Wifi 켜기</string>
+    <string name="string_skip">건너 뛰기</string>
+    <string name="string_cancel">취소</string>
+
+    <string name="string_server_site">단체(회사) 아이디</string>
+
+    <!-- Login screen -->
+    <string name="login_username">개인아이디</string>
+    <string name="login_password">비밀번호</string>
+    <string name="login_Required">필수</string>
+    <string name="login_login">로그인</string>
+    <string name="have_no_id">아이디 없는 경우</string>
+    <string name="for_got_string">비밀번호 찾기</string>
+    <string name="slash_string"> / </string>
+    <string name="sign_up_string">회원가입</string>
+    <string name="string_help">도음말</string>
+    <string name="copy_right_string">CopyRight © 2016 Dazone Tech., INC.</string>
+    <string name="string_sign_up">새로운 단체(회사) 생성</string>
+    <string name="no_network_error">서버에 접속 못 했습니다.</string>
+    <string name="string_wrong_server_site">서버 접속 링크 잘 못 했습니다.</string>
+    <string name="login_empty_input">비우면 안 됩니다</string>
+    <string name="string_error_code_2">사용자 아이디 맞지 않습니다</string>
+    <string name="string_error_code_3">비밀번호가 맞지 않습니다</string>
+    <string name="string_error_code_4">User left</string>
+    <string name="string_error_code_5">Access Deny</string>
+    <string name="string_error_code_9">Can not detected Error</string>
+    <string name="string_error_code_default">Server Error</string>
+    <string name="title_activity_base_pager">BasePagerActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_base_single">BaseSingleActivity</string>
+    <string name="chat_hint">Enter text</string>
+    <string name="send">발송</string>
+
+
+    <string name="string_take_photo">사진 찍기</string>
+    <string name="string_get_from_gallery">앨범에서 선택</string>
+    <string name="imv_desc">이미지 설명</string>
+
+    <string name="string_temp">Text temp</string>
+
+    //register 28/12/2015 update version
+    <string name="string_update">업데이트</string>
+    <string name="string_update_content">최신 버젼 존재합니다.업데이트해주세요</string>
+    <string name="wating_app_download">파일을 다운로중입니다.잠시만 기다리 주세요.</string>
+    <string name="string_update_content_new">새로운 버전이 존재합니다. 설치하시겠습니까?</string>
+
+    <string name="today">오늘</string>
+    <string name="yesterday">어제</string>
+
+    <string name="delete">삭제</string>
+    <string name="please_wait">잠시만 기다리세요....</string>
+    <string name="notice_delete">선택한 내용을 삭제하시겠습니까?</string>
+
+    <string name="yes">확인</string>
+    <string name="no">취소</string>
+
+    <string name="group_list">그룹 대화상대</string>
+    <string name="add_user">대화상대 추가</string>
+    <string name="remove_user">그룹 나가기</string>
+    <string name="can_not_chat">쳇팅할 수 없습니다.</string>
+
+    <string name="download_file_error">현재 서버에서 파일을 존재하지 않습니다.</string>
+    <string name="notice_download">파일을 다운로드를 하시겠습니까?</string>
+    <string name="product_applicaiton_version">제품정보</string>
+    <string name="product_user_id">사용자 아이디</string>
+    <string name="product_company">다체 아이디</string>
+    <string name="product_utilities">Utilities</string>
+    <string name="product_lock_screen">화면잠금</string>
+
+    <string name="image">이미지</string>
+    <string name="video">동여상</string>
+    <string name="camera">카메라</string>
+    <string name="video_record">동영상 촬영</string>
+    <string name="done">확인</string>
+    <string name="images_tab">이미지</string>
+    <string name="videos_tab">동영상</string>
+    <string name="max_limit_reach_error">최대한 파일 10 개입니다.</string>
+    <string name="max_limit_file">최대 한계</string>
+    <string name="please_wait_text">잠시만 기다리세요.</string>
+    <string name="refreshing">새로 고침</string>
+    <string name="file_size_exeeded">파일 크기가 최대한계 넘어갔습니다.</string>
+    <string name="selected_file_size"> 선택한 파일 크기가: </string>
+    <string name="mb"> MB</string>
+    <string name="please_select_file">파일을 선택해주세요.</string>
+    <string name="file">파일</string>
+    <string name="files">파일</string>
+    <string name="no_media_file_available">미디어 파일이 없습니다.</string>
+
+    <string name="pre_file_name">DaZone_</string>
+    <string name="notification_file">파일을 받았습니다....</string>
+    <string name="notification_add_user">그룹에서 계정을 추가했습니다.</string>
+
+    <string name="error_server">오류 발생했습니다.그룹 나갈 수 없습니다.</string>
+
+    <string name="writing">입력중&#8230;</string>
+
+    <string name="description_back_space">뒤로 가기</string>
+    <string name="description_cell">Cell</string>
+    <string name="emoji_no_recent">최근 사용하지 않은 이모티콘</string>
+
+    <string name="add_fav">즐거찾기</string>
+    <string name="developing">이 기능을 개발하는 중입니다.</string>
+
+    <!-- notification settings -->
+    <string name="settings_notification">알림 설정</string>
+    <string name="settings_notification_time">알림 시간</string>
+    <string name="settings_notification_sound">소리</string>
+    <string name="settings_notification_vibrate">진동</string>
+    <string name="settings_notification_new_mail">새 메시지 알림 받기</string>
+    <string name="settings_notification_method">알림 방식</string>
+    <string name="settings_notification_disable_when_using_pc_version">PC 버젼 대화할 때 알림</string>
+
+    <string name="settings_general">일반 설정</string>
+    <string name="logout">로그아웃</string>
+    <string name="my_profile">내 프로필</string>
+
+    <!-- Profile page -->
+    <string name="personal_id">PERSONAL ID</string>
+    <string name="email">EMAIL</string>
+    <string name="company_name">COMPANY NAME</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="send_file">파일전송</string>
+    <string name="chat_setting">채팅방설정</string>
+    <string name="close">닫기</string>
+    <string name="contact">Contact</string>
+    <string name="logout_confirm">로그아웃 하시겠습니까?</string>
+    <string name="logout_confirm_title">크루챗</string>
+    <string name="delete_confirm_title">Delete confirm</string>
+    <!-- Attach Latest MSG-->
+    <string name="attach_image">Photo</string>
+    <string name="attach_file">File</string>
+    <string name="attach_contact">Contact</string>
+
+    <!-- room menu context -->
+    !-- room menu context -->
+    <string name="room_name">대화방 이름 변경</string>
+    <string name="room_open">대화방 열기</string>
+    <string name="room_favorite">즐겨찾기 등록</string>
+    <string name="alarm_on">알림켜기</string>
+    <string name="alarm_off">알림끄기</string>
+    <string name="room_left">나가기</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="room_rename">대화방 이름 변경</string>
+    <string name="warning_change_title">Please change room title string !</string>
+    <string name="room_rename_note">Please input room title do you want to change.</string>
+
+    <!-- Menu context -->
+    <string name="favorite_remove">즐겨찾기 해제</string>
+    <string name="chatting">대화하기</string>
+    <string name="favorite_add">즐겨찾기 추가</string>
+    <string name="room_remove_favorite">즐겨찾기 해제</string>
+    <string name="favorite_remove_failed">Remove from favorite failed</string>
+    <string name="view_profile">사용자 정보</string>
+
+    <!-- menu context in organization -->
+    <string name="organization_expand_all">모두 부서편치기</string>
+    <string name="organization_collapse_all">모두 부서 접기</string>
+    <string name="organization_group_chat">그룹 대화</string>
+    <string name="organization_add_favorite">즐겨찾기 추가</string>
+    <string name="organization_remove_favorite">즐겨찾기 해제</string>
+
+    <!-- Add room to favorites message  -->
+    <string name="favorite_add_success">It has been added</string>
+    <string name="favorite_add_failed">Add room to favorite failed</string>
+    <string name="favorite_remove_success">It has been removed</string>
+    <!-- ROOM USER INFORMATION -->
+    <string name="room_user_info_heading">대화방 유저 정보</string>
+
+    <!-- Login activity -->
+    <string name="login_button">발송</string>
+
+    <!-- Signup activity -->
+    <string name="sign_up_suggest">단체(회사) 아이디가 아직 없으신가요?</string>
+    <string name="enter_your_email">메일 주소</string>
+    <string name="register">새로운 단체 생성 </string>
+    <string name="signup_note">입력하신 메일 주소로 크루클라우드에 단체(회사) 생성을 할 수 있는 링크를 보내 드리겠습니다.</string>
+    <string name="note_heading">메일 주소를 입력해주세요.</string>
+    <string name="title_sign_up_screen">단체(회사) 생성</string>
+    <string name="choose_group">Choose Groups</string>
+    <string name="room_info_participant_count">%1$s participants</string>
+
+    <string name="confirm">확인</string>
+    <string name="cancel">취소</string>
+    <string name="group_name">그룹이름</string>
+
+    <!-- Menu context string -->
+    <string name="open">Open</string>
+    <string name="copy">Copy</string>
+    <string name="download">Download</string>
+    <string name="share">Share</string>
+    <string name="registered_users">상대방 추가</string>
+    <string name="modifying_group">그룹이름 변경</string>
+    <string name="delete_group">그룹삭제</string>
+
+    <string name="remove_from_favorite">Remove from favorite list</string>
+    <string name="open_chat_room">Open Chat room</string>
+    <!-- Favorite tab -->
+    <string name="favorite_group_delete_warning">그룹 삭제하시겠습니까? 그룹의 내용들이 삭제됩니다</string>
+    <!-- QUYET TEST -->
+    <string name="multiplied_expanding">Multiplied expanding</string>
+    <string name="always_expanded">Always expanded</string>
+
+</resources>

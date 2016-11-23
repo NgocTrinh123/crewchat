@@ -1,0 +1,194 @@
+<resources>
+
+    //text size
+
+    <dimen name="chat_text_size">15sp</dimen>
+    <dimen name="chat_name_text_size">15sp</dimen>
+    <dimen name="chat_time_text_size">11sp</dimen>
+    <dimen name="file_info_text_size">13sp</dimen>
+    <dimen name="text_status_tv_size">12sp</dimen>
+    <dimen name="tree_office_text_size">15sp</dimen>
+    <dimen name="tree_user_text_size">13sp</dimen>
+    <dimen name="size">40dp</dimen>
+
+    <!-- COMMON -->
+    <dimen name="common_icon">48dp</dimen>
+    <dimen name="common_progress_bar">6dp</dimen>
+    <dimen name="common_avatar">48dp</dimen>
+    <dimen name="common_avatar_group">24dp</dimen>
+    <dimen name="common_badge">24dp</dimen>
+    <dimen name="common_header_layout">48dp</dimen>
+    <dimen name="common_footer_layout">48dp</dimen>
+    <dimen name="common_divider">0.67dp</dimen>
+
+
+    <!-- PADDING & MARGIN -->
+    <dimen name="padding_block">16dp</dimen>
+    <dimen name="padding_normal_2">12dp</dimen>
+    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+    <dimen name="padding_smallest">2dp</dimen>
+    <dimen name="margin_block">16dp</dimen>
+    <dimen name="margin_normal">10dp</dimen>
+    <dimen name="margin_normal_2">12dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_smallest">2dp</dimen>
+
+    <!-- TEXT SIZE -->
+    <dimen name="text_size_profile_title">20sp</dimen>
+    <dimen name="text_size_row_current_chat_name">16sp</dimen>
+    <dimen name="text_size_row_current_chat_content">14sp</dimen>
+    <dimen name="text_size_avatar_group">12sp</dimen>
+
+    <!-- ACTIVITY PROFILE -->
+    <dimen name="profile_avatar">84dp</dimen>
+    <dimen name="profile_avatar_margin_top">23dp</dimen>
+    <dimen name="profile_avatar_margin_bottom">12dp</dimen>
+    <dimen name="profile_text_size_username">16sp</dimen>
+    <dimen name="profile_text_size_company">13sp</dimen>
+    <dimen name="profile_text_size_content">16sp</dimen>
+    <dimen name="profile_text_size_label">13sp</dimen>
+    <dimen name="profile_button_call_email">50dp</dimen>
+    <dimen name="profile_button_call_email_padding">14dp</dimen>
+    <dimen name="profile_space_between_button_call_email">45dp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="divider_height">0.67dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_small">36dp</dimen>
+    <dimen name="button_text_size_small">12dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+
+    <dimen name="activity_login_margin">40dp</dimen>
+    <dimen name="activity_login_logo_margin">20dp</dimen>
+    <dimen name="activity_login_user_margin">30dp</dimen>
+    <dimen name="activity_login_btn_margin">50dp</dimen>
+    <dimen name="activity_login_edtn_margin">10dp</dimen>
+    <dimen name="scroll_height_login">110dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="dimen_default_avatar">50dp</dimen>
+    <dimen name="dimen_chatting_avatar">40dp</dimen>
+    <dimen name="tree_user_avatar_dimen">48dp</dimen>
+    <dimen name="dimen_textview_time">10dp</dimen>
+    <dimen name="divider_time_height">0.1dp</dimen>
+    <dimen name="chat_text_max_width">250dp</dimen>
+    <dimen name="dimen_chat_image">130dp</dimen>
+    <dimen name="dimen_menu_icon">24dp</dimen>
+    <dimen name="dimen_chatting_time_margin">10dp</dimen>
+    <dimen name="dimen_lnl_chat_left_pl">15dp</dimen>
+    <dimen name="dimen_lnl_chat_left">10dp</dimen>
+
+    <!--Common-->
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimen_05_1">0.5dp</dimen>
+    <dimen name="dimen_1_2">1dp</dimen>
+    <dimen name="dimen_2_4">2dp</dimen>
+    <dimen name="dimen_3_6">3dp</dimen>
+    <dimen name="dimen_4_8">4dp</dimen>
+    <dimen name="dimen_5_10">5dp</dimen>
+    <dimen name="dimen_6_12">6dp</dimen>
+    <dimen name="dimen_7_15">7dp</dimen>
+    <dimen name="dimen_8_16">8dp</dimen>
+    <dimen name="dimen_9_18">9dp</dimen>
+    <dimen name="dimen_10_20">10dp</dimen>
+    <dimen name="dimen_12_24">12dp</dimen>
+    <dimen name="dimen_15_30">15dp</dimen>
+    <dimen name="dimen_16_32">16dp</dimen>
+    <dimen name="dimen_18_36">18dp</dimen>
+    <dimen name="dimen_20_40">20dp</dimen>
+    <dimen name="dimen_25_50">25dp</dimen>
+    <dimen name="dimen_28_56">28dp</dimen>
+    <dimen name="dimen_30_60">30dp</dimen>
+    <dimen name="dimen_35_70">35dp</dimen>
+    <dimen name="dimen_40_80">40dp</dimen>
+    <dimen name="dimen_45_90">45dp</dimen>
+    <dimen name="dimen_48_96">48dp</dimen>
+    <dimen name="dimen_50_100">50dp</dimen>
+    <dimen name="dimen_55_110">55dp</dimen>
+    <dimen name="dimen_60_120">60dp</dimen>
+    <dimen name="dimen_65_130">65dp</dimen>
+    <dimen name="dimen_67_134">67dp</dimen>
+    <dimen name="dimen_70_140">70dp</dimen>
+    <dimen name="dimen_75_150">75dp</dimen>
+    <dimen name="dimen_80_160">80dp</dimen>
+    <dimen name="dimen_85_170">85dp</dimen>
+    <dimen name="dimen_90_180">90dp</dimen>
+    <dimen name="dimen_95_190">95dp</dimen>
+    <dimen name="dimen_100_200">100dp</dimen>
+    <dimen name="dimen_110_220">110dp</dimen>
+    <dimen name="dimen_120_240">120dp</dimen>
+    <dimen name="dimen_125_250">125dp</dimen>
+    <dimen name="dimen_130_260">130dp</dimen>
+    <dimen name="dimen_135_270">135dp</dimen>
+    <dimen name="dimen_140_280">140dp</dimen>
+    <dimen name="dimen_145_290">145dp</dimen>
+    <dimen name="dimen_150_300">150dp</dimen>
+    <dimen name="dimen_155_310">155dp</dimen>
+    <dimen name="dimen_160_320">160dp</dimen>
+    <dimen name="dimen_165_330">165dp</dimen>
+    <dimen name="dimen_170_340">170dp</dimen>
+    <dimen name="dimen_180_360">180dp</dimen>
+    <dimen name="dimen_190_380">190dp</dimen>
+    <dimen name="dimen_200_400">200dp</dimen>
+    <dimen name="dimen_210_420">210dp</dimen>
+    <dimen name="dimen_225_450">225dp</dimen>
+    <dimen name="dimen_240_480">240dp</dimen>
+    <dimen name="dimen_250_500">250dp</dimen>
+    <dimen name="dimen_300_600">300dp</dimen>
+    <dimen name="dimen_320_640">320dp</dimen>
+    <dimen name="dimen_360_720">360dp</dimen>
+    <dimen name="dimen_400_800">400dp</dimen>
+    <dimen name="dimen_500_1000">500dp</dimen>
+    <dimen name="dimen_600_1200">600dp</dimen>
+    <dimen name="text_7_15">7sp</dimen>
+    <dimen name="text_10_20">10sp</dimen>
+    <dimen name="text_12_24">12sp</dimen>
+    <dimen name="text_13_25">13sp</dimen>
+    <dimen name="text_14_28">14sp</dimen>
+    <dimen name="text_15_30">15sp</dimen>
+    <dimen name="text_16_32">16sp</dimen>
+    <dimen name="text_17_35">17sp</dimen>
+    <dimen name="text_18_36">18sp</dimen>
+    <dimen name="text_20_40">20sp</dimen>
+    <dimen name="text_22_45">22sp</dimen>
+    <dimen name="text_25_50">25sp</dimen>
+    <dimen name="text_28_56">28sp</dimen>
+    <dimen name="text_30_60">30sp</dimen>
+    <dimen name="text_35_70">35sp</dimen>
+    <dimen name="text_40_80">40sp</dimen>
+
+
+    <dimen name="btn_share_border">0.67dp</dimen>
+    <dimen name="btn_share_height">34dp</dimen>
+    <dimen name="btn_share_radius">17dp</dimen>
+    <dimen name="btn_share_search_height">38.67dp</dimen>
+    <dimen name="btn_share_search_radius">19.33dp</dimen>
+    <dimen name="text_size_15_17">17sp</dimen>
+
+    <dimen name="button_height_medium">44dp</dimen>
+    <dimen name="activity_login_horizontal_margin">20dp</dimen>
+
+    <!-- TAB INDICATOR-->
+    <dimen name="button_tab_radius">5dp</dimen>
+
+    <!-- QUYET TEST -->
+    <dimen name="level_beam_line_width">6dp</dimen>
+    <dimen name="level_beam_line_offset">2dp</dimen>
+
+    <dimen name="font_default">16dp</dimen>
+    <dimen name="font_small">12dp</dimen>
+    <dimen name="offset_default">3dp</dimen>
+    <dimen name="padding_default">12dp</dimen>
+
+    <dimen name="data_item_row_height">45dp</dimen>
+    <dimen name="data_item_row_padding">5dp</dimen>
+
+</resources>

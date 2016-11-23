@@ -1,0 +1,254 @@
+<resources>
+    <string name="app_name">CrewChat</string>
+    <string name="unknown">Unknown</string>
+
+    <!-- Back Exit app -->
+    <string name="press_again_to_exit_message">Press back again to exit</string>
+
+    <string name="set_permissions">Set Permissions</string>
+    <string name="permission_denied">Permission Denied</string>
+
+
+    <!-- PROFILE -->
+    <string name="profile_label_user_id">User ID</string>
+    <string name="profile_label_name">Name</string>
+    <string name="profile_label_mail_address">Mail Address</string>
+    <string name="profile_label_sex">Sex</string>
+    <string name="profile_label_phone_number">Phone Number</string>
+    <string name="profile_label_company_number">Company Number</string>
+    <string name="profile_label_extension_number">Extension Number</string>
+    <string name="profile_label_entrance_date">Entrance Date</string>
+    <string name="profile_label_birthday">Birthday</string>
+    <string name="profile_label_belong">Belong To Department</string>
+
+
+    <string name="aaaa">text example</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_status">Status</string>
+
+    <string name="action_working">Working</string>
+    <string name="action_away">Away</string>
+    <string name="action_resting">Resting</string>
+    <string name="action_work_outside">Work outside</string>
+    <string name="action_in_a_call">In a call</string>
+    <string name="action_meeting">Meeting</string>
+
+    <string name="loading_title">loading&#8230;</string>
+    <string name="loading_content">Please wait.</string>
+    <string name="string_status_no_result">No data</string>
+    <string name="string_ok">OK</string>
+    <string name="no_connection_error">No Internet Connection</string>
+    <string name="no_wifi_error">Please turn on wifi to continue</string>
+    <string name="turn_wifi_on">Turn wifi on</string>
+    <string name="string_skip">Skip</string>
+    <string name="string_cancel">Cancel</string>
+
+    <string name="string_server_site">Group(Company) ID</string>
+
+    <!-- Login screen -->
+    <string name="login_username">Personal ID</string>
+    <string name="login_password">Password</string>
+    <string name="login_Required">Required</string>
+    <string name="login_login">Log In</string>
+    <string name="have_no_id">Have no UserID</string>
+    <string name="for_got_string">Forgot password ?</string>
+    <string name="slash_string">/</string>
+    <string name="sign_up_string">Create an account</string>
+    <string name="string_help">Help</string>
+    <string name="copy_right_string">CopyRight © 2016 Dazone Tech., INC.</string>
+    <string name="string_sign_up">Create a new Group(Company)</string>
+    <string name="no_network_error">Can Not Connect To Server</string>
+    <string name="string_wrong_server_site">Wrong Server Site</string>
+    <string name="login_empty_input">cannot be empty</string>
+    <string name="string_error_code_2">Invalid User ID</string>
+    <string name="string_error_code_3">Invalid Password</string>
+    <string name="string_error_code_4">User left</string>
+    <string name="string_error_code_5">Access Deny</string>
+    <string name="string_error_code_9">Can not detected Error</string>
+    <string name="string_error_code_default">Server Error</string>
+    <string name="title_activity_base_pager">BasePagerActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_base_single">BaseSingleActivity</string>
+    <string name="chat_hint">Enter text</string>
+    <string name="send">Send</string>
+
+    <string name="string_take_photo">Take photo</string>
+    <string name="string_get_from_gallery">Get from Gallery</string>
+    <string name="imv_desc">imageview description</string>
+
+    <string name="string_temp">Text temp</string>
+
+    //register 28/12/2015 update version
+    <string name="string_update">Update</string>
+    <string name="string_update_content">This Version is lower than current version, please update</string>
+    <string name="wating_app_download">File downloading, please wait</string>
+    <string name="string_update_content_new">This new version exists. Would you like to install?</string>
+
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+
+    <string name="delete">Delete</string>
+    <string name="please_wait">Please wait....</string>
+    <string name="notice_delete">Are you delete this file?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="group_list">Group list</string>
+    <string name="add_user">Add user</string>
+    <string name="send_file">Send file</string>
+    <string name="chat_setting">Chat Setting</string>
+    <string name="close">Close</string>
+    <string name="remove_user">Leave group</string>
+    <string name="can_not_chat">Can not chat</string>
+
+    <string name="download_file_error">Currently, the file is deleted on server</string>
+    <string name="notice_download">Are you download this file?</string>
+    <string name="product_applicaiton_version">Application version</string>
+    <string name="product_user_id">User ID</string>
+    <string name="product_company">Company name</string>
+    <string name="product_utilities">Utilities</string>
+    <string name="product_lock_screen">Lock screen</string>
+
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="camera">Camera</string>
+    <string name="video_record">Video Recording</string>
+    <string name="done">Done</string>
+    <string name="images_tab">Images</string>
+    <string name="videos_tab">Videos</string>
+    <string name="max_limit_reach_error">Max limit 10 file.</string>
+    <string name="max_limit_file">Max limit</string>
+    <string name="please_wait_text">Please wait</string>
+    <string name="refreshing">Refreshing</string>
+    <string name="file_size_exeeded">The file size exceeds the maximum limit of</string>
+    <string name="selected_file_size">Selected media size is :</string>
+    <string name="mb">MB</string>
+    <string name="please_select_file">Please select a file.</string>
+    <string name="file">File</string>
+    <string name="files">files.</string>
+    <string name="no_media_file_available">No media file available.</string>
+
+    <string name="pre_file_name">DAZONE_</string>
+    <string name="notification_file">You receive a file&#8230;</string>
+    <string name="notification_add_user">Account has just been added to the group.</string>
+
+    <string name="error_server">Now, The server error. So you can not leave this group.</string>
+
+    <string name="writing">writing&#8230;</string>
+
+    <string name="description_back_space">Back space</string>
+    <string name="description_cell">Cell</string>
+    <string name="emoji_no_recent">No recent used emoji</string>
+
+    <string name="add_fav">Add Favorites</string>
+    <string name="developing">A function were developing&#8230;</string>
+
+    <!-- notification settings -->
+    <string name="settings_notification">Notification Settings</string>
+    <string name="settings_notification_time">Notification time</string>
+    <string name="settings_notification_sound">Sound</string>
+    <string name="settings_notification_vibrate">Vibrate</string>
+    <string name="settings_notification_new_mail">Get Notify of new mail</string>
+    <string name="settings_notification_method">Notification Method</string>
+    <string name="settings_notification_disable_when_using_pc_version">Notification when using PC version</string>
+
+    <string name="settings_general">General settings</string>
+    <string name="logout">Logout</string>
+    <string name="my_profile">My Profile</string>
+
+    <!-- Profile page -->
+    <string name="personal_id">PERSONAL ID</string>
+    <string name="email">EMAIL</string>
+    <string name="company_name">COMPANY NAME</string>
+    <string name="phone_number">PHONE NUMBER</string>
+
+    <string name="contact">Contact</string>
+    <string name="logout_confirm">Are you sure?</string>
+    <string name="logout_confirm_title">Logout confirm</string>
+    <string name="delete_confirm_title">Delete confirm</string>
+    <!-- Attach Latest MSG-->
+    <string name="attach_image">Photo</string>
+    <string name="attach_file">File</string>
+    <string name="attach_contact">Contact</string>
+
+    <!-- room menu context -->
+    <string name="room_name">Room rename</string>
+    <string name="room_open">Room open</string>
+    <string name="room_favorite">Add to Favorites</string>
+    <string name="room_remove_favorite">Remove from Favorites</string>
+    <string name="alarm_on">Alarm on</string>
+    <string name="alarm_off">Alarm off</string>
+    <string name="room_left">Leave</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="room_rename">Room rename</string>
+    <string name="warning_change_title">Please change room title string !</string>
+    <string name="room_rename_note">Please input room title do you want to change.</string>
+
+    <!-- Menu context -->
+    <string name="favorite_remove">Remove from Favourites</string>
+    <string name="chatting">Chatting</string>
+    <string name="favorite_add">Add to Favourites</string>
+    <string name="view_profile">View Profile</string>
+
+    <!-- menu context in organization -->
+    <string name="organization_expand_all">Expand all departments</string>
+    <string name="organization_collapse_all">Collapse all departments</string>
+    <string name="organization_group_chat">Group chat</string>
+    <string name="organization_add_favorite">Add to favorite</string>
+    <string name="organization_remove_favorite">Remove from favorite</string>
+
+    <!-- Add room to favorites message  -->
+    <string name="favorite_add_success">It has been added</string>
+    <string name="favorite_remove_success">It has been removed</string>
+    <string name="favorite_remove_failed">Remove from favorite failed</string>
+    <string name="favorite_add_failed">Add room to favorite failed</string>
+    <!-- ROOM USER INFORMATION -->
+    <string name="room_user_info_heading">Room Information</string>
+
+    <!-- Login activity -->
+    <string name="login_button">Login In</string>
+    <string name="sign_up_suggest">Haven\'t you your Group(Company) ID yet?</string>
+    <!-- Signup activity -->
+
+    <string name="enter_your_email">Enter your email</string>
+    <string name="register">Create a new Group</string>
+    <string name="note_heading">Enter your email address</string>
+    <string name="signup_note">We will send a link to create a new group(company) on CrewCloud.</string>
+    <string name="title_sign_up_screen">Create a new Group(Company)</string>
+    <string name="choose_group">Choose Groups</string>
+    <string name="room_info_participant_count">%1$s participants</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="group_name">Group name</string>
+
+    <!-- Menu context string -->
+    <string name="open">Open</string>
+    <string name="copy">Copy</string>
+    <string name="download">Download</string>
+    <string name="share">Share</string>
+    <string name="registered_users">Registered Users</string>
+    <string name="modifying_group">Edit group name</string>
+    <string name="delete_group">Delete Group</string>
+
+    <string name="remove_from_favorite">Remove from favorite list</string>
+    <string name="open_chat_room">Open Chat room</string>
+    <!-- Favorite tab -->
+    <string name="favorite_group_delete_warning">You sure you want to delete this group. All users in the group will
+        move to the trash
+    </string>
+
+    <!-- -->
+    <string name="msg_select_item">Please, select at least a group !</string>
+
+    <!-- QUYET TEST -->
+    <string name="multiplied_expanding">Multiplied expanding</string>
+    <string name="always_expanded">Always expanded</string>
+
+</resources>

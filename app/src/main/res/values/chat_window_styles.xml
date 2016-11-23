@@ -1,0 +1,104 @@
+<resources>
+    <style name="textview_group_style">
+        <item name="android:background">@drawable/gradient_textview_time</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/chat_text_size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="textView_time_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/chat_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="textView_empty_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/chat_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="textView_chat_text_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:maxWidth">@dimen/chat_text_max_width</item>
+        <item name="android:textSize">@dimen/chat_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="tv_chat_time_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/chat_time_text_size</item>
+        <item name="android:textColor">@color/disable_text_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingTop">@dimen/dimen_3_6</item>
+    </style>
+    <style name="tv_chat_name_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/chat_name_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="lnl_chat_left_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/dimen_lnl_chat_left_pl</item>
+        <item name="android:paddingRight">@dimen/dimen_lnl_chat_left</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/message_bg_content</item>
+        <item name="android:paddingTop">@dimen/dimen_lnl_chat_left</item>
+        <item name="android:paddingBottom">@dimen/dimen_lnl_chat_left</item>
+    </style>
+
+    <style name="lnl_chat_right_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/message_bg_content_2</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:paddingTop">@dimen/dimen_lnl_chat_left</item>
+        <item name="android:paddingBottom">@dimen/dimen_lnl_chat_left</item>
+        <item name="android:paddingLeft">@dimen/dimen_lnl_chat_left</item>
+        <item name="android:paddingRight">@dimen/dimen_lnl_chat_left_pl</item>
+    </style>
+
+    <style name="tv_chat_file_info_style">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:textSize">@dimen/file_info_text_size</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="tv_tree_user_style">
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:textSize">@dimen/tree_user_text_size</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:ellipsize">end</item>
+</style>
+
+    <style name="tv_tree_user_status_style">
+        <item name="android:textSize">@dimen/tree_user_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/bg_gray_radius_thin</item>
+    </style>
+
+    <style name="tv_tree_office_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/tree_user_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+</resources>

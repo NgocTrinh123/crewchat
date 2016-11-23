@@ -1,0 +1,817 @@
+TASK com.dazone.crewchat id=1614
+  ACTIVITY com.dazone.crewchat/.Activity.ChattingActivity c43c636 pid=5463
+    Local FragmentActivity 1f6607d2 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 193066a9:
+      #0: ChattingFragment{899642e #0 id=0x7f0e00b8 TAG}
+        mFragmentId=#7f0e00b8 mContainerId=#7f0e00b8 mTag=TAG
+        mState=2 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{193066a9 in HostCallbacks{f69dbcf}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@f69dbcf
+        mArguments=Bundle[{chatting_dto=com.dazone.crewchat.Dtos.ChattingDto@1e3328e9, tree_user_pc=com.dazone.crewchat.Tree.Dtos.TreeUserDTO@3805162b}]
+        mSavedViewState={2131624083=com.dazone.crewchat.Customs.PagerSlidingTabStrip$SavedState@2225d95c, 2131624137=android.view.AbsSavedState$1@b7fc465, 2131624138=FragmentPager.SavedState{1e5b953a position=1}, 2131624144=android.view.AbsSavedState$1@b7fc465, 2131624145=android.view.AbsSavedState$1@b7fc465, 2131624146=android.view.AbsSavedState$1@b7fc465, 2131624147=android.support.v7.widget.RecyclerView$SavedState@395265eb, 2131624148=android.view.AbsSavedState$1@b7fc465, 2131624149=android.view.AbsSavedState$1@b7fc465, 2131624155=android.view.AbsSavedState$1@b7fc465, 2131624156=android.view.AbsSavedState$1@b7fc465, 2131624157=TextView.SavedState{1e52f48 start=0 end=0 text=}, 2131624158=android.view.AbsSavedState$1@b7fc465, 2131624159=android.view.AbsSavedState$1@b7fc465, 2131624160=android.view.AbsSavedState$1@b7fc465, 2131624161=android.view.AbsSavedState$1@b7fc465, 2131624162=android.view.AbsSavedState$1@b7fc465, 2131624226=android.view.AbsSavedState$1@b7fc465}
+        mContainer=android.widget.RelativeLayout{3cad41e1 V.E..... ........ 0,162-720,1280 #7f0e00b8 app:id/content_base_single_activity}
+        mView=android.widget.LinearLayout{34ddcb06 V.E..... ........ 0,0-720,1118}
+        mInnerView=android.widget.LinearLayout{34ddcb06 V.E..... ........ 0,0-720,1118}
+        Child FragmentManager{22ef75c7 in ChattingFragment{899642e}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@f69dbcf
+            mContainer=android.support.v4.app.Fragment$1@34c1f7f4
+            mParent=ChattingFragment{899642e #0 id=0x7f0e00b8 TAG}
+            mCurState=2 mStateSaved=true mDestroyed=false
+    Added Fragments:
+      #0: ChattingFragment{899642e #0 id=0x7f0e00b8 TAG}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@f69dbcf
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@f69dbcf
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{adb1b1d V.E..... ... 0,0-720,1280}
+        android.widget.LinearLayout{36fb9192 V.E..... ... 0,0-720,1280}
+          android.view.ViewStub{3863a763 G.E..... ... 0,0-0,0 #102037a}
+          android.widget.FrameLayout{39009f60 V.E..... ... 0,0-720,1280}
+            android.support.v7.widget.FitWindowsLinearLayout{1a134c19 V.E..... ... 0,0-720,1280 #7f0e007c app:id/action_bar_root}
+              android.support.v7.widget.ViewStubCompat{2fbd34de G.E..... ... 0,0-0,0 #7f0e007d app:id/action_mode_bar_stub}
+              android.support.v7.widget.ContentFrameLayout{3b5f56bf V.E..... ... 0,0-720,1280 #1020002 android:id/content}
+                android.support.design.widget.CoordinatorLayout{2ac0518c V.ED.... ... 0,0-720,1280}
+                  android.support.design.widget.AppBarLayout{2b0390d5 V.E..... ... 0,50-720,162}
+                    android.support.v7.widget.Toolbar{63c0ea V.E..... ... 0,0-720,112 #7f0e0092 app:id/toolbar}
+                      android.widget.LinearLayout{2e3c9fdb V.E..... ... 112,0-720,112}
+                        android.widget.LinearLayout{26e6fa78 V.E..... ... 0,17-564,95}
+                          android.support.v7.widget.AppCompatTextView{21796551 V.ED.... ... 0,0-282,47 #7f0e0096 app:id/toolbar_title}
+                          android.support.v7.widget.AppCompatTextView{2b3501b6 V.ED.... ... 0,47-75,78 #7f0e0097 app:id/toolbar_status}
+                        android.support.v7.widget.AppCompatImageView{14db5eb7 V.ED..C. ... 564,36-608,76 #7f0e0098 app:id/nav_mnu_hol_ic}
+                      android.widget.TextView{30cd4624 V.ED.... ... 112,28-112,83}
+                      android.widget.ImageButton{369e058d VFED..C. ... 0,0-112,112}
+                      android.support.v7.widget.ActionMenuView{3f078342 V.E..... ... 720,0-720,112}
+                  android.widget.RelativeLayout{3cad41e1 V.E..... ... 0,162-720,1280 #7f0e00b8 app:id/content_base_single_activity}
+                    android.widget.LinearLayout{34ddcb06 V.E..... ... 0,0-720,1118}
+                      android.widget.LinearLayout{273d2f53 G.E..... ... 0,0-0,0 #7f0e00d0 app:id/recycler_header}
+                      android.widget.RelativeLayout{6aaa090 V.E..... ... 0,0-720,985 #7f0e00d1 app:id/list_content_rl}
+                        android.support.v4.widget.SwipeRefreshLayout{12f26d89 V..D.... ... 0,0-720,985 #7f0e00d2 app:id/swipeRefreshLayout}
+                          android.support.v4.widget.CircleImageView{2f8e918e G.ED.... ... 320,-80-400,0}
+                          android.support.v7.widget.RecyclerView{11e16daf VFED.V.. F.. 0,0-720,985 #7f0e00d3 app:id/rv_main}
+                            android.widget.LinearLayout{11c96710 V.E..... ... 0,0-720,81}
+                              android.view.View{10c135bc V.ED.... ... 0,40-261,41}
+                              android.support.v7.widget.AppCompatTextView{c0b5945 V.ED.... ... 261,20-459,61 #7f0e0112 app:id/time}
+                              android.view.View{2666389a V.ED.... ... 459,40-720,41}
+                            android.widget.LinearLayout{34e9c62f V.E..... ... 0,81-720,466}
+                              android.widget.LinearLayout{1fe135cb V.E..... ... 342,0-700,385}
+                                android.support.v7.widget.AppCompatImageView{32a4d9d1 V.ED..C. ... 24,24-324,324 #7f0e012c app:id/chatting_imv}
+                                android.support.v7.widget.AppCompatTextView{1749f1a8 V.ED.... ... 20,328-206,365 #7f0e012b app:id/date_tv}
+                            android.widget.LinearLayout{3945e43c V.E..... ... 0,466-720,851}
+                              android.widget.LinearLayout{20d44c1 V.E..... ... 393,0-700,385}
+                                android.support.v7.widget.AppCompatImageView{2ce0e05b V.ED..C. ... 24,24-273,324 #7f0e012c app:id/chatting_imv}
+                                android.support.v7.widget.AppCompatTextView{18df4466 V.ED.... ... 20,328-207,365 #7f0e012b app:id/date_tv}
+                            android.widget.LinearLayout{1f96fc0e V.E..... ... 0,851-720,969}
+                              android.widget.LinearLayout{2acb63a7 V.E..... ... 463,0-700,118}
+                                android.support.v7.widget.AppCompatTextView{2b208054 V.ED.... ... 20,20-92,61 #7f0e012a app:id/content_tv}
+                                android.support.v7.widget.AppCompatTextView{18e86bfd V.ED.... ... 20,61-207,98 #7f0e012b app:id/date_tv}
+                        android.support.v7.widget.AppCompatTextView{2e8b40f2 G.ED.... ... 0,0-0,0 #7f0e00d4 app:id/no_item_found}
+                      android.widget.LinearLayout{2c409343 V.E..... ... 0,985-720,1118 #7f0e00d5 app:id/recycler_footer}
+                        android.support.v7.widget.AppCompatTextView{2d2f4dc0 V.ED.... ... 0,0-720,43 #7f0e0122 app:id/chat_status_tv}
+                        android.widget.LinearLayout{954caf9 V.E..... ... 0,43-720,133}
+                          android.widget.LinearLayout{4887a3e V.E..... ... 0,0-720,80}
+                            android.support.v7.widget.AppCompatImageView{d4f209f V.ED..C. ... 0,0-80,80 #7f0e00db app:id/plus_imv}
+                            android.support.v7.widget.AppCompatImageView{209b85ec V.ED..C. ... 80,9-144,71 #7f0e00dc app:id/btnEmotion}
+                            android.support.v7.widget.AppCompatEditText{58e1db5 VFED..CL ... 144,11-656,68 #7f0e00dd app:id/edt_comment}
+                            android.support.v7.widget.AppCompatImageView{198dfc4a V.ED..C. ... 656,9-714,71 #7f0e00de app:id/btnSend}
+                          android.view.View{f8f27bb V.ED.... ... 0,84-720,86 #7f0e00df app:id/view7}
+                          android.widget.LinearLayout{33b114d8 G.E..... ... 0,0-0,0 #7f0e00e0 app:id/selection_lnl}
+                          android.widget.LinearLayout{2dcfe031 G.E..... ... 0,0-0,0 #7f0e00e1 app:id/linearEmoj}
+                            com.dazone.crewchat.Customs.EmojiView{2eb79316 V.E..... ... 0,0-0,0 #7f0e00e2 app:id/emojicons}
+                              android.widget.LinearLayout{2bfe8497 V.E..... ... 0,0-0,0}
+                                android.widget.LinearLayout{2b8ea684 V.E..... ... 0,0-0,0}
+                                  com.dazone.crewchat.Customs.PagerSlidingTabStrip{10914e6d VFED.... ... 0,0-0,0 #7f0e0093 app:id/tabs}
+                                    android.widget.LinearLayout{2911caa2 V.E..... ... 0,0-0,0}
+                                      android.widget.ImageButton{39cd333 VFED..C. ... 0,0-0,0}
+                                      android.widget.ImageButton{1e91a6f0 VFED..C. .S. 0,0-0,0}
+                                      android.widget.ImageButton{32816469 VFED..C. ... 0,0-0,0}
+                                      android.widget.ImageButton{3fe5eeee VFED..C. ... 0,0-0,0}
+                                      android.widget.ImageButton{3dc76f8f VFED..C. ... 0,0-0,0}
+                                      android.widget.ImageButton{2982421c VFED..C. ... 0,0-0,0}
+                                  android.support.v7.widget.AppCompatImageButton{1a42de25 VFED..CL ... 0,0-0,0 #7f0e00c9 app:id/back_space}
+                                android.support.v4.view.ViewPager{3c60bfa VFED.... ... 0,0-0,0 #7f0e00ca app:id/pager}
+                  android.support.design.widget.FloatingActionButton{305575ab GFED..C. ... 576,1136-688,1248 #7f0e0095 app:id/fab}
+        android.view.View{b7f6408 V.ED.... ... 0,0-720,50 #102002f android:id/statusBarBackground}
+
+  ACTIVITY com.dazone.crewchat/.Activity.MainActivity 3c628f6b pid=5463
+    Local FragmentActivity 16d27c88 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 1be837a1:
+      #0: CurrentChatListFragment{a58edc6 #0 id=0x7f0e0094 android:switcher:2131624084:0}
+        mFragmentId=#7f0e0094 mContainerId=#7f0e0094 mTag=android:switcher:2131624084:0
+        mState=2 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=false mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=false
+        mFragmentManager=FragmentManager{1be837a1 in HostCallbacks{2d73c187}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+        mSavedViewState={2131624144=android.view.AbsSavedState$1@b7fc465, 2131624145=android.view.AbsSavedState$1@b7fc465, 2131624146=android.view.AbsSavedState$1@b7fc465, 2131624147=android.support.v7.widget.RecyclerView$SavedState@14aab8b4, 2131624148=android.view.AbsSavedState$1@b7fc465, 2131624149=android.view.AbsSavedState$1@b7fc465}
+        mContainer=android.support.v4.view.ViewPager{32081d33 VFED.... ........ 0,274-720,1392 #7f0e0094 app:id/container}
+        mView=android.widget.LinearLayout{ecc28f0 V.E..... ........ 0,0-720,1118}
+        mInnerView=android.widget.LinearLayout{ecc28f0 V.E..... ........ 0,0-720,1118}
+        Child FragmentManager{202facdd in CurrentChatListFragment{a58edc6}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+            mContainer=android.support.v4.app.Fragment$1@ae62052
+            mParent=CurrentChatListFragment{a58edc6 #0 id=0x7f0e0094 android:switcher:2131624084:0}
+            mCurState=2 mStateSaved=true mDestroyed=false
+      #1: CompanyFragment{1340ef23 #1 id=0x7f0e0094 android:switcher:2131624084:1}
+        mFragmentId=#7f0e0094 mContainerId=#7f0e0094 mTag=android:switcher:2131624084:1
+        mState=2 mIndex=1 mWho=android:fragment:1 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{1be837a1 in HostCallbacks{2d73c187}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+        mSavedViewState={2131624144=android.view.AbsSavedState$1@b7fc465, 2131624145=android.view.AbsSavedState$1@b7fc465, 2131624146=android.view.AbsSavedState$1@b7fc465, 2131624147=android.support.v7.widget.RecyclerView$SavedState@1394ac20, 2131624148=android.view.AbsSavedState$1@b7fc465, 2131624149=android.view.AbsSavedState$1@b7fc465}
+        mContainer=android.support.v4.view.ViewPager{32081d33 VFED.... ........ 0,274-720,1392 #7f0e0094 app:id/container}
+        mView=android.widget.LinearLayout{2d504309 V.E..... ........ 720,0-1440,1118}
+        mInnerView=android.widget.LinearLayout{2d504309 V.E..... ........ 720,0-1440,1118}
+        Child FragmentManager{237f39d9 in CompanyFragment{1340ef23}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+            mContainer=android.support.v4.app.Fragment$1@37a1ef9e
+            mParent=CompanyFragment{1340ef23 #1 id=0x7f0e0094 android:switcher:2131624084:1}
+            mCurState=2 mStateSaved=true mDestroyed=false
+      #2: FavoriteListFragment{39295a7f #2 id=0x7f0e0094 android:switcher:2131624084:2}
+        mFragmentId=#7f0e0094 mContainerId=#7f0e0094 mTag=android:switcher:2131624084:2
+        mState=2 mIndex=2 mWho=android:fragment:2 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=false mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=false
+        mFragmentManager=FragmentManager{1be837a1 in HostCallbacks{2d73c187}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+        mSavedViewState={2131624144=android.view.AbsSavedState$1@b7fc465, 2131624145=android.view.AbsSavedState$1@b7fc465, 2131624146=android.view.AbsSavedState$1@b7fc465, 2131624147=android.support.v7.widget.RecyclerView$SavedState@2d686a4c, 2131624148=android.view.AbsSavedState$1@b7fc465, 2131624149=android.view.AbsSavedState$1@b7fc465}
+        mContainer=android.support.v4.view.ViewPager{32081d33 VFED.... ........ 0,274-720,1392 #7f0e0094 app:id/container}
+        mView=android.widget.LinearLayout{a186dec V.E..... ........ 1440,0-2160,1118}
+        mInnerView=android.widget.LinearLayout{a186dec V.E..... ........ 1440,0-2160,1118}
+        Child FragmentManager{28a09a95 in FavoriteListFragment{39295a7f}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+            mContainer=android.support.v4.app.Fragment$1@1fb967aa
+            mParent=FavoriteListFragment{39295a7f #2 id=0x7f0e0094 android:switcher:2131624084:2}
+            mCurState=2 mStateSaved=true mDestroyed=false
+      #3: SettingFragment{17031f9b #3 id=0x7f0e0094 android:switcher:2131624084:3}
+        mFragmentId=#7f0e0094 mContainerId=#7f0e0094 mTag=android:switcher:2131624084:3
+        mState=2 mIndex=3 mWho=android:fragment:3 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=false mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=false
+        mFragmentManager=FragmentManager{1be837a1 in HostCallbacks{2d73c187}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+        mSavedViewState={2131624105=android.view.AbsSavedState$1@b7fc465, 2131624106=android.view.AbsSavedState$1@b7fc465}
+        mContainer=android.support.v4.view.ViewPager{32081d33 VFED.... ........ 0,274-720,1392 #7f0e0094 app:id/container}
+        mView=android.widget.ScrollView{8fd9349 VFED.V.. ........ 2160,0-2880,1118}
+        mInnerView=android.widget.ScrollView{8fd9349 VFED.V.. ........ 2160,0-2880,1118}
+        Child FragmentManager{cd7df38 in SettingFragment{17031f9b}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+            mContainer=android.support.v4.app.Fragment$1@1b3d4b11
+            mParent=SettingFragment{17031f9b #3 id=0x7f0e0094 android:switcher:2131624084:3}
+            mCurState=2 mStateSaved=true mDestroyed=false
+    Added Fragments:
+      #0: CurrentChatListFragment{a58edc6 #0 id=0x7f0e0094 android:switcher:2131624084:0}
+      #1: CompanyFragment{1340ef23 #1 id=0x7f0e0094 android:switcher:2131624084:1}
+      #2: FavoriteListFragment{39295a7f #2 id=0x7f0e0094 android:switcher:2131624084:2}
+      #3: SettingFragment{17031f9b #3 id=0x7f0e0094 android:switcher:2131624084:3}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@2d73c187
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{2042c789 I.E..... ... 0,0-720,1280}
+        android.widget.LinearLayout{3230e38e V.E..... ... 0,0-720,1280}
+          android.view.ViewStub{11fa57af G.E..... ... 0,0-0,0 #102037a}
+          android.widget.FrameLayout{2ea8d7bc V.E..... ... 0,0-720,1280}
+            android.support.v7.widget.FitWindowsLinearLayout{27075345 V.E..... ... 0,0-720,1280 #7f0e007c app:id/action_bar_root}
+              android.support.v7.widget.ViewStubCompat{5dbaa9a G.E..... ... 0,0-0,0 #7f0e007d app:id/action_mode_bar_stub}
+              android.support.v7.widget.ContentFrameLayout{399ebfcb V.E..... ... 0,0-720,1280 #1020002 android:id/content}
+                android.support.design.widget.CoordinatorLayout{909b3a8 V.ED.... ... 0,0-720,1280 #7f0e0090 app:id/main_content}
+                  android.support.design.widget.AppBarLayout{29cedec1 V.E..... ... 0,50-720,274 #7f0e0091 app:id/appbar}
+                    android.support.v7.widget.Toolbar{1f39d666 V.E..... ... 0,16-720,128 #7f0e0092 app:id/toolbar}
+                      android.widget.TextView{23d78da7 V.ED.... ... 32,28-199,83}
+                      android.support.v7.widget.ActionMenuView{261a6254 V.E..... ... 528,0-720,112}
+                        android.support.v7.view.menu.ActionMenuItemView{2429a5fd VFED..CL ... 0,8-96,104 #7f0e0145 app:id/action_search}
+                        android.support.v7.view.menu.ActionMenuItemView{34fcf2f2 VFED..CL ... 96,8-192,104 #7f0e0146 app:id/action_status}
+                    android.support.design.widget.TabLayout{3ae55d43 VFED.... ... 0,128-720,224 #7f0e0093 app:id/tabs}
+                      android.support.design.widget.TabLayout$SlidingTabStrip{1ae54fc0 V.ED.... ... 0,0-720,96}
+                        android.support.design.widget.TabLayout$TabView{6fa4f9 VFE...C. ... 0,0-180,96}
+                          android.support.v7.widget.AppCompatImageView{5634c3e G.ED.... ... 0,0-0,0}
+                          android.support.v7.widget.AppCompatTextView{2768a9f G.ED.... ... 0,0-0,0}
+                          android.widget.RelativeLayout{afa7ec V.E..... ... 24,26-156,69}
+                            android.support.v7.widget.AppCompatImageView{1c7c97b5 V.ED.... ... 44,0-88,43 #7f0e00ba app:id/tab_icon}
+                        android.support.design.widget.TabLayout$TabView{2243ee4a VFE...C. .S. 180,0-360,96}
+                          android.support.v7.widget.AppCompatImageView{20c331bb V.ED.... .S. 66,24-114,72}
+                          android.support.v7.widget.AppCompatTextView{1de556d8 G.ED.... .S. 0,0-0,0}
+                        android.support.design.widget.TabLayout$TabView{1e2bfa31 VFE...C. ... 360,0-540,96}
+                          android.support.v7.widget.AppCompatImageView{31daa516 V.ED.... ... 66,24-114,72}
+                          android.support.v7.widget.AppCompatTextView{1d692e97 G.ED.... ... 0,0-0,0}
+                        android.support.design.widget.TabLayout$TabView{31c50884 VFE...C. ... 540,0-720,96}
+                          android.support.v7.widget.AppCompatImageView{1395086d V.ED.... ... 66,24-114,72}
+                          android.support.v7.widget.AppCompatTextView{3053fca2 G.ED.... ... 0,0-0,0}
+                  android.support.v4.view.ViewPager{32081d33 VFED.... ... 0,274-720,1392 #7f0e0094 app:id/container}
+                    android.widget.LinearLayout{ecc28f0 V.E..... ... 0,0-720,1118}
+                      android.widget.LinearLayout{1b06be69 G.E..... ... 0,0-0,0 #7f0e00d0 app:id/recycler_header}
+                      android.widget.RelativeLayout{3e1940ee V.E..... ... 0,0-720,1118 #7f0e00d1 app:id/list_content_rl}
+                        android.support.v4.widget.SwipeRefreshLayout{89d598f V.ED.... ... 0,0-720,1118 #7f0e00d2 app:id/swipeRefreshLayout}
+                          android.support.v7.widget.RecyclerView{ec3d825 VFED.V.. ... 0,0-720,1118 #7f0e00d3 app:id/rv_main}
+                            android.widget.LinearLayout{6dc7dfa V.E...CL ... 0,0-720,141}
+                              android.widget.LinearLayout{39fffab V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{396217b8 V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{34482608 V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{307ed1a1 V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{d647fc6 V.ED.... ... 0,0-386,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{2bdceb87 V.ED.... ... 394,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{2e3d9ab4 V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{1095e6dd V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{2818d252 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{2012b923 G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{3073ae20 V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{2d0f13d9 V.E...CL ... 0,141-720,282}
+                              android.widget.LinearLayout{3a4dc19e V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{224dc47f V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{6358c4c V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{4541495 V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{365059aa V.ED.... ... 0,0-348,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{1f04299b V.ED.... ... 356,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{2552138 V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{17ae6511 V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{34326676 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{9f1c477 G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{10d718e4 V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{1983414d V.E...CL ... 0,282-720,423}
+                              android.widget.LinearLayout{29567402 V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{2dfcf764 V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{2cb43113 V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{375edf50 V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{34fa549 V.ED.... ... 0,0-348,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{cbbce4e V.ED.... ... 356,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{326cb6f V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{305aa07c V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{f644d05 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{340a815a G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{17eaf8b V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{cef4868 V.E...CL ... 0,423-720,564}
+                              android.widget.LinearLayout{1261b481 V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{32b7b682 V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{355f5926 V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{2026b967 V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{9a48314 V.ED.... ... 0,0-348,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{307417bd V.ED.... ... 356,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{19d7e1b2 V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{95b8503 V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{1d0bc80 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{2a4f72b9 G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{2cde66fe V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{4876e5f V.E...CL ... 0,564-720,705}
+                              android.widget.LinearLayout{2dc520ac V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{274425d0 V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{3deb8175 V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{3435f50a V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{3b5e917b V.ED.... ... 0,0-348,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{17b99b98 V.ED.... ... 356,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{16ffbff1 V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{1cc657d6 V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{34baca57 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{3378d944 G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{b3f6a2d V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{28281b62 V.E...CL ... 0,705-720,846}
+                              android.widget.LinearLayout{2137b4f3 V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{3b2eb8ce V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{4cc45b0 V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{1e557c29 V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{26f08bae V.ED.... ... 0,0-349,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{158ead4f V.ED.... ... 357,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{a80cdc V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{9a0b1e5 V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{bbdb4ba V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{eb2cf6b G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{15171ac8 V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{3af8761 V.E...CL ... 0,846-720,987}
+                              android.widget.LinearLayout{23026286 V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{38dcefc V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{1bacf747 V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{3e71b74 V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{37c389d V.ED.... ... 0,0-327,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{3b922112 V.ED.... ... 335,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{937c0e3 V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{3c147ae0 V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{3b68c199 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{bed3c5e G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{2b1b883f V.ED.... ... 0,140-720,141}
+                            android.widget.LinearLayout{1df6650c V.E...CL ... 0,987-720,1128}
+                              android.widget.LinearLayout{7fade55 V.E..... ... 0,0-720,140}
+                                android.support.v7.widget.AppCompatImageView{b0193da V.ED.... ... 20,20-120,120 #7f0e00af app:id/avatar_imv}
+                                android.widget.LinearLayout{204cc06a V.E..... ... 140,20-700,113}
+                                  android.widget.LinearLayout{1f4a695b V.E..... ... 0,0-560,53}
+                                    android.support.v7.widget.AppCompatTextView{162ac5f8 V.ED.... ... 0,0-328,53 #7f0e0129 app:id/user_name_tv}
+                                    android.support.v7.widget.AppCompatTextView{e580ad1 V.ED.... ... 336,11-560,44 #7f0e012b app:id/date_tv}
+                                  android.widget.LinearLayout{1d6e7936 V.E..... ... 0,53-560,93}
+                                    android.support.v7.widget.AppCompatTextView{26bc4037 V.ED.... ... 0,4-524,40 #7f0e012a app:id/content_tv}
+                                    android.widget.RelativeLayout{3b4249a4 V.E..... ... 524,4-560,40 #7f0e012d app:id/badge_layout}
+                                      android.support.v7.widget.AppCompatImageView{681830d G.ED.... ... 0,0-0,0 #7f0e00a8 app:id/image_badge}
+                              android.view.View{2420f2c2 V.ED.... ... 0,140-720,141}
+                          android.support.v4.widget.CircleImageView{2fe2e41c G.ED.... ... 320,-80-400,0}
+                        android.support.v7.widget.AppCompatTextView{300aa8d3 G.ED.... ... 0,0-0,0 #7f0e00d4 app:id/no_item_found}
+                      android.widget.LinearLayout{1a2c5c10 G.E..... ... 0,0-0,0 #7f0e00d5 app:id/recycler_footer}
+                    android.widget.LinearLayout{2d504309 V.E..... ... 720,0-1440,1118}
+                      android.widget.LinearLayout{218f790e G.E..... ... 0,0-0,0 #7f0e00d0 app:id/recycler_header}
+                      android.widget.RelativeLayout{2fccff2f V.E..... ... 0,0-720,1118 #7f0e00d1 app:id/list_content_rl}
+                        android.support.v4.widget.SwipeRefreshLayout{1d63293c V.ED.... ... 0,0-720,1118 #7f0e00d2 app:id/swipeRefreshLayout}
+                          android.support.v7.widget.RecyclerView{184e181a VFED.V.. F.. 0,0-720,1118 #7f0e00d3 app:id/rv_main}
+                            android.widget.LinearLayout{22b45f4b V.E..... ... 0,-2810-720,1127}
+                              android.widget.LinearLayout{3ad79d28 V.E..... ... 0,0-720,3936 #7f0e012e app:id/favorite_lnl}
+                                android.widget.LinearLayout{34a04a41 V.E...C. ... 20,20-700,3916 #7f0e012f app:id/mainParent}
+                                  android.support.v7.widget.AppCompatImageView{2e259be6 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                  android.widget.LinearLayout{1567a527 V.E..... ... 36,20-680,3896 #7f0e0130 app:id/subMain}
+                                    android.widget.RelativeLayout{149d63d4 V.E..... ... 8,0-644,46}
+                                      android.support.v7.widget.AppCompatTextView{566497d V.ED.... ... 8,10-210,46 #7f0e0131 app:id/office_title}
+                                      android.support.v7.widget.AppCompatCheckBox{a9f9072 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                    android.widget.LinearLayout{e1f6cc3 V.E..... ... 8,46-644,3876 #7f0e0132 app:id/lnl_child}
+                                      android.widget.LinearLayout{3856e940 V.E...C. ... 0,0-636,158 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{1f930079 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{125241be V.E..... ... 36,20-636,158 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{3402121f V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{2961596c V.ED.... ... 8,10-60,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{1d3a2b35 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{aecbbca V.E..... ... 8,46-600,138 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{103fb13b V.E...C. ... 0,0-592,92 #7f0e00d7 app:id/main}
+                                              android.widget.RelativeLayout{21c0a058 V.E..... ... 0,22-68,90}
+                                                android.support.v7.widget.AppCompatImageView{147fb256 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                android.support.v7.widget.AppCompatImageView{2bef45b1 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                              android.widget.LinearLayout{3402ca96 V.E..... ... 68,20-382,92}
+                                                android.support.v7.widget.AppCompatTextView{4ee2617 V.ED.... ... 8,0-170,36 #7f0e00e8 app:id/name}
+                                                android.support.v7.widget.AppCompatTextView{35cb6a04 V.ED.... ... 8,36-150,72 #7f0e00e9 app:id/positon}
+                                              android.widget.RelativeLayout{25018bed V.E..... ... 382,56-592,56}
+                                                android.support.v7.widget.AppCompatTextView{2098fa22 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                android.support.v7.widget.AppCompatCheckBox{15a50cb3 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{6972270 V.E...C. ... 0,158-636,316 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{2d77f9e9 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{1d70966e V.E..... ... 36,20-636,158 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{1dd9c10f V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{2f23f59c V.ED.... ... 8,10-308,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{19cd4ba5 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{3013ab7a V.E..... ... 8,46-600,138 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{10fb5f2b V.E...C. ... 0,0-592,92 #7f0e00d7 app:id/main}
+                                              android.widget.RelativeLayout{1848cf88 V.E..... ... 0,22-68,90}
+                                                android.support.v7.widget.AppCompatImageView{273952d7 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                android.support.v7.widget.AppCompatImageView{116bfd21 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                              android.widget.LinearLayout{3aa10546 V.E..... ... 68,20-382,92}
+                                                android.support.v7.widget.AppCompatTextView{204ec307 V.ED.... ... 8,0-156,36 #7f0e00e8 app:id/name}
+                                                android.support.v7.widget.AppCompatTextView{1f5f5c34 V.ED.... ... 8,36-163,72 #7f0e00e9 app:id/positon}
+                                              android.widget.RelativeLayout{2dea4a5d V.E..... ... 382,56-592,56}
+                                                android.support.v7.widget.AppCompatTextView{10582fd2 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                android.support.v7.widget.AppCompatCheckBox{228a88a3 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{3bb007a0 V.E...C. ... 0,316-636,566 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{12062f59 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{6e5771e V.E..... ... 36,20-636,250 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{19330bff V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{e9dfdcc V.ED.... ... 8,10-292,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{34616815 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{106de72a V.E..... ... 8,46-600,230 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{2fb6691b V.E...C. ... 0,0-592,92 #7f0e00d7 app:id/main}
+                                              android.widget.RelativeLayout{a932ab8 V.E..... ... 0,22-68,90}
+                                                android.support.v7.widget.AppCompatImageView{13eff7c4 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                android.support.v7.widget.AppCompatImageView{19fd7091 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                              android.widget.LinearLayout{2a5b4bf6 V.E..... ... 68,20-382,92}
+                                                android.support.v7.widget.AppCompatTextView{10487bf7 V.ED.... ... 8,0-144,36 #7f0e00e8 app:id/name}
+                                                android.support.v7.widget.AppCompatTextView{1cac3a64 V.ED.... ... 8,36-119,72 #7f0e00e9 app:id/positon}
+                                              android.widget.RelativeLayout{3c7784cd V.E..... ... 382,56-592,56}
+                                                android.support.v7.widget.AppCompatTextView{2ce83182 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                android.support.v7.widget.AppCompatCheckBox{2a7ee093 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                            android.widget.LinearLayout{52498d0 V.E...C. ... 0,92-592,184 #7f0e00d7 app:id/main}
+                                              android.widget.RelativeLayout{1804a0c9 V.E..... ... 0,22-68,90}
+                                                android.support.v7.widget.AppCompatImageView{4266ad V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                android.support.v7.widget.AppCompatImageView{76be3ce V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                              android.widget.LinearLayout{7acf2ef V.E..... ... 68,20-382,92}
+                                                android.support.v7.widget.AppCompatTextView{a8271fc V.ED.... ... 8,0-202,36 #7f0e00e8 app:id/name}
+                                                android.support.v7.widget.AppCompatTextView{1d2d8085 V.ED.... ... 8,36-149,72 #7f0e00e9 app:id/positon}
+                                              android.widget.RelativeLayout{35666eda V.E..... ... 382,56-592,56}
+                                                android.support.v7.widget.AppCompatTextView{8ffcf0b G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                android.support.v7.widget.AppCompatCheckBox{3382b1e8 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{24aa001 V.E...C. ... 0,566-636,1316 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{384c9ea6 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{2b5a50e7 V.E..... ... 36,20-636,750 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{33c50494 V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{30c03b3d V.ED.... ... 8,10-193,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{2213ff32 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{2cf11483 V.E..... ... 8,46-600,730 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{3737d600 V.E...C. ... 0,0-592,342 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{9fa4e39 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{3c7edc7e V.E..... ... 36,20-592,342 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{30a675df V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{3844522c V.ED.... ... 8,10-304,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{2894f5 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{1928428a V.E..... ... 8,46-556,322 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{3b2690fb V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{cba6518 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{2e5c9de2 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{3eba8b71 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{164ffd56 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{25c341d7 V.ED.... ... 8,0-129,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{157cbac4 V.ED.... ... 8,36-211,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{1e9b6dad V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{246698e2 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{23102473 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{3cecbf30 V.E...C. ... 0,92-548,184 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{222e37a9 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{34564573 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{1859612e V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{313e94cf V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{30169e5c V.ED.... ... 8,0-192,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{3509a565 V.ED.... ... 8,36-211,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{169e623a V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{1639aeeb G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{3e9d4448 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{2b7432e1 V.E...C. ... 0,184-548,276 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{23006806 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{3376be65 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{1824ec7 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{d665cf4 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{3da01c1d V.ED.... ... 8,0-153,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{212afe92 V.ED.... ... 8,36-123,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{2fcb1063 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{8065460 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{3aa75d19 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                            android.widget.LinearLayout{11f671de V.E...C. ... 0,342-592,684 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{2c544fbf V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{3cec568c V.E..... ... 36,20-592,342 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{2f47b1d5 V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{1973cdea V.ED.... ... 8,10-283,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{c0828db GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{104e4f78 V.E..... ... 8,46-556,322 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{3c5e9651 V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{19b8deb6 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{351bf148 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{3e5677b7 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{31d4eb24 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{1925468d V.ED.... ... 8,0-146,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{2e6c3042 V.ED.... ... 8,36-123,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{fd0d853 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{1079590 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{3d2cbe89 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{15110e8e V.E...C. ... 0,92-548,184 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{3a86a6af V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{619dbe1 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{c787abc V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{2e19ba45 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{e13859a V.ED.... ... 8,0-151,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{2020fecb V.ED.... ... 8,36-123,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{17b086a8 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{2d20b5c1 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{2946166 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{9bebca7 V.E...C. ... 0,184-548,276 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{13db6554 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{2b075d06 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{41ecfd V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{3af52df2 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{9907c43 V.ED.... ... 8,0-215,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{373382c0 V.ED.... ... 8,36-126,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{13455bf9 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{3224373e G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{1a34999f GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{1f2e0aec V.E...C. ... 0,1316-636,2158 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{2c76beb5 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{11a8894a V.E..... ... 36,20-636,842 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{17d330bb V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{2966e9d8 V.ED.... ... 8,10-271,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{31219131 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{226df016 V.E..... ... 8,46-600,822 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{2efa1d97 V.E...C. ... 0,0-592,92 #7f0e00d7 app:id/main}
+                                              android.widget.RelativeLayout{2f4ccb84 V.E..... ... 0,22-68,90}
+                                                android.support.v7.widget.AppCompatImageView{1b2c4392 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                android.support.v7.widget.AppCompatImageView{35cd0f6d V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                              android.widget.LinearLayout{3e50f7a2 V.E..... ... 68,20-382,92}
+                                                android.support.v7.widget.AppCompatTextView{1d38fc33 V.ED.... ... 8,0-193,36 #7f0e00e8 app:id/name}
+                                                android.support.v7.widget.AppCompatTextView{108d1bf0 V.ED.... ... 8,36-126,72 #7f0e00e9 app:id/positon}
+                                              android.widget.RelativeLayout{16383569 V.E..... ... 382,56-592,56}
+                                                android.support.v7.widget.AppCompatTextView{e6aebee G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                android.support.v7.widget.AppCompatCheckBox{1f7d288f GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                            android.widget.LinearLayout{3840071c V.E...C. ... 0,92-592,434 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{1115bf25 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{221dd8fa V.E..... ... 36,20-592,342 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{2a2dbeab V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{8d47908 V.ED.... ... 8,10-278,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{238828a1 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{2ae08ac6 V.E..... ... 8,46-556,322 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{7079a87 V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{1abc1db4 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{235b7163 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{205daddd V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{28ca8d52 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{34b95823 V.ED.... ... 8,0-135,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{39d76120 V.ED.... ... 8,36-132,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{3f0c4ad9 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{13e02c9e G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{243f537f GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{da16f4c V.E...C. ... 0,92-548,184 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{1e6dbb95 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{da160 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{e1e74aa V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{2fffa89b V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{181c3438 V.ED.... ... 8,0-181,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{373b7c11 V.ED.... ... 8,36-119,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{2a473176 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{28a63377 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{377c5be4 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{3a4ac84d V.E...C. ... 0,184-548,276 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{136cef02 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{1d392619 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{13c09013 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{16955250 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{16889c49 V.ED.... ... 8,0-195,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{213ef94e V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{381a1a6f V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{3805437c G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{22b5b405 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                            android.widget.LinearLayout{25155c5a V.E...C. ... 0,434-592,776 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{13d7ee8b V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{8211b68 V.E..... ... 36,20-592,342 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{26e28b81 V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{3bbce426 V.ED.... ... 8,10-283,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{1854e867 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{21a08614 V.E..... ... 8,46-556,322 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{1ab5ebd V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{30031cb2 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{2b4706de V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{7bda403 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{3109ef80 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{253429b9 V.ED.... ... 8,0-162,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{3a0251fe V.ED.... ... 8,36-119,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{106c7d5f V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{22de83ac G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{27e4a875 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{272d900a V.E...C. ... 0,92-548,184 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{205907b V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{3f09c0bf V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{8862e98 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{24e456f1 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{371ca2d6 V.ED.... ... 8,0-145,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{3852b957 V.ED.... ... 8,36-123,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{1ffb9c44 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{2856712d G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{39181662 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{17df93f3 V.E...C. ... 0,184-548,276 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{2a3838b0 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{229b738c V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{2355f329 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{366536ae V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{38557c4f V.ED.... ... 8,0-82,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{3c602fdc V.ED.... ... 8,36-119,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{23b198e5 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{35520fba G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{18978e6b GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{37ae6dc8 V.E...C. ... 0,2158-636,3606 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{b67de61 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{21016d86 V.E..... ... 36,20-636,1448 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{389ea647 V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{14209e74 V.ED.... ... 8,10-224,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{3e2ff9d GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{21f6dc12 V.E..... ... 8,46-600,1428 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{35155fe3 V.E...C. ... 0,0-592,158 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{29e32de0 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{28f4f899 V.E..... ... 36,20-592,158 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{3362a75e V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{b4173f V.ED.... ... 8,10-292,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{257d480c GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{27938555 V.E..... ... 8,46-556,138 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{12ddb6a V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{175ce85b V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{3ad0ad5 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{12bcd8f8 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{c5421d1 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{1ac64436 V.ED.... ... 8,0-204,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{6f7af37 V.ED.... ... 8,36-149,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{2a628ca4 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{3da80a0d G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{6aa6dc2 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                            android.widget.LinearLayout{2a0e07d3 V.E...C. ... 0,158-592,1224 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{e8dcf10 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{1dd83a09 V.E..... ... 36,20-592,1066 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{2b5a40e V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{30274e2f V.ED.... ... 8,10-200,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{21e8cc3c GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{10c16dc5 V.E..... ... 8,46-556,1046 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{3d2bf31a V.E...C. ... 0,0-548,342 #7f0e012f app:id/mainParent}
+                                                    android.support.v7.widget.AppCompatImageView{fe49e4b V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                                    android.widget.LinearLayout{25947028 V.E..... ... 36,20-548,342 #7f0e0130 app:id/subMain}
+                                                      android.widget.RelativeLayout{21502141 V.E..... ... 8,0-512,46}
+                                                        android.support.v7.widget.AppCompatTextView{128626e6 V.ED.... ... 8,10-283,46 #7f0e0131 app:id/office_title}
+                                                        android.support.v7.widget.AppCompatCheckBox{3edcd427 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                      android.widget.LinearLayout{9d466d4 V.E..... ... 8,46-512,322 #7f0e0132 app:id/lnl_child}
+                                                        android.widget.LinearLayout{2bc907d V.E...C. ... 0,0-504,92 #7f0e00d7 app:id/main}
+                                                          android.widget.RelativeLayout{1bfdcb72 V.E..... ... 0,22-68,90}
+                                                            android.support.v7.widget.AppCompatImageView{3fb8b2ea V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                            android.support.v7.widget.AppCompatImageView{b388bc3 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                          android.widget.LinearLayout{1d7b1c40 V.E..... ... 68,20-329,92}
+                                                            android.support.v7.widget.AppCompatTextView{2986b779 V.ED.... ... 8,0-199,36 #7f0e00e8 app:id/name}
+                                                            android.support.v7.widget.AppCompatTextView{1ad92cbe V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                          android.widget.RelativeLayout{330e211f V.E..... ... 329,56-504,56}
+                                                            android.support.v7.widget.AppCompatTextView{815bc6c G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                            android.support.v7.widget.AppCompatCheckBox{38325235 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                        android.widget.LinearLayout{c7756ca V.E...C. ... 0,92-504,184 #7f0e00d7 app:id/main}
+                                                          android.widget.RelativeLayout{157db03b V.E..... ... 0,22-68,90}
+                                                            android.support.v7.widget.AppCompatImageView{3323a9db V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                            android.support.v7.widget.AppCompatImageView{3ad83358 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                          android.widget.LinearLayout{3bc2dcb1 V.E..... ... 68,20-329,92}
+                                                            android.support.v7.widget.AppCompatTextView{331c1596 V.ED.... ... 8,0-183,36 #7f0e00e8 app:id/name}
+                                                            android.support.v7.widget.AppCompatTextView{198d1517 V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                          android.widget.RelativeLayout{4492d04 V.E..... ... 329,56-504,56}
+                                                            android.support.v7.widget.AppCompatTextView{33f792ed G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                            android.support.v7.widget.AppCompatCheckBox{1f7bf522 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                        android.widget.LinearLayout{26c3ebb3 V.E...C. ... 0,184-504,276 #7f0e00d7 app:id/main}
+                                                          android.widget.RelativeLayout{32ae1570 V.E..... ... 0,22-68,90}
+                                                            android.support.v7.widget.AppCompatImageView{1e523c78 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                            android.support.v7.widget.AppCompatImageView{234770e9 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                          android.widget.LinearLayout{708416e V.E..... ... 68,20-329,92}
+                                                            android.support.v7.widget.AppCompatTextView{b87900f V.ED.... ... 8,0-200,36 #7f0e00e8 app:id/name}
+                                                            android.support.v7.widget.AppCompatTextView{3137189c V.ED.... ... 8,36-123,72 #7f0e00e9 app:id/positon}
+                                                          android.widget.RelativeLayout{229d32a5 V.E..... ... 329,56-504,56}
+                                                            android.support.v7.widget.AppCompatTextView{32fb067a G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                            android.support.v7.widget.AppCompatCheckBox{2d371e2b GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                  android.widget.LinearLayout{beb2288 V.E...C. ... 0,342-548,1000 #7f0e012f app:id/mainParent}
+                                                    android.support.v7.widget.AppCompatImageView{34d35421 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                                    android.widget.LinearLayout{14231046 V.E..... ... 36,20-548,658 #7f0e0130 app:id/subMain}
+                                                      android.widget.RelativeLayout{1e077207 V.E..... ... 8,0-512,46}
+                                                        android.support.v7.widget.AppCompatTextView{653df34 V.ED.... ... 8,10-300,46 #7f0e0131 app:id/office_title}
+                                                        android.support.v7.widget.AppCompatCheckBox{15f0115d GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                      android.widget.LinearLayout{76fead2 V.E..... ... 8,46-512,638 #7f0e0132 app:id/lnl_child}
+                                                        android.widget.LinearLayout{349f27a3 V.E...C. ... 0,0-504,342 #7f0e012f app:id/mainParent}
+                                                          android.support.v7.widget.AppCompatImageView{30e9baa0 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                                          android.widget.LinearLayout{2216659 V.E..... ... 36,20-504,342 #7f0e0130 app:id/subMain}
+                                                            android.widget.RelativeLayout{173de21e V.E..... ... 8,0-468,46}
+                                                              android.support.v7.widget.AppCompatTextView{1729aff V.ED.... ... 8,10-311,46 #7f0e0131 app:id/office_title}
+                                                              android.support.v7.widget.AppCompatCheckBox{293fe0cc GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                            android.widget.LinearLayout{30790f15 V.E..... ... 8,46-468,322 #7f0e0132 app:id/lnl_child}
+                                                              android.widget.LinearLayout{562022a V.E...C. ... 0,0-460,92 #7f0e00d7 app:id/main}
+                                                                android.widget.RelativeLayout{3ddfe81b V.E..... ... 0,22-68,90}
+                                                                  android.support.v7.widget.AppCompatImageView{34407f51 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                                  android.support.v7.widget.AppCompatImageView{30f03db8 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                                android.widget.LinearLayout{3d688791 V.E..... ... 68,20-303,92}
+                                                                  android.support.v7.widget.AppCompatTextView{29f616f6 V.ED.... ... 8,0-196,36 #7f0e00e8 app:id/name}
+                                                                  android.support.v7.widget.AppCompatTextView{110aeaf7 V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                                android.widget.RelativeLayout{7477d64 V.E..... ... 303,56-460,56}
+                                                                  android.support.v7.widget.AppCompatTextView{fd0bcd G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                                  android.support.v7.widget.AppCompatCheckBox{32e4ac82 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                              android.widget.LinearLayout{6793f93 V.E...C. ... 0,92-460,184 #7f0e00d7 app:id/main}
+                                                                android.widget.RelativeLayout{31b10bd0 V.E..... ... 0,22-68,90}
+                                                                  android.support.v7.widget.AppCompatImageView{2fe713b6 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                                  android.support.v7.widget.AppCompatImageView{cdb97c9 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                                android.widget.LinearLayout{10350ece V.E..... ... 68,20-303,92}
+                                                                  android.support.v7.widget.AppCompatTextView{126e41ef V.ED.... ... 8,0-210,36 #7f0e00e8 app:id/name}
+                                                                  android.support.v7.widget.AppCompatTextView{1ee314fc V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                                android.widget.RelativeLayout{dfce785 V.E..... ... 303,56-460,56}
+                                                                  android.support.v7.widget.AppCompatTextView{191749da G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                                  android.support.v7.widget.AppCompatCheckBox{70e0b GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                              android.widget.LinearLayout{10ca84e8 V.E...C. ... 0,184-460,276 #7f0e00d7 app:id/main}
+                                                                android.widget.RelativeLayout{e297701 V.E..... ... 0,22-68,90}
+                                                                  android.support.v7.widget.AppCompatImageView{22908b7 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                                  android.support.v7.widget.AppCompatImageView{35b029a6 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                                android.widget.LinearLayout{25167fe7 V.E..... ... 68,20-303,92}
+                                                                  android.support.v7.widget.AppCompatTextView{39370794 V.ED.... ... 8,0-224,36 #7f0e00e8 app:id/name}
+                                                                  android.support.v7.widget.AppCompatTextView{1135823d V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                                android.widget.RelativeLayout{19a53a32 V.E..... ... 303,56-460,56}
+                                                                  android.support.v7.widget.AppCompatTextView{37c13383 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                                  android.support.v7.widget.AppCompatCheckBox{35470900 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                        android.widget.LinearLayout{9fd0539 V.E...C. ... 0,342-504,592 #7f0e012f app:id/mainParent}
+                                                          android.support.v7.widget.AppCompatImageView{1b68c77e V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                                          android.widget.LinearLayout{21d984df V.E..... ... 36,20-504,250 #7f0e0130 app:id/subMain}
+                                                            android.widget.RelativeLayout{1393b52c V.E..... ... 8,0-468,46}
+                                                              android.support.v7.widget.AppCompatTextView{231fbbf5 V.ED.... ... 8,10-268,46 #7f0e0131 app:id/office_title}
+                                                              android.support.v7.widget.AppCompatCheckBox{3445dd8a GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                            android.widget.LinearLayout{2dfb8ffb V.E..... ... 8,46-468,230 #7f0e0132 app:id/lnl_child}
+                                                              android.widget.LinearLayout{111cf818 V.E...C. ... 0,0-460,92 #7f0e00d7 app:id/main}
+                                                                android.widget.RelativeLayout{177d2271 V.E..... ... 0,22-68,90}
+                                                                  android.support.v7.widget.AppCompatImageView{20aaa824 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                                  android.support.v7.widget.AppCompatImageView{352c4856 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                                android.widget.LinearLayout{2a6930d7 V.E..... ... 68,20-303,92}
+                                                                  android.support.v7.widget.AppCompatTextView{38f57dc4 V.ED.... ... 8,0-200,36 #7f0e00e8 app:id/name}
+                                                                  android.support.v7.widget.AppCompatTextView{167074ad V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                                android.widget.RelativeLayout{3c3c93e2 V.E..... ... 303,56-460,56}
+                                                                  android.support.v7.widget.AppCompatTextView{1da60373 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                                  android.support.v7.widget.AppCompatCheckBox{12aeb230 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                              android.widget.LinearLayout{2fccaea9 V.E...C. ... 0,92-460,184 #7f0e00d7 app:id/main}
+                                                                android.widget.RelativeLayout{37140c2e V.E..... ... 0,22-68,90}
+                                                                  android.support.v7.widget.AppCompatImageView{17bcbf8d V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                                  android.support.v7.widget.AppCompatImageView{28d363cf V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                                android.widget.LinearLayout{b84c15c V.E..... ... 68,20-303,92}
+                                                                  android.support.v7.widget.AppCompatTextView{3988c65 V.ED.... ... 8,0-165,36 #7f0e00e8 app:id/name}
+                                                                  android.support.v7.widget.AppCompatTextView{3dd8bd3a V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                                android.widget.RelativeLayout{33cc6deb V.E..... ... 303,56-460,56}
+                                                                  android.support.v7.widget.AppCompatTextView{64a9748 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                                  android.support.v7.widget.AppCompatCheckBox{318a89e1 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                            android.widget.LinearLayout{13057306 V.E...C. ... 0,1224-592,1382 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{3f01fdc7 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{3e15dff4 V.E..... ... 36,20-592,158 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{444e31d V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{13f5b992 V.ED.... ... 8,10-153,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{3716af63 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{27ab0760 V.E..... ... 8,46-556,138 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{14519419 V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{2631dcde V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{11c8b542 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{263adebf V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{3da9398c V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{1ede58d5 V.ED.... ... 8,0-223,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{2d7ae8ea V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{1f48a7db V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{23766278 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{c38ad51 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{1696a9b6 V.E...C. ... 0,3606-636,3830 #7f0e012f app:id/mainParent}
+                                        android.support.v7.widget.AppCompatImageView{3e9fe6b7 V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                        android.widget.LinearLayout{aeb2e24 V.E..... ... 36,20-636,224 #7f0e0130 app:id/subMain}
+                                          android.widget.RelativeLayout{2209cd8d V.E..... ... 8,0-600,46}
+                                            android.support.v7.widget.AppCompatTextView{2dbab42 V.ED.... ... 8,10-270,46 #7f0e0131 app:id/office_title}
+                                            android.support.v7.widget.AppCompatCheckBox{1cc23753 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                          android.widget.LinearLayout{8bf0890 V.E..... ... 8,46-600,204 #7f0e0132 app:id/lnl_child}
+                                            android.widget.LinearLayout{1d52b589 V.E...C. ... 0,0-592,158 #7f0e012f app:id/mainParent}
+                                              android.support.v7.widget.AppCompatImageView{207d398e V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                              android.widget.LinearLayout{eaef5af V.E..... ... 36,20-592,158 #7f0e0130 app:id/subMain}
+                                                android.widget.RelativeLayout{3b41dbc V.E..... ... 8,0-556,46}
+                                                  android.support.v7.widget.AppCompatTextView{30282145 V.ED.... ... 8,10-283,46 #7f0e0131 app:id/office_title}
+                                                  android.support.v7.widget.AppCompatCheckBox{3b97609a GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                                android.widget.LinearLayout{fff3dcb V.E..... ... 8,46-556,138 #7f0e0132 app:id/lnl_child}
+                                                  android.widget.LinearLayout{2a8359a8 V.E...C. ... 0,0-548,92 #7f0e00d7 app:id/main}
+                                                    android.widget.RelativeLayout{1f2e8cc1 V.E..... ... 0,22-68,90}
+                                                      android.support.v7.widget.AppCompatImageView{2cbb7953 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                                      android.support.v7.widget.AppCompatImageView{13faec66 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                                    android.widget.LinearLayout{32c1eba7 V.E..... ... 68,20-356,92}
+                                                      android.support.v7.widget.AppCompatTextView{1c886854 V.ED.... ... 8,0-208,36 #7f0e00e8 app:id/name}
+                                                      android.support.v7.widget.AppCompatTextView{3ad633fd V.ED.... ... 8,36-123,72 #7f0e00e9 app:id/positon}
+                                                    android.widget.RelativeLayout{3b968f2 V.E..... ... 356,56-548,56}
+                                                      android.support.v7.widget.AppCompatTextView{31179b43 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                                      android.support.v7.widget.AppCompatCheckBox{312db5c0 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                              android.view.View{305712f9 V.ED.... ... 0,3936-720,3937}
+                          android.support.v4.widget.CircleImageView{1a3106c5 G.ED.... ... 320,-80-400,0}
+                        android.support.v7.widget.AppCompatTextView{271223e G.ED.... ... 0,0-0,0 #7f0e00d4 app:id/no_item_found}
+                      android.widget.LinearLayout{3c8ea89f G.E..... ... 0,0-0,0 #7f0e00d5 app:id/recycler_footer}
+                    android.widget.LinearLayout{a186dec V.E..... ... 1440,0-2160,1118}
+                      android.widget.LinearLayout{2e6ce5b5 G.E..... ... 0,0-0,0 #7f0e00d0 app:id/recycler_header}
+                      android.widget.RelativeLayout{1159244a V.E..... ... 0,0-720,1118 #7f0e00d1 app:id/list_content_rl}
+                        android.support.v4.widget.SwipeRefreshLayout{273f2fbb V.ED.... ... 0,0-720,1118 #7f0e00d2 app:id/swipeRefreshLayout}
+                          android.support.v4.widget.CircleImageView{1c147cd8 G.ED.... ... 320,-80-400,0}
+                          android.support.v7.widget.RecyclerView{19d32831 VFED.V.. ... 0,0-720,1118 #7f0e00d3 app:id/rv_main}
+                            android.widget.LinearLayout{1c0d3b16 V.E..... ... 0,0-720,383}
+                              android.widget.LinearLayout{2a70c97 V.E..... ... 0,0-720,382 #7f0e012e app:id/favorite_lnl}
+                                android.widget.LinearLayout{1ac08e84 V.E...C. ... 20,20-700,362 #7f0e012f app:id/mainParent}
+                                  android.support.v7.widget.AppCompatImageView{d81166d V.ED..C. ... 0,34-36,60 #7f0e0069 app:id/icon}
+                                  android.widget.LinearLayout{1a19f2a2 V.E..... ... 36,20-680,342 #7f0e0130 app:id/subMain}
+                                    android.widget.RelativeLayout{1045db33 V.E..... ... 8,0-644,46}
+                                      android.support.v7.widget.AppCompatTextView{32fa0ef0 V.ED.... ... 8,10-311,46 #7f0e0131 app:id/office_title}
+                                      android.support.v7.widget.AppCompatCheckBox{22a5ac69 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                    android.widget.LinearLayout{3d4896ee V.E..... ... 8,46-644,322 #7f0e0132 app:id/lnl_child}
+                                      android.widget.LinearLayout{1ff8f78f V.E...C. ... 0,0-636,92 #7f0e00d7 app:id/main}
+                                        android.widget.RelativeLayout{92a1c V.E..... ... 0,22-68,90}
+                                          android.support.v7.widget.AppCompatImageView{1d60ef2c V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                          android.support.v7.widget.AppCompatImageView{3c63a625 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                        android.widget.LinearLayout{38ab33fa V.E..... ... 68,20-408,92}
+                                          android.support.v7.widget.AppCompatTextView{38177dab V.ED.... ... 8,0-196,36 #7f0e00e8 app:id/name}
+                                          android.support.v7.widget.AppCompatTextView{278ccc08 V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                        android.widget.RelativeLayout{134d7fa1 V.E..... ... 408,56-636,56}
+                                          android.support.v7.widget.AppCompatTextView{2c6895c6 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                          android.support.v7.widget.AppCompatCheckBox{234e4987 GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{826a0b4 V.E...C. ... 0,92-636,184 #7f0e00d7 app:id/main}
+                                        android.widget.RelativeLayout{3ca174dd V.E..... ... 0,22-68,90}
+                                          android.support.v7.widget.AppCompatImageView{332d6df5 V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                          android.support.v7.widget.AppCompatImageView{2484852 V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                        android.widget.LinearLayout{3bf723 V.E..... ... 68,20-408,92}
+                                          android.support.v7.widget.AppCompatTextView{26e71420 V.ED.... ... 8,0-210,36 #7f0e00e8 app:id/name}
+                                          android.support.v7.widget.AppCompatTextView{294581d9 V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                        android.widget.RelativeLayout{6fe979e V.E..... ... 408,56-636,56}
+                                          android.support.v7.widget.AppCompatTextView{2ecce27f G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                          android.support.v7.widget.AppCompatCheckBox{779524c GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                                      android.widget.LinearLayout{18836295 V.E...C. ... 0,184-636,276 #7f0e00d7 app:id/main}
+                                        android.widget.RelativeLayout{c388faa V.E..... ... 0,22-68,90}
+                                          android.support.v7.widget.AppCompatImageView{2256a78a V.ED..C. ... 0,0-68,68 #7f0e00af app:id/avatar_imv}
+                                          android.support.v7.widget.AppCompatImageView{3757279b V.ED.... ... 44,44-68,68 #7f0e00d8 app:id/status_imv}
+                                        android.widget.LinearLayout{1b0f4738 V.E..... ... 68,20-408,92}
+                                          android.support.v7.widget.AppCompatTextView{3a849311 V.ED.... ... 8,0-224,36 #7f0e00e8 app:id/name}
+                                          android.support.v7.widget.AppCompatTextView{1f67fc76 V.ED.... ... 8,36-56,72 #7f0e00e9 app:id/positon}
+                                        android.widget.RelativeLayout{776a277 V.E..... ... 408,56-636,56}
+                                          android.support.v7.widget.AppCompatTextView{320d9ee4 G.ED.... ... 0,0-0,0 #7f0e0133 app:id/status_tv}
+                                          android.support.v7.widget.AppCompatCheckBox{3e8e4f4d GFED..C. ... 0,0-0,0 #7f0e00ea app:id/row_check}
+                              android.view.View{214f6a02 V.ED.... ... 0,382-720,383}
+                        android.support.v7.widget.AppCompatTextView{20a8ef13 G.ED.... ... 0,0-0,0 #7f0e00d4 app:id/no_item_found}
+                      android.widget.LinearLayout{1c77c550 G.E..... ... 0,0-0,0 #7f0e00d5 app:id/recycler_footer}
+                    android.widget.ScrollView{8fd9349 VFED.V.. ... 2160,0-2880,1118}
+                      android.widget.LinearLayout{a4e244e V.E..... ... 20,0-700,426}
+                        android.support.v7.widget.AppCompatTextView{14a9696f V.ED.... ... 20,0-241,59}
+                        android.support.v7.widget.AppCompatTextView{251be67c V.ED.... ... 20,59-92,134 #7f0e00a9 app:id/product_version}
+                        android.view.View{d031b05 V.ED.... ... 20,134-680,135}
+                        android.support.v7.widget.AppCompatTextView{276c375a V.ED.... ... 20,135-107,194}
+                        android.support.v7.widget.AppCompatTextView{2b8d2d8b V.ED.... ... 20,194-230,269 #7f0e00aa app:id/product_user_id}
+                        android.view.View{137eee68 V.ED.... ... 20,269-680,270}
+                        android.support.v7.widget.AppCompatTextView{61f6281 V.ED.... ... 20,270-680,355}
+                        android.widget.LinearLayout{1c266f26 V.E..... ... 20,355-680,415}
+                          android.support.v7.widget.AppCompatImageView{f9f1767 V.ED.... ... 0,0-60,60}
+                          android.support.v7.widget.AppCompatTextView{20888914 V.ED.... ... 60,7-660,52}
+                        android.view.View{d5ea5bd V.ED.... ... 20,425-680,426}
+                  android.support.design.widget.FloatingActionButton{34fa57b2 GFED..C. ... 576,1136-688,1248 #7f0e0095 app:id/fab}
+        android.view.View{1afbc303 V.ED.... ... 0,0-720,50 #102002f android:id/statusBarBackground}
