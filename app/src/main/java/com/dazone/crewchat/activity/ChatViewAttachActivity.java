@@ -7,13 +7,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.dazone.crewchat.R;
 import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.dto.AttachDTO;
 import com.dazone.crewchat.dto.ChattingDto;
 import com.dazone.crewchat.dto.UserDto;
 import com.dazone.crewchat.interfaces.Urls;
-import com.dazone.crewchat.R;
 import com.dazone.crewchat.utils.CrewChatApplication;
 import com.dazone.crewchat.utils.ImageUtils;
 import com.dazone.crewchat.utils.Prefs;

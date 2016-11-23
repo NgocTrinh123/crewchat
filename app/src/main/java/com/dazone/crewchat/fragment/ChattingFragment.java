@@ -293,7 +293,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                                 message.setData(args);
                                 mHandler.sendMessage(message);
                             } else {
-                                if (listChatMessage != null && listChatMessage.size() == 0) {
+                                if (listChatMessage.size() == 0) {
                                     mHandler.obtainMessage(WHAT_CODE_EMPTY).sendToTarget();
                                 }
                             }
@@ -304,7 +304,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                     public void OnGetChatMessageFail(ErrorDto errorDto) {
                         isLoaded = true;
                         mHandler.obtainMessage(WHAT_CODE_HIDE_PROCESS).sendToTarget();
-                        if (listChatMessage != null && listChatMessage.size() == 0) {
+                        if (listChatMessage.size() == 0) {
                             mHandler.obtainMessage(WHAT_CODE_EMPTY).sendToTarget();
                         }
                     }

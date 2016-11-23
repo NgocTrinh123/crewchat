@@ -1,5 +1,8 @@
 package com.dazone.crewchat.ViewHolders;
 
+import android.app.DownloadManager;
+import android.content.Intent;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,18 +10,21 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.dazone.crewchat.R;
 import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.dto.AttachDTO;
 import com.dazone.crewchat.dto.ChattingDto;
 import com.dazone.crewchat.fragment.ChattingFragment;
 import com.dazone.crewchat.interfaces.Urls;
-import com.dazone.crewchat.R;
+import com.dazone.crewchat.utils.Constant;
 import com.dazone.crewchat.utils.CrewChatApplication;
 import com.dazone.crewchat.utils.ImageUtils;
 import com.dazone.crewchat.utils.Prefs;
 import com.dazone.crewchat.utils.TimeUtils;
 import com.dazone.crewchat.utils.Utils;
+
+import java.io.File;
 
 /**
  * Created by david on 12/25/15.
@@ -78,10 +84,14 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (dto != null) {
-                        AttachDTO attachDTO = dto.getAttachInfo();
-                        if (attachDTO != null) {
-                            String url = new Prefs().getServerSite() + Urls.URL_DOWNLOAD + "session=" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken() + "&no=" + attachDTO.getAttachNo();
+                    AttachDTO attachDTO = dto.getAttachInfo();
+                    if (attachDTO != null) {
+                        String url = new Prefs().getServerSite() + Urls.URL_DOWNLOAD + "session=" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken() + "&no=" + attachDTO.getAttachNo();
+                        String path = Environment.getExternalStorageDirectory() + Constant.pathDownload + "/" + attachDTO.getFileName();
+                        File file = new File(path);
+                        if (file.exists()) {
+                            BaseActivity.Instance.startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
+                        } else {
                             Utils.displayoDownloadFileDialog(BaseActivity.Instance, url, attachDTO.getFileName());
                         }
                     }

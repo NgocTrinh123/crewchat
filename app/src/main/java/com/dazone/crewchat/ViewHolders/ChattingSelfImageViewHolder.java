@@ -1,13 +1,20 @@
 package com.dazone.crewchat.ViewHolders;
 
 import android.app.Activity;
-import android.content.*;
+import android.app.DownloadManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.app.ShareCompat;
@@ -20,6 +27,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestListener;
@@ -33,7 +41,12 @@ import com.dazone.crewchat.dto.ChattingDto;
 import com.dazone.crewchat.dto.ChattingImageDto;
 import com.dazone.crewchat.fragment.ChattingFragment;
 import com.dazone.crewchat.interfaces.Urls;
-import com.dazone.crewchat.utils.*;
+import com.dazone.crewchat.utils.Constant;
+import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.ImageUtils;
+import com.dazone.crewchat.utils.Prefs;
+import com.dazone.crewchat.utils.TimeUtils;
+import com.dazone.crewchat.utils.Utils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
@@ -49,7 +62,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
     TextView tvUnread;
     ImageView chatting_imv;
     public ProgressBar progressBar, progressBarImageLoading;
-    private  ChattingDto tempDto;
+    private ChattingDto tempDto;
     private Activity mActivity;
     private float ratio = 1f;
 
@@ -72,7 +85,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
 
     protected final android.os.Handler mHandler = new android.os.Handler() {
         public void handleMessage(Message msg) {
-            if(msg.what == 1) {
+            if (msg.what == 1) {
                 Bundle bundle = msg.getData();
                 ChattingImageDto dto = (ChattingImageDto) bundle.getSerializable("data");
                 if (dto != null) {
@@ -81,6 +94,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
             }
         }
     };
+
     @Override
     public void bindData(final ChattingDto dto) {
 
@@ -101,7 +115,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
         windowmanager.getDefaultDisplay().getMetrics(displayMetrics);
         int deviceWidth = displayMetrics.widthPixels;
         int deviceHeight = displayMetrics.heightPixels;
-        if (deviceWidth > 1000){
+        if (deviceWidth > 1000) {
             ratio = 2f;
         }
 
@@ -176,9 +190,9 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
 
                     int srcWidth = destBitmap.getWidth();
                     int srcHeight = destBitmap.getHeight();
-                    Utils.printLogs("Width ="+srcWidth+" height="+srcHeight);
+                    Utils.printLogs("Width =" + srcWidth + " height=" + srcHeight);
 
-                } catch (OutOfMemoryError e){
+                } catch (OutOfMemoryError e) {
                     e.printStackTrace();
                 }
 
@@ -189,11 +203,11 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                 progressBarImageLoading.setVisibility(View.VISIBLE);
 
                 // problem viewHolder on low network, send failed --> need add to queue
-                String oldPath = chatting_imv.getTag() != null ? chatting_imv.getTag().toString(): null;
+                String oldPath = chatting_imv.getTag() != null ? chatting_imv.getTag().toString() : null;
                 String newPath = dto.getAttachFilePath();
 
                 // problem here --> if (oldPath == null || !oldPath.equals(newPath) ) {
-                if (oldPath == null || !oldPath.equals(newPath) ) {
+                if (oldPath == null || !oldPath.equals(newPath)) {
                     chatting_imv.setTag(dto.getAttachFilePath());
                     ChattingFragment.instance.SendTo(dto.getAttachFilePath(), progressBarImageLoading, getAdapterPosition());
                 }
@@ -202,7 +216,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
 
             default:
 
-                Utils.printLogs("Image attachNo = "+dto.getAttachNo());
+                Utils.printLogs("Image attachNo = " + dto.getAttachNo());
 
                 if (TextUtils.isEmpty(dto.getRegDate())) {
                     date_tv.setText(TimeUtils.showTimeWithoutTimeZone(dto.getTime(), Statics.DATE_FORMAT_YY_MM_DD_DD_H_M));
@@ -215,45 +229,46 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                     if (dto.getAttachNo() != 0) {
                         final String urlTemp = new Prefs().getServerSite() + Urls.URL_DOWNLOAD_THUMBNAIL + "session=" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken() + "&no=" + dto.getAttachNo();
 
-                            Glide.with(CrewChatApplication.getInstance())
-                                    .load(urlTemp)
-                                    .asBitmap()
-                                    .listener(new RequestListener<String, Bitmap>() {
-                                        @Override
-                                        public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
-                                            // call callback when loading error
+                        Glide.with(CrewChatApplication.getInstance())
+                                .load(urlTemp)
+                                .asBitmap()
+                                .listener(new RequestListener<String, Bitmap>() {
+                                    @Override
+                                    public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
+                                        // call callback when loading error
 
-                                            return false;
-                                        }
+                                        return false;
+                                    }
 
-                                        @Override
-                                        public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                                            // call callback when loading success
+                                    @Override
+                                    public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                                        // call callback when loading success
 
-                                            return false;
-                                        }
-                                    })
-                                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                    .into(new SimpleTarget<Bitmap>() {
-                                        @Override
-                                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                                        return false;
+                                    }
+                                })
+                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                .into(new SimpleTarget<Bitmap>() {
+                                    @Override
+                                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
 
 
-                                            int srcWidth = resource.getWidth();
-                                            int srcHeight = resource.getHeight();
-                                            int dstWidth = (int)(srcWidth * ratio);
-                                            int dstHeight = (int)(srcHeight * ratio);
+                                        int srcWidth = resource.getWidth();
+                                        int srcHeight = resource.getHeight();
+                                        int dstWidth = (int) (srcWidth * ratio);
+                                        int dstHeight = (int) (srcHeight * ratio);
 
-                                            Utils.printLogs("Width ="+srcWidth+" height="+srcHeight);
-                                            Bitmap putImage = createScaledBitmap(resource, dstWidth, dstHeight, true);
-                                            chatting_imv.setImageBitmap(putImage);
+                                        Utils.printLogs("Width =" + srcWidth + " height=" + srcHeight);
+                                        Bitmap putImage = createScaledBitmap(resource, dstWidth, dstHeight, true);
+                                        chatting_imv.setImageBitmap(putImage);
 
-                                            // hide loading indicator
-                                            if (progressBarImageLoading != null) progressBarImageLoading.setVisibility(View.GONE);
-                                        }
-                                    });
+                                        // hide loading indicator
+                                        if (progressBarImageLoading != null)
+                                            progressBarImageLoading.setVisibility(View.GONE);
+                                    }
+                                });
 
-                            // Loading image in new thread
+                        // Loading image in new thread
                             /*new Thread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -302,7 +317,6 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                             }).start();*/
 
 
-
                     } else {
                         ImageUtils.showImage(url, chatting_imv);
                     }
@@ -343,11 +357,14 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
     }
 
 
-
     private static int exifToDegrees(int exifOrientation) {
-        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) { return 90; }
-        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {  return 180; }
-        else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {  return 270; }
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+            return 180;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270;
+        }
         return 0;
     }
 
@@ -388,22 +405,21 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                 final String urlTemp = urlShare2;
                 Utils.printLogs("URL SHARE " + urlShare2);
                 ImageLoader.getInstance().loadImage(urlShare2, new SimpleImageLoadingListener() {
-                            @Override
-                            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    @Override
+                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
 
 
-                                ClipboardManager mClipboard = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
-                                ContentValues values = new ContentValues(2);
-                                values.put(MediaStore.Images.Media.MIME_TYPE, "Image/jpg");
-                                values.put(MediaStore.Images.Media.DATA, urlTemp);
-                                ContentResolver theContent = mActivity.getContentResolver();
-                                Uri imageUri2 = theContent.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-                                ClipData theClip = ClipData.newUri(mActivity.getContentResolver(), "Image", imageUri2);
-                                mClipboard.setPrimaryClip(theClip);
+                        ClipboardManager mClipboard = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
+                        ContentValues values = new ContentValues(2);
+                        values.put(MediaStore.Images.Media.MIME_TYPE, "Image/jpg");
+                        values.put(MediaStore.Images.Media.DATA, urlTemp);
+                        ContentResolver theContent = mActivity.getContentResolver();
+                        Uri imageUri2 = theContent.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                        ClipData theClip = ClipData.newUri(mActivity.getContentResolver(), "Image", imageUri2);
+                        mClipboard.setPrimaryClip(theClip);
 
-                            }
-                        });
-
+                    }
+                });
 
 
                 break;
@@ -414,7 +430,13 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                     AttachDTO attachDTO = tempDto.getAttachInfo();
                     if (attachDTO != null) {
                         String urlDownload = new Prefs().getServerSite() + Urls.URL_DOWNLOAD_THUMBNAIL + "session=" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken() + "&no=" + attachDTO.getAttachNo();
-                        Utils.displayoDownloadFileDialog(mActivity, urlDownload, attachDTO.getFileName());
+                        String path = Environment.getExternalStorageDirectory() + Constant.pathDownload + "/" + attachDTO.getFileName();
+                        File file = new File(path);
+                        if (file.exists()) {
+                            mActivity.startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
+                        } else {
+                            Utils.displayoDownloadFileDialog(mActivity, urlDownload, attachDTO.getFileName());
+                        }
                     }
                 }
                 break;
