@@ -12,6 +12,29 @@
         style="@style/default_avatar_medium" />
 
     <LinearLayout
+        android:id="@+id/ln_send_failed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/btn_resend"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/chat_ic_refresh" />
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/chat_ic_delete" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -25,18 +48,20 @@
         <LinearLayout style="@style/lnl_chat_left_style">
 
             <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/chatting_imv"
-                style="@style/chatting_image" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/chatting_imv"
+                    style="@style/chatting_image"
+                    android:src="@mipmap/ic_launcher" />
 
                 <ProgressBar
-                        android:id="@+id/progressbar_image_loading"
-                        android:layout_centerInParent="true"
-                        style="?android:attr/progressBarStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                    android:id="@+id/progressbar_image_loading"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
 
             </RelativeLayout>
 

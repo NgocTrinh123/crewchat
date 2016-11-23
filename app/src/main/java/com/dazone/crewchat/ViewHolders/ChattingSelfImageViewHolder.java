@@ -209,7 +209,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                 // problem here --> if (oldPath == null || !oldPath.equals(newPath) ) {
                 if (oldPath == null || !oldPath.equals(newPath)) {
                     chatting_imv.setTag(dto.getAttachFilePath());
-                    ChattingFragment.instance.SendTo(dto.getAttachFilePath(), progressBarImageLoading, getAdapterPosition());
+                    ChattingFragment.instance.SendTo(dto, progressBarImageLoading, getAdapterPosition());
                 }
 
                 break;

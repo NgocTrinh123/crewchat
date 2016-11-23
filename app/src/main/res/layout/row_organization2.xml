@@ -120,16 +120,15 @@
 
             </LinearLayout>
 
-            <com.dazone.crewchat.Views.ScrollingTextView
+            <TextView
                 android:id="@+id/tv_user_status"
-                android:layout_width="match_parent"
+                style="@style/tv_tree_user_status_style"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:background="@drawable/bg_gray_radius_thin"
-                android:gravity="left|top"
-                android:maxLines="1"
+                android:gravity="center_vertical"
                 android:padding="10dp"
-                android:scrollbars="horizontal"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/tree_user_text_size" />
 

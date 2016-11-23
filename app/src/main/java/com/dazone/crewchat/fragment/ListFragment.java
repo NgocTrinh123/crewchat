@@ -14,7 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.activity.MainActivity;
@@ -97,7 +102,7 @@ public abstract class ListFragment<T> extends Fragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (adapterList != null){
+            if (adapterList != null) {
                 adapterList.filterRecentFavorite(s.toString());
             }
         }
@@ -120,20 +125,21 @@ public abstract class ListFragment<T> extends Fragment {
         }
     }
 
-    protected void hideIcon(){
-        if(getActivity() != null){
+    protected void hideIcon() {
+        if (getActivity() != null) {
             ((MainActivity) getActivity()).hideSearchIcon();
         }
     }
 
     boolean isShowIcon = false;
-    protected void showIcon(){
-        if(getActivity() != null){
+
+    protected void showIcon() {
+        if (getActivity() != null) {
             ((MainActivity) getActivity()).showSearchIcon(new OnClickCallback() {
                 @Override
                 public void onClick() {
                     // Send broadcast to show search view input
-                    if (!isShowIcon){
+                    if (!isShowIcon) {
                         Utils.printLogs("On search icon clicked");
                         Intent intent = new Intent(Statics.ACTION_SHOW_SEARCH_INPUT_IN_CURRENT_CHAT);
                         getActivity().sendBroadcast(intent);
@@ -149,7 +155,7 @@ public abstract class ListFragment<T> extends Fragment {
         }
     }
 
-    protected void showSearchInput(){
+    protected void showSearchInput() {
         if (mInputSearch != null) {
             mInputSearch.setVisibility(View.VISIBLE);
             mInputSearch.post(new Runnable() {
@@ -163,11 +169,11 @@ public abstract class ListFragment<T> extends Fragment {
         }
     }
 
-    protected void hideSearchInput(){
-        if (mInputSearch != null){
+    protected void hideSearchInput() {
+        if (mInputSearch != null) {
             mInputSearch.setText("");
             mInputSearch.setVisibility(View.GONE);
-            if (getActivity() != null){
+            if (getActivity() != null) {
                 Utils.hideKeyboard(getActivity());
             }
         }

@@ -66,7 +66,7 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
 
             progressBar.setVisibility(View.VISIBLE);
             progressBar.setProgress(0);
-            ChattingFragment.instance.SendTo(dto.getAttachFilePath(), progressBar, getAdapterPosition());
+            ChattingFragment.instance.SendTo(dto, progressBar, getAdapterPosition());
 
         } else {
             if (TextUtils.isEmpty(dto.getRegDate())) {

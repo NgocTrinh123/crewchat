@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="android-contactpicker-1.0.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.1gravity/android-contactpicker/1.0.3/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.1gravity/android-contactpicker/1.0.3/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.1gravity/android-contactpicker/1.0.3/2076e2cd90303e248e9d513738c22ce16db4dec7/android-contactpicker-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

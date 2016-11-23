@@ -631,7 +631,7 @@ public class OrganizationView2 implements View.OnClickListener {
      */
     private void showMenuDepartment(final LinearLayout childList, final ImageView folderIcon, final TreeUserDTO userInfo) {
         Resources res = mContext.getResources();
-        AlertDialog.Builder builderSingle = new AlertDialog.Builder(mContext, R.style.dialog_title_bold);
+        AlertDialog.Builder builderSingle = new AlertDialog.Builder(mContext);
         builderSingle.setTitle(userInfo.getName());
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 mContext,

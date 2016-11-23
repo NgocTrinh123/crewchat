@@ -187,7 +187,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
         setupStatusImage(holder, dto);
 
-        holder.rootView.setOnCreateContextMenuListener(this);
+//        holder.rootView.setOnCreateContextMenuListener(this);
     }
 
     private void bindGroupData(FolderViewHolder holder, TreeUserDTO dto){

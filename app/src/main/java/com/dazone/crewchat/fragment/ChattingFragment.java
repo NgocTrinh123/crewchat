@@ -345,7 +345,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         }
         // Load client data at first, then call load online data on new thread
         // Just load on the first time
-        if (!isLoaded){
+        if (!isLoaded) {
             loadClientData();
         }
     }
@@ -694,10 +694,10 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                 rvMainList.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        rvMainList.scrollToPosition(dataSet.size() - 1);
+                        rvMainList.smoothScrollToPosition(dataSet.size());
                         hasLoadMore = false;
                     }
-                }, 500);
+                }, 1000);
             }
 
         } else {
@@ -1647,8 +1647,9 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
             @Override
             public void onSenChatMessageFail(ErrorDto errorDto, String url) {
-                //Utils.showMessage("Server_Error... with error code: " + errorDto.code);
-                //
+                progressBar.setVisibility(View.GONE);
+                Utils.showMessage("Server_Error... with error code: " + errorDto.code);
+
             }
         });
     }
@@ -1669,12 +1670,12 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
     int sendto = 0;
 
-    public void SendTo(String path, ProgressBar progressBar, int position) {
+    public void SendTo(ChattingDto chattingDto, ProgressBar progressBar, int position) {
         sendto++;
         if (view != null) {
             view.selection_lnl.setVisibility(View.GONE);
         }
-        SendToServer temp = new SendToServer(path, progressBar, position);
+        SendToServer temp = new SendToServer(chattingDto.getAttachFilePath(), progressBar, position);
         temp.execute();
         Utils.printLogs("Send data lan thu = " + sendto);
     }

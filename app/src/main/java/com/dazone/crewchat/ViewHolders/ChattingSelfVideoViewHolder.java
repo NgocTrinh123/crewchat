@@ -121,7 +121,7 @@ public class ChattingSelfVideoViewHolder extends BaseChattingHolder implements V
 
             progressBar.setVisibility(View.VISIBLE);
             progressBar.setProgress(0);
-            ChattingFragment.instance.SendTo(dto.getAttachFilePath(), progressBar, getAdapterPosition());
+            ChattingFragment.instance.SendTo(dto, progressBar, getAdapterPosition());
         } else {
             if (TextUtils.isEmpty(dto.getRegDate())) {
                 date_tv.setText(TimeUtils.showTimeWithoutTimeZone(dto.getTime(), Statics.DATE_FORMAT_YY_MM_DD_DD_H_M));
