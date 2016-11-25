@@ -36,6 +36,8 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
     ImageView file_thumb;
     LinearLayout linearLayout;
     ProgressBar progressBar;
+    private LinearLayout lnSendFail;
+    private ImageView ivDelete, ivResend;
 
     public ChattingSelfFileViewHolder(View v) {
         super(v);
@@ -51,6 +53,12 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
         linearLayout = (LinearLayout) v.findViewById(R.id.main_attach);
         progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
         tvUnread = (TextView) v.findViewById(R.id.text_unread);
+        lnSendFail = (LinearLayout) v.findViewById(R.id.ln_send_failed);
+
+        ivResend = (ImageView) v.findViewById(R.id.btn_resend);
+        ivDelete = (ImageView) v.findViewById(R.id.btn_delete);
+
+        lnSendFail.setVisibility(View.GONE);
 
     }
 
@@ -75,6 +83,7 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
                 date_tv.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getRegDate(), 0, TimeUtils.KEY_FROM_SERVER));
 
             /** Set IMAGE FILE TYPE */
+
             String fileType = Utils.getFileType(dto.getAttachInfo().getFileName());
             ImageUtils.imageFileType(file_thumb, fileType);
 
@@ -103,6 +112,5 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
         String strUnReadCount = dto.getUnReadCount() + "";
         tvUnread.setText(strUnReadCount);
         tvUnread.setVisibility(dto.getUnReadCount() == 0 ? View.GONE : View.VISIBLE);
-
     }
 }

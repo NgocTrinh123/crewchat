@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -58,15 +59,17 @@ import static android.graphics.Bitmap.createScaledBitmap;
  * Created by david on 12/25/15.
  */
 public class ChattingSelfImageViewHolder extends BaseChattingHolder implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-    TextView date_tv;
-    TextView tvUnread;
-    ImageView chatting_imv;
-    public ProgressBar progressBar, progressBarImageLoading;
+    private TextView date_tv;
+    private TextView tvUnread;
+    private ImageView chatting_imv;
+    private LinearLayout lnSendFail;
+    private ProgressBar progressBarSending;
+    private ProgressBar  progressBarImageLoading;
     private ChattingDto tempDto;
     private Activity mActivity;
     private float ratio = 1f;
 
-    public ChattingSelfImageViewHolder(Activity activity, View v) {
+    public  ChattingSelfImageViewHolder(Activity activity, View v) {
         super(v);
         mActivity = activity;
     }
@@ -79,6 +82,9 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
         date_tv = (TextView) v.findViewById(R.id.date_tv);
         chatting_imv = (ImageView) v.findViewById(R.id.chatting_imv);
         tvUnread = (TextView) v.findViewById(R.id.text_unread);
+        lnSendFail = (LinearLayout)v.findViewById(R.id.ln_send_failed);
+        progressBarSending = (ProgressBar) v.findViewById(R.id.progressbar_sending);
+
 
         chatting_imv.setOnCreateContextMenuListener(this);
     }
@@ -109,6 +115,8 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
             }
         });
 
+
+
         // Calculate ratio
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowmanager = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
@@ -118,7 +126,12 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
         if (deviceWidth > 1000) {
             ratio = 2f;
         }
-
+        if (dto.isHasSent()){
+            if (progressBarSending != null) progressBarSending.setVisibility(View.GONE);
+            if (lnSendFail != null) lnSendFail.setVisibility(View.GONE);
+        } else {
+            if (lnSendFail != null) lnSendFail.setVisibility(View.VISIBLE);
+        }
         switch (dto.getmType()) {
             case Statics.CHATTING_VIEW_TYPE_SELECT_IMAGE:
                 //url = "file://" + dto.getAttachFilePath();
@@ -210,6 +223,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                 if (oldPath == null || !oldPath.equals(newPath)) {
                     chatting_imv.setTag(dto.getAttachFilePath());
                     ChattingFragment.instance.SendTo(dto, progressBarImageLoading, getAdapterPosition());
+
                 }
 
                 break;

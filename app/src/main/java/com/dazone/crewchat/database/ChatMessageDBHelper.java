@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+
 import com.dazone.crewchat.dto.AttachDTO;
 import com.dazone.crewchat.dto.ChattingDto;
 import com.dazone.crewchat.utils.CrewChatApplication;
@@ -49,7 +50,7 @@ public class ChatMessageDBHelper {
 
     public static final String SQL_EXCUTE = "CREATE TABLE " + TABLE_NAME + "("
             + ID + " integer primary key autoincrement not null,"
-            + ROOM_NO +" integer DEFAULT 0,"
+            + ROOM_NO + " integer DEFAULT 0,"
             + MAKE_USER_NO + " integer DEFAULT 0, "
             + MOD_DATE + " text, "
             + IS_ONE + " integer DEFAULT 0, "
@@ -74,15 +75,15 @@ public class ChatMessageDBHelper {
             + UNREAD_TOTAL_COUNT + " integer DEFAULT 0, "
             + HAS_SENT + " integer DEFAULT 1);";
 
-    public static boolean isExist(ChattingDto dto){
+    public static boolean isExist(ChattingDto dto) {
 
-        String[] columns = new String[] { "*"};
+        String[] columns = new String[]{"*"};
         ContentResolver resolver = CrewChatApplication.getInstance()
                 .getApplicationContext().getContentResolver();
         Cursor cursor = resolver.query(
                 AppContentProvider.GET_MESSAGE_CONTENT_URI, columns, MESSAGE_NO + "=" + dto.getMessageNo(), null, null);
 
-        if(cursor!=null) {
+        if (cursor != null) {
             if (cursor.getCount() > 0) {
                 cursor.close();
                 return true;
@@ -92,10 +93,11 @@ public class ChatMessageDBHelper {
 
         return false;
     }
+
     /*
     * Function to delete an message on local database
     * */
-    public static boolean deleteMessage(long messageNo){
+    public static boolean deleteMessage(long messageNo) {
         try {
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
@@ -112,7 +114,7 @@ public class ChatMessageDBHelper {
     /*
   * Function to delete an message on local database by local ID
   * */
-    public static boolean deleteMessageByLocalID(long messageID){
+    public static boolean deleteMessageByLocalID(long messageID) {
         try {
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
@@ -125,12 +127,13 @@ public class ChatMessageDBHelper {
         }
         return false;
     }
+
     /*
     * Function to update message maybe happen when user is edit message
     * When message has been sent to server success and received success notification
     * Then we will update to local database
     * */
-    public static boolean updateMessage(ChattingDto dto, long id){
+    public static boolean updateMessage(ChattingDto dto, long id) {
         try {
 
             ContentValues values = new ContentValues();
@@ -144,7 +147,7 @@ public class ChatMessageDBHelper {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
-            resolver.update(AppContentProvider.GET_MESSAGE_CONTENT_URI, values, ROOM_NO+ " = " +dto.getRoomNo() + " AND "+ID+" = "+id, null);
+            resolver.update(AppContentProvider.GET_MESSAGE_CONTENT_URI, values, ROOM_NO + " = " + dto.getRoomNo() + " AND " + ID + " = " + id, null);
             return true;
 
         } catch (Exception e) {
@@ -158,7 +161,7 @@ public class ChatMessageDBHelper {
     * Update message unread count
     * */
 
-    public static boolean updateMessage(long id, int unreadCount){
+    public static boolean updateMessage(long id, int unreadCount) {
         try {
             ContentValues values = new ContentValues();
             values.put(UNREAD_COUNT, unreadCount);
@@ -177,13 +180,14 @@ public class ChatMessageDBHelper {
     /*
     * Add a new simple message from Edit text and save to local database
     * */
-    public static long addSimpleMessage(ChattingDto dto){
+    public static long addSimpleMessage(ChattingDto dto) {
         try {
             ContentValues values = new ContentValues();
             values.put(MESSAGE, dto.getMessage());
             values.put(MESSAGE_NO, dto.getMessageNo());
             values.put(USER_NO, dto.getUserNo());
             values.put(TYPE, dto.getType());
+            values.put(ATTACH_FILE_PATH, dto.getAttachFilePath());
             values.put(ROOM_NO, dto.getRoomNo());
             values.put(WRITER_USER, dto.getWriterUser());
             values.put(REG_DATE, dto.getRegDate());
@@ -196,7 +200,7 @@ public class ChatMessageDBHelper {
             Uri uri = resolver.insert(AppContentProvider.GET_MESSAGE_CONTENT_URI, values);
             return ContentUris.parseId(uri);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return -1;
@@ -205,7 +209,7 @@ public class ChatMessageDBHelper {
     /*
     * This function to add one of message line
     * */
-    public static boolean addMessage(ChattingDto dto){
+    public static boolean addMessage(ChattingDto dto) {
         try {
             if (!isExist(dto)) {
                 ContentValues values = new ContentValues();
@@ -213,13 +217,15 @@ public class ChatMessageDBHelper {
                 values.put(MAKE_USER_NO, dto.getMakeUserNo());
                 values.put(MOD_DATE, dto.getModdate());
                 int isOne = 0;
-                if (dto.isOne()){isOne = 1;}
+                if (dto.isOne()) {
+                    isOne = 1;
+                }
                 values.put(IS_ONE, isOne);
                 values.put(ROOM_TITLE, dto.getRoomTitle());
                 values.put(LASTED_MSG, dto.getLastedMsg());
                 values.put(LASTED_MSG_DATE, dto.getLastedMsgDate());
 
-                if (dto.getUserNos() != null){
+                if (dto.getUserNos() != null) {
                     String userNos = TextUtils.join(",", dto.getUserNos());
                     values.put(USER_NOS, userNos);
                 }
@@ -234,12 +240,14 @@ public class ChatMessageDBHelper {
                 values.put(REG_DATE, dto.getRegDate());
                 values.put(UNREAD_COUNT, dto.getUnReadCount());
                 int isCheck = 0;
-                if (dto.isCheckFromServer()){ isCheck = 1;}
+                if (dto.isCheckFromServer()) {
+                    isCheck = 1;
+                }
                 values.put(IS_CHECK_FROM_SERVER, isCheck);
 
                 // Get attach file info and store it to database
                 AttachDTO attachInfo = dto.getAttachInfo();
-                if (attachInfo != null){
+                if (attachInfo != null) {
                     values.put(ATTACH_NO, attachInfo.getAttachNo());
                     values.put(ATTACH_FILE_NAME, attachInfo.getFileName());
                     values.put(ATTACH_FILE_TYPE, attachInfo.getType());
@@ -266,43 +274,45 @@ public class ChatMessageDBHelper {
 
         } catch (Exception e) {
             // TODO: handle exception
-            Utils.printLogs("Catch = "+e.getMessage());
+            Utils.printLogs("Catch = " + e.getMessage());
         }
         return false;
     }
 
+
+
     // Constant type to get message session
     public static int NONE = 0, FIRST = 1, BEFORE = 2, AFTER = 3;
+
     public static ArrayList<ChattingDto> getMsgSession(long roomNo, long baseMsgNo, int type) {
-        if (type == NONE){ // currently no use
+        if (type == NONE) { // currently no use
             return null;
         }
 
         ArrayList<ChattingDto> mesArray = new ArrayList<>();
-        String[] columns = new String[] { "*"};
+        String[] columns = new String[]{"*"};
         ContentResolver resolver = CrewChatApplication.getInstance()
                 .getApplicationContext().getContentResolver();
 
         String conditions = ROOM_NO + " = " + roomNo;
         if (type == FIRST) {
-            conditions += " AND " + MESSAGE_NO + " > " + baseMsgNo ;
-        } else if (type == BEFORE){
-            conditions += " AND " + MESSAGE_NO + " < " + baseMsgNo ;
+            conditions += " AND " + MESSAGE_NO + " > " + baseMsgNo;
+        } else if (type == BEFORE) {
+            conditions += " AND " + MESSAGE_NO + " < " + baseMsgNo;
         }
 
-        Utils.printLogs("Condition string = "+conditions);
+        Utils.printLogs("Condition string = " + conditions);
         // If type = NONE or AFTER nothing
         Cursor cursor = resolver.query(
                 AppContentProvider.GET_MESSAGE_CONTENT_URI, columns, conditions,
                 null
                 , MESSAGE_NO + " DESC LIMIT 20");
         // Get and return data
-        if(cursor!=null){
-            if(cursor.getCount()>0){
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
                 try {
                     cursor.moveToLast();
-                    while (cursor.moveToPrevious())
-                    {
+                    while (cursor.moveToPrevious()) {
                         ChattingDto chattingDto = new ChattingDto();
 
                         chattingDto.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(ID))));
@@ -310,7 +320,7 @@ public class ChatMessageDBHelper {
 
                         // convert string to makeUserNo (long)
                         String makeUserNo = cursor.getString(cursor.getColumnIndex(MAKE_USER_NO));
-                        int makeUserNoLong = makeUserNo == null? 0 : Integer.parseInt(makeUserNo);
+                        int makeUserNoLong = makeUserNo == null ? 0 : Integer.parseInt(makeUserNo);
                         chattingDto.setMakeUserNo(makeUserNoLong);
 
                         chattingDto.setModdate(cursor.getString(cursor.getColumnIndex(MOD_DATE)));
@@ -321,10 +331,10 @@ public class ChatMessageDBHelper {
                         chattingDto.setLastedMsgDate(cursor.getString(cursor.getColumnIndex(LASTED_MSG_DATE)));
 
                         String sUserNos = cursor.getString(cursor.getColumnIndex(USER_NOS));
-                        if (sUserNos != null){
-                            String [] elements = sUserNos.split(",");
+                        if (sUserNos != null) {
+                            String[] elements = sUserNos.split(",");
                             ArrayList<Integer> userNosLList = new ArrayList<>();
-                            for(String temp : elements){
+                            for (String temp : elements) {
                                 userNosLList.add(Integer.parseInt(temp.trim()));
                             }
                             chattingDto.setUserNos(userNosLList);
@@ -333,7 +343,7 @@ public class ChatMessageDBHelper {
                         chattingDto.setWriterUser(Integer.parseInt(cursor.getString(cursor.getColumnIndex(WRITER_USER))));
 
                         String writeUserNo = cursor.getString(cursor.getColumnIndex(WRITER_USER_NO));
-                        int writeUserNoLong = writeUserNo == null? 0 : Integer.parseInt(writeUserNo);
+                        int writeUserNoLong = writeUserNo == null ? 0 : Integer.parseInt(writeUserNo);
                         chattingDto.setWriterUserNo(writeUserNoLong);
 
                         chattingDto.setMessageNo(Long.parseLong(cursor.getString(cursor.getColumnIndex(MESSAGE_NO))));
@@ -346,7 +356,7 @@ public class ChatMessageDBHelper {
                         chattingDto.setUnReadCount(Integer.parseInt(cursor.getString(cursor.getColumnIndex(UNREAD_COUNT))));
 
                         String isCheckFromServer = cursor.getString(cursor.getColumnIndex(IS_CHECK_FROM_SERVER));
-                        int isCheckFromServerLong = isCheckFromServer == null? 0 : Integer.parseInt(isCheckFromServer);
+                        int isCheckFromServerLong = isCheckFromServer == null ? 0 : Integer.parseInt(isCheckFromServer);
                         chattingDto.setCheckFromServer(isCheckFromServerLong == 1);
 
                         chattingDto.setAttachFileName(cursor.getString(cursor.getColumnIndex(ATTACH_FILE_NAME)));
@@ -356,7 +366,7 @@ public class ChatMessageDBHelper {
                         chattingDto.setUnreadTotalCount(Integer.parseInt(cursor.getString(cursor.getColumnIndex(UNREAD_TOTAL_COUNT))));
 
                         int hasSendValue = Integer.parseInt(cursor.getString(cursor.getColumnIndex(HAS_SENT)));
-                        boolean isHasSent  = hasSendValue == 1;
+                        boolean isHasSent = hasSendValue == 1;
                         chattingDto.setHasSent(isHasSent);
 
                         AttachDTO attachInfo = new AttachDTO();
@@ -371,7 +381,7 @@ public class ChatMessageDBHelper {
                         mesArray.add(chattingDto);
                     }
 
-                }finally {
+                } finally {
                     cursor.close();
                 }
 
@@ -386,21 +396,20 @@ public class ChatMessageDBHelper {
     * This function to get all chat list, short by time
     * Get chat message by session like server session
     * */
-    public static ArrayList<ChattingDto> getMessages(long roomNo){
+    public static ArrayList<ChattingDto> getMessages(long roomNo) {
 
         ArrayList<ChattingDto> mesArray = new ArrayList<>();
-        String[] columns = new String[] { "*"};
+        String[] columns = new String[]{"*"};
         ContentResolver resolver = CrewChatApplication.getInstance()
                 .getApplicationContext().getContentResolver();
         Cursor cursor = resolver.query(
                 AppContentProvider.GET_MESSAGE_CONTENT_URI, columns, ROOM_NO + " = " + roomNo,
                 null
-                , MESSAGE_NO+" ASC");
-        if(cursor!=null){
-            if(cursor.getCount()>0){
+                , MESSAGE_NO + " ASC");
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
                 try {
-                    while (cursor.moveToNext())
-                    {
+                    while (cursor.moveToNext()) {
                         ChattingDto chattingDto = new ChattingDto();
 
                         chattingDto.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex(ID))));
@@ -414,10 +423,10 @@ public class ChatMessageDBHelper {
                         chattingDto.setLastedMsgDate(cursor.getString(cursor.getColumnIndex(LASTED_MSG_DATE)));
 
                         String sUserNos = cursor.getString(cursor.getColumnIndex(USER_NOS));
-                        if (sUserNos != null){
-                            String [] elements = sUserNos.split(",");
+                        if (sUserNos != null) {
+                            String[] elements = sUserNos.split(",");
                             ArrayList<Integer> userNosLList = new ArrayList<>();
-                            for(String temp : elements){
+                            for (String temp : elements) {
                                 userNosLList.add(Integer.parseInt(temp.trim()));
                             }
                             chattingDto.setUserNos(userNosLList);
@@ -442,7 +451,7 @@ public class ChatMessageDBHelper {
                         chattingDto.setAttachFileSize(Integer.parseInt(cursor.getString(cursor.getColumnIndex(ATTACH_FILE_SIZE))));
 
                         int hasSendValue = Integer.parseInt(cursor.getString(cursor.getColumnIndex(HAS_SENT)));
-                        boolean isHasSent  = hasSendValue == 1;
+                        boolean isHasSent = hasSendValue == 1;
                         chattingDto.setHasSent(isHasSent);
 
                         AttachDTO attachInfo = new AttachDTO();
@@ -459,7 +468,7 @@ public class ChatMessageDBHelper {
                         mesArray.add(chattingDto);
                     }
 
-                }finally {
+                } finally {
                     cursor.close();
                 }
 
@@ -474,7 +483,7 @@ public class ChatMessageDBHelper {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
-            resolver.delete(AppContentProvider.GET_MESSAGE_CONTENT_URI, null,null);
+            resolver.delete(AppContentProvider.GET_MESSAGE_CONTENT_URI, null, null);
             return true;
         } catch (Exception e) {
             // TODO: handle exception

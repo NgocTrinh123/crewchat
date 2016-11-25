@@ -1,5 +1,6 @@
 package com.dazone.crewchat.ViewHolders;
 
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,12 +57,14 @@ public class ChattingSelfViewHolder extends BaseChattingHolder {
     @Override
     public void bindData(final ChattingDto dto) {
         date_tv.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getRegDate(), 0, TimeUtils.KEY_FROM_SERVER));
-        content_tv.setText(dto.getMessage());
+        if (dto.getMessage() != null) {
+            content_tv.setText(Html.fromHtml(dto.getMessage()));
+        }
         String strUnReadCount = dto.getUnReadCount() + "";
         tvUnread.setText(strUnReadCount);
         tvUnread.setVisibility(dto.getUnReadCount() == 0 ? View.GONE : View.VISIBLE);
 
-        if (dto.isHasSent()){
+        if (dto.isHasSent()) {
             if (progressBarSending != null) progressBarSending.setVisibility(View.GONE);
             if (lnSendFailed != null) lnSendFailed.setVisibility(View.GONE);
         } else {
@@ -79,8 +82,9 @@ public class ChattingSelfViewHolder extends BaseChattingHolder {
             }
         });
 
+
         // Set event listener for failed message
-        if (btnResend != null){
+        if (btnResend != null) {
             btnResend.setTag(dto.getId());
             btnResend.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -95,7 +99,8 @@ public class ChattingSelfViewHolder extends BaseChattingHolder {
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ChatMessageDBHelper.updateMessage(chattingDto, localId);
+                                    dto.setRegDate(TimeUtils.convertTimeDeviceToTimeServer(chattingDto.getRegDate()));
+                                    ChatMessageDBHelper.updateMessage(dto, localId);
                                 }
                             }).start();
                             // Notify current adapter
@@ -125,12 +130,12 @@ public class ChattingSelfViewHolder extends BaseChattingHolder {
 
         }
 
-        if (btnDelete != null){
+        if (btnDelete != null) {
             btnDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // delete or call callback
-                    if (ChatMessageDBHelper.deleteMessage(dto.getMessageNo())){
+                    if (ChatMessageDBHelper.deleteMessage(dto.getMessageNo())) {
                         if (mAdapter != null && mAdapter.getData() != null) {
                             mAdapter.getData().remove(dto);
                             mAdapter.notifyDataSetChanged();

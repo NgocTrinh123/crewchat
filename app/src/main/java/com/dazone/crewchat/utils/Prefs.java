@@ -27,7 +27,7 @@ public class Prefs implements Serializable {
 
     public Prefs() {
         prefs = CrewChatApplication.getInstance().getApplicationContext().
-                getSharedPreferences(SHAREDPREFERENCES_NAME, Context.MODE_PRIVATE);
+                    getSharedPreferences(SHAREDPREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
     public boolean isContainKey(String key){
@@ -100,7 +100,7 @@ public class Prefs implements Serializable {
     }
 
     public void putBooleanValue(String KEY, boolean value) {
-        prefs.edit().putBoolean(KEY, value).commit();
+        prefs.edit().putBoolean(KEY, value).apply();
     }
 
     public boolean getBooleanValue(String KEY, boolean defvalue) {
@@ -108,7 +108,7 @@ public class Prefs implements Serializable {
     }
 
     public void putStringValue(String KEY, String value) {
-        prefs.edit().putString(KEY, value).commit();
+        prefs.edit().putString(KEY, value).apply();
     }
 
     public String getStringValue(String KEY, String defvalue) {
@@ -116,7 +116,7 @@ public class Prefs implements Serializable {
     }
 
     public void putIntValue(String KEY, int value) {
-        prefs.edit().putInt(KEY, value).commit();
+        prefs.edit().putInt(KEY, value).apply();
     }
 
     public int getIntValue(String KEY, int defvalue) {
@@ -124,7 +124,7 @@ public class Prefs implements Serializable {
     }
 
     public void putLongValue(String KEY, long value) {
-        prefs.edit().putLong(KEY, value).commit();
+        prefs.edit().putLong(KEY, value).apply();
     }
 
     public long getLongValue(String KEY, long defvalue) {
@@ -132,7 +132,7 @@ public class Prefs implements Serializable {
     }
 
     public void putFloatValue(String KEY, float value) {
-        prefs.edit().putFloat(KEY, value).commit();
+        prefs.edit().putFloat(KEY, value).apply();
     }
 
     public void putintrocount(int introcount) {
@@ -147,11 +147,11 @@ public class Prefs implements Serializable {
     }
 
     public void removeValue(String KEY) {
-        prefs.edit().remove(KEY).commit();
+        prefs.edit().remove(KEY).apply();
     }
     public void clear()
     {
-        prefs.edit().clear().commit();
+        prefs.edit().clear().apply();
     }
     public void clearLogin()
     {

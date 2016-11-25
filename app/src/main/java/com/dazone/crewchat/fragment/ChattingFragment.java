@@ -1675,7 +1675,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         if (view != null) {
             view.selection_lnl.setVisibility(View.GONE);
         }
-        SendToServer temp = new SendToServer(chattingDto.getAttachFilePath(), progressBar, position);
+        SendToServer temp = new SendToServer(chattingDto, progressBar, position);
         temp.execute();
         Utils.printLogs("Send data lan thu = " + sendto);
     }
@@ -1731,12 +1731,12 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
     // 파일서버로 해당 파일을 전송합니다.
     public class SendToServer extends AsyncTask<Void, Void, Integer> {
 
-        private String path;
+        private ChattingDto chattingDto;
         private ProgressBar progressBar;
         private int position;
 
-        public SendToServer(String path, ProgressBar progressBar, int position) {
-            this.path = path;
+        public SendToServer(ChattingDto chattingDto, ProgressBar progressBar, int position) {
+            this.chattingDto = chattingDto;
             this.progressBar = progressBar;
             this.position = position;
         }
@@ -1745,9 +1745,9 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         protected Integer doInBackground(Void... params) {
 
             AttachDTO attachDTO = new AttachDTO();
-            attachDTO.setFileName(Utils.getFileName(path));
+            attachDTO.setFileName(Utils.getFileName(chattingDto.getAttachFilePath()));
             attachDTO.setFileType(Utils.getFileType(attachDTO.getFileName()));
-            attachDTO.setFullPath(path);
+            attachDTO.setFullPath(chattingDto.getAttachFilePath());
 
             String siteDomain = new Prefs().getServerSite();
 
@@ -1785,10 +1785,26 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         protected void onPostExecute(Integer integer) {
 
             super.onPostExecute(integer);
-            {
-                sendAttachFile(integer, roomNo, position);
-            }
+//            //please check solution again
+//            // long tempMessageNo = dataFromServer.get(dataFromServer.size() - 1).getMessageNo() + 1;
+//            chattingDto.setMessageNo(Long.MAX_VALUE);
+//            chattingDto.setUserNo(userID);
+//            chattingDto.setmType(Statics.CHATTING_VIEW_TYPE_SELF_IMAGE);
+//            chattingDto.setRoomNo(roomNo);
+//            chattingDto.setWriterUser(userID);
+//            chattingDto.setHasSent(false);
+//
+//            String currentTime = System.currentTimeMillis() + "";
+//            chattingDto.setRegDate(TimeUtils.convertTimeDeviceToTimeServer(currentTime));
+//            addNewChat(chattingDto, true);
+//
+//            dataFromServer.add(chattingDto);
+//
+//            ChatMessageDBHelper.addSimpleMessage(chattingDto);
+
+            sendAttachFile(integer, roomNo, position);
         }
+
     }
 
     /*public class SendToServer extends AsyncTask<Void, Void, Integer> {

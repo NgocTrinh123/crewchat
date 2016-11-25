@@ -49,7 +49,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder vh;
         View v;
-        switch (viewType) {
+            switch (viewType) {
             case Statics.CHATTING_VIEW_TYPE_DATE:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_date, parent, false);

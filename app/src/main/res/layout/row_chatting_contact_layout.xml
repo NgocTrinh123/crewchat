@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:id="@+id/main_attach"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/main_attach">
+    android:orientation="horizontal">
+
     <LinearLayout
-            android:id="@+id/lnContact"
+        android:id="@+id/lnContact"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
+
         <TextView
-                android:text="Contact name"
-                android:id="@+id/tv_contact_name"
-                android:textSize="18sp"
-                android:textStyle="bold"
-            style="@style/tv_chat_file_info_style"/>
+            android:id="@+id/tv_contact_name"
+            style="@style/tv_chat_file_info_style"
+            android:text="Contact name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <TextView
-                android:text="Contact number"
             android:id="@+id/tv_contact_number"
-            style="@style/tv_chat_file_info_style"/>
+            style="@style/tv_chat_file_info_style"
+            android:text="Contact number" />
 
     </LinearLayout>
 </LinearLayout>

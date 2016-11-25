@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
@@ -31,6 +32,7 @@ import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
 import com.dazone.crewchat.activity.base.BaseSingleStatusActivity;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.database.AllUserDBHelper;
+import com.dazone.crewchat.database.ChatMessageDBHelper;
 import com.dazone.crewchat.dto.AttachDTO;
 import com.dazone.crewchat.dto.ChatRoomDTO;
 import com.dazone.crewchat.dto.ChattingDto;
@@ -42,9 +44,11 @@ import com.dazone.crewchat.fragment.CurrentChatListFragment;
 import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
 import com.dazone.crewchat.interfaces.OnFilterMessage;
 import com.dazone.crewchat.interfaces.OnGetChatRoom;
+import com.dazone.crewchat.interfaces.SendChatMessage;
 import com.dazone.crewchat.libGallery.MediaChooser;
 import com.dazone.crewchat.utils.Constant;
 import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.TimeUtils;
 import com.dazone.crewchat.utils.Utils;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 import com.onegravity.contactpicker.contact.Contact;
@@ -63,7 +67,7 @@ import static com.dazone.crewchat.constant.Statics.CHATTING_VIEW_TYPE_SELECT_VID
  * Created by david on 12/24/15.
  * 채팅 리스트 액티비티 입니다.
  */
-public class ChattingActivity extends BaseSingleStatusActivity implements View.OnClickListener,SearchView.OnQueryTextListener ,SearchView.OnCloseListener {
+public class ChattingActivity extends BaseSingleStatusActivity implements View.OnClickListener, SearchView.OnQueryTextListener, SearchView.OnCloseListener {
     TreeUserDTO dto;
     //ChattingDto chattingDto;
 
@@ -120,36 +124,36 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
 
         // Set local database for current room, may be launch on new thread
         String roomTitle = "";
-        if (mDto != null){
+        if (mDto != null) {
             roomTitle = mDto.getRoomTitle();
             userNos = mDto.getUserNos();
             boolean isExistMe = false;
             for (int u = 0; u < userNos.size(); u++) {
-                if (userNos.get(u) == myId){
+                if (userNos.get(u) == myId) {
                     if (!isExistMe) {
                         isExistMe = true;
-                    }else{
+                    } else {
                         userNos.remove(u);
                     }
                 }
             }
             isOne = userNos.size() == 2;
             String subTitle = "";
-            if (isOne){ // Get user status
+            if (isOne) { // Get user status
                 int userId = 0;
                 try {
                     userId = (userNos.get(0) != myId) ? userNos.get(0) : userNos.get(1);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 String userStatus = AllUserDBHelper.getAUserStatus(userId);
-                if (userStatus != null && userStatus.length() > 0){
+                if (userStatus != null && userStatus.length() > 0) {
                     subTitle = userStatus;
                 }
 
             } else { // set default title
                 int roomSize = 0;
-                if (mDto.getUserNos() != null){
+                if (mDto.getUserNos() != null) {
                     roomSize = userNos.size();
                 }
                 subTitle = CrewChatApplication.getInstance().getResources().getString(R.string.room_info_participant_count, roomSize);
@@ -173,7 +177,7 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
                 isFromNotification = bundle.getBoolean(Constant.KEY_INTENT_FROM_NOTIFICATION, false);
                 roomNo = bundle.getLong(Constant.KEY_INTENT_ROOM_NO, 0);
                 myId = bundle.getLong(Constant.KEY_INTENT_USER_NO, 0);
-                if (myId == 0){
+                if (myId == 0) {
                     myId = Utils.getCurrentId();
                 }
 
@@ -195,36 +199,36 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
             @Override
             public void OnGetChatRoomSuccess(ChatRoomDTO chatRoomDTO) {
 
-                Utils.printLogs("Chat room info = "+chatRoomDTO.toString());
+                Utils.printLogs("Chat room info = " + chatRoomDTO.toString());
                 userNos = chatRoomDTO.getUserNos();
 
                 boolean isExistMe = false;
                 for (int u = 0; u < userNos.size(); u++) {
-                    if (userNos.get(u) == myId){
+                    if (userNos.get(u) == myId) {
                         if (!isExistMe) {
                             isExistMe = true;
-                        }else{
+                        } else {
                             userNos.remove(u);
                         }
                     }
                 }
                 isOne = userNos.size() == 2;
                 String subTitle = "";
-                if (isOne){ // Get user status
+                if (isOne) { // Get user status
                     int userId = 0;
                     try {
                         userId = (userNos.get(0) != myId) ? userNos.get(0) : userNos.get(1);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     String userStatus = AllUserDBHelper.getAUserStatus(userId);
-                    if (userStatus != null && userStatus.length() > 0){
+                    if (userStatus != null && userStatus.length() > 0) {
                         subTitle = userStatus;
                     }
 
                 } else { // set default title
                     int roomSize = 0;
-                    if (chatRoomDTO.getUserNos() != null){
+                    if (chatRoomDTO.getUserNos() != null) {
                         roomSize = userNos.size();
                     }
                     subTitle = CrewChatApplication.getInstance().getResources().getString(R.string.room_info_participant_count, roomSize);
@@ -278,7 +282,7 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
         super.onStart();
         try {
             CrewChatApplication.activityResumed();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -421,7 +425,7 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Utils.printLogs(requestCode + " " + resultCode);
         if (resultCode == Activity.RESULT_OK) {
@@ -441,7 +445,7 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
 
                         // Add image to gallery album
                         galleryAddPic(path);
-                        Utils.printLogs("Image capture stored = "+path);
+                        Utils.printLogs("Image capture stored = " + path);
 
                         ChattingDto chattingDto = new ChattingDto();
                         chattingDto.setmType(Statics.CHATTING_VIEW_TYPE_SELECT_IMAGE);
@@ -476,7 +480,7 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
                             String path = Utils.getPathFromURI(videoUri, this);
 
                             galleryAddPic(path);
-                            Utils.printLogs("Video capture stored = "+path);
+                            Utils.printLogs("Video capture stored = " + path);
 
                             File file = new File(path);
                             String filename = path.substring(path.lastIndexOf("/") + 1);
@@ -490,12 +494,12 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
                             //Send(Utils.getPathFromURI(videoUri, this));
                         }
                     } else {
-                        if (videoPath != null){
+                        if (videoPath != null) {
                             Uri videoUri = videoPath;
                             String path = Utils.getPathFromURI(videoUri, this);
 
                             galleryAddPic(path);
-                            Utils.printLogs("Video capture stored = "+path);
+                            Utils.printLogs("Video capture stored = " + path);
 
                             File file = new File(path);
                             String filename = path.substring(path.lastIndexOf("/") + 1);
@@ -590,20 +594,68 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
                         // we got a result from the contact picker
                         List<Contact> contacts = (List<Contact>) data.getSerializableExtra(ContactPickerActivity.RESULT_CONTACT_DATA);
 
-                        for (Contact contact : contacts) {
 
+                        for (final Contact contact : contacts) {
+
+                            final ChattingDto dto = new ChattingDto();
                             UserDto userDto = new UserDto();
                             userDto.setFullName(contact.getDisplayName());
                             userDto.setPhoneNumber(contact.getPhone(0));
-                            userDto.setAvatar(contact.getPhotoUri()!= null ? contact.getPhotoUri().toString() : null);
+                            userDto.setAvatar(contact.getPhotoUri() != null ? contact.getPhotoUri().toString() : null);
 
-                            Utils.printLogs("Contact info when add to chatting windows = "+userDto.toString());
-                            ChattingDto chattingDto = new ChattingDto();
-                            chattingDto.setmType(Statics.CHATTING_VIEW_TYPE_CONTACT);
-                            chattingDto.setUser(userDto);
+                            Utils.printLogs("Contact info when add to chatting windows = " + userDto.toString());
 
-                            addNewRow(chattingDto);
+                            dto.setmType(Statics.CHATTING_VIEW_TYPE_CONTACT);
+                            dto.setUser(userDto);
+                            dto.setMessage(contact.getDisplayName() + "\n" + contact.getPhone(0));
+                            dto.setHasSent(true);
+                            dto.setUserNo(Utils.getCurrentId());
+                            dto.setType(Statics.MESSAGE_TYPE_NORMAL);
+                            dto.setRoomNo(roomNo);
+                            dto.setWriterUser(Utils.getCurrentId());
+                            // perform update when send message success
+                            String currentTime = System.currentTimeMillis() + "";
+                            String time = TimeUtils.convertTimeDeviceToTimeServer(currentTime);
+                            dto.setRegDate(time);
+                            addNewRow(dto);
+
+                            final long lastId = ChatMessageDBHelper.addSimpleMessage(dto);
+
+                            HttpRequest.getInstance().SendChatMsg(roomNo, contact.getDisplayName() + "\n" + contact.getPhone(0), new SendChatMessage() {
+                                @Override
+                                public void onSenChatMessageSuccess(final ChattingDto chattingDto) {
+                                    // update old chat message model --> messageNo from server
+                                    dto.setHasSent(true);
+                                    dto.setMessage(chattingDto.getMessage());
+                                    dto.setMessageNo(chattingDto.getMessageNo());
+                                    dto.setmType(Statics.CHATTING_VIEW_TYPE_CONTACT);
+                                    dto.setUnReadCount(chattingDto.getUnReadCount());
+                                    // perform update when send message success
+                                    String time = TimeUtils.convertTimeDeviceToTimeServer(chattingDto.getRegDate());
+                                    dto.setRegDate(time);
+
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            ChatMessageDBHelper.updateMessage(dto, lastId);
+                                        }
+                                    }).start();
+
+                                    // Notify current adapter
+                                    // dataFromServer.add(newDto);
+
+                                    Toast.makeText(getApplicationContext(), "Send message success !", Toast.LENGTH_LONG).show();
+                                }
+
+                                @Override
+                                public void onSenChatMessageFail(ErrorDto errorDto, String url) {
+                                    Toast.makeText(getApplicationContext(), "Send message failed !", Toast.LENGTH_LONG).show();
+                                    Utils.printLogs("Send message failed !");
+
+                                }
+                            });
                         }
+
 
                     }
 
@@ -633,7 +685,7 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
 
     public static File getOutputMediaFile(int type) {
         //File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),Statics.IMAGE_DIRECTORY_NAME);
-        File mediaStorageDir = new File(Environment.getExternalStorageDirectory(),Constant.pathDownload);
+        File mediaStorageDir = new File(Environment.getExternalStorageDirectory(), Constant.pathDownload);
         if (!mediaStorageDir.exists()) {
             if (!mediaStorageDir.mkdirs()) {
                 return null;
@@ -714,7 +766,6 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
             SendTest(path, progressBar);
         }*/
     }
-
 
 
     @Override
@@ -936,11 +987,11 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
     /*
     * Show search view to search content in a chat
     * */
-    private void showSearchView(){
-        if (isShow){
+    private void showSearchView() {
+        if (isShow) {
             mSearchView.setIconified(true);
             isShow = true;
-        }else{
+        } else {
             mSearchView.setIconified(false);
             isShow = false;
         }

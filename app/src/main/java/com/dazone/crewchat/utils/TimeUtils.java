@@ -1,13 +1,15 @@
 package com.dazone.crewchat.utils;
 
 import android.content.Context;
+
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.constant.Statics;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonObject;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Created by david on 12/23/15.
@@ -93,6 +95,7 @@ public class TimeUtils {
         } else {
             time = Long.valueOf(regDate);
         }
+
 
         result = "/Date(" + time + ")/";
         return result;
@@ -367,18 +370,18 @@ public class TimeUtils {
     }
 
     // Notification time convert to string
-    public static String timeToStringNotAMPM(int hourOfDay, int minute){
+    public static String timeToStringNotAMPM(int hourOfDay, int minute) {
         String text = "";
         String minutes = "";
-        if (minute < 10){
+        if (minute < 10) {
             minutes = "0" + minute;
-        }else{
+        } else {
             minutes = String.valueOf(minute);
         }
-        if ((hourOfDay == 12 && minute > 0) || hourOfDay > 12){// PM
+        if ((hourOfDay == 12 && minute > 0) || hourOfDay > 12) {// PM
             text += hourOfDay + ":" + minutes;
-        }else{ // AM
-            if (hourOfDay < 10){
+        } else { // AM
+            if (hourOfDay < 10) {
                 text += "0";
             }
             text += hourOfDay + ":" + minutes;
@@ -386,20 +389,20 @@ public class TimeUtils {
         return text;
     }
 
-    public static String timeToString(int hourOfDay, int minute){
+    public static String timeToString(int hourOfDay, int minute) {
         String text = "";
         String minutes = "";
-        if (minute < 10){
+        if (minute < 10) {
             minutes = "0" + minute;
-        }else{
+        } else {
             minutes = String.valueOf(minute);
         }
-        if ((hourOfDay == 12 && minute > 0) || hourOfDay > 12){// PM
+        if ((hourOfDay == 12 && minute > 0) || hourOfDay > 12) {// PM
             text = "PM ";
             text += hourOfDay + ":" + minutes;
-        }else{ // AM
+        } else { // AM
             text = "AM ";
-            if (hourOfDay < 10){
+            if (hourOfDay < 10) {
                 text += "0";
             }
             text += hourOfDay + ":" + minutes;
