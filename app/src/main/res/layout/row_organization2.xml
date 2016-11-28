@@ -67,7 +67,7 @@
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/dimen_3_6">
 
-                <TextView
+                <com.dazone.crewchat.Views.AutoSizeTextView
                     android:id="@+id/name"
                     style="@style/tv_tree_user_style"
                     android:layout_width="wrap_content"
@@ -98,40 +98,60 @@
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/dimen_3_6">
 
-                <TextView
-                    android:id="@+id/tv_phone_number"
-                    style="@style/tv_tree_user_style"
+                <com.dazone.crewchat.Views.AutoSizeTextView
+                    android:id="@+id/tv_phone_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/home_status_01"
+                    android:drawableLeft="@drawable/group_ic_phone_02"
+                    android:ellipsize="end"
                     android:gravity="center"
-                    android:textColor="@android:color/black" />
+                    android:maxLines="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/tree_user_text_size" />
 
-                <TextView
-                    android:id="@+id/tv_work_phone"
-                    style="@style/tv_tree_user_style"
+                <com.dazone.crewchat.Views.AutoSizeTextView
+                    android:id="@+id/tv_phone_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:drawableLeft="@drawable/home_status_01"
+                    android:drawableLeft="@drawable/group_ic_phone_01"
+                    android:ellipsize="end"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:textColor="@color/tree_user_position_color"
+                    android:textSize="@dimen/tree_user_text_size"
                     android:visibility="visible" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_user_status"
-                style="@style/tv_tree_user_status_style"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/tree_user_text_size" />
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
 
+            <!--<com.dazone.crewchat.Views.AutoSizeTextView-->
+            <!--android:id="@+id/tv_phone_1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
+            <!--android:drawableLeft="@drawable/home_status_01"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="@dimen/tree_user_text_size" />-->
+
+            <!--<com.dazone.crewchat.Views.AutoSizeTextView-->
+            <!--android:id="@+id/tv_phone_2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
+            <!--android:drawableLeft="@drawable/home_status_01"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:padding="10dp"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="@dimen/tree_user_text_size" />-->
+            <!--</LinearLayout>-->
         </LinearLayout>
     </LinearLayout>
 

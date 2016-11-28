@@ -109,7 +109,9 @@ public abstract class ListFragment<T> extends Fragment {
 
         @Override
         public void afterTextChanged(Editable s) {
-
+            if (adapterList != null) {
+                adapterList.filterRecentFavorite(s.toString());
+            }
         }
     };
 

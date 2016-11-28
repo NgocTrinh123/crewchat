@@ -10,10 +10,10 @@
         android:id="@+id/ln_send_failed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:orientation="horizontal"
         android:padding="6dp"
-        android:layout_gravity="bottom"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/btn_resend"
@@ -29,6 +29,7 @@
             android:src="@drawable/chat_ic_delete" />
 
     </LinearLayout>
+
     <LinearLayout style="@style/lnl_chat_right_style">
 
         <include

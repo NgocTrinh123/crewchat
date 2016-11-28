@@ -35,13 +35,8 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
     private Activity mActivity;
 
     public ChattingAdapter(Context context, Activity activity, List<ChattingDto> mDataSet, RecyclerView view) {
-        super(context,mDataSet, view);
-        Collections.sort(mDataSet, new Comparator<ChattingDto>() {
-            @Override
-            public int compare(ChattingDto chattingDto, ChattingDto t1) {
-                return 1;
-            }
-        });
+        super(context, mDataSet, view);
+
         mActivity = activity;
     }
 
@@ -49,7 +44,19 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder vh;
         View v;
-            switch (viewType) {
+        Collections.sort(mDataset, new Comparator<ChattingDto>() {
+            @Override
+            public int compare(ChattingDto t1, ChattingDto t2) {
+                if (t1.isHasSent() && !t2.isHasSent()) {
+                    return -1;
+                }
+                if (!t1.isHasSent() && t2.isHasSent()) {
+                    return 1;
+                }
+                return 0;
+            }
+        });
+        switch (viewType) {
             case Statics.CHATTING_VIEW_TYPE_DATE:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_date, parent, false);
@@ -77,7 +84,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
 
             case Statics.CHATTING_VIEW_TYPE_PERSON_NOT_SHOW:
                 v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.row_chatting_person_not_show, parent, false);
+                        .inflate(R.layout.row_chatting_person_not_show, parent, false);
                 vh = new ChattingSelfViewHolder(v);
                 break;
 
@@ -95,7 +102,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
             case Statics.CHATTING_VIEW_TYPE_SELF_IMAGE:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_self_image, parent, false);
-                vh = new ChattingSelfImageViewHolder(mActivity,v);
+                vh = new ChattingSelfImageViewHolder(mActivity, v);
                 break;
             case Statics.CHATTING_VIEW_TYPE_SELF_FILE:
                 v = LayoutInflater.from(parent.getContext())
@@ -105,12 +112,12 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
             case Statics.CHATTING_VIEW_TYPE_PERSON_IMAGE:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_person_image, parent, false);
-                vh = new ChattingPersonImageViewHolder(mActivity,v);
+                vh = new ChattingPersonImageViewHolder(mActivity, v);
                 break;
             case Statics.CHATTING_VIEW_TYPE_PERSON_IMAGE_NOT_SHOW:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_person_image_not_show, parent, false);
-                vh = new ChattingSelfImageViewHolder(mActivity,v);
+                vh = new ChattingSelfImageViewHolder(mActivity, v);
                 break;
             case Statics.CHATTING_VIEW_TYPE_PERSON_FILE:
                 v = LayoutInflater.from(parent.getContext())
@@ -126,7 +133,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
             case Statics.CHATTING_VIEW_TYPE_SELECT_IMAGE:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_self_image, parent, false);
-                vh = new ChattingSelfImageViewHolder(mActivity,v);
+                vh = new ChattingSelfImageViewHolder(mActivity, v);
                 break;
             case Statics.CHATTING_VIEW_TYPE_SELECT_FILE:
                 v = LayoutInflater.from(parent.getContext())
@@ -151,19 +158,19 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
             case Statics.CHATTING_VIEW_TYPE_SELF_VIDEO:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_self_video, parent, false);
-                vh = new ChattingSelfVideoViewHolder(mActivity,v);
+                vh = new ChattingSelfVideoViewHolder(mActivity, v);
                 break;
 
             case Statics.CHATTING_VIEW_TYPE_SELECT_VIDEO:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_self_video, parent, false);
-                vh = new ChattingSelfVideoViewHolder(mActivity,v);
+                vh = new ChattingSelfVideoViewHolder(mActivity, v);
                 break;
 
             case Statics.CHATTING_VIEW_TYPE_PERSON_VIDEO_NOT_SHOW:
                 v = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.row_chatting_person_video_not_show, parent, false);
-                vh = new ChattingPersonVideoNotShowViewHolder(mActivity,v);
+                vh = new ChattingPersonVideoNotShowViewHolder(mActivity, v);
                 break;
 
             default:
@@ -178,7 +185,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (getItemViewType(position) != Statics.CHATTING_VIEW_TYPE_EMPTY){
+        if (getItemViewType(position) != Statics.CHATTING_VIEW_TYPE_EMPTY) {
             final ChattingDto item = mDataset.get(position);
             BaseChattingHolder viewHolder = (BaseChattingHolder) holder;
 
@@ -189,7 +196,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
 
     @Override
     public int getItemCount() {
-        if (mDataset.size() == 0 && isFiltering){
+        if (mDataset.size() == 0 && isFiltering) {
             return 1;
         }
         return mDataset.size();
@@ -197,7 +204,7 @@ public class ChattingAdapter extends PullUpLoadMoreRCVAdapter<ChattingDto> {
 
     @Override
     public int getItemViewType(int position) {
-        if (getItemCount() == 1 && mDataset.size() == 0){
+        if (getItemCount() == 1 && mDataset.size() == 0) {
             return Statics.CHATTING_VIEW_TYPE_EMPTY;
         }
         return mDataset.get(position).getmType();

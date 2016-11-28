@@ -9,7 +9,6 @@ import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -376,7 +375,7 @@ public class OrganizationView2 implements View.OnClickListener {
         final ImageView avatar;
         final ImageView folderIcon;
         final ImageView ivUserStatus;
-        final TextView name, position, user_staus, tvPhoneNumber, tvWorkPhone;
+        final TextView name, position, tvPhone1, tvPhone2;
         final RelativeLayout relAvatar;
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.row_organization2, null);
@@ -391,12 +390,10 @@ public class OrganizationView2 implements View.OnClickListener {
         relAvatar = (RelativeLayout) view.findViewById(R.id.relAvatar);
         iconWrapper = (LinearLayout) view.findViewById(R.id.icon_wrapper);
         ivUserStatus = (ImageView) view.findViewById(R.id.status_imv);
-        user_staus = (TextView) view.findViewById(R.id.tv_user_status);
-        tvPhoneNumber = (TextView) view.findViewById(R.id.tv_phone_number);
-        tvWorkPhone = (TextView) view.findViewById(R.id.tv_work_phone);
+        tvPhone1 = (TextView) view.findViewById(R.id.tv_phone_1);
+        tvPhone2 = (TextView) view.findViewById(R.id.tv_phone_2);
         lnPhone = (LinearLayout) view.findViewById(R.id.ln_phone);
 
-        user_staus.setMovementMethod(new ScrollingMovementMethod());
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) iconWrapper.getLayoutParams();
         if (displayType == 0) // set margin for icon if it's company type
         {
@@ -419,16 +416,27 @@ public class OrganizationView2 implements View.OnClickListener {
                 ivUserStatus.setImageResource(R.drawable.home_big_status_03);
             }
 
-            String status_string = treeUserDTO.getStatusString();
-            if (!TextUtils.isEmpty(status_string)) {
-                user_staus.setText(status_string);
-                if (!user_staus.isShown()) {
-                    user_staus.setVisibility(View.VISIBLE);
-                }
-
+            if (TextUtils.isEmpty(treeUserDTO.getPhoneNumber())) {
+                tvPhone1.setVisibility(View.GONE);
             } else {
-                user_staus.setVisibility(View.GONE);
+                tvPhone1.setText(treeUserDTO.getPhoneNumber());
+
             }
+            if (TextUtils.isEmpty(treeUserDTO.getCompanyNumber())) {
+                tvPhone2.setVisibility(View.GONE);
+            } else {
+                tvPhone2.setText(treeUserDTO.getCompanyNumber());
+            }
+//            String status_string = treeUserDTO.getStatusString();
+//            if (!TextUtils.isEmpty(status_string)) {
+//                tvPhone1.setText(status_string);
+//                if (!tvPhone1.isShown()) {
+//                    tvPhone1.setVisibility(View.VISIBLE);
+//                }
+//
+//            } else {
+//                tvPhone1.setVisibility(View.GONE);
+//            }
 
 
             String url = new Prefs().getServerSite() + treeUserDTO.getAvatarUrl();
@@ -467,27 +475,16 @@ public class OrganizationView2 implements View.OnClickListener {
                 }
             });
 
-            lnPhone.setVisibility(View.GONE);
+//            lnPhone.setVisibility(View.GONE);
 
-            tvPhoneNumber.setText(treeUserDTO.getPhoneNumber());
-            tvWorkPhone.setText(treeUserDTO.getCompanyNumber());
-
-            // Add image status to and arrayList
-            ArrayList<StatusViewDto> statusViewDtos;
-            if (statusList.containsKey(treeUserDTO.getId())) {
-                statusViewDtos = statusList.get(treeUserDTO.getId());
-                statusViewDtos.add(new StatusViewDto(ivUserStatus, user_staus));
-            } else {
-                statusViewDtos = new ArrayList<>();
-                statusViewDtos.add(new StatusViewDto(ivUserStatus, user_staus));
-                statusList.put(treeUserDTO.getId(), statusViewDtos);
-            }
+            /*tvPhoneNumber.setText(treeUserDTO.getPhoneNumber());
+            tvWorkPhone.setText(treeUserDTO.getCompanyNumber());*/
 
         } else {
             position.setVisibility(View.GONE);
             relAvatar.setVisibility(View.GONE);
             folderIcon.setVisibility(View.VISIBLE);
-            user_staus.setVisibility(View.GONE);
+            tvPhone1.setVisibility(View.GONE);
             lnPhone.setVisibility(View.GONE);
 
             new Thread(new Runnable() {

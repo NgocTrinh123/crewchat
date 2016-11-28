@@ -608,9 +608,8 @@ public class ChattingActivity extends BaseSingleStatusActivity implements View.O
                             dto.setmType(Statics.CHATTING_VIEW_TYPE_CONTACT);
                             dto.setUser(userDto);
                             dto.setMessage(contact.getDisplayName() + "\n" + contact.getPhone(0));
-                            dto.setHasSent(true);
+                            dto.setHasSent(false);
                             dto.setUserNo(Utils.getCurrentId());
-                            dto.setType(Statics.MESSAGE_TYPE_NORMAL);
                             dto.setRoomNo(roomNo);
                             dto.setWriterUser(Utils.getCurrentId());
                             // perform update when send message success

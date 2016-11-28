@@ -55,10 +55,10 @@ public class ChattingSelfFileViewHolder extends BaseChattingHolder {
         tvUnread = (TextView) v.findViewById(R.id.text_unread);
         lnSendFail = (LinearLayout) v.findViewById(R.id.ln_send_failed);
 
-        ivResend = (ImageView) v.findViewById(R.id.btn_resend);
-        ivDelete = (ImageView) v.findViewById(R.id.btn_delete);
-
-        lnSendFail.setVisibility(View.GONE);
+//        ivResend = (ImageView) v.findViewById(R.id.btn_resend);
+//        ivDelete = (ImageView) v.findViewById(R.id.btn_delete);
+//
+//        lnSendFail.setVisibility(View.GONE);
 
     }
 

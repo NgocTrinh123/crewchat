@@ -12,17 +12,32 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.dazone.crewchat.HTTPs.HttpOauthRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.activity.ChatViewImageActivity;
 import com.dazone.crewchat.activity.LoginActivity;
 import com.dazone.crewchat.constant.Statics;
-import com.dazone.crewchat.dto.*;
+import com.dazone.crewchat.database.UserDBHelper;
+import com.dazone.crewchat.dto.AttachDTO;
+import com.dazone.crewchat.dto.BelongDepartmentDTO;
+import com.dazone.crewchat.dto.ChattingDto;
+import com.dazone.crewchat.dto.ErrorDto;
+import com.dazone.crewchat.dto.UserDetailDto;
+import com.dazone.crewchat.dto.UserDto;
 import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
 import com.dazone.crewchat.interfaces.BaseHTTPCallbackWithJson;
 import com.dazone.crewchat.interfaces.OnBackCallBack;
-import com.dazone.crewchat.utils.*;
+import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.ImageUtils;
+import com.dazone.crewchat.utils.Prefs;
+import com.dazone.crewchat.utils.TimeUtils;
+import com.dazone.crewchat.utils.Utils;
 import com.google.gson.Gson;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -59,9 +74,24 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         mView = inflater.inflate(R.layout.activity_profile, container, false);
         prefs = CrewChatApplication.getInstance().getmPrefs();
         initView();
-        getUserDetail(String.valueOf(prefs.getUserNo()));
+        if (Utils.isNetworkAvailable()) {
+            getUserDetail(String.valueOf(prefs.getUserNo()));
+        } else {
+            dataOffline();
+        }
 
         return mView;
+    }
+
+    private void dataOffline() {
+        UserDto userDto = UserDBHelper.getUser();
+        tvName.setText(userDto.getFullName());
+        tvPersonalID.setText(userDto.getUserID());
+        rl_phone_number.setVisibility(View.GONE);
+        tvEmail.setText(prefs.getEmail());
+        tvCompanyName.setText(userDto.getNameCompany());
+        String url = prefs.getServerSite() + prefs.getAvatarUrl();
+        ImageUtils.showCycleImageSquareFromLink(url, ivAvatar, R.dimen.button_height);
     }
 
     private void initView() {
@@ -113,22 +143,22 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         String serverLink = prefs.getServerSite();
         HttpOauthRequest.getInstance().getUser(
                 new BaseHTTPCallbackWithJson() {
-                           @Override
-                           public void onHTTPSuccess(String jsonData) {
+                    @Override
+                    public void onHTTPSuccess(String jsonData) {
 
-                               Utils.printLogs("Json = "+jsonData);
+                        Utils.printLogs("Json = " + jsonData);
 
-                               mProgressBar.setVisibility(View.GONE);
-                                Gson gson = new Gson();
-                UserDetailDto userDto = gson.fromJson(jsonData, UserDetailDto.class);
-                    fillData(userDto);
-                           }
+                        mProgressBar.setVisibility(View.GONE);
+                        Gson gson = new Gson();
+                        UserDetailDto userDto = gson.fromJson(jsonData, UserDetailDto.class);
+                        fillData(userDto);
+                    }
 
-                           @Override
-                           public void onHTTPFail(ErrorDto errorDto) {
-                               mProgressBar.setVisibility(View.GONE);
-                           }
-                       },
+                    @Override
+                    public void onHTTPFail(ErrorDto errorDto) {
+                        mProgressBar.setVisibility(View.GONE);
+                    }
+                },
                 userNo,
                 languageCode,
                 timeZoneOffset,
@@ -174,11 +204,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         tvName.setText(profileUserDTO.getName());
         String company = "";
         ArrayList<BelongDepartmentDTO> belongs = profileUserDTO.getBelongs();
-        if (belongs != null){
-            for (int i = 0; i < belongs.size(); i++){
-                if (i == 0){
+        if (belongs != null) {
+            for (int i = 0; i < belongs.size(); i++) {
+                if (i == 0) {
                     company += belongs.get(i).getDepartName();
-                }else{
+                } else {
                     company += "," + belongs.get(i).getDepartName();
                 }
             }
@@ -208,11 +238,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         });
 
         String phone = "";
-        if (!TextUtils.isEmpty(profileUserDTO.getCellPhone())){
+        if (!TextUtils.isEmpty(profileUserDTO.getCellPhone())) {
             phone = profileUserDTO.getCellPhone();
         }
 
-        if (!TextUtils.isEmpty(phone)){
+        if (!TextUtils.isEmpty(phone)) {
             tvPhoneNumber.setText(phone);
             rl_phone_number.setVisibility(View.VISIBLE);
         } else {

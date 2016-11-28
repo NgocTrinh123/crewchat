@@ -53,7 +53,7 @@
                               android:layout_height="wrap_content"
                               android:drawableLeft="@android:drawable/ic_menu_search"
                               android:background="@drawable/bg_none_stoke_blue"
-                              android:inputType="textVisiblePassword"/>
+                              android:inputType="text"/>
 
                     <android.support.v7.widget.RecyclerView
                             android:id="@+id/rv_main"

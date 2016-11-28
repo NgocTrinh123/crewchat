@@ -90,6 +90,7 @@ public class HttpOauthRequest {
                 userDto.prefs.putCompanyName(userDto.getNameCompany());
                 userDto.prefs.setFullName(userDto.getFullName());
                 userDto.prefs.putCompanyNo(userDto.getCompanyNo());
+                userDto.prefs.putEmail(userDto.getMailAddress());
                 UserDBHelper.addUser(userDto);
                 // Set static current user Id
                 CrewChatApplication.currentId = userDto.Id;
@@ -140,6 +141,7 @@ public class HttpOauthRequest {
                 userDto.prefs.putaccesstoken(userDto.session);
                 userDto.prefs.putUserNo(userDto.Id);
                 userDto.prefs.putUserName(userDto.userID);
+                userDto.prefs.putEmail(userDto.MailAddress);
                 UserDBHelper.addUser(userDto);
                 if(baseHTTPCallBack!=null) {
                     baseHTTPCallBack.onHTTPSuccess();

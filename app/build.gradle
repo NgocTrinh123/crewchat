@@ -12,6 +12,7 @@ apply plugin: 'com.android.application'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://jitpack.io" }
 }
 
 android {
@@ -73,6 +74,7 @@ dependencies {
     compile 'com.android.support:design:25.0.1'
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.github.AndroidDeveloperLB:AutoFitTextView:3'
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.google.android.gms:play-services:9.8.0'
     compile 'com.android.support:support-v4:25.0.1'
