@@ -14,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
+
 import com.dazone.crewchat.HTTPs.GetUserStatus;
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
@@ -22,7 +23,11 @@ import com.dazone.crewchat.adapter.TabPagerAdapter;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.database.AllUserDBHelper;
 import com.dazone.crewchat.database.UserDBHelper;
-import com.dazone.crewchat.dto.*;
+import com.dazone.crewchat.dto.ErrorDto;
+import com.dazone.crewchat.dto.StatusDto;
+import com.dazone.crewchat.dto.StatusItemDto;
+import com.dazone.crewchat.dto.TreeUserDTOTemp;
+import com.dazone.crewchat.dto.UserInfoDto;
 import com.dazone.crewchat.fragment.CompanyFragment;
 import com.dazone.crewchat.interfaces.OnClickCallback;
 import com.dazone.crewchat.interfaces.OnGetStatusCallback;
@@ -38,19 +43,19 @@ import java.util.ArrayList;
 /**
  * Created by david on 12/23/15.
  */
-public class MainActivity extends BasePagerActivity implements ViewPager.OnPageChangeListener , ServiceConnection {
+public class MainActivity extends BasePagerActivity implements ViewPager.OnPageChangeListener, ServiceConnection {
 
     private boolean doubleBackToExitPressedOnce = false;
     /**
      * Handler
      */
-    protected Handler mHandler = new Handler(){
+    protected Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
             boolean aResponse = msg.getData().getBoolean("is_update");
-            if (aResponse){
+            if (aResponse) {
                 Utils.printLogs("Handler is received a message from another thread");
 
                 int tab = msg.getData().getInt("tab");
@@ -120,7 +125,7 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
         super.onStart();
 
         // Bind service to sync status data
-        Intent objIntent = new Intent(this,  SyncStatusService.class);
+        Intent objIntent = new Intent(this, SyncStatusService.class);
         bindService(objIntent, this, Context.BIND_AUTO_CREATE);
     }
 
@@ -164,12 +169,33 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
      */
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        Utils.hideKeyboard(this);
         Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.container + ":" + mViewPager.getCurrentItem());
         // based on the current position you can then cast the page to the correct
         // class and call the method:
         // 탭 화면이 스크롤 되어 질 때에 이벤트 처리(좌우), 화면에 보이는 검색 아이콘등을 설정
-        if (mViewPager.getCurrentItem() == TAB_CHAT && page != null){
-            if (menuItemSearch != null){
+        if (mViewPager.getCurrentItem() == TAB_CHAT && page != null) {
+            if (menuItemSearch != null) {
+                searchView.setIconified(true);
+                searchView.setVisibility(View.GONE);
+                menuItemMore.setVisible(false);
+                menuItemSearch.collapseActionView();
+                menuItemSearch.setVisible(false);
+            }
+        } else if (mViewPager.getCurrentItem() == TAB_COMPANY && page != null) {
+            ((CompanyFragment) page).updateList();
+            if (menuItemSearch != null && menuItemMore != null) {
+                menuItemSearch.setVisible(true);
+                searchView.setVisibility(View.VISIBLE);
+            }
+        } else if (mViewPager.getCurrentItem() == TAB_FAVORITE && page != null) {
+            // todo something
+            if (menuItemSearch != null && menuItemMore != null) {
+                menuItemSearch.collapseActionView();
+                menuItemSearch.setVisible(false);
+            }
+        } else {
+            if (menuItemSearch != null && menuItemMore != null) {
                 searchView.setIconified(true);
                 searchView.setVisibility(View.GONE);
                 menuItemMore.setVisible(false);
@@ -177,38 +203,17 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                 menuItemSearch.setVisible(false);
             }
         }
-        else if (mViewPager.getCurrentItem() == TAB_COMPANY && page != null) {
-            ((CompanyFragment) page).updateList();
-            if (menuItemSearch != null && menuItemMore != null) {
-                menuItemSearch.setVisible(true);
-                searchView.setVisibility(View.VISIBLE);
-            }
-        }else if(mViewPager.getCurrentItem() == TAB_FAVORITE && page != null){
-            // todo something
-            if (menuItemSearch != null && menuItemMore != null) {
-                menuItemSearch.collapseActionView();
-                menuItemSearch.setVisible(false);
-            }
-        }else {
-                if (menuItemSearch != null && menuItemMore != null) {
-                    searchView.setIconified(true);
-                    searchView.setVisibility(View.GONE);
-                    menuItemMore.setVisible(false);
-                    menuItemSearch.collapseActionView();
-                    menuItemSearch.setVisible(false);
-                }
-        }
     }
 
 
-    public void showMenuSearch(OnClickCallback callback){
-        if (menuItemSearch != null){
+    public void showMenuSearch(OnClickCallback callback) {
+        if (menuItemSearch != null) {
             menuItemSearch.setVisible(true);
             searchView.setVisibility(View.VISIBLE);
         }
     }
 
-    public void hideMenuSearch(){
+    public void hideMenuSearch() {
         if (menuItemSearch != null) {
             searchView.setIconified(true);
             searchView.setVisibility(View.GONE);
@@ -226,7 +231,7 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
         }
     };
 
-    public int getCurrentTab(){
+    public int getCurrentTab() {
         return mViewPager.getCurrentItem();
     }
 
@@ -234,21 +239,22 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
     // 탭을 직접 선택 했을 경우 이벤트 처리
     @Override
     public void onPageSelected(final int position) {
+        Utils.hideKeyboard(this);
         if (position == TAB_CHAT) {
             showPAB(mAddUserCallback);
-        } else if (position == TAB_COMPANY || position == TAB_SETTING){
+        } else if (position == TAB_COMPANY || position == TAB_SETTING) {
             hideSearchIcon();
             hidePAB();
         }
         // Get all user ID
-        Utils.printLogs("Page position ="+position);
-        if(position == TAB_COMPANY || position == TAB_FAVORITE){
+        Utils.printLogs("Page position =" + position);
+        if (position == TAB_COMPANY || position == TAB_FAVORITE) {
             // resuming data to get user status
             // New thread to update user status here, status running in background
 
             final ArrayList<TreeUserDTOTemp> users = AllUserDBHelper.getUser();
             boolean isStaticList = false;
-            if (CrewChatApplication.listUsers != null && CrewChatApplication.listUsers.size() > 0){
+            if (CrewChatApplication.listUsers != null && CrewChatApplication.listUsers.size() > 0) {
                 isStaticList = true;
             }
 
@@ -261,11 +267,11 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                     // 상태값을 가져옵니다.
                     final StatusDto status = new GetUserStatus().getStatusOfUsers(Urls.HOST_STATUS, companyNo);
                     // Need to improve it
-                    if (status != null){
-                        for (final TreeUserDTOTemp u : users){
+                    if (status != null) {
+                        for (final TreeUserDTOTemp u : users) {
                             boolean isUpdate = false;
-                            for (final StatusItemDto sItem : status.getItems()){
-                                if (sItem.getUserID().equals(u.getUserID())){
+                            for (final StatusItemDto sItem : status.getItems()) {
+                                if (sItem.getUserID().equals(u.getUserID())) {
                                     // Thread to update status
                                     new Thread(new Runnable() {
                                         @Override
@@ -275,9 +281,9 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                                             if (finalIsStaticList) {
                                                 boolean xUpdate = false;
                                                 TreeUserDTOTemp temp = null;
-                                                for (TreeUserDTOTemp uu : CrewChatApplication.listUsers){
+                                                for (TreeUserDTOTemp uu : CrewChatApplication.listUsers) {
                                                     temp = uu;
-                                                    if (sItem.getUserID().equals(uu.getUserID())){
+                                                    if (sItem.getUserID().equals(uu.getUserID())) {
                                                         uu.setStatus(sItem.getStatus());
                                                         xUpdate = true;
                                                         break;
@@ -285,8 +291,8 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
 
                                                 }
 
-                                                if (!xUpdate){
-                                                    if (temp != null){
+                                                if (!xUpdate) {
+                                                    if (temp != null) {
                                                         temp.setStatus(Statics.USER_LOGOUT);
                                                     }
                                                 }
@@ -301,13 +307,13 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                                 }
                             }
 
-                            if (!isUpdate){
-                                if (u.getUserNo() == currentUserNo){
+                            if (!isUpdate) {
+                                if (u.getUserNo() == currentUserNo) {
                                     new Thread(new Runnable() {
                                         @Override
                                         public void run() {
                                             // 내 상태값을 바꾼다.
-                                            UserDBHelper.updateStatus(u.getUserNo(),Statics.USER_LOGOUT);
+                                            UserDBHelper.updateStatus(u.getUserNo(), Statics.USER_LOGOUT);
                                         }
                                     }).start();
                                 }
@@ -326,9 +332,9 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                         Message msgObj = mHandler.obtainMessage();
                         Bundle b = new Bundle();
                         b.putBoolean("is_update", true);
-                        if (position == TAB_COMPANY){
+                        if (position == TAB_COMPANY) {
                             b.putInt("tab", TAB_COMPANY);
-                        }else{
+                        } else {
                             b.putInt("tab", TAB_FAVORITE);
                         }
 
@@ -351,17 +357,17 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                             // If list user is #null then update user status string
                             if (users == null) {
                                 ArrayList<TreeUserDTOTemp> tempUsers = AllUserDBHelper.getUser();
-                                for (TreeUserDTOTemp sItem : tempUsers){
-                                    for (UserInfoDto u : userInfo){
-                                        if (sItem.getUserNo() == u.getUserNo()){
+                                for (TreeUserDTOTemp sItem : tempUsers) {
+                                    for (UserInfoDto u : userInfo) {
+                                        if (sItem.getUserNo() == u.getUserNo()) {
                                             AllUserDBHelper.updateStatusString(sItem.getDBId(), u.getStateMessage());
                                         }
                                     }
                                 }
                             } else {
-                                for (TreeUserDTOTemp sItem : users){
-                                    for (UserInfoDto u : userInfo){
-                                        if (sItem.getUserNo() == u.getUserNo()){
+                                for (TreeUserDTOTemp sItem : users) {
+                                    for (UserInfoDto u : userInfo) {
+                                        if (sItem.getUserNo() == u.getUserNo()) {
                                             AllUserDBHelper.updateStatusString(sItem.getDBId(), u.getStateMessage());
                                             sItem.setUserStatusString(u.getStateMessage());
                                         }
@@ -374,9 +380,9 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
                             Message msgObj = mHandler.obtainMessage();
                             Bundle b = new Bundle();
                             b.putBoolean("is_update", true);
-                            if (position == TAB_COMPANY){
+                            if (position == TAB_COMPANY) {
                                 b.putInt("tab", TAB_COMPANY);
-                            }else{
+                            } else {
                                 b.putInt("tab", TAB_FAVORITE);
                             }
 

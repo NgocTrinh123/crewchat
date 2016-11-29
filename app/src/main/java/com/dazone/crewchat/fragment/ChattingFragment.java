@@ -167,7 +167,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
     // 로컬 DB에 저장된 채팅 메시지 내역을 가져옵니다.
     private void loadClientData() {
         isLoaded = true;
-        progressBar.setVisibility(View.VISIBLE);
+//        progressBar.setVisibility(View.VISIBLE);
         // Load chat message section from database and init first
         final ArrayList<ChattingDto> listChatMessage = ChatMessageDBHelper.getMsgSession(roomNo, 0, ChatMessageDBHelper.FIRST);
         if (listChatMessage != null) {

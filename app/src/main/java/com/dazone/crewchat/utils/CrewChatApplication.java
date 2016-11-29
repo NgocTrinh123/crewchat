@@ -8,6 +8,7 @@ import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
 import com.dazone.crewchat.BuildConfig;
 import com.dazone.crewchat.HTTPs.GetUserStatus;
 import com.dazone.crewchat.HTTPs.HttpRequest;
@@ -24,6 +25,7 @@ import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import io.fabric.sdk.android.Fabric;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -54,6 +56,7 @@ public class CrewChatApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         //Fabric.with(this, new Crashlytics());
         _instance = this;
         init();
