@@ -1,6 +1,7 @@
 package com.dazone.crewchat.ViewHolders;
 
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,7 +57,11 @@ public class ChattingSelfViewHolder extends BaseChattingHolder {
 
     @Override
     public void bindData(final ChattingDto dto) {
-        date_tv.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getRegDate(), 0, TimeUtils.KEY_FROM_SERVER));
+        if (!TextUtils.isEmpty(dto.getLastedMsgDate())) {
+            date_tv.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getLastedMsgDate(), 0, TimeUtils.KEY_FROM_SERVER));
+        } else {
+            date_tv.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getRegDate(), 0, TimeUtils.KEY_FROM_SERVER));
+        }
         if (dto.getMessage() != null) {
             content_tv.setText(Html.fromHtml(dto.getMessage()));
         }

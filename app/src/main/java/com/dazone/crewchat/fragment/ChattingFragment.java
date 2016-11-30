@@ -125,7 +125,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
                 adapterList.notifyDataSetChanged();
                 if (!isLoadMore) {
-//                    layoutManager.scrollToPosition(dataSet.size() - 1);
+                    layoutManager.scrollToPosition(dataSet.size() - 1);
                 }
             } else if (msg.what == WHAT_CODE_ADD_NEW_DATA) {
                 Bundle args = msg.getData();
@@ -1106,14 +1106,12 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                     view.edt_comment.setText("");
 
                     // Add new line for new message, it's may be today
-                    String date;
+                    String date = "";
                     if (dataSet != null) {
                         if (dataSet.size() > 2) {
                             date = dataSet.get(dataSet.size() - 1).getRegDate();
                         } else if (dataSet.size() > 1) {
                             date = dataSet.get(1).getRegDate();
-                        } else {
-                            date = dataSet.get(0).getRegDate();
                         }
                         if (!TextUtils.isEmpty(date)) {
                             if (!date.equalsIgnoreCase(Utils.getString(R.string.today))) {
