@@ -9,30 +9,30 @@ import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class CustomEditText extends EditText
-{
-    private Drawable dLeft,dRight;
-    private Rect lBounds,rBounds;
+public class CustomEditText extends EditText {
+    private Drawable dLeft, dRight;
+    private Rect lBounds, rBounds;
     private static Button btnOk;
 
     public CustomEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
+
     public CustomEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public CustomEditText(Context context) {
         super(context);
     }
 
     @Override
     public void setCompoundDrawables(Drawable left, Drawable top,
-                                     Drawable right, Drawable bottom)
-    {
-        if(left !=null) {
+                                     Drawable right, Drawable bottom) {
+        if (left != null) {
             dLeft = left;
         }
-        if(right !=null){
+        if (right != null) {
             dRight = right;
         }
 
@@ -42,47 +42,45 @@ public class CustomEditText extends EditText
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            btnOk.requestFocus();
-            btnOk.performClick();
+            if (btnOk != null) {
+                btnOk.requestFocus();
+                btnOk.performClick();
+            }
 
         }
         return super.onKeyUp(keyCode, event);
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event)
-    {
-        final int x = (int)event.getX();
-        final int y = (int)event.getY();
+    public boolean onTouchEvent(MotionEvent event) {
+        final int x = (int) event.getX();
+        final int y = (int) event.getY();
 
-        if(event.getAction() == MotionEvent.ACTION_UP && dLeft!=null) {
+        if (event.getAction() == MotionEvent.ACTION_UP && dLeft != null) {
             lBounds = dLeft.getBounds();
 
             int n1 = this.getLeft();
-            int n2 = this.getLeft()+lBounds.width();
+            int n2 = this.getLeft() + lBounds.width();
             int n3 = this.getPaddingTop();
-            int n4 = this.getHeight()-this.getPaddingBottom();
+            int n4 = this.getHeight() - this.getPaddingBottom();
             // leva strana
-            if(    x>=(this.getLeft())
-                    && x<=(this.getLeft()+lBounds.width())
-                    && y>=this.getPaddingTop()
-                    && y<=(this.getHeight()-this.getPaddingBottom()))
-            {
+            if (x >= (this.getLeft())
+                    && x <= (this.getLeft() + lBounds.width())
+                    && y >= this.getPaddingTop()
+                    && y <= (this.getHeight() - this.getPaddingBottom())) {
                 this.setText("");
                 event.setAction(MotionEvent.ACTION_CANCEL);//use this to prevent the keyboard from coming up
             }
         }
-        if(event.getAction() == MotionEvent.ACTION_UP && dRight!=null)
-        {
+        if (event.getAction() == MotionEvent.ACTION_UP && dRight != null) {
             rBounds = dRight.getBounds();
-            int n1 = this.getRight()-rBounds.width();
-            int n2 = this.getRight()-this.getPaddingRight();
+            int n1 = this.getRight() - rBounds.width();
+            int n2 = this.getRight() - this.getPaddingRight();
             int n3 = this.getPaddingTop();
-            int n4 = this.getHeight()-this.getPaddingBottom();
+            int n4 = this.getHeight() - this.getPaddingBottom();
             // prava strana
-            if(x>=(this.getRight()-rBounds.width()) && x<=(this.getRight()-this.getPaddingRight())
-                    && y>=this.getPaddingTop() && y<=(this.getHeight()-this.getPaddingBottom()))
-            {
+            if (x >= (this.getRight() - rBounds.width()) && x <= (this.getRight() - this.getPaddingRight())
+                    && y >= this.getPaddingTop() && y <= (this.getHeight() - this.getPaddingBottom())) {
                 btnOk.requestFocus();
                 btnOk.performClick();
                 event.setAction(MotionEvent.ACTION_CANCEL);//use this to prevent the keyboard from coming up
@@ -93,15 +91,16 @@ public class CustomEditText extends EditText
     }
 
     @Override
-    protected void finalize() throws Throwable
-    {
+    protected void finalize() throws Throwable {
         dRight = null;
         rBounds = null;
         super.finalize();
     }
+
     public void setBtnOk(Button btnOk) {
         this.btnOk = btnOk;
     }
+
     public Button getBtnOk() {
         return btnOk;
     }

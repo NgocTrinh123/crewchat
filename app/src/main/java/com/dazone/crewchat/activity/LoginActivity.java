@@ -8,14 +8,24 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.*;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
-import android.widget.*;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
 import com.dazone.crewchat.BuildConfig;
 import com.dazone.crewchat.HTTPs.HttpOauthRequest;
 import com.dazone.crewchat.HTTPs.HttpRequest;
@@ -24,7 +34,15 @@ import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.customs.AlertDialogView;
 import com.dazone.crewchat.customs.IconButton;
-import com.dazone.crewchat.database.*;
+import com.dazone.crewchat.database.AllUserDBHelper;
+import com.dazone.crewchat.database.BelongsToDBHelper;
+import com.dazone.crewchat.database.ChatMessageDBHelper;
+import com.dazone.crewchat.database.ChatRomDBHelper;
+import com.dazone.crewchat.database.DepartmentDBHelper;
+import com.dazone.crewchat.database.FavoriteGroupDBHelper;
+import com.dazone.crewchat.database.FavoriteUserDBHelper;
+import com.dazone.crewchat.database.ServerSiteDBHelper;
+import com.dazone.crewchat.database.UserDBHelper;
 import com.dazone.crewchat.dto.ErrorDto;
 import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
 import com.dazone.crewchat.interfaces.OnCheckDevice;
@@ -36,12 +54,18 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnCheckDevice{
+public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnCheckDevice {
     /**
      * VIEW
      */
@@ -105,7 +129,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
                     findViewById(R.id.logo).setVisibility(View.VISIBLE);
                     callActivity(MainActivity.class);
                     finish();
-                }else{
+                } else {
                     // Haven't ever login yet --> go to login screen and remind switch on network
                     prefs.putBooleanValue(Statics.PREFS_KEY_SESSION_ERROR, false);
                     findViewById(R.id.logo).setVisibility(View.GONE);
@@ -143,7 +167,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
         scrollView = (ScrollView) findViewById(R.id.scl_login);
         /*forgot_pass = (TextView) findViewById(R.id.forgot_pass);
         help_login = (TextView) findViewById(R.id.help_login);
-        have_no_id_login = (TextView) findViewById(R.id.have_no_id_login);*/
+        h   ave_no_id_login = (TextView) findViewById(R.id.have_no_id_login);*/
         mBtnSignUp = (IconButton) findViewById(R.id.login_btn_signup);
         mBtnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -264,7 +288,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
         if (!TextUtils.isEmpty(server_site)) {
             server_site.replace("http://", "");
 
-            if (!prefs.getServerSite().toLowerCase().equals(server_site.toLowerCase())){
+            if (!prefs.getServerSite().toLowerCase().equals(server_site.toLowerCase())) {
 
                 BelongsToDBHelper.clearBelong();
                 AllUserDBHelper.clearUser();
@@ -412,7 +436,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
             }
         }
         // DisMiss error dialog
-        if ( errorDialog!=null && errorDialog.isShowing() ){
+        if (errorDialog != null && errorDialog.isShowing()) {
             errorDialog.cancel();
         }
     }
@@ -425,7 +449,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
         public void run() {
             try {
                 String url = Constant.ROOT_URL_UPDATE + "/Android/Version/CrewChat.txt";
-                Utils.printLogs("URL = "+url);
+                Utils.printLogs("URL = " + url);
                 URL txtUrl = new URL(url);
                 HttpURLConnection urlConnection = (HttpURLConnection) txtUrl.openConnection();
 
@@ -464,20 +488,22 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
 
                     activity.firstChecking();
                 } else if (msg.what == ACTIVITY_HANDLER_START_UPDATE) {
+                    if (!activity.isFinishing()) {
+                        AlertDialogView.normalAlertDialogWithCancelWhite(activity, null, Utils.getString(R.string.string_update_content_new), Utils.getString(R.string.no), Utils.getString(R.string.yes), new AlertDialogView.OnAlertDialogViewClickEvent() {
 
-                    AlertDialogView.normalAlertDialogWithCancelWhite(activity, null,Utils.getString(R.string.string_update_content_new), Utils.getString(R.string.no), Utils.getString(R.string.yes) , new AlertDialogView.OnAlertDialogViewClickEvent(){
+                            @Override
+                            public void onOkClick(DialogInterface alertDialog) {
+                                new WebClientAsyncTask(activity).execute();
+                            }
 
-                        @Override
-                        public void onOkClick(DialogInterface alertDialog) {
-                            new WebClientAsyncTask(activity).execute();
-                        }
+                            @Override
+                            public void onCancelClick() {
 
-                        @Override
-                        public void onCancelClick() {
+                                activity.firstChecking();
+                            }
+                        });
+                    }
 
-                            activity.firstChecking();
-                        }
-                    });
 
                 }
             }
@@ -664,7 +690,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
                 if (gcm == null) {
                     gcm = GoogleCloudMessaging.getInstance(context);
                 }
-                if (gcm == null){
+                if (gcm == null) {
                     return null;
                 }
                 regid = gcm.register(Statics.GOOGLE_SENDER_ID);
@@ -683,7 +709,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
     }
 
 
-    private void insertDevice(final String regid){
+    private void insertDevice(final String regid) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -692,6 +718,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
                     public void onHTTPSuccess() {
                         Utils.printLogs("InsertDevice successfully ######");
                     }
+
                     @Override
                     public void onHTTPFail(ErrorDto errorDto) {
                         Utils.printLogs("InsertDevice failed ######");

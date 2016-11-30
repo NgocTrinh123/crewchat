@@ -25,6 +25,7 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+        Utils.hideKeyboard(this);
 
         // 퍼미션을 체크합니다.(접근권한 체크)
         if (checkPermissions()) {
@@ -77,7 +78,7 @@ public class IntroActivity extends AppCompatActivity {
 
         // 현재 버전이 젤리빈(16) 이상의 버전이라면 READ_EXTERNAL_STORAGE 퍼미션 체크
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
         }
@@ -88,7 +89,7 @@ public class IntroActivity extends AppCompatActivity {
     // 허용한 퍼미션을 설정 합니다.
     private void setPermissions() {
 
-        String [] requestPermission;
+        String[] requestPermission;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
             requestPermission = new String[]{
                     Manifest.permission.INTERNET,
@@ -102,7 +103,7 @@ public class IntroActivity extends AppCompatActivity {
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.READ_CONTACTS
             };
-        }else{
+        } else {
             requestPermission = new String[]{
                     Manifest.permission.INTERNET,
                     Manifest.permission.ACCESS_WIFI_STATE,
@@ -116,12 +117,12 @@ public class IntroActivity extends AppCompatActivity {
             };
         }
 
-        for (int i=0; i < requestPermission.length; i++){
-            Utils.printLogs("Request permission i="+i+" ->" +requestPermission[i]);
+        for (int i = 0; i < requestPermission.length; i++) {
+            Utils.printLogs("Request permission i=" + i + " ->" + requestPermission[i]);
         }
 
         // 퍼미션 허용을 요청합니다.
-        ActivityCompat.requestPermissions(this, requestPermission , MY_PERMISSIONS_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this, requestPermission, MY_PERMISSIONS_REQUEST_CODE);
     }
 
     // 퍼미션 허용 요청 결과 처리

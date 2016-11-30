@@ -9,7 +9,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -126,7 +125,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
                 adapterList.notifyDataSetChanged();
                 if (!isLoadMore) {
-                    layoutManager.scrollToPosition(dataSet.size() - 1);
+//                    layoutManager.scrollToPosition(dataSet.size() - 1);
                 }
             } else if (msg.what == WHAT_CODE_ADD_NEW_DATA) {
                 Bundle args = msg.getData();
@@ -442,15 +441,15 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
     private void initFooter() {
         rvMainList.addOnLayoutChangeListener(this);
-        rvMainList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (!isScrolling) {
-                    mTotalScrolled += dy;
-                }
-            }
-        });
+//        rvMainList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//                if (!isScrolling) {
+//                    mTotalScrolled += dy;
+//                }
+//            }
+//        });
         //recycler_footer.setVisibility(View.VISIBLE);
         //recycler_footer.addView(tv_status = initTextStatus());
         view = new ChatInputView(getContext());
@@ -909,7 +908,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         rvMainList.postDelayed(new Runnable() {
             @Override
             public void run() {
-                rvMainList.scrollToPosition(dataSet.size() - 1);
+//                rvMainList.scrollToPosition(dataSet.size() - 1);
             }
         }, 1000);
     }
@@ -1026,7 +1025,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
         // Scroll to bottom
         if (!hasLoadMore) {
-            rvMainList.scrollToPosition(dataSet.size() - 1);
+//            rvMainList.scrollToPosition(dataSet.size() - 1);
             hasLoadMore = false;
         }
 
@@ -1064,7 +1063,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         dataSet.add(time);
 
         adapterList.notifyItemInserted(dataSet.size());
-        layoutManager.scrollToPosition(dataSet.size() - 1);
+//        layoutManager.scrollToPosition(dataSet.size() - 1);
     }
 
 
@@ -1172,6 +1171,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                             // update current adapter
                             newDto.setRegDate(time);
 
+
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -1183,6 +1183,12 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                             // dataFromServer.add(newDto);
 
                             adapterList.notifyDataSetChanged();
+                            rvMainList.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+//                                    rvMainList.scrollToPosition(dataSet.size());
+                                }
+                            }, 100);
 
                         }
 
@@ -1469,7 +1475,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                 ivScrollDown.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        layoutManager.scrollToPosition(dataSet.size() - 1);
+//                        layoutManager.scrollToPosition(dataSet.size() - 1);
                     }
                 });
             }
@@ -1715,7 +1721,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
             rvMainList.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    rvMainList.scrollToPosition(dataSet.size() - 1);
+//                    rvMainList.scrollToPosition(dataSet.size());
                 }
             }, 100);
         }
