@@ -184,7 +184,7 @@ public abstract class ListFragment<T> extends Fragment {
     protected void setupRecyclerView() {
         rvMainList.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
-        layoutManager.setStackFromEnd(true);
+//        layoutManager.setStackFromEnd(true);
         rvMainList.setLayoutManager(layoutManager);
         initAdapter();
         rvMainList.setAdapter(adapterList);

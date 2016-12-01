@@ -336,6 +336,36 @@ public class TimeUtils {
         return date;
     }
 
+    public static long getStttimeMessage(long time, long lasttime) {
+        long date = -1;
+        int day_time = getDateNote(time);
+        int month_time = getMonthNote(time);
+        int year_time = getYearNote(time);
+        if (year_time == getYearNote(lasttime)) {
+            if (month_time == getMonthNote(lasttime)) {
+                int temp = day_time - getDateNote(time);
+                if (day_time == getDateNote(lasttime)) {
+                    date = -2;
+                } else if (temp == -1) {
+                    date = -3;
+                } else {
+                    date = -4;
+                }
+
+            } else if (month_time - 1 == getMonthNote(lasttime)) {
+                date = -5;
+            }
+
+        } else if (year_time == getYearNote(lasttime) + 1) {
+            if (month_time == 0 && getMonthNote(time) == 11) {
+                date = -5;
+            }
+        }
+
+
+        return date;
+    }
+
     //1: today
     //2: Yesterday
     //0: default

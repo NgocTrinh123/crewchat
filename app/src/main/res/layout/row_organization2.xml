@@ -129,7 +129,7 @@
             <!--android:layout_height="wrap_content"-->
             <!--android:orientation="vertical">-->
 
-            <!--<com.dazone.crewchat.Views.AutoSizeTextView-->
+            <!--<AutoSizeTextView-->
             <!--android:id="@+id/tv_phone_1"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="match_parent"-->
@@ -140,7 +140,7 @@
             <!--android:textColor="@android:color/black"-->
             <!--android:textSize="@dimen/tree_user_text_size" />-->
 
-            <!--<com.dazone.crewchat.Views.AutoSizeTextView-->
+            <!--<AutoSizeTextView-->
             <!--android:id="@+id/tv_phone_2"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="match_parent"-->

@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context="com.dazone.crewchat.activity.base.BaseSingleActivity">
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,28 +31,28 @@
                     android:src="@drawable/nav_back_ic" />
 
                 <com.dazone.crewchat.customs.CustomTextView
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/back_imv"
-                        android:layout_toLeftOf="@+id/iv_tick"
-                        android:layout_marginLeft="10dp"
-                        android:id="@+id/toolbar_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:layout_gravity="center_vertical"
-                        android:text="Sample title here"
-                        android:textColor="@android:color/white"
-                        android:textSize="17sp" />
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toLeftOf="@+id/iv_tick"
+                    android:layout_toRightOf="@+id/back_imv"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="Sample title here"
+                    android:textColor="@android:color/white"
+                    android:textSize="17sp" />
 
                 <ImageView
-                        android:id="@+id/iv_tick"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/add_check"
-                        android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+                    android:id="@+id/iv_tick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/add_check" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 

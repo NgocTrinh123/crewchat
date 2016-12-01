@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dazone.crewchat.BuildConfig;
 import com.dazone.crewchat.HTTPs.HttpOauthRequest;
@@ -325,6 +326,7 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
 
     @Override
     public void onHTTPFail(ErrorDto errorDto) {
+        Utils.hideKeyboard(this);
         if (firstLogin) {
             dismissProgressDialog();
             firstLogin = false;
@@ -353,12 +355,17 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
                     error_msg = getString(R.string.string_error_code_default);
                     break;
             }
-            showAlertDialog(getString(R.string.app_name), error_msg, getString(R.string.string_ok), null, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    customDialog.dismiss();
-                }
-            }, null);
+            if (errorDto.getCode() == 1) {
+                Toast.makeText(this, error_msg, Toast.LENGTH_SHORT).show();
+            } else {
+
+                showAlertDialog(error_msg, getString(R.string.string_ok), "", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        customDialog.dismiss();
+                    }
+                });
+            }
         }
     }
 

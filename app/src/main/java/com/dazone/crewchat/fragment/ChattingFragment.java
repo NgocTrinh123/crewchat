@@ -25,7 +25,6 @@ import com.dazone.crewchat.R;
 import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
 import com.dazone.crewchat.activity.ChatViewImageActivity;
 import com.dazone.crewchat.adapter.ChattingAdapter;
-import com.dazone.crewchat.adapter.EndlessRecyclerOnScrollListener;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.customs.EmojiView;
 import com.dazone.crewchat.database.AllUserDBHelper;
@@ -386,39 +385,43 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
     @Override
     protected void initAdapter() {
-        rvMainList.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
 
-            @Override
-            public void onScrolledUp() {
-                super.onScrolledUp();
-                isShowNewMessage = true;
-                //Utils.printLogs("Scroll up");
-            }
-
-            @Override
-            public void onScrolledDown() {
-                super.onScrolledDown();
-                //isShowNewMessage = true;
-                //Utils.printLogs("Scroll down");
-            }
-
-            @Override
-            public void onScrolledToBottom() {
-                super.onScrolledToBottom();
-                hideNewMessage();
-                isShowNewMessage = false;
-                //Utils.printLogs("Scroll to bottom");
-            }
-
-            @Override
-            public void onScrolledToTop() {
-                super.onScrolledToTop();
-                isShowNewMessage = true;
-                loadMoreData();
-                //Utils.printLogs("Scroll to top");
-            }
-        });
+//        rvMainList.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
+//
+//            @Override
+//            public void onScrolledUp() {
+//                super.onScrolledUp();
+//                isShowNewMessage = true;
+//                //Utils.printLogs("Scroll up");
+//            }
+//
+//            @Override
+//            public void onScrolledDown() {
+//                super.onScrolledDown();
+//                //isShowNewMessage = true;
+//                //Utils.printLogs("Scroll down");
+//            }
+//
+//            @Override
+//            public void onScrolledToBottom() {
+//                super.onScrolledToBottom();
+//                hideNewMessage();
+//                isShowNewMessage = false;
+//                //Utils.printLogs("Scroll to bottom");
+//            }
+//
+//            @Override
+//            public void onScrolledToTop() {
+//                super.onScrolledToTop();
+//                isShowNewMessage = true;
+//                loadMoreData();
+//                //Utils.printLogs("Scroll to top");
+//            }
+//        });
         adapterList = new ChattingAdapter(mContext, mActivity, dataSet, rvMainList);
+        layoutManager.setStackFromEnd(true);
+
+        rvMainList.setLayoutManager(layoutManager);
 
     }
 
@@ -440,6 +443,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
     //TextView tv_status;
 
     private void initFooter() {
+
         rvMainList.addOnLayoutChangeListener(this);
 //        rvMainList.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
@@ -690,13 +694,13 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         if (!isFromNotification) {
             // Scroll to bottom
             if (!hasLoadMore) {
-                rvMainList.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        rvMainList.smoothScrollToPosition(dataSet.size());
-                        hasLoadMore = false;
-                    }
-                }, 1000);
+//                rvMainList.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        rvMainList.smoothScrollToPosition(dataSet.size());
+//                        hasLoadMore = false;
+//                    }
+//                }, 1000);
             }
 
         } else {
@@ -1056,13 +1060,6 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
             dataSet.add(group);
         }
 
-        ChattingDto time = new ChattingDto();
-        time.setmType(Statics.CHATTING_VIEW_TYPE_DATE);
-        time.setRegDate(Utils.getString(R.string.today));
-
-        dataSet.add(time);
-
-        adapterList.notifyItemInserted(dataSet.size());
 //        layoutManager.scrollToPosition(dataSet.size() - 1);
     }
 
@@ -1547,7 +1544,35 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                         if (CurrentChatListFragment.fragment != null) {
                             CurrentChatListFragment.fragment.updateData(dataDto, false);
                         }
+
                         dataFromServer.add(dataDto);
+
+//                        // Add new line for new message, it's may be today
+//                        String date = dataDto.getRegDate();
+//                        String last_time = "";
+//                        if (dataSet != null) {
+//                            if (dataSet.size() > 2) {
+//                                last_time = dataSet.get(dataSet.size() - 2).getRegDate();
+//                            } else if (dataSet.size() > 1) {
+//                                last_time = dataSet.get(1).getRegDate();
+//                            }
+//                            if (!TextUtils.isEmpty(date) && !TextUtils.isEmpty(last_time)) {
+//                                if (!date.equalsIgnoreCase(Utils.getString(R.string.today))) {
+//                                    long isTime = TimeUtils.getStttimeMessage(TimeUtils.getTime(date), TimeUtils.getTime(last_time));
+//                                    if (isTime != -2) {
+//                                        ChattingDto time = new ChattingDto();
+//                                        time.setmType(Statics.CHATTING_VIEW_TYPE_DATE);
+//                                        time.setRegDate(Utils.getString(R.string.today));
+//
+//                                        dataSet.add(time);
+//
+//                                        adapterList.notifyDataSetChanged();
+//                                    }
+//                                }
+//                            }
+//                        }
+
+
                     } else {
                         dataDto.setRegDate(TimeUtils.convertTimeDeviceToTimeServer(dataDto.getRegDate()));
                         if (CurrentChatListFragment.fragment != null) {
