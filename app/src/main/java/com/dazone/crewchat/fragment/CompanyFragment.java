@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
@@ -56,14 +57,14 @@ public class CompanyFragment extends Fragment {
         public void onGetStatusFinish() {
             Utils.printLogs("On status callback from CompanyFragment");
 
-            if (orgView != null && isCreated){
+            if (orgView != null && isCreated) {
                 Utils.printLogs("View is # nll");
                 orgView.syncStatus();
             }
         }
     };
 
-    public void setContext(Activity context){
+    public void setContext(Activity context) {
         mContext = context;
     }
 
@@ -122,7 +123,7 @@ public class CompanyFragment extends Fragment {
         listData = new ArrayList<>();
         intentFilterSearch = new IntentFilter(Constant.INTENT_FILTER_SEARCH);
 
-        if (mContext instanceof MainActivity){
+        if (mContext instanceof MainActivity) {
             ((MainActivity) mContext).setmGetStatusCallbackCompany(mStatusCallback);
         }
     }
@@ -144,6 +145,22 @@ public class CompanyFragment extends Fragment {
         tvNoData = (TextView) rootView.findViewById(R.id.tv_no_data);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
 
+        selectedPersonList = new ArrayList<>();
+        if (!isCreated) {
+            MainActivity.Instance.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            });
+        }
+        mSharePersonContent.setVisibility(View.VISIBLE);
+        rvSearch.setVisibility(View.GONE);
+        tvNoData.setVisibility(View.GONE);
+        isCreated = true;
+        orgView = new OrganizationView2(getActivity(), selectedPersonList, mIsDisplaySelectedOnly, mSharePersonContent, progressBar);
+
+
 
         /*progressBar = (LinearLayout) v.findViewById(R.id.progressBar);
         rvMainList = (RecyclerView) v.findViewById(R.id.rv_main);
@@ -161,28 +178,28 @@ public class CompanyFragment extends Fragment {
         initList();*/
         return rootView;
     }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if(isVisibleToUser){
-            selectedPersonList = new ArrayList<>();
-            if (!isCreated) {
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        progressBar.setVisibility(View.VISIBLE);
-                    }
-                });
-                mSharePersonContent.setVisibility(View.VISIBLE);
-                rvSearch.setVisibility(View.GONE);
-                tvNoData.setVisibility(View.GONE);
-                isCreated = true;
-                orgView = new OrganizationView2(getActivity(), selectedPersonList, mIsDisplaySelectedOnly, mSharePersonContent, progressBar);
-            }
-
-        }
-    }
+//
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if (isVisibleToUser) {
+//            selectedPersonList = new ArrayList<>();
+//            if (!isCreated) {
+//                MainActivity.Instance.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        progressBar.setVisibility(View.VISIBLE);
+//                    }
+//                });
+//                mSharePersonContent.setVisibility(View.VISIBLE);
+//                rvSearch.setVisibility(View.GONE);
+//                tvNoData.setVisibility(View.GONE);
+//                isCreated = true;
+//                orgView = new OrganizationView2(getActivity(), selectedPersonList, mIsDisplaySelectedOnly, mSharePersonContent, progressBar);
+//            }
+//
+//        }
+//    }
 
     @Override
     public void onStart() {

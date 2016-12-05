@@ -26,7 +26,6 @@ public class ProfileUserActivity extends AppCompatActivity implements View.OnCli
      * VIEW
      */
     private ImageView btnBack;
-    private ImageView btnMore;
     private ImageView btnCall;
     private ImageView btnEmail;
     private ImageView ivAvatar;
@@ -62,7 +61,6 @@ public class ProfileUserActivity extends AppCompatActivity implements View.OnCli
 
     private void initView() {
         btnBack = (ImageView) findViewById(R.id.btn_back);
-        btnMore = (ImageView) findViewById(R.id.btn_more);
         btnCall = (ImageView) findViewById(R.id.btn_call);
         btnEmail = (ImageView) findViewById(R.id.btn_email);
 

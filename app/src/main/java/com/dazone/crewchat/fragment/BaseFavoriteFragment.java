@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.TestMultiLevelListview.MultilLevelListviewFragment;
 import com.dazone.crewchat.activity.MainActivity;
@@ -23,7 +24,7 @@ import com.dazone.crewchat.utils.Utils;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSelectedListener{
+public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSelectedListener {
 
     private View rootView;
     DisableSwipeViewpager pager;
@@ -35,7 +36,7 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
         // Required empty public constructor
     }
 
-    public void setContext(Activity context){
+    public void setContext(Activity context) {
         mContext = context;
     }
 
@@ -47,7 +48,33 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
 
         pager = (DisableSwipeViewpager) rootView.findViewById(R.id.pager);
         tabLayout= (TabLayout) rootView.findViewById(R.id.tabLayout);
+            initChildPage();
+        // Hide search icon for tab favorite chat room
+        if (pager.getCurrentItem() == 0) {
+            showIcon();
+            if (getActivity() != null && getActivity() instanceof MainActivity)
+                ((MainActivity) getActivity()).hidePAB();
+            ((MainActivity) getActivity()).hideMenuSearch();
+        } else {
+            hideIcon();
 
+            if (getActivity() != null && getActivity() instanceof MainActivity)
+                ((MainActivity) getActivity()).hidePAB();
+            //  on show callback here
+            if (MultilLevelListviewFragment.instance != null) {
+                MultilLevelListviewFragment.instance.showFAB();
+            }
+
+                /*((MainActivity)getActivity()).showMenuSearch(new OnClickCallback() {
+                    @Override
+                    public void onClick() {
+                        // todo something
+                    }
+                });*/
+
+            showSearchFavorite();
+
+        }
         // select tab favorite chat room
        /* new Handler().postDelayed(
                 new Runnable(){
@@ -71,9 +98,10 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
         return rootView;
     }
 
-    private void initChildPage(){
+    private void initChildPage() {
 
-        if (!isCreated){
+
+        if (!isCreated) {
             isCreated = true;
 
             FragmentManager manager = getChildFragmentManager();
@@ -87,47 +115,48 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
     }
 
     boolean isShowSreachIcon = false;
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser){
-            initChildPage();
-            // Hide search icon for tab favorite chat room
-            if(pager.getCurrentItem() == 0){
-               showIcon();
-                if (getActivity() != null && getActivity() instanceof MainActivity)
-                    ((MainActivity)getActivity()).hidePAB();
-                    ((MainActivity)getActivity()).hideMenuSearch();
-            } else {
-                hideIcon();
 
-                if (getActivity() != null && getActivity() instanceof MainActivity)
-                    ((MainActivity)getActivity()).hidePAB();
-                //  on show callback here
-                if (MultilLevelListviewFragment.instance != null){
-                    MultilLevelListviewFragment.instance.showFAB();
-                }
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if (isVisibleToUser) {
+//            initChildPage();
+//            // Hide search icon for tab favorite chat room
+//            if (pager.getCurrentItem() == 0) {
+//                showIcon();
+//                if (getActivity() != null && getActivity() instanceof MainActivity)
+//                    ((MainActivity) getActivity()).hidePAB();
+//                ((MainActivity) getActivity()).hideMenuSearch();
+//            } else {
+//                hideIcon();
+//
+//                if (getActivity() != null && getActivity() instanceof MainActivity)
+//                    ((MainActivity) getActivity()).hidePAB();
+//                //  on show callback here
+//                if (MultilLevelListviewFragment.instance != null) {
+//                    MultilLevelListviewFragment.instance.showFAB();
+//                }
+//
+//                /*((MainActivity)getActivity()).showMenuSearch(new OnClickCallback() {
+//                    @Override
+//                    public void onClick() {
+//                        // todo something
+//                    }
+//                });*/
+//
+//                showSearchFavorite();
+//
+//            }
+//        } else {
+//            hideIcon();
+//        }
+//    }
 
-                /*((MainActivity)getActivity()).showMenuSearch(new OnClickCallback() {
-                    @Override
-                    public void onClick() {
-                        // todo something
-                    }
-                });*/
-
-                showSearchFavorite();
-
-            }
-        }else{
-            hideIcon();
-        }
-    }
-
-    private void showSearchFavorite(){
+    private void showSearchFavorite() {
         ((MainActivity) getActivity()).showSearchIcon(new OnClickCallback() {
             @Override
             public void onClick() {
-                if (!isShowSreachIcon){
+                if (!isShowSreachIcon) {
                     Utils.printLogs("On search icon clicked");
                     Intent intent = new Intent(Statics.ACTION_SHOW_SEARCH_FAVORITE_INPUT);
                     getActivity().sendBroadcast(intent);
@@ -143,21 +172,22 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
     }
 
 
-    private void hideIcon(){
-        if(getActivity() != null){
+    private void hideIcon() {
+        if (getActivity() != null) {
             ((MainActivity) getActivity()).hideSearchIcon();
         }
     }
 
     boolean isShowIcon = false;
-    private void showIcon(){
-        if(getActivity() != null){
+
+    private void showIcon() {
+        if (getActivity() != null) {
 
             ((MainActivity) getActivity()).showSearchIcon(new OnClickCallback() {
                 @Override
                 public void onClick() {
                     // Send broadcast to show search view input
-                    if (!isShowIcon){
+                    if (!isShowIcon) {
                         Utils.printLogs("On search icon clicked");
                         Intent intent = new Intent(Statics.ACTION_SHOW_SEARCH_INPUT);
                         getActivity().sendBroadcast(intent);
@@ -176,7 +206,7 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         pager.setCurrentItem(tab.getPosition());
-        if (tab.getPosition() == 0){
+        if (tab.getPosition() == 0) {
 
             // Hide search icon for tab favorite chat room
             showIcon();
@@ -184,16 +214,16 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
             ImageView icon = (ImageView) tab.getCustomView().findViewById(R.id.iv_icon_left);
             icon.setImageResource(R.drawable.nav_chat_ic);
 
-            ((MainActivity)getActivity()).hideMenuSearch();
+            ((MainActivity) getActivity()).hideMenuSearch();
 
-        }else{
+        } else {
             // Hide search icon for tab favorite chat room
             hideIcon();
 
             ImageView icon = (ImageView) tab.getCustomView().findViewById(R.id.iv_icon_right);
             icon.setImageResource(R.drawable.tabbar_group_ic);
 
-            if (getActivity() != null){
+            if (getActivity() != null) {
                 /*((MainActivity)getActivity()).showMenuSearch(new OnClickCallback() {
                     @Override
                     public void onClick() {
@@ -211,10 +241,10 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
-        if (tab.getPosition() == 0){
+        if (tab.getPosition() == 0) {
             ImageView icon = (ImageView) tab.getCustomView().findViewById(R.id.iv_icon_left);
             icon.setImageResource(R.drawable.nav_chat_ic_blue);
-        }else{
+        } else {
             ImageView icon = (ImageView) tab.getCustomView().findViewById(R.id.iv_icon_right);
             icon.setImageResource(R.drawable.tabbar_group_ic_blue);
         }
@@ -242,6 +272,9 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
                 case 1:
                     fragment = MultilLevelListviewFragment.newInstance();
                     break;
+                default:
+                    fragment = new RecentFavoriteFragment();
+                    break;
             }
 
             return fragment;
@@ -254,4 +287,4 @@ public class BaseFavoriteFragment extends Fragment implements TabLayout.OnTabSel
         }
     }
 
-    }
+}

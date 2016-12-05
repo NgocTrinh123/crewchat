@@ -694,13 +694,13 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         if (!isFromNotification) {
             // Scroll to bottom
             if (!hasLoadMore) {
-//                rvMainList.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        rvMainList.smoothScrollToPosition(dataSet.size());
-//                        hasLoadMore = false;
-//                    }
-//                }, 1000);
+                rvMainList.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvMainList.smoothScrollToPosition(dataSet.size());
+                        hasLoadMore = false;
+                    }
+                }, 1000);
             }
 
         } else {
@@ -912,7 +912,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
         rvMainList.postDelayed(new Runnable() {
             @Override
             public void run() {
-//                rvMainList.scrollToPosition(dataSet.size() - 1);
+                rvMainList.scrollToPosition(dataSet.size() - 1);
             }
         }, 1000);
     }
@@ -1029,7 +1029,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
         // Scroll to bottom
         if (!hasLoadMore) {
-//            rvMainList.scrollToPosition(dataSet.size() - 1);
+            rvMainList.scrollToPosition(dataSet.size() - 1);
             hasLoadMore = false;
         }
 
@@ -1509,6 +1509,31 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
 
                 Utils.printLogs("Check offline --> Dto nhan duoc = " + dataDto.toString());
 
+                // Add new line for new message, it's may be today
+                String date = dataDto.getRegDate();
+                String last_time = "";
+                if (dataSet != null) {
+                    if (dataSet.size() > 2) {
+                        last_time = dataSet.get(dataSet.size() - 1).getRegDate();
+                    } else if (dataSet.size() > 1) {
+                        last_time = dataSet.get(1).getRegDate();
+                    }
+                    if (!TextUtils.isEmpty(date) && !TextUtils.isEmpty(last_time)) {
+                        if (!date.equalsIgnoreCase(Utils.getString(R.string.today))) {
+                            long isTime = TimeUtils.getStttimeMessage(TimeUtils.getTime(date), TimeUtils.getTime(last_time));
+                            if (isTime != -2) {
+                                ChattingDto time = new ChattingDto();
+                                time.setmType(Statics.CHATTING_VIEW_TYPE_DATE);
+                                time.setRegDate(Utils.getString(R.string.today));
+
+                                dataSet.add(time);
+
+                                adapterList.notifyDataSetChanged();
+                            }
+                        }
+                    }
+                }
+
                 boolean checkNotification = true;
                 for (ChattingDto chattingDto : dataSet) {
 
@@ -1544,33 +1569,8 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                         if (CurrentChatListFragment.fragment != null) {
                             CurrentChatListFragment.fragment.updateData(dataDto, false);
                         }
-
+//
                         dataFromServer.add(dataDto);
-
-//                        // Add new line for new message, it's may be today
-//                        String date = dataDto.getRegDate();
-//                        String last_time = "";
-//                        if (dataSet != null) {
-//                            if (dataSet.size() > 2) {
-//                                last_time = dataSet.get(dataSet.size() - 2).getRegDate();
-//                            } else if (dataSet.size() > 1) {
-//                                last_time = dataSet.get(1).getRegDate();
-//                            }
-//                            if (!TextUtils.isEmpty(date) && !TextUtils.isEmpty(last_time)) {
-//                                if (!date.equalsIgnoreCase(Utils.getString(R.string.today))) {
-//                                    long isTime = TimeUtils.getStttimeMessage(TimeUtils.getTime(date), TimeUtils.getTime(last_time));
-//                                    if (isTime != -2) {
-//                                        ChattingDto time = new ChattingDto();
-//                                        time.setmType(Statics.CHATTING_VIEW_TYPE_DATE);
-//                                        time.setRegDate(Utils.getString(R.string.today));
-//
-//                                        dataSet.add(time);
-//
-//                                        adapterList.notifyDataSetChanged();
-//                                    }
-//                                }
-//                            }
-//                        }
 
 
                     } else {
@@ -1744,7 +1744,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
             rvMainList.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-//                    rvMainList.scrollToPosition(dataSet.size());
+                    rvMainList.scrollToPosition(dataSet.size());
                 }
             }, 100);
         }

@@ -9,6 +9,7 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Views.RoundedImageView;
 import com.dazone.crewchat.activity.ChattingActivity;
+import com.dazone.crewchat.activity.ProfileUserActivity;
 import com.dazone.crewchat.activity.RoomUserInformationActivity;
 import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
@@ -44,8 +46,9 @@ import java.util.Locale;
 /**
  * Created by david on 7/17/15.
  */
-public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener{
+public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
     private CurrentChatListFragment.OnContextMenuSelect mOnContextMenuSelect;
+
     public ListCurrentViewHolder(View itemView, CurrentChatListFragment.OnContextMenuSelect callback) {
         super(itemView);
         mOnContextMenuSelect = callback;
@@ -59,6 +62,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
     private ImageView ivFavorite;
     private ImageView ivNotification;
     private View view;
+    private LinearLayout lnData;
 
     private String roomTitle = "";
     private long roomNo = -1;
@@ -78,9 +82,10 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
     private int myId;
 
     @Override
-    protected void setup(View v) {
+    protected void setup(final View v) {
         view = v;
         tvUserName = (TextView) v.findViewById(R.id.user_name_tv);
+        lnData = (LinearLayout) v.findViewById(R.id.row_current_chat_ln_data);
         tvDate = (TextView) v.findViewById(R.id.date_tv);
         tvContent = (TextView) v.findViewById(R.id.content_tv);
         imgAvatar = (ImageView) v.findViewById(R.id.avatar_imv);
@@ -99,8 +104,8 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
 
         //gestureDetector = new GestureDetector(CrewChatApplication.getInstance(), new CustomGestureDetector(view));
         view.setOnCreateContextMenuListener(this);
-    }
 
+    }
 
 
     @Override
@@ -116,24 +121,24 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
         List<TreeUserDTOTemp> list1 = new ArrayList<>();
         TreeUserDTOTemp treeUserDTOTemp1;
         ArrayList<TreeUserDTOTemp> listUsers = CrewChatApplication.listUsers;
-        if (listUsers == null){
+        if (listUsers == null) {
             listUsers = AllUserDBHelper.getUser();
             CrewChatApplication.listUsers = listUsers;
             Utils.printLogs("Get list user from local database");
         }
 
         if (dto.getListTreeUser() != null && dto.getListTreeUser().size() < dto.getUserNos().size()) {
-            totalUser =  dto.getListTreeUser().size() + 1;
+            totalUser = dto.getListTreeUser().size() + 1;
             isFilter = true;
-        } else{
+        } else {
 
 
             ArrayList<Integer> users = dto.getUserNos();
             ArrayList<Integer> usersClone = new ArrayList<>(users);
             Utils.removeArrayDuplicate(usersClone);
 
-            for (int i = 0 ; i < usersClone.size(); i++) {
-                if (listUsers != null){
+            for (int i = 0; i < usersClone.size(); i++) {
+                if (listUsers != null) {
                     treeUserDTOTemp1 = Utils.GetUserFromDatabase(listUsers, usersClone.get(i));
                     if (treeUserDTOTemp1 != null) {
                         list1.add(treeUserDTOTemp1);
@@ -148,35 +153,35 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
             }
 
             dto.setListTreeUser(list1);
-            if (list1 != null){
+            if (list1 != null) {
                 totalUser = list1.size();
             }
         }
 
-        if (totalUser > 2){
+        if (totalUser > 2) {
             tvTotalUser.setVisibility(View.VISIBLE);
             tvTotalUser.setText(String.valueOf(totalUser));
-        }else{
+        } else {
             isTwoUser = true;
             tvTotalUser.setVisibility(View.GONE);
         }
 
-        if (dto.isFavorite()){
+        if (dto.isFavorite()) {
             ivFavorite.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             ivFavorite.setVisibility(View.GONE);
         }
 
-        if (dto.isNotification()){
+        if (dto.isNotification()) {
             ivNotification.setVisibility(View.GONE);
-        }else{
+        } else {
             ivNotification.setVisibility(View.VISIBLE);
         }
 
-        if (dto.getWriterUserNo() == myId){
+        if (dto.getWriterUserNo() == myId) {
             imgBadge.setVisibility(View.GONE);
             Utils.printLogs("Write user is me #############");
-        } else{
+        } else {
             if (dto.getUnReadCount() != 0) {
                 imgBadge.setVisibility(View.VISIBLE);
                 ImageUtils.showBadgeImage(dto.getUnReadCount(), imgBadge);
@@ -193,7 +198,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
 
                         //Utils.printLogs("User No = "+treeUserDTOTemp.getUserNo()+" # my id = "+myId);
 
-                        if (TextUtils.isEmpty(name)){
+                        if (TextUtils.isEmpty(name)) {
                             name += treeUserDTOTemp.getName();
                         } else {
                             name += "," + treeUserDTOTemp.getName();
@@ -225,7 +230,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
         /** SET LAST MESSAGE */
         String strLastMsg = "";
         Resources res = CrewChatApplication.getInstance().getResources();
-        switch (dto.getLastedMsgType()){
+        switch (dto.getLastedMsgType()) {
             case Statics.MESSAGE_TYPE_NORMAL:
                 ivLastedAttach.setVisibility(View.GONE);
                 /*if (totalUser > 2){
@@ -246,7 +251,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
             case Statics.MESSAGE_TYPE_ATTACH:
 
                 // Attach type switch
-                switch (dto.getLastedMsgAttachType()){
+                switch (dto.getLastedMsgAttachType()) {
                     case Statics.ATTACH_NONE:
                         strLastMsg = dto.getLastedMsg();
                         ivLastedAttach.setVisibility(View.GONE);
@@ -267,11 +272,11 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
         }
 
         // detect break line
-        if (strLastMsg!= null && strLastMsg.contains("\n")){
+        if (strLastMsg != null && strLastMsg.contains("\n")) {
             String[] mess = strLastMsg.split("\\n");
             String ms = "";
-            for (String ss : mess){
-                if (ss != null && ss.trim().length() > 0){
+            for (String ss : mess) {
+                if (ss != null && ss.trim().length() > 0) {
                     ms = ss;
                     break;
                 }
@@ -283,9 +288,9 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
 
         /** Test */
         String tempTimeString = dto.getLastedMsgDate();
-        if (!TextUtils.isEmpty(tempTimeString)){
+        if (!TextUtils.isEmpty(tempTimeString)) {
 
-           // tempTimeString = tempTimeString.replace("/Date(", "");
+            // tempTimeString = tempTimeString.replace("/Date(", "");
             //tempTimeString = tempTimeString.replace(")/", "");
             //long time = Long.valueOf(tempTimeString);
 
@@ -294,7 +299,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
                 tvDate.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getLastedMsgDate(), 1, TimeUtils.KEY_FROM_SERVER));
             } else {
                 tvDate.setText(TimeUtils.displayTimeWithoutOffset(CrewChatApplication.getInstance().getApplicationContext(), dto.getLastedMsgDate(), 0, TimeUtils.KEY_FROM_SERVER));
-             }
+            }
         }
 
         if (dto.getListTreeUser() != null && dto.getListTreeUser().size() > 0) {
@@ -307,7 +312,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
                 imgAvatar.setVisibility(View.GONE);
                 UserDto userDto = Utils.getCurrentUser();
                 String url1 = new Prefs().getServerSite();
-                if (userDto != null){
+                if (userDto != null) {
                     url1 += userDto.avatar;
                 }
                 String url2;
@@ -446,6 +451,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
         });
 
 
+
         /*view.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -463,7 +469,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
                 uNos.add(myId);
                 if (finalIsFilter) {
 
-                    for (TreeUserDTOTemp tree : dto.getListTreeUser()){
+                    for (TreeUserDTOTemp tree : dto.getListTreeUser()) {
                         uNos.add(tree.getUserNo());
                     }
                 } else {
@@ -481,6 +487,41 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
             }
         });
 
+        layoutGroupAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Integer> uNos = new ArrayList<>();
+                uNos.add(myId);
+                if (finalIsFilter) {
+
+                    for (TreeUserDTOTemp tree : dto.getListTreeUser()) {
+                        uNos.add(tree.getUserNo());
+                    }
+                } else {
+                    for (int id : dto.getUserNos()) {
+                        if (myId != id) {
+                            uNos.add(id);
+                        }
+                    }
+                }
+
+                Intent intent = new Intent(BaseActivity.Instance, RoomUserInformationActivity.class);
+                intent.putIntegerArrayListExtra("userNos", uNos);
+                intent.putExtra("roomTitle", roomTitle);
+                BaseActivity.Instance.startActivity(intent);
+            }
+        });
+        imgAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
+                intent.putExtra(Constant.KEY_INTENT_USER_NO, dto.getListTreeUser().get(0).getUserNo());
+                BaseActivity.Instance.startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
@@ -489,16 +530,16 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
         MenuItem roomRename = menu.add(0, Statics.ROOM_RENAME, 0, res.getString(R.string.room_name));
 
         MenuItem roomAddFavorite;
-        if (tempDto.isFavorite()){
-            roomAddFavorite = menu.add(0,Statics.ROOM_REMOVE_FROM_FAVORITE, 0, res.getString(R.string.room_remove_favorite));
-        } else{
-            roomAddFavorite = menu.add(0,Statics.ROOM_ADD_TO_FAVORITE, 0, res.getString(R.string.room_favorite));
+        if (tempDto.isFavorite()) {
+            roomAddFavorite = menu.add(0, Statics.ROOM_REMOVE_FROM_FAVORITE, 0, res.getString(R.string.room_remove_favorite));
+        } else {
+            roomAddFavorite = menu.add(0, Statics.ROOM_ADD_TO_FAVORITE, 0, res.getString(R.string.room_favorite));
         }
 
         MenuItem roomAlarmOnOff;
-        if(!tempDto.isNotification()){
+        if (!tempDto.isNotification()) {
             roomAlarmOnOff = menu.add(0, Statics.ROOM_ALARM_ON, 0, res.getString(R.string.alarm_on));
-        } else{
+        } else {
             roomAlarmOnOff = menu.add(0, Statics.ROOM_ALARM_OFF, 0, res.getString(R.string.alarm_off));
         }
 
@@ -513,9 +554,9 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        Utils.printLogs("On menu item1 click listener ######### ID="+item.getItemId());
+        Utils.printLogs("On menu item1 click listener ######### ID=" + item.getItemId());
         Bundle roomInfo = null;
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case Statics.ROOM_RENAME:
 
                 roomInfo = new Bundle();
@@ -538,26 +579,26 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
 
                 /*final Bundle finalRoomInfo = roomInfo;
                 mOnContextMenuSelect.onSelect(Statics.ROOM_ADD_TO_FAVORITE, finalRoomInfo);*/
-                Utils.printLogs("Remove room ="+roomNo);
+                Utils.printLogs("Remove room =" + roomNo);
 
                 HttpRequest.getInstance().removeFromFavorite(roomNo, new BaseHTTPCallBack() {
                     @Override
                     public void onHTTPSuccess() {
                         ivFavorite.setVisibility(View.GONE);
 
-                        Utils.printLogs("Remove room ="+roomNo+" success");
+                        Utils.printLogs("Remove room =" + roomNo + " success");
 
                         ChatRomDBHelper.updateChatRoomFavorite(roomNo, false);
                         tempDto.setFavorite(false);
 
-                        if (RecentFavoriteFragment.instance != null){
+                        if (RecentFavoriteFragment.instance != null) {
                             RecentFavoriteFragment.instance.removeFavorite(roomNo);
                         }
                     }
 
                     @Override
                     public void onHTTPFail(ErrorDto errorDto) {
-                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_remove_failed) , Toast.LENGTH_LONG).show();
+                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_remove_failed), Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -572,11 +613,11 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
                 HttpRequest.getInstance().addRoomToFavorite(roomNo, new BaseHTTPCallBack() {
                     @Override
                     public void onHTTPSuccess() {
-                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_add_success) , Toast.LENGTH_LONG).show();
+                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_add_success), Toast.LENGTH_LONG).show();
                         ivFavorite.setVisibility(View.VISIBLE);
 
                         ChatRomDBHelper.updateChatRoomFavorite(roomNo, true);
-                        if (RecentFavoriteFragment.instance != null){
+                        if (RecentFavoriteFragment.instance != null) {
                             RecentFavoriteFragment.instance.addFavorite(tempDto);
                         }
                         tempDto.setFavorite(true);
@@ -584,7 +625,7 @@ public class ListCurrentViewHolder extends ItemViewHolder<ChattingDto> implement
 
                     @Override
                     public void onHTTPFail(ErrorDto errorDto) {
-                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_add_success) , Toast.LENGTH_LONG).show();
+                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_add_success), Toast.LENGTH_LONG).show();
                     }
                 });
 

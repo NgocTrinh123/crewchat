@@ -5,12 +5,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.dazone.crewchat.activity.base.BaseActivity;
+import com.dazone.crewchat.R;
 import com.dazone.crewchat.activity.LoginActivity;
+import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.dto.ErrorDto;
 import com.dazone.crewchat.interfaces.OAUTHUrls;
-import com.dazone.crewchat.R;
 import com.dazone.crewchat.utils.CrewChatApplication;
 import com.dazone.crewchat.utils.Prefs;
 import com.dazone.crewchat.utils.Utils;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class WebServiceManager<T> {
 
-    private int CREWCHAT_SOCKET_TIMEOUT_MS = 15000;
+    private int CREWCHAT_SOCKET_TIMEOUT_MS = 4000;
     private Map<String, String> mHeaders;
 
     private Request.Priority mPriority;
@@ -64,7 +64,7 @@ public class WebServiceManager<T> {
                         listener.onSuccess(json.getString("data"));
                     } else {
 
-                        Utils.printLogs("Error string = "+json);
+                        Utils.printLogs("Error string = " + json);
 
                         ErrorDto errorDto = new Gson().fromJson(json.getString("error"), ErrorDto.class);
                         if (errorDto == null) {
@@ -120,15 +120,15 @@ public class WebServiceManager<T> {
             }
         });
 
-        // Set request time out here, default time out value is 15 seconds
+        // Set request time out here, default time out value is 4 seconds
         // Comment this to resolved Duplicated POST -request with slow request
 
-        /*jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(
                 CREWCHAT_SOCKET_TIMEOUT_MS,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));*/
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
-        DefaultRetryPolicy  retryPolicy = new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        DefaultRetryPolicy retryPolicy = new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
         jsonObjectRequest.setRetryPolicy(retryPolicy);
 
         /*String temp = "";

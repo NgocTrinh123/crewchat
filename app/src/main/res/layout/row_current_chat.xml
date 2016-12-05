@@ -97,6 +97,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/row_current_chat_ln_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

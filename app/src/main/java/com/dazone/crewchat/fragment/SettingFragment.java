@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.dazone.crewchat.HTTPs.HttpOauthRequest;
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
@@ -20,11 +21,22 @@ import com.dazone.crewchat.activity.NotificationSettingActivity;
 import com.dazone.crewchat.activity.ProfileActivity;
 import com.dazone.crewchat.customs.AlertDialogView;
 import com.dazone.crewchat.customs.CustomTextView;
-import com.dazone.crewchat.database.*;
+import com.dazone.crewchat.database.AllUserDBHelper;
+import com.dazone.crewchat.database.BelongsToDBHelper;
+import com.dazone.crewchat.database.ChatMessageDBHelper;
+import com.dazone.crewchat.database.ChatRomDBHelper;
+import com.dazone.crewchat.database.DepartmentDBHelper;
+import com.dazone.crewchat.database.FavoriteGroupDBHelper;
+import com.dazone.crewchat.database.FavoriteUserDBHelper;
+import com.dazone.crewchat.database.UserDBHelper;
 import com.dazone.crewchat.dto.ErrorDto;
 import com.dazone.crewchat.dto.UserDto;
 import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
-import com.dazone.crewchat.utils.*;
+import com.dazone.crewchat.utils.Constant;
+import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.ImageUtils;
+import com.dazone.crewchat.utils.Prefs;
+import com.dazone.crewchat.utils.Utils;
 
 /**
  * Created by THANHTUNG on 29/02/2016.
@@ -35,6 +47,7 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
     private UserDto userDBHelper;
     private Context mContext;
     public Prefs prefs;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +115,7 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
         }
     }
 
-    private void goProfile(){
+    private void goProfile() {
         Intent intent = new Intent(mContext, ProfileActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Bundle bundle = new Bundle();
@@ -111,15 +124,14 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
         startActivity(intent);
     }
 
-    private void generalSetting(){
+    private void generalSetting() {
         Utils.printLogs("General setting called");
     }
 
 
-
-    private void logout(){
+    private void logout() {
         // Show logout confirm
-        AlertDialogView.normalAlertDialogWithCancel(mContext, Utils.getString(R.string.logout_confirm_title),Utils.getString(R.string.logout_confirm), Utils.getString(R.string.no), Utils.getString(R.string.yes) , new AlertDialogView.OnAlertDialogViewClickEvent(){
+        AlertDialogView.normalAlertDialogWithCancel(mContext, Utils.getString(R.string.logout_confirm_title), Utils.getString(R.string.logout_confirm), Utils.getString(R.string.no), Utils.getString(R.string.yes), new AlertDialogView.OnAlertDialogViewClickEvent() {
 
             @Override
             public void onOkClick(DialogInterface alertDialog) {
@@ -133,7 +145,8 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
         });
     }
 
-    private void doLogout(){
+    private void doLogout() {
+        new Prefs().putIntValue("PAGE", 0);
 
         String ids = new Prefs().getGCMregistrationid();
         if (!TextUtils.isEmpty(ids)) {

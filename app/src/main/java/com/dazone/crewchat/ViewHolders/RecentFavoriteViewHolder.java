@@ -14,6 +14,7 @@ import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Views.RoundedImageView;
 import com.dazone.crewchat.activity.ChattingActivity;
+import com.dazone.crewchat.activity.ProfileUserActivity;
 import com.dazone.crewchat.activity.RoomUserInformationActivity;
 import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
@@ -27,6 +28,7 @@ import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
 import com.dazone.crewchat.utils.*;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -87,7 +89,38 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
 
     @Override
     public void bindData(final ChattingDto dto) {
+        imgAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
+                intent.putExtra(Constant.KEY_INTENT_USER_NO, dto.getUserNo());
+                BaseActivity.Instance.startActivity(intent);
+            }
+        });
+        layoutGroupAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ArrayList<Integer> uNos = new ArrayList<>();
+                uNos.add(myId);
+                if (isTwoUser) {
 
+                    for (TreeUserDTOTemp tree : dto.getListTreeUser()) {
+                        uNos.add(tree.getUserNo());
+                    }
+                } else {
+                    for (int id : dto.getUserNos()) {
+                        if (myId != id) {
+                            uNos.add(id);
+                        }
+                    }
+                }
+
+                Intent intent = new Intent(BaseActivity.Instance, RoomUserInformationActivity.class);
+                intent.putIntegerArrayListExtra("userNos", uNos);
+                intent.putExtra("roomTitle", roomTitle);
+                BaseActivity.Instance.startActivity(intent);
+            }
+        });
         myId = Utils.getCurrentId();
         tempDto = dto;
 

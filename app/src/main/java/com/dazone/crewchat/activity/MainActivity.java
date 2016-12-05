@@ -94,6 +94,7 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
         this.mGetStatusCallbackFavorite = mGetStatusCallback;
     }
 
+
     @Override
     protected void init() {
 
@@ -119,6 +120,15 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
         // Show FAB button at the first time
         showPAB(mAddUserCallback);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Resume the last page
+        mViewPager.setCurrentItem(new Prefs().getIntValue("PAGE",0));
+
+    }
+
 
     @Override
     protected void onStart() {
@@ -163,6 +173,12 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
         }, 2000);
     }
 
+    private int currentPage;
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
     /**
      * OnPageChangeListener
      * 탭 화면이 스크롤 되어 질 때에 이벤트 처리(좌우), 화면에 보이는 검색 아이콘등을 설정
@@ -170,7 +186,9 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         Utils.hideKeyboard(this);
+        currentPage = position;
         Fragment page = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.container + ":" + mViewPager.getCurrentItem());
+        new Prefs().putIntValue("PAGE", position);
         // based on the current position you can then cast the page to the correct
         // class and call the method:
         // 탭 화면이 스크롤 되어 질 때에 이벤트 처리(좌우), 화면에 보이는 검색 아이콘등을 설정
@@ -239,6 +257,8 @@ public class MainActivity extends BasePagerActivity implements ViewPager.OnPageC
     // 탭을 직접 선택 했을 경우 이벤트 처리
     @Override
     public void onPageSelected(final int position) {
+        currentPage = position;
+        new Prefs().putIntValue("POSITION_PAGE", position);
         Utils.hideKeyboard(this);
         if (position == TAB_CHAT) {
             showPAB(mAddUserCallback);

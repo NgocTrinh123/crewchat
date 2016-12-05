@@ -1,6 +1,7 @@
 package com.dazone.crewchat.ViewHolders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -11,7 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
+import com.dazone.crewchat.activity.ProfileUserActivity;
+import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
+import com.dazone.crewchat.utils.Constant;
 import com.dazone.crewchat.utils.CrewChatApplication;
 import com.dazone.crewchat.utils.ImageUtils;
 import com.dazone.crewchat.utils.Prefs;
@@ -58,7 +62,16 @@ public class RoomUserInfoViewHolder extends ItemViewHolder<TreeUserDTO>{
     }
 
     @Override
-    public void bindData(TreeUserDTO treeUserDTO) {
+    public void bindData(final TreeUserDTO treeUserDTO) {
+
+        relAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
+                intent.putExtra(Constant.KEY_INTENT_USER_NO, treeUserDTO.getId());
+                BaseActivity.Instance.startActivity(intent);
+            }
+        });
 
         String nameString = treeUserDTO.getName();
         String namePosition = treeUserDTO.getPosition();

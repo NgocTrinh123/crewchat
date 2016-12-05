@@ -450,8 +450,15 @@ public class OrganizationView2 implements View.OnClickListener {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                 }
+            });
+
+            avatar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
+                    intent.putExtra(Constant.KEY_INTENT_USER_NO, treeUserDTO.getId());
+                    BaseActivity.Instance.startActivity(intent);                }
             });
 
             layoutMain.setTag(treeUserDTO);

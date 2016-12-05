@@ -9,12 +9,24 @@ import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.view.*;
-import android.widget.*;
+import android.view.ContextMenu;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
 import com.dazone.crewchat.activity.ChattingActivity;
+import com.dazone.crewchat.activity.ProfileUserActivity;
 import com.dazone.crewchat.activity.base.BaseActivity;
 import com.dazone.crewchat.constant.Statics;
 import com.dazone.crewchat.customs.AlertDialogView;
@@ -25,7 +37,11 @@ import com.dazone.crewchat.dto.ErrorDto;
 import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
 import com.dazone.crewchat.interfaces.BaseHTTPCallbackWithJson;
 import com.dazone.crewchat.interfaces.ICreateOneUserChatRom;
-import com.dazone.crewchat.utils.*;
+import com.dazone.crewchat.utils.Constant;
+import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.ImageUtils;
+import com.dazone.crewchat.utils.Prefs;
+import com.dazone.crewchat.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -96,6 +112,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
             tv_personal_phone = (TextView) currentView.findViewById(R.id.tv_personal_phone) ;
             tv_user_status = (TextView) currentView.findViewById(R.id.tv_user_status);
             main = (RelativeLayout) currentView.findViewById(R.id.mainParent);
+
 
         }
     }
@@ -168,7 +185,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    private void bindUserData(UserViewHolder holder, TreeUserDTO dto){
+    private void bindUserData(UserViewHolder holder, final TreeUserDTO dto){
         holder.title.setText(dto.getName());
 
         String avatarUrl = new Prefs().getServerSite() + dto.getAvatarUrl();
@@ -186,6 +203,14 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
             holder.tv_user_status.setText(dto.getStatusString());
         }
         setupStatusImage(holder, dto);
+        holder.avatar_imv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
+                intent.putExtra(Constant.KEY_INTENT_USER_NO, dto.getId());
+                BaseActivity.Instance.startActivity(intent);
+            }
+        });
 
 //        holder.rootView.setOnCreateContextMenuListener(this);
     }
