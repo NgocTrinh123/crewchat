@@ -67,11 +67,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void startNewActivity(Class cls) {
-        Intent newIntent = new Intent(this, cls);
-        newIntent.putExtra("count_id", 1);
-        newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(newIntent);
-        finish();
+        if (cls != null) {
+            Intent newIntent = new Intent(this, cls);
+            newIntent.putExtra("count_id", 1);
+            newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(newIntent);
+            finish();
+        }
     }
 
     @Override
@@ -129,7 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (customDialog != null && customDialog.isShowing()){
+        if (customDialog != null && customDialog.isShowing()) {
             customDialog.cancel();
         }
     }

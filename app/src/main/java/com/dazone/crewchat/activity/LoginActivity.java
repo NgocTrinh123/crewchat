@@ -170,9 +170,9 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
         /*forgot_pass = (TextView) findViewById(R.id.forgot_pass);
         help_login = (TextView) findViewById(R.id.help_login);
         h   ave_no_id_login = (TextView) findViewById(R.id.have_no_id_login);*/
-        edtUserName.setText(new Prefs().getUserName());
-        edtServer.setText(new Prefs().getDDSServer());
-        edtPassword.setText(new Prefs().getPass());
+        edtUserName.setText(prefs.getUserID());
+        edtServer.setText(prefs.getDDSServer());
+        edtPassword.setText(prefs.getPass());
         mBtnSignUp = (IconButton) findViewById(R.id.login_btn_signup);
         mBtnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -293,8 +293,6 @@ public class LoginActivity extends BaseActivity implements BaseHTTPCallBack, OnC
     public void onHTTPSuccess() {
 
         Utils.printLogs("## Http successfully");
-        new Prefs().setDDSServer(subDomain);
-        new Prefs().setPass(password);
 
         if (!TextUtils.isEmpty(server_site)) {
             server_site.replace("http://", "");

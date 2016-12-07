@@ -5,11 +5,14 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.view.*;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Views.RoundedImageView;
@@ -25,7 +28,12 @@ import com.dazone.crewchat.dto.ErrorDto;
 import com.dazone.crewchat.dto.TreeUserDTOTemp;
 import com.dazone.crewchat.fragment.RecentFavoriteFragment;
 import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
-import com.dazone.crewchat.utils.*;
+import com.dazone.crewchat.utils.Constant;
+import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.ImageUtils;
+import com.dazone.crewchat.utils.Prefs;
+import com.dazone.crewchat.utils.TimeUtils;
+import com.dazone.crewchat.utils.Utils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -34,8 +42,9 @@ import java.util.Locale;
 /**
  * Created by david on 7/17/15.
  */
-public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener{
+public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implements View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
     private RecentFavoriteFragment.OnContextMenuSelect mOnContextMenuSelect;
+
     public RecentFavoriteViewHolder(View itemView, RecentFavoriteFragment.OnContextMenuSelect callback) {
         super(itemView);
         mOnContextMenuSelect = callback;
@@ -92,9 +101,15 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
         imgAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
-                intent.putExtra(Constant.KEY_INTENT_USER_NO, dto.getUserNo());
-                BaseActivity.Instance.startActivity(intent);
+                if (dto.getListTreeUser().size() > 0) {
+                    if (dto.getListTreeUser().size() == 1) {
+                        Intent intent = new Intent(BaseActivity.Instance, ProfileUserActivity.class);
+                        intent.putExtra(Constant.KEY_INTENT_USER_NO, dto.getListTreeUser().get(0).getUserNo());
+                        BaseActivity.Instance.startActivity(intent);
+                    }
+
+                }
+
             }
         });
         layoutGroupAvatar.setOnClickListener(new View.OnClickListener() {
@@ -127,10 +142,10 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
         String name = "";
         // Set total user in current room, if user > 2 display this, else hide it
         int totalUser = dto.getUserNos().size();
-        if (totalUser > 2){
+        if (totalUser > 2) {
             tvTotalUser.setVisibility(View.VISIBLE);
             tvTotalUser.setText(String.valueOf(totalUser));
-        }else{
+        } else {
             isTwoUser = true;
             tvTotalUser.setVisibility(View.GONE);
         }
@@ -143,9 +158,9 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
             imgBadge.setVisibility(View.GONE);
         }
 
-        if (dto.isNotification()){
+        if (dto.isNotification()) {
             ivNotification.setVisibility(View.GONE);
-        }else{
+        } else {
             ivNotification.setVisibility(View.VISIBLE);
         }
 
@@ -179,7 +194,7 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
         /** SET LAST MESSAGE */
         String strLastMsg = "";
         Resources res = CrewChatApplication.getInstance().getResources();
-        switch (dto.getLastedMsgType()){
+        switch (dto.getLastedMsgType()) {
             case Statics.MESSAGE_TYPE_NORMAL:
                 ivLastedAttach.setVisibility(View.GONE);
                 strLastMsg = dto.getLastedMsg();
@@ -193,7 +208,7 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
             case Statics.MESSAGE_TYPE_ATTACH:
 
                 // Attach type switch
-                switch (dto.getLastedMsgAttachType()){
+                switch (dto.getLastedMsgAttachType()) {
                     case Statics.ATTACH_NONE:
                         strLastMsg = dto.getLastedMsg();
                         ivLastedAttach.setVisibility(View.GONE);
@@ -216,7 +231,7 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
 
         /** Test */
         String tempTimeString = dto.getLastedMsgDate();
-        if (!TextUtils.isEmpty(tempTimeString)){
+        if (!TextUtils.isEmpty(tempTimeString)) {
             long time;
 
             if (tempTimeString.contains("(")) {
@@ -355,7 +370,7 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
             @Override
             public boolean onLongClick(View v) {
                 Utils.printLogs("On Long click listener #########");
-                 v.showContextMenu();
+                v.showContextMenu();
                 return true;
             }
         });
@@ -382,14 +397,14 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
         MenuItem roomOpen = menu.add(0, Statics.ROOM_OPEN, 0, res.getString(R.string.room_open));
 
         MenuItem roomAlarmOnOff;
-        if(!tempDto.isNotification()){
+        if (!tempDto.isNotification()) {
             roomAlarmOnOff = menu.add(0, Statics.ROOM_ALARM_ON, 0, res.getString(R.string.alarm_on));
-        } else{
+        } else {
             roomAlarmOnOff = menu.add(0, Statics.ROOM_ALARM_OFF, 0, res.getString(R.string.alarm_off));
         }
 
         MenuItem roomOut = menu.add(0, Statics.ROOM_LEFT, 0, res.getString(R.string.room_left));
-        MenuItem roomRemoveFavorite = menu.add(0,Statics.ROOM_REMOVE_FROM_FAVORITE, 0, res.getString(R.string.room_remove_favorite));
+        MenuItem roomRemoveFavorite = menu.add(0, Statics.ROOM_REMOVE_FROM_FAVORITE, 0, res.getString(R.string.room_remove_favorite));
 
 
         roomRename.setOnMenuItemClickListener(this);
@@ -402,9 +417,9 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        Utils.printLogs("On menu item1 click listener ######### ID="+item.getItemId());
+        Utils.printLogs("On menu item1 click listener ######### ID=" + item.getItemId());
         Bundle roomInfo = null;
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case Statics.ROOM_RENAME:
 
                 roomInfo = new Bundle();
@@ -423,7 +438,7 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
             case Statics.ROOM_REMOVE_FROM_FAVORITE:
 
                 final Resources res = CrewChatApplication.getInstance().getResources();
-                Utils.printLogs("Remove room ="+roomNo);
+                Utils.printLogs("Remove room =" + roomNo);
                 HttpRequest.getInstance().removeFromFavorite(roomNo, new BaseHTTPCallBack() {
                     @Override
                     public void onHTTPSuccess() {
@@ -445,7 +460,7 @@ public class RecentFavoriteViewHolder extends ItemViewHolder<ChattingDto> implem
 
                     @Override
                     public void onHTTPFail(ErrorDto errorDto) {
-                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_remove_failed) , Toast.LENGTH_LONG).show();
+                        Toast.makeText(CrewChatApplication.getInstance(), res.getString(R.string.favorite_remove_failed), Toast.LENGTH_LONG).show();
                     }
                 });
 

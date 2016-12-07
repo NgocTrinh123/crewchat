@@ -24,6 +24,7 @@ public class Prefs implements Serializable {
     private final String AVATAR_URL = "avatar_url";
     private final String DDS_SERVER = "dds_server";
     private final String PASSWORD = "password";
+    private final String USER_ID = "user_id";
 
     private static final String PREF_FLAG_GMC_ID = "flag_gmc_id_new";
 
@@ -63,6 +64,14 @@ public class Prefs implements Serializable {
 
     public void putUserName(String username) {
         putStringValue(USER_NAME, username);
+    }
+
+    public String getUserID() {
+        return getStringValue(USER_ID, "");
+    }
+
+    public void putUserID(String userId) {
+        putStringValue(USER_ID, userId);
     }
 
     public void setAvatarUrl(String url) {

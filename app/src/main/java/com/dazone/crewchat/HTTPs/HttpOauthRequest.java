@@ -31,6 +31,7 @@ public class HttpOauthRequest {
 
     private static HttpOauthRequest mInstance;
     private static String root_link;
+
     public static HttpOauthRequest getInstance() {
         if (null == mInstance) {
             mInstance = new HttpOauthRequest();
@@ -38,8 +39,9 @@ public class HttpOauthRequest {
         root_link = CrewChatApplication.getInstance().getmPrefs().getServerSite();
         return mInstance;
     }
-    public void login(final BaseHTTPCallBack baseHTTPCallBack,String userID, String password,String mobileOSVersion,String server_link) {
-        final String url = server_link+ OAUTHUrls.URL_GET_LOGIN;
+
+    public void login(final BaseHTTPCallBack baseHTTPCallBack, String userID, String password, String mobileOSVersion, String server_link) {
+        final String url = server_link + OAUTHUrls.URL_GET_LOGIN;
         Map<String, String> params = new HashMap<>();
         params.put("userID", userID);
         params.put("password", password);
@@ -56,6 +58,7 @@ public class HttpOauthRequest {
                 UserDBHelper.addUser(userDto);
                 baseHTTPCallBack.onHTTPSuccess();
             }
+
             @Override
             public void onFailure(ErrorDto error) {
                 baseHTTPCallBack.onHTTPFail(error);
@@ -64,8 +67,8 @@ public class HttpOauthRequest {
     }
 
     // Login function V2
-    public void loginV2(final BaseHTTPCallBack baseHTTPCallBack, final String userID, String password, String mobileOSVersion, String subDomain, String server_link) {
-        final String url = server_link+ OAUTHUrls.URL_GET_LOGIN_V3;
+    public void loginV2(final BaseHTTPCallBack baseHTTPCallBack, final String userID, final String password, String mobileOSVersion, final String subDomain, String server_link) {
+        final String url = server_link + OAUTHUrls.URL_GET_LOGIN_V3;
         Map<String, String> params = new HashMap<>();
         //params.put("companyDomain", subDomain + "." + OAUTHUrls.URL_ROOT_DOMAIN);
         params.put("companyDomain", subDomain);
@@ -79,7 +82,7 @@ public class HttpOauthRequest {
             @Override
             public void onSuccess(String response) {
 
-                Utils.printLogs("Login V2 response = "+response);
+                Utils.printLogs("Login V2 response = " + response);
 
                 Gson gson = new Gson();
                 UserDto userDto = gson.fromJson(response, UserDto.class);
@@ -90,6 +93,10 @@ public class HttpOauthRequest {
                 userDto.prefs.putCompanyName(userDto.getNameCompany());
                 userDto.prefs.setFullName(userDto.getFullName());
                 userDto.prefs.putCompanyNo(userDto.getCompanyNo());
+                userDto.prefs.setDDSServer(subDomain);
+                userDto.prefs.setPass(password);
+                userDto.prefs.putUserID(userID);
+
                 userDto.prefs.putEmail(userDto.getMailAddress());
                 UserDBHelper.addUser(userDto);
                 // Set static current user Id
@@ -99,6 +106,7 @@ public class HttpOauthRequest {
 
                 baseHTTPCallBack.onHTTPSuccess();
             }
+
             @Override
             public void onFailure(ErrorDto error) {
                 baseHTTPCallBack.onHTTPFail(error);
@@ -107,10 +115,10 @@ public class HttpOauthRequest {
     }
 
 
-    public void getUser(final BaseHTTPCallbackWithJson baseHTTPCallBack, String userNo, String languageCode, String timeZoneOffset, String server_link){
-        final String url = server_link+ OAUTHUrls.URL_GET_USER_DETAIL;
+    public void getUser(final BaseHTTPCallbackWithJson baseHTTPCallBack, String userNo, String languageCode, String timeZoneOffset, String server_link) {
+        final String url = server_link + OAUTHUrls.URL_GET_USER_DETAIL;
         Map<String, String> params = new HashMap<>();
-        params.put("sessionId",""+CrewChatApplication.getInstance().getmPrefs().getaccesstoken());
+        params.put("sessionId", "" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken());
         params.put("userNo", userNo);
         params.put("timeZoneOffset", timeZoneOffset);
         params.put("languageCode", languageCode);
@@ -120,6 +128,7 @@ public class HttpOauthRequest {
             public void onSuccess(String response) {
                 baseHTTPCallBack.onHTTPSuccess(response);
             }
+
             @Override
             public void onFailure(ErrorDto error) {
                 baseHTTPCallBack.onHTTPFail(error);
@@ -129,9 +138,9 @@ public class HttpOauthRequest {
     }
 
     public void checkLogin(final BaseHTTPCallBack baseHTTPCallBack) {
-        final String url = root_link+ OAUTHUrls.URL_CHECK_SESSION;
+        final String url = root_link + OAUTHUrls.URL_CHECK_SESSION;
         Map<String, String> params = new HashMap<>();
-        params.put("sessionId",""+CrewChatApplication.getInstance().getmPrefs().getaccesstoken());
+        params.put("sessionId", "" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken());
         WebServiceManager webServiceManager = new WebServiceManager();
         webServiceManager.doJsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new WebServiceManager.RequestListener<String>() {
             @Override
@@ -143,28 +152,31 @@ public class HttpOauthRequest {
                 userDto.prefs.putUserName(userDto.userID);
                 userDto.prefs.putEmail(userDto.MailAddress);
                 UserDBHelper.addUser(userDto);
-                if(baseHTTPCallBack!=null) {
+                if (baseHTTPCallBack != null) {
                     baseHTTPCallBack.onHTTPSuccess();
                 }
             }
+
             @Override
             public void onFailure(ErrorDto error) {
-                if(baseHTTPCallBack!=null) {
+                if (baseHTTPCallBack != null) {
                     baseHTTPCallBack.onHTTPFail(error);
                 }
             }
         });
     }
+
     public void logout(final BaseHTTPCallBack baseHTTPCallBack) {
-        final String url = root_link+ OAUTHUrls.URL_LOG_OUT;
+        final String url = root_link + OAUTHUrls.URL_LOG_OUT;
         Map<String, String> params = new HashMap<>();
-        params.put("sessionId",""+CrewChatApplication.getInstance().getmPrefs().getaccesstoken());
+        params.put("sessionId", "" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken());
         WebServiceManager webServiceManager = new WebServiceManager();
         webServiceManager.doJsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new WebServiceManager.RequestListener<String>() {
             @Override
             public void onSuccess(String response) {
                 baseHTTPCallBack.onHTTPSuccess();
             }
+
             @Override
             public void onFailure(ErrorDto error) {
                 baseHTTPCallBack.onHTTPFail(error);
@@ -193,7 +205,7 @@ public class HttpOauthRequest {
     public void checkPhoneToken(final OnCheckDevice callBack) {
         String url = OAUTHUrls.URL_CHECK_DEVICE_TOKEN;
         Map<String, String> params = new HashMap<>();
-        params.put("PhoneToken",Utils.getUniqueDeviceId(CrewChatApplication.getInstance()));
+        params.put("PhoneToken", Utils.getUniqueDeviceId(CrewChatApplication.getInstance()));
         WebServiceManager webServiceManager = new WebServiceManager();
         webServiceManager.doJsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new WebServiceManager.RequestListener<String>() {
             @Override
@@ -203,15 +215,14 @@ public class HttpOauthRequest {
                     JSONObject object = new JSONObject(response);
                     String SessionID = object.getString("SessionID");
                     String Domain = object.getString("Domain");
-                    if(!TextUtils.isEmpty(SessionID)) {
+                    if (!TextUtils.isEmpty(SessionID)) {
                         prefs.putaccesstoken(SessionID);
                     }
-                    if(!TextUtils.isEmpty(Domain)) {
+                    if (!TextUtils.isEmpty(Domain)) {
                         prefs.putServerSite(Domain);
 //                        ServerSiteDBHelper.addServerSite(Domain);
                     }
-                } catch (Exception e)
-                {
+                } catch (Exception e) {
                     ErrorDto dto = new ErrorDto();
                     dto.message = "Cannot connect to server";
                     callBack.onHTTPFail(dto);
@@ -237,13 +248,13 @@ public class HttpOauthRequest {
                 }.getType();
                 List<String> listDomain = new Gson().fromJson(response, listType);
                 ServerSiteDBHelper.addServerSites(listDomain);
-                if(callBack!=null)
+                if (callBack != null)
                     callBack.onHTTPSuccess();
             }
 
             @Override
             public void onFailure(ErrorDto error) {
-                if(callBack!=null)
+                if (callBack != null)
                     callBack.onHTTPFail(error);
             }
         });
