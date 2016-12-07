@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
 import com.dazone.crewchat.activity.ChattingActivity;
@@ -24,7 +25,11 @@ import com.dazone.crewchat.interfaces.BaseHTTPCallBack;
 import com.dazone.crewchat.interfaces.IGetListOrganization;
 import com.dazone.crewchat.interfaces.OnGetChatList;
 import com.dazone.crewchat.interfaces.OnGetCurrentChatCallBack;
-import com.dazone.crewchat.utils.*;
+import com.dazone.crewchat.utils.Constant;
+import com.dazone.crewchat.utils.CrewChatApplication;
+import com.dazone.crewchat.utils.Prefs;
+import com.dazone.crewchat.utils.TimeUtils;
+import com.dazone.crewchat.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,7 +57,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
     }
 
     private void unregisterReceiver() {
-        if (getActivity() != null){
+        if (getActivity() != null) {
             getActivity().unregisterReceiver(mReceiverShowSearchInput);
         }
     }
@@ -63,7 +68,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Statics.ACTION_SHOW_SEARCH_INPUT_IN_CURRENT_CHAT)) {
                 showSearchInput();
-            } else if(intent.getAction().equals(Statics.ACTION_HIDE_SEARCH_INPUT_IN_CURRENT_CHAT)) {
+            } else if (intent.getAction().equals(Statics.ACTION_HIDE_SEARCH_INPUT_IN_CURRENT_CHAT)) {
                 // to do something
             }
         }
@@ -83,6 +88,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
     }
 
     private ArrayList<TreeUserDTO> temp = new ArrayList<>();
+
     public void convertData(List<TreeUserDTO> treeUserDTOs) {
         if (treeUserDTOs != null && treeUserDTOs.size() != 0) {
             for (TreeUserDTO dto : treeUserDTOs) {
@@ -107,18 +113,19 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
             listOfUsers = AllUserDBHelper.getUser();
         }
         // If list user is not null, load data from client at first
-        if (listOfUsers != null && listOfUsers.size() > 0){
+        if (listOfUsers != null && listOfUsers.size() > 0) {
             treeUserDTOTempList = listOfUsers;
 
             // If list user is exist get data from client, the run a new thread to get data from
             getDataFromClient(listOfUsers);
 
-        }else{
+        } else {
             // Get user list from server
             final ArrayList<TreeUserDTOTemp> finalListOfUsers = listOfUsers;
             HttpRequest.getInstance().GetListOrganize(new IGetListOrganization() {
                 @Override
                 public void onGetListSuccess(final ArrayList<TreeUserDTOTemp> treeUserDTOs) {
+                    getChatList(treeUserDTOs);
                     // Get list user to send message here
                     // Get list success and store it to Sqlite databas
                     new Thread(new Runnable() {
@@ -126,8 +133,8 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                         public void run() {
 
                             Utils.printLogs(" onGetListSuccess " + CurrentChatListFragment.this.getClass().getSimpleName());
-                            for (TreeUserDTOTemp tem : treeUserDTOs){
-                                Utils.printLogs("Chat = "+tem.toString());
+                            for (TreeUserDTOTemp tem : treeUserDTOs) {
+                                Utils.printLogs("Chat = " + tem.toString());
                             }
                             treeUserDTOTempList = treeUserDTOs;
 
@@ -142,9 +149,9 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                                 }
                             }).start();
                             // New Thread to get chat list
-                            getChatList(treeUserDTOs);
                         }
                     }).start();
+
 
                 }
 
@@ -175,7 +182,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
         * @return list of data from local storage
         * Get list chat has stored before
         * */
-    private void getDataFromClient(List<TreeUserDTOTemp> listOfUsers){
+    private void getDataFromClient(List<TreeUserDTOTemp> listOfUsers) {
         dataSet.clear();
         List<TreeUserDTOTemp> list1;
         TreeUserDTOTemp treeUserDTOTemp1;
@@ -187,9 +194,9 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
             }
         });
 
-        for (ChattingDto chattingDto: listChat) {
+        for (ChattingDto chattingDto : listChat) {
 
-            Utils.printLogs("Chat client = "+chattingDto.getUnreadTotalCount());
+            Utils.printLogs("Chat client = " + chattingDto.getUnreadTotalCount());
 
             if (!Utils.checkChat(chattingDto, myId)) {
                 list1 = new ArrayList<>();
@@ -200,7 +207,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                 Utils.printLogs("-->######################################");
                 for (int id : cloneArr) {
 
-                    Utils.printLogs("-->ID = "+id);
+                    Utils.printLogs("-->ID = " + id);
                     if (myId != id) {
                         treeUserDTOTemp1 = Utils.GetUserFromDatabase(listOfUsers, id);
                         if (treeUserDTOTemp1 != null) {
@@ -222,17 +229,18 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
 
 
         // Get data from server if network is avaiable
-        if (Utils.isNetworkAvailable()){
+        if (Utils.isNetworkAvailable()) {
             getDataFromServer();
-        }else {
+        } else {
             progressBar.setVisibility(View.GONE);
         }
     }
 
 
-    public interface OnContextMenuSelect{
+    public interface OnContextMenuSelect {
         public void onSelect(int type, Bundle bundle);
     }
+
     private OnContextMenuSelect mOnContextMenuSelect = new OnContextMenuSelect() {
         @Override
         public void onSelect(int type, Bundle bundle) {
@@ -240,7 +248,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
             Intent intent = null;
             final long roomNo = bundle.getInt(Statics.ROOM_NO, 0);
 
-            switch (type){
+            switch (type) {
                 case Statics.ROOM_RENAME:
 
                     intent = new Intent(getActivity(), RenameRoomActivity.class);
@@ -295,13 +303,13 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                         public void onHTTPSuccess() {
                             Utils.printLogs("User is left a room #### success");
                             try {
-                                for (int i = 0; i < dataSet.size(); i++){
-                                    Utils.printLogs("Current room No = "+dataSet.get(i).getRoomNo());
-                                    if (dataSet.get(i).getRoomNo() == roomNo){
+                                for (int i = 0; i < dataSet.size(); i++) {
+                                    Utils.printLogs("Current room No = " + dataSet.get(i).getRoomNo());
+                                    if (dataSet.get(i).getRoomNo() == roomNo) {
 
                                         // remove from favorite list
-                                        if (RecentFavoriteFragment.instance != null){
-                                            if (dataSet.get(i).isFavorite()){
+                                        if (RecentFavoriteFragment.instance != null) {
+                                            if (dataSet.get(i).isFavorite()) {
                                                 RecentFavoriteFragment.instance.removeFavorite(roomNo);
                                             }
                                         }
@@ -321,7 +329,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                                         break;
                                     }
                                 }
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
@@ -338,10 +346,9 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
     };
 
 
-
     @Override
     protected void initAdapter() {
-        adapterList = new CurrentChatAdapter(mContext,dataSet, rvMainList, mOnContextMenuSelect);
+        adapterList = new CurrentChatAdapter(mContext, dataSet, rvMainList, mOnContextMenuSelect);
         //enableLoadingMore();
     }
 
@@ -360,16 +367,16 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK){
-            switch (requestCode){
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
                 case 1001:
-                    if (data != null){
+                    if (data != null) {
                         final int roomNo = data.getIntExtra(Statics.ROOM_NO, 0);
                         final String roomTitle = data.getStringExtra(Statics.ROOM_TITLE);
                         // Update current chat list
 
-                        for (ChattingDto a : dataSet){
-                            if (roomNo == a.getRoomNo()){
+                        for (ChattingDto a : dataSet) {
+                            if (roomNo == a.getRoomNo()) {
                                 a.setRoomTitle(roomTitle);
                                 adapterList.notifyDataSetChanged();
                                 break;
@@ -464,7 +471,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
         }
     }
 
-    public void updateFavoriteStatus(long roomNo){
+    public void updateFavoriteStatus(long roomNo) {
         for (ChattingDto chattingDto : dataSet) {
             if (chattingDto.getRoomNo() == roomNo) {
                 chattingDto.setFavorite(true);
@@ -498,15 +505,14 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                 chattingDto.setAttachFileSize(dto.getAttachFileSize());
 
 
-                if (dto.getLastedMsgDate() != null){
+                if (dto.getLastedMsgDate() != null) {
                     String time = TimeUtils.convertTimeDeviceToTimeServerDefault(dto.getLastedMsgDate());
                     chattingDto.setLastedMsgDate(time);
-                } else if (dto.getRegDate() != null){
+                } else if (dto.getRegDate() != null) {
                     String time = TimeUtils.convertTimeDeviceToTimeServerDefault(dto.getRegDate());
                     chattingDto.setLastedMsgDate(time);
-                    Utils.printLogs("####LastedMsgDate = "+chattingDto.getLastedMsgDate());
+                    Utils.printLogs("####LastedMsgDate = " + chattingDto.getLastedMsgDate());
                 }
-
 
 
                 if (ChattingFragment.instance == null) {
@@ -543,7 +549,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                         }
                     });
 
-                    for (ChattingDto chattingDto: list) {
+                    for (ChattingDto chattingDto : list) {
                         if (!Utils.checkChat(chattingDto, myId)) {
                             if (!Utils.checkChatId198(chattingDto)) {
                                 list1 = new ArrayList<>();
@@ -593,7 +599,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser){
+        if (isVisibleToUser) {
             showIcon();
         }
     }
@@ -640,21 +646,21 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                 isUpdate = false;
             } else if (intent.getAction().equals(Constant.INTENT_FILTER_ADD_USER)) {
                 getDataFromServer();
-            } else if(intent.getAction().equals(Constant.INTENT_FILTER_NOTIFY_ADAPTER)){
+            } else if (intent.getAction().equals(Constant.INTENT_FILTER_NOTIFY_ADAPTER)) {
                 // get action
                 long roomNo = intent.getLongExtra("roomNo", 0);
                 int type = intent.getIntExtra("type", 0);
                 // Search roomNo
                 int pos = 0;
-                for (ChattingDto chat : dataSet){
-                    if (chat.getRoomNo() == roomNo){
-                        if (type == Constant.TYPE_ACTION_ALARM_ON){
+                for (ChattingDto chat : dataSet) {
+                    if (chat.getRoomNo() == roomNo) {
+                        if (type == Constant.TYPE_ACTION_ALARM_ON) {
                             chat.setNotification(true);
                             Utils.printLogs("Receive broad cast ############### ALARM ON");
-                        } else if (type == Constant.TYPE_ACTION_ALARM_OFF){
+                        } else if (type == Constant.TYPE_ACTION_ALARM_OFF) {
                             chat.setNotification(false);
                             Utils.printLogs("Receive broad cast ############### ALARM OFF");
-                        } else if(type == Constant.TYPE_ACTION_FAVORITE){
+                        } else if (type == Constant.TYPE_ACTION_FAVORITE) {
                             chat.setFavorite(false);
                             Utils.printLogs("Receive broad cast ############### FAVORITE");
                         }
@@ -664,7 +670,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                if (adapterList != null){
+                                if (adapterList != null) {
                                     adapterList.notifyItemChanged(finalPos);
                                 }
                             }
@@ -674,7 +680,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                     }
 
                     // increase position
-                    pos ++;
+                    pos++;
                 }
 
             } else if (intent.getAction().equals(Constant.INTENT_FILTER_GET_MESSAGE_UNREAD_COUNT)) {
@@ -684,13 +690,13 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                 long userNo = intent.getLongExtra(Constant.KEY_INTENT_USER_NO, 0);
 
                 // update roomNo and total unread count
-                Utils.printLogs("Unread count = "+unreadCount+" at room ="+roomNo);
+                Utils.printLogs("Unread count = " + unreadCount + " at room =" + roomNo);
                 int pos = 0;
-                for (ChattingDto dto : dataSet){
-                    if (dto.getRoomNo() == roomNo){
+                for (ChattingDto dto : dataSet) {
+                    if (dto.getRoomNo() == roomNo) {
                         dto.setUnreadTotalCount(unreadCount);
                         // fix unread total count
-                        if (userNo != 0){
+                        if (userNo != 0) {
                             dto.setUnReadCount(0);
                         }
 
@@ -704,7 +710,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
 
                         break;
                     }
-                    pos ++;
+                    pos++;
                 }
             }
         }
@@ -837,7 +843,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
     /*
     * description : after data get from server, data will be stored on local storage
     * */
-    private void storeListChatRoomToLocal(final ChattingDto data){
+    private void storeListChatRoomToLocal(final ChattingDto data) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -845,6 +851,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
             }
         }).start();
     }
+
     /**
      * GET DATA FROM SERVER
      */
@@ -873,14 +880,14 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
 
     }
 
-    private void getChatList(final List<TreeUserDTOTemp> listOfUsers){
+    private void getChatList(final List<TreeUserDTOTemp> listOfUsers) {
 
         HttpRequest.getInstance().GetChatList(new OnGetChatList() {
             @Override
             public void OnGetChatListSuccess(List<ChattingDto> list) {
 
                 for (ChattingDto chattingDto : list) {
-                    Utils.printLogs("From chatList = "+chattingDto.toString());
+                    Utils.printLogs("From chatList = " + chattingDto.toString());
                 }
 
                 // Hide progress
@@ -903,7 +910,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                 });*/
                 isFirstTime = false;
 
-                if (localSize != severSize){
+                if (localSize != severSize) {
                     ChatRomDBHelper.clearChatRooms();
                     dataSet.clear();
                     adapterList.notifyDataSetChanged();
@@ -913,7 +920,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
 
                     // Sort before display it
 
-                    for (ChattingDto chattingDto: list) {
+                    for (ChattingDto chattingDto : list) {
                         if (!Utils.checkChat(chattingDto, myId)) {
                             if (!Utils.checkChatId198(chattingDto)) {
                                 list1 = new ArrayList<>();
@@ -950,33 +957,33 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                         adapterList.notifyDataSetChanged();
                     }
 
-                }else{
+                } else {
 
-                  for (ChattingDto dto : list){
+                    for (ChattingDto dto : list) {
 
-                      //Utils.printLogs("From chatList update = "+dto.toString());
+                        //Utils.printLogs("From chatList update = "+dto.toString());
 
-                      dto.setUnreadTotalCount(dto.getUnReadCount());
-                      //Utils.printLogs("Chat server = "+dto.getUnreadTotalCount());
-                      ChatRomDBHelper.updateChatRoom(dto.getRoomNo(), dto.getLastedMsg(), dto.getLastedMsgType(), dto.getLastedMsgAttachType(), dto.getLastedMsgDate(), dto.getUnreadTotalCount(), dto.getUnReadCount(), dto.getMsgUserNo());
+                        dto.setUnreadTotalCount(dto.getUnReadCount());
+                        //Utils.printLogs("Chat server = "+dto.getUnreadTotalCount());
+                        ChatRomDBHelper.updateChatRoom(dto.getRoomNo(), dto.getLastedMsg(), dto.getLastedMsgType(), dto.getLastedMsgAttachType(), dto.getLastedMsgDate(), dto.getUnreadTotalCount(), dto.getUnReadCount(), dto.getMsgUserNo());
 
-                      for (ChattingDto chat : dataSet) {
-                          if (chat.getRoomNo() == dto.getRoomNo()) {
-                              chat.setLastedMsg(dto.getLastedMsg());
-                              chat.setRoomTitle(dto.getRoomTitle());
-                              chat.setLastedMsgType(dto.getLastedMsgType());
-                              chat.setLastedMsgAttachType(dto.getLastedMsgAttachType());
-                              chat.setAttachFileName(dto.getAttachFileName());
-                              chat.setLastedMsgDate(dto.getLastedMsgDate());
-                              chat.setMsgUserNo(dto.getMsgUserNo());
-                              chat.setUnreadTotalCount(dto.getUnreadTotalCount());
-                              chat.setUnReadCount(dto.getUnReadCount());
-                              chat.setWriterUserNo(dto.getWriterUserNo());
-                              chat.setMsgUserNo(dto.getMsgUserNo());
-                              break;
-                          }
-                      }
-                  }
+                        for (ChattingDto chat : dataSet) {
+                            if (chat.getRoomNo() == dto.getRoomNo()) {
+                                chat.setLastedMsg(dto.getLastedMsg());
+                                chat.setRoomTitle(dto.getRoomTitle());
+                                chat.setLastedMsgType(dto.getLastedMsgType());
+                                chat.setLastedMsgAttachType(dto.getLastedMsgAttachType());
+                                chat.setAttachFileName(dto.getAttachFileName());
+                                chat.setLastedMsgDate(dto.getLastedMsgDate());
+                                chat.setMsgUserNo(dto.getMsgUserNo());
+                                chat.setUnreadTotalCount(dto.getUnreadTotalCount());
+                                chat.setUnReadCount(dto.getUnReadCount());
+                                chat.setWriterUserNo(dto.getWriterUserNo());
+                                chat.setMsgUserNo(dto.getMsgUserNo());
+                                break;
+                            }
+                        }
+                    }
 
                     Collections.sort(dataSet, new Comparator<ChattingDto>() {
                         public int compare(ChattingDto chattingDto1, ChattingDto chattingDto2) {
@@ -1065,7 +1072,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
                     List<TreeUserDTOTemp> list1;
                     TreeUserDTOTemp treeUserDTOTemp1;
 
-                    for(ChattingDto chattingDto: list){
+                    for (ChattingDto chattingDto : list) {
                         if (!Utils.checkChat(chattingDto, myId)) {
                             if (!Utils.checkChatId198(chattingDto)) {
                                 list1 = new ArrayList<>();
@@ -1101,7 +1108,7 @@ public class CurrentChatListFragment extends ListFragment<ChattingDto> implement
 
             Collections.sort(dataSet, new Comparator<ChattingDto>() {
                 public int compare(ChattingDto chattingDto1, ChattingDto chattingDto2) {
-                    if (chattingDto1.getLastedMsgDate() == null || chattingDto2.getLastedMsgDate() == null){
+                    if (chattingDto1.getLastedMsgDate() == null || chattingDto2.getLastedMsgDate() == null) {
                         return -1;
                     }
                     return chattingDto2.getLastedMsgDate().compareToIgnoreCase(chattingDto1.getLastedMsgDate());

@@ -52,7 +52,6 @@ public class OrganizationFragment extends BaseFragment implements OnOrganization
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Bundle bundle = getArguments();
         if (bundle != null){
             selectedUserNos = bundle.getIntegerArrayList(SELECTED_PERSON_LIST);

@@ -3,6 +3,7 @@ package com.dazone.crewchat.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -27,23 +28,12 @@ public class IntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_intro);
         Utils.hideKeyboard(this);
 
-        // 퍼미션을 체크합니다.(접근권한 체크)
-        if (checkPermissions()) {
-            // 모두 허용되어져 있다면 바로 앱을 실행
-            startApplication();
+        if (Build.VERSION.SDK_INT > 23) {
+            if (checkPermissions()) {
+                setPermissions();
+            }
         } else {
-            // 사용자에게 퍼미션 허용 팝업 띄움
-            /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(R.string.set_permissions);
-            builder.setPositiveButton(R.string.string_ok, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    setPermissions();
-                }
-            });
-
-            builder.show();*/
-            setPermissions();
+            startApplication();
         }
     }
 

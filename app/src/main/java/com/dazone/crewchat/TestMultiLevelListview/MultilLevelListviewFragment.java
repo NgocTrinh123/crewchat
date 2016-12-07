@@ -58,7 +58,7 @@ public class MultilLevelListviewFragment extends Fragment {
 
     public static MultilLevelListviewFragment instance;
 
-    private List<NLevelItem> list = new CopyOnWriteArrayList<>();
+    private List<NLevelItem> lstFavorite = new CopyOnWriteArrayList<>();
     private View rootView;
     private Context mContext;
 
@@ -256,7 +256,7 @@ public class MultilLevelListviewFragment extends Fragment {
 
     public void addNewFavorite(FavoriteUserDto userDto){
         // find parent
-        Iterator<NLevelItem> iter = list.iterator();
+        Iterator<NLevelItem> iter = lstFavorite.iterator();
         int index = -1;
         while (iter.hasNext()) {
             NLevelItem item = iter.next();
@@ -271,7 +271,7 @@ public class MultilLevelListviewFragment extends Fragment {
                 user.setStatusString(tempU.getUserStatusString());
                 NLevelItem childItem = new NLevelItem(user, item, item.getLevel()+1);
 
-                list.add(index + 1, childItem);
+                lstFavorite.add(index + 1, childItem);
 
                 if (mAdapter != null) mAdapter.reloadData();
                 Utils.printLogs("Add user from favorite successfully");
@@ -286,7 +286,7 @@ public class MultilLevelListviewFragment extends Fragment {
     public void removeFavoriteUser(int userNo){
         // remove favorite from current dataset
         Utils.printLogs("Remove user from favorite is called");
-        Iterator<NLevelItem> iter = list.iterator();
+        Iterator<NLevelItem> iter = lstFavorite.iterator();
         while (iter.hasNext()) {
             NLevelItem item = iter.next();
             TreeUserDTO temp = item.getObject();
@@ -308,7 +308,7 @@ public class MultilLevelListviewFragment extends Fragment {
                 // Need to update status
                 if (mListUsers != null){
                     for(TreeUserDTOTemp user : mListUsers){
-                        for(NLevelItem item : list){
+                        for(NLevelItem item : lstFavorite){
 
                             TreeUserDTO dto = item.getObject();
                             if (dto.getType() == Statics.TYPE_USER) {
@@ -369,10 +369,11 @@ public class MultilLevelListviewFragment extends Fragment {
         rvMain.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         rvMain.setLayoutManager(layoutManager);
-        list = new ArrayList<>();
+        lstFavorite = new ArrayList<>();
 
 
-        if (CrewChatApplication.listDeparts != null && CrewChatApplication.listDeparts.size() > 0 && CrewChatApplication.listUsers != null && CrewChatApplication.listUsers.size() > 0) {
+        if (CrewChatApplication.listDeparts != null && CrewChatApplication.listDeparts.size() > 0
+                && CrewChatApplication.listUsers != null && CrewChatApplication.listUsers.size() > 0) {
 
             mListDeparts = CrewChatApplication.listDeparts;
             mListUsers = CrewChatApplication.listUsers;
@@ -512,14 +513,14 @@ public class MultilLevelListviewFragment extends Fragment {
                                                     listUsersClient.add(userServer);
                                                     // Find parent
                                                     int i = 0;
-                                                    for (NLevelItem item : list){
+                                                    for (NLevelItem item : lstFavorite){
                                                         i++;
                                                         if (item.getObject().getId() == userServer.getGroupNo()){
                                                             TreeUserDTOTemp tempU = AllUserDBHelper.getAUser(userServer.getUserNo());
                                                             if (tempU != null){
                                                                 TreeUserDTO user = new TreeUserDTO(tempU.getName(), tempU.getNameEN(), tempU.getCellPhone() ,tempU.getAvatarUrl(), tempU.getPosition(), 2 , 1, userServer.getUserNo(), userServer.getGroupNo());
                                                                 NLevelItem newItem = new NLevelItem(user, item, item.getLevel() + 1);
-                                                                list.add(i, newItem);
+                                                                lstFavorite.add(i, newItem);
 
                                                                 Message message = Message.obtain();
                                                                 message.what = FAVORITE_BUILD;
@@ -698,14 +699,14 @@ public class MultilLevelListviewFragment extends Fragment {
         }
         // perform add user to list department that's formatted above
         // The first time , level is 0, level will increase with each level
-        list.clear();
+        lstFavorite.clear();
         convertDataV2(null);
 
         // Need to get favorite group android user to
         TreeUserDTO favorite = new TreeUserDTO("Favorites", "Favorites", "", "", "", 1, 1, 1000, 0);
 
         favoriteRoot = new NLevelItem(favorite, null, 0);
-        list.add(favoriteRoot);
+        lstFavorite.add(favoriteRoot);
 
         // build favorite top from local first, else get it online
         if(CrewChatApplication.listFavoriteTop != null && CrewChatApplication.listFavoriteTop.size() > 0){
@@ -810,7 +811,7 @@ public class MultilLevelListviewFragment extends Fragment {
                 user.setStatus(tempU.getStatus());
                 user.setStatusString(tempU.getUserStatusString());
                 NLevelItem childItem = new NLevelItem(user, favoriteRoot, favoriteRoot.getLevel()+1);
-                list.add(childItem);
+                lstFavorite.add(childItem);
             }
 
         }
@@ -831,7 +832,7 @@ public class MultilLevelListviewFragment extends Fragment {
             for (FavoriteGroupDto fa : mListFavoriteGroup){
                 TreeUserDTO folder = new TreeUserDTO(fa.getName(), fa.getName(), "", "", "", 1 , 1, fa.getGroupNo(), favoriteRoot.getObject().getId());
                 NLevelItem folderItem = new NLevelItem(folder, parent, parent.getLevel()+1);
-                list.add(folderItem);
+                lstFavorite.add(folderItem);
                 // for folder
                 if(fa.getUserList() != null && fa.getUserList().size() > 0){
 
@@ -857,7 +858,7 @@ public class MultilLevelListviewFragment extends Fragment {
                             user.setStatusString(tempU.getUserStatusString());
                             user.mIsFavoriteUser = true;
                             NLevelItem childItem = new NLevelItem(user, folderItem, folderItem.getLevel()+1);
-                            list.add(childItem);
+                            lstFavorite.add(childItem);
                         }
                     }
                 }
@@ -871,7 +872,7 @@ public class MultilLevelListviewFragment extends Fragment {
             for (FavoriteGroupDto fa : temFavorite){
                 TreeUserDTO folder = new TreeUserDTO(fa.getName(), fa.getName(), "", "", "", 1 , 1, fa.getGroupNo(), favoriteRoot.getObject().getId());
                 NLevelItem folderItem = new NLevelItem(folder, favoriteRoot, favoriteRoot.getLevel()+1);
-                list.add(folderItem);
+                lstFavorite.add(folderItem);
                 // for folder
                 if(fa.getUserList() != null && fa.getUserList().size() > 0){
 
@@ -896,7 +897,7 @@ public class MultilLevelListviewFragment extends Fragment {
                             user.setStatus(tempU.getStatus());
                             user.setStatusString(tempU.getUserStatusString());
                             NLevelItem childItem = new NLevelItem(user, folderItem, folderItem.getLevel()+1);
-                            list.add(childItem);
+                            lstFavorite.add(childItem);
                         }
                     }
                 }
@@ -931,7 +932,7 @@ public class MultilLevelListviewFragment extends Fragment {
                             for (BelongDepartmentDTO belong : belongs){
 
                                 if (dto.getId() == belong.getDepartNo()) {
-                                    list.add(item);
+                                    lstFavorite.add(item);
                                     convertUser(item, parent.getLevel()+1, dto);
                                 }
                             }
@@ -955,7 +956,7 @@ public class MultilLevelListviewFragment extends Fragment {
                 if (dto.getParent() == parent.getObject().getId()){
 
                     NLevelItem item = new NLevelItem(dto, parent, parent.getLevel() + 1);
-                    list.add(item);
+                    lstFavorite.add(item);
                     convertUser(item, parent.getLevel()+1, dto);
                     convertDataV2(item);
                 }
@@ -984,7 +985,7 @@ public class MultilLevelListviewFragment extends Fragment {
                         );
                         treeUserDTO.setCompanyNumber(user.getCompanyPhone());
                         NLevelItem item = new NLevelItem(treeUserDTO, parent, level);
-                        list.add(item);
+                        lstFavorite.add(item);
                     }
                 }
             }
@@ -993,7 +994,7 @@ public class MultilLevelListviewFragment extends Fragment {
 
     private void init(){
         int left20dp = Utils.getDimenInPx(R.dimen.dimen_20_40);
-        mAdapter = new NLevelRecycleAdapter(getActivity(), list, left20dp, mOnshowCallback);
+        mAdapter = new NLevelRecycleAdapter(getActivity(), lstFavorite, left20dp, mOnshowCallback);
         rvMain.setAdapter(mAdapter);
     }
 
@@ -1092,9 +1093,9 @@ public class MultilLevelListviewFragment extends Fragment {
 
                         NLevelItem childItem = new NLevelItem(newUser, mCurrentItemContext, mCurrentItemContext.getLevel()+1);
 
-                        int indexOf = list.indexOf(mCurrentItemContext);
+                        int indexOf = lstFavorite.indexOf(mCurrentItemContext);
                         if (indexOf != -1){
-                            list.add(indexOf + 1,childItem);
+                            lstFavorite.add(indexOf + 1,childItem);
                             mAdapter.reloadData();
                         } else {
                             Utils.printLogs("Index of = -1");
@@ -1135,7 +1136,7 @@ public class MultilLevelListviewFragment extends Fragment {
                 if (favoriteRoot != null){
                     TreeUserDTO newGroup = new TreeUserDTO(group.getName(), group.getName(), "", "", "", 1 , 1, group.getGroupNo(), favoriteRoot.getObject().getId());
                     NLevelItem newItem = new NLevelItem(newGroup, favoriteRoot, favoriteRoot.getLevel() + 1);
-                    list.add(newItem);
+                    lstFavorite.add(newItem);
                     mAdapter.reloadData();
                 } else {
                     Utils.printLogs("Parent of new group not found");

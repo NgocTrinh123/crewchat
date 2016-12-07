@@ -197,14 +197,14 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
     private void updateUnreadCount(long roomNo, long startNo) {
         HttpRequest.getInstance().UpdateMessageUnreadCount(roomNo, userID, startNo);
     }
-
+    long startNo = 0;
     // Thread to get data from server
     private void getOnlineData(final long roomNo, final ArrayList<ChattingDto> listChatMessage) {
         new Thread(new Runnable() {
             @Override
             public void run() {
 
-                long startNo = 0;
+
                 final int listMessageSize = listChatMessage.size();
                 if (listMessageSize > 0) {
                     int last_index = 1;
@@ -1098,6 +1098,7 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnSend:      // 전송버튼
+//                updateUnreadCount(roomNo, startNo);
                 String message = view.edt_comment.getText().toString();
                 if (!TextUtils.isEmpty(message) && message.length() > 0) {
                     view.edt_comment.setText("");
@@ -1608,9 +1609,9 @@ public class ChattingFragment extends ListFragment<ChattingDto> implements View.
                                             }).start();
 
                                             // notify view each item
-                                            if (isGetFromServer) {
+//                                            if (isGetFromServer) {
                                                 adapterList.notifyItemChanged(i);
-                                            }
+//                                            }
                                         }
                                         break;
                                     }

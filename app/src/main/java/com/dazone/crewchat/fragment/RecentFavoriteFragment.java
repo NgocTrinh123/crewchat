@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.activity.ChattingActivity;
@@ -71,7 +72,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Statics.ACTION_SHOW_SEARCH_INPUT)) {
-                if (etInputSearch != null){
+                if (etInputSearch != null) {
                     etInputSearch.setVisibility(View.VISIBLE);
                     etInputSearch.post(new Runnable() {
                         @Override
@@ -82,10 +83,10 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
                         }
                     });
                 }
-            } else if (intent.getAction().equals(Statics.ACTION_HIDE_SEARCH_INPUT)){
+            } else if (intent.getAction().equals(Statics.ACTION_HIDE_SEARCH_INPUT)) {
                 etInputSearch.setText("");
                 etInputSearch.setVisibility(View.GONE);
-                if (getActivity() != null){
+                if (getActivity() != null) {
                     Utils.hideKeyboard(getActivity());
                 }
             }
@@ -96,7 +97,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mHttpRequest = HttpRequest.getInstance();
-         dataSet = new ArrayList<>();
+        dataSet = new ArrayList<>();
         instance = this;
         registerReceiver();
     }
@@ -104,9 +105,9 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
     @Override
     public void onPause() {
         super.onPause();
-        if (getActivity() != null){
-            ((MainActivity)getActivity()).hideSearchIcon();
-            ((MainActivity)getActivity()).hideMenuSearch();
+        if (getActivity() != null) {
+            ((MainActivity) getActivity()).hideSearchIcon();
+            ((MainActivity) getActivity()).hideMenuSearch();
         }
     }
 
@@ -117,9 +118,9 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
         unregisterReceiver();
     }
 
-    public void removeFavorite(long roomNo){
-        for (ChattingDto chat : dataSet){
-            if (chat.getRoomNo() == roomNo){
+    public void removeFavorite(long roomNo) {
+        for (ChattingDto chat : dataSet) {
+            if (chat.getRoomNo() == roomNo) {
                 dataSet.remove(chat);
                 adapterList.notifyDataSetChanged();
                 break;
@@ -127,21 +128,21 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
         }
     }
 
-    public void addFavorite(ChattingDto dto){
+    public void addFavorite(ChattingDto dto) {
         boolean isExist = false;
-        for (ChattingDto chat : dataSet){
-            if (chat.getRoomNo() == dto.getRoomNo()){
+        for (ChattingDto chat : dataSet) {
+            if (chat.getRoomNo() == dto.getRoomNo()) {
                 chat.setFavorite(true);
                 adapterList.notifyDataSetChanged();
                 isExist = true;
                 break;
             }
         }
-        if (!isExist){
+        if (!isExist) {
             dataSet.add(dto);
             Collections.sort(dataSet, new Comparator<ChattingDto>() {
                 public int compare(ChattingDto chattingDto1, ChattingDto chattingDto2) {
-                    if (chattingDto1.getLastedMsgDate() == null || chattingDto2.getLastedMsgDate() == null){
+                    if (chattingDto1.getLastedMsgDate() == null || chattingDto2.getLastedMsgDate() == null) {
                         return -1;
                     }
                     return chattingDto2.getLastedMsgDate().compareToIgnoreCase(chattingDto1.getLastedMsgDate());
@@ -168,7 +169,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (adapterList != null){
+                if (adapterList != null) {
                     adapterList.filterRecentFavorite(s.toString());
                 }
             }
@@ -186,7 +187,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
         rvMainList.setAdapter(adapterList);
 
 
-        Utils.printLogs("On Create view in "+this.getClass().getSimpleName());
+        Utils.printLogs("On Create view in " + this.getClass().getSimpleName());
 
         initList();
 
@@ -201,9 +202,9 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
             isActive = true;
 
         }
-        if (isVisibleToUser){
-            if (getActivity() != null && getActivity() instanceof MainActivity){
-                ((MainActivity)getActivity()).hidePAB();
+        if (isVisibleToUser) {
+            if (getActivity() != null && getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).hidePAB();
             }
         }
     }
@@ -211,14 +212,14 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
     @Override
     public void onResume() {
         super.onResume();
-        if (getActivity() != null){
-            ((MainActivity)getActivity()).hideMenuSearch();
+        if (getActivity() != null) {
+            ((MainActivity) getActivity()).hideMenuSearch();
         }
     }
 
     @Override
     protected void initAdapter() {
-        adapterList = new RecentFavoriteAdapter(mContext,dataSet, rvMainList, mOnContextMenuSelect);
+        adapterList = new RecentFavoriteAdapter(mContext, dataSet, rvMainList, mOnContextMenuSelect);
         Utils.printLogs("Item size oh lalala");
     }
 
@@ -238,33 +239,28 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
         progressBar.setVisibility(View.VISIBLE);
         final ArrayList<TreeUserDTOTemp> listOfUsers = Utils.getUsers();
         // If list user is not null, load data from client at first
-        if (listOfUsers != null && listOfUsers.size() > 0){
+        if (listOfUsers != null && listOfUsers.size() > 0) {
             treeUserDTOTempList = listOfUsers;
             // If list user is exist get data from client, the run a new thread to get data from
             getDataFromClient(listOfUsers);
 
-        }else{
+        } else {
             // Get user list from server
             HttpRequest.getInstance().GetListOrganize(new IGetListOrganization() {
                 @Override
                 public void onGetListSuccess(final ArrayList<TreeUserDTOTemp> treeUserDTOs) {
                     // Get list user to send message here
                     // Get list success and store it to Sqlite databas
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
+                    Utils.printLogs(" onGetListSuccess " + RecentFavoriteFragment.this.getClass().getSimpleName());
+                    for (TreeUserDTOTemp tem : treeUserDTOs) {
+                        Utils.printLogs("Chat = " + tem.toString());
+                    }
+                    treeUserDTOTempList = treeUserDTOs;
 
-                            Utils.printLogs(" onGetListSuccess " + RecentFavoriteFragment.this.getClass().getSimpleName());
-                            for (TreeUserDTOTemp tem : treeUserDTOs){
-                                Utils.printLogs("Chat = "+tem.toString());
-                            }
-                            treeUserDTOTempList = treeUserDTOs;
+                    // get newest data from server, using auto sync and then store offline
+                    // get data from server just get and store to local storage
+                    getDataFromServer();
 
-                            // get newest data from server, using auto sync and then store offline
-                            // get data from server just get and store to local storage
-                            getDataFromServer();
-                        }
-                    }).start();
 
                 }
 
@@ -296,9 +292,10 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
     /*
     * Custom function
     * */
-    public interface OnContextMenuSelect{
+    public interface OnContextMenuSelect {
         public void onSelect(int type, Bundle bundle);
     }
+
     private OnContextMenuSelect mOnContextMenuSelect = new OnContextMenuSelect() {
         @Override
         public void onSelect(int type, Bundle bundle) {
@@ -306,7 +303,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
             Intent intent = null;
             final long roomNo = bundle.getLong(Statics.ROOM_NO, 0);
 
-            switch (type){
+            switch (type) {
                 case Statics.ROOM_RENAME:
 
                     intent = new Intent(getActivity(), RenameRoomActivity.class);
@@ -325,8 +322,8 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
 
                 case Statics.ROOM_REMOVE_FROM_FAVORITE:
 
-                    for (ChattingDto chat : dataSet){
-                        if (chat.getRoomNo() == roomNo){
+                    for (ChattingDto chat : dataSet) {
+                        if (chat.getRoomNo() == roomNo) {
                             dataSet.remove(chat);
                             adapterList.notifyDataSetChanged();
                             break;
@@ -341,12 +338,12 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
                     HttpRequest.getInstance().addRoomToFavorite(roomNo, new BaseHTTPCallBack() {
                         @Override
                         public void onHTTPSuccess() {
-                            Toast.makeText(mContext, res.getString(R.string.favorite_add_success) , Toast.LENGTH_LONG).show();
+                            Toast.makeText(mContext, res.getString(R.string.favorite_add_success), Toast.LENGTH_LONG).show();
                         }
 
                         @Override
                         public void onHTTPFail(ErrorDto errorDto) {
-                            Toast.makeText(mContext, res.getString(R.string.favorite_add_success) , Toast.LENGTH_LONG).show();
+                            Toast.makeText(mContext, res.getString(R.string.favorite_add_success), Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -361,14 +358,14 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
                         public void onHTTPSuccess() {
                             Utils.printLogs("User is left a room #### success");
                             try {
-                                for (int i = 0; i < dataSet.size(); i++){
-                                    Utils.printLogs("Current room No = "+dataSet.get(i).getRoomNo());
-                                    if (dataSet.get(i).getRoomNo() == roomNo){
+                                for (int i = 0; i < dataSet.size(); i++) {
+                                    Utils.printLogs("Current room No = " + dataSet.get(i).getRoomNo());
+                                    if (dataSet.get(i).getRoomNo() == roomNo) {
                                         dataSet.remove(i);
                                         adapterList.notifyDataSetChanged();
                                     }
                                 }
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
@@ -385,7 +382,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
     };
 
 
-    private void getDataFromClient(List<TreeUserDTOTemp> listOfUsers){
+    private void getDataFromClient(List<TreeUserDTOTemp> listOfUsers) {
 
         int myId = Utils.getCurrentId();
         List<TreeUserDTOTemp> list1;
@@ -398,9 +395,9 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
             }
         });
 
-        for (ChattingDto chattingDto: listChat) {
+        for (ChattingDto chattingDto : listChat) {
 
-            Utils.printLogs("Chat client = "+chattingDto.getUnreadTotalCount());
+            Utils.printLogs("Chat client = " + chattingDto.getUnreadTotalCount());
 
             if (!Utils.checkChat(chattingDto, myId)) {
                 list1 = new ArrayList<>();
@@ -451,7 +448,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
 
                 }
             });
-        }else{
+        } else {
 
             // New Thread to get chat list
             // If list user is not null, then get chat list
@@ -460,7 +457,7 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
         }
     }
 
-    private void getChatList(final List<TreeUserDTOTemp> listOfUsers){
+    private void getChatList(final List<TreeUserDTOTemp> listOfUsers) {
 
         HttpRequest.getInstance().getGetFavoriteChatRoom(new OnGetFavoriteChatRoom() {
             @Override
@@ -479,24 +476,23 @@ public class RecentFavoriteFragment extends ListFragment<ChattingDto> implements
                 List<TreeUserDTOTemp> list1;
                 TreeUserDTOTemp treeUserDTOTemp1;
 
-                for (ChattingDto dto : listChat){
-                    for (FavoriteChatRoomDto chat : list){
+                for (ChattingDto dto : listChat) {
+                    for (FavoriteChatRoomDto chat : list) {
 
-                        if (dto.getRoomNo() == chat.getRoomNo()){
-                                list1 = new ArrayList<>();
-                                for (int id : dto.getUserNos()) {
+                        if (dto.getRoomNo() == chat.getRoomNo()) {
+                            list1 = new ArrayList<>();
+                            for (int id : dto.getUserNos()) {
 
-                                    if (myId != id) {
-                                        treeUserDTOTemp1 = Utils.GetUserFromDatabase(listOfUsers, id);
-                                        if (treeUserDTOTemp1 != null) {
-                                            list1.add(treeUserDTOTemp1);
-                                        }
+                                if (myId != id) {
+                                    treeUserDTOTemp1 = Utils.GetUserFromDatabase(listOfUsers, id);
+                                    if (treeUserDTOTemp1 != null) {
+                                        list1.add(treeUserDTOTemp1);
                                     }
                                 }
-                                dto.setListTreeUser(list1);
-                                dataSet.add(dto);
+                            }
+                            dto.setListTreeUser(list1);
+                            dataSet.add(dto);
 
-                            break;
                         }
 
                     }

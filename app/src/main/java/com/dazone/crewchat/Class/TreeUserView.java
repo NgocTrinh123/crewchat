@@ -41,11 +41,11 @@ public class TreeUserView extends TreeView implements View.OnCreateContextMenuLi
 
     private ImageView avatar_imv;
     private ImageView status_imv;
-    private TextView position;
-    private LinearLayout lnItemWraper;
+    private TextView position,tvPhone1,tvPhone2;
+    private LinearLayout lnItemWraper,lnPhone;
     private HashMap<Integer, ImageView> myMap;
     private int marginLeft = 0;
-    private TextView tv_work_phone, tv_personal_phone, tv_user_status;
+    private TextView tv_work_phone, tv_personal_phone;
     TreeUserDTOTemp user;
 
     public TreeUserView(Context context, TreeUserDTO dto) {
@@ -85,14 +85,16 @@ public class TreeUserView extends TreeView implements View.OnCreateContextMenuLi
                     position.setText(dto.getPosition());
 
                     setupStatusImage();
+                    if (TextUtils.isEmpty(dto.getPhoneNumber())) {
+                        tvPhone1.setVisibility(View.GONE);
+                    } else {
+                        tvPhone1.setText(dto.getPhoneNumber());
 
-                    if (TextUtils.isEmpty(dto.getStatusString())){
-                        tv_user_status.setVisibility(View.GONE);
-                        Utils.printLogs("##Status string = Rong");
-                    }else{
-                        tv_user_status.setVisibility(View.VISIBLE);
-                        Utils.printLogs("##Status string = "+dto.getStatusString());
-                        tv_user_status.setText(dto.getStatusString());
+                    }
+                    if (TextUtils.isEmpty(dto.getCompanyNumber())) {
+                        tvPhone2.setVisibility(View.GONE);
+                    } else {
+                        tvPhone2.setText(dto.getCompanyNumber());
                     }
                 }
             }
@@ -111,8 +113,9 @@ public class TreeUserView extends TreeView implements View.OnCreateContextMenuLi
         //checkBox = (CheckBox) currentView.findViewById(R.id.row_check);
         tv_work_phone = (TextView) currentView.findViewById(R.id.tv_work_phone);
         tv_personal_phone = (TextView) currentView.findViewById(R.id.tv_personal_phone) ;
-        tv_user_status = (TextView) currentView.findViewById(R.id.tv_user_status);
-
+        tvPhone1 = (TextView) currentView.findViewById(R.id.tv_phone_1);
+        tvPhone2 = (TextView) currentView.findViewById(R.id.tv_phone_2);
+        lnPhone = (LinearLayout) currentView.findViewById(R.id.ln_phone);
         main = (RelativeLayout) currentView.findViewById(R.id.mainParent);
 
         currentView.setOnCreateContextMenuListener(this);
@@ -202,14 +205,14 @@ public class TreeUserView extends TreeView implements View.OnCreateContextMenuLi
             tv_personal_phone.setText(dto.getPhoneNumber());
         }*/
 
-        if (TextUtils.isEmpty(dto.getStatusString())){
-            tv_user_status.setVisibility(View.GONE);
-            Utils.printLogs("Status string = Rong");
-        }else{
-            tv_user_status.setVisibility(View.VISIBLE);
-            Utils.printLogs("Status string = "+dto.getStatusString());
-            tv_user_status.setText(dto.getStatusString());
-        }
+//        if (TextUtils.isEmpty(dto.getStatusString())){
+//            tv_user_status.setVisibility(View.GONE);
+//            Utils.printLogs("Status string = Rong");
+//        }else{
+//            tv_user_status.setVisibility(View.VISIBLE);
+//            Utils.printLogs("Status string = "+dto.getStatusString());
+//            tv_user_status.setText(dto.getStatusString());
+//        }
 
         Utils.printLogs("Dto status = "+dto.getStatus());
 

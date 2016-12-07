@@ -64,7 +64,7 @@ public class HttpOauthRequest {
     }
 
     // Login function V2
-    public void loginV2(final BaseHTTPCallBack baseHTTPCallBack,String userID, String password,String mobileOSVersion,String subDomain, String server_link) {
+    public void loginV2(final BaseHTTPCallBack baseHTTPCallBack, final String userID, String password, String mobileOSVersion, String subDomain, String server_link) {
         final String url = server_link+ OAUTHUrls.URL_GET_LOGIN_V3;
         Map<String, String> params = new HashMap<>();
         //params.put("companyDomain", subDomain + "." + OAUTHUrls.URL_ROOT_DOMAIN);

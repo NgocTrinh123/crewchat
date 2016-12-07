@@ -22,6 +22,8 @@ public class Prefs implements Serializable {
     private final String USERNO = "user_no";
     private final String INTRO_COUNT = "introcount";
     private final String AVATAR_URL = "avatar_url";
+    private final String DDS_SERVER = "dds_server";
+    private final String PASSWORD = "password";
 
     private static final String PREF_FLAG_GMC_ID = "flag_gmc_id_new";
 
@@ -29,6 +31,22 @@ public class Prefs implements Serializable {
     public Prefs() {
         prefs = CrewChatApplication.getInstance().getApplicationContext().
                 getSharedPreferences(SHAREDPREFERENCES_NAME, Context.MODE_PRIVATE);
+    }
+
+    public void setDDSServer(String key) {
+        putStringValue(DDS_SERVER, key);
+    }
+
+    public String getDDSServer() {
+        return getStringValue(DDS_SERVER, "");
+    }
+
+    public void setPass(String key) {
+        putStringValue(PASSWORD, key);
+    }
+
+    public String getPass() {
+        return getStringValue(PASSWORD, "");
     }
 
     public boolean isContainKey(String key) {

@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.v4.app.ShareCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.ContextMenu;
@@ -64,12 +63,12 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
     private ImageView chatting_imv;
     private LinearLayout lnSendFail;
     private ProgressBar progressBarSending;
-    private ProgressBar  progressBarImageLoading;
+    private ProgressBar progressBarImageLoading;
     private ChattingDto tempDto;
     private Activity mActivity;
     private float ratio = 1f;
 
-    public  ChattingSelfImageViewHolder(Activity activity, View v) {
+    public ChattingSelfImageViewHolder(Activity activity, View v) {
         super(v);
         mActivity = activity;
     }
@@ -82,7 +81,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
         date_tv = (TextView) v.findViewById(R.id.date_tv);
         chatting_imv = (ImageView) v.findViewById(R.id.chatting_imv);
         tvUnread = (TextView) v.findViewById(R.id.text_unread);
-        lnSendFail = (LinearLayout)v.findViewById(R.id.ln_send_failed);
+        lnSendFail = (LinearLayout) v.findViewById(R.id.ln_send_failed);
         progressBarSending = (ProgressBar) v.findViewById(R.id.progressbar_sending);
 
 
@@ -116,7 +115,6 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
         });
 
 
-
         // Calculate ratio
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowmanager = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
@@ -126,7 +124,7 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
         if (deviceWidth > 1000) {
             ratio = 2f;
         }
-        if (dto.isHasSent()){
+        if (dto.isHasSent()) {
             if (progressBarSending != null) progressBarSending.setVisibility(View.GONE);
             if (lnSendFail != null) lnSendFail.setVisibility(View.GONE);
         } else {
@@ -462,35 +460,52 @@ public class ChattingSelfImageViewHolder extends BaseChattingHolder implements V
                 break;
 
             case Statics.MENU_SHARE:
+                if (tempDto != null) {
+                    AttachDTO attachDTO = tempDto.getAttachInfo();
+                    String urlDownload1 = new Prefs().getServerSite() + Urls.URL_DOWNLOAD_THUMBNAIL +
+                            "session=" + CrewChatApplication.getInstance().getmPrefs().getaccesstoken() +
+                            "&no=" + attachDTO.getAttachNo();
 
-                String urlShare = tempDto.getAttachInfo().getFullPath().replace("D:", "");
-                urlShare = urlShare.replaceAll("\\\\", File.separator);
-                urlShare = new Prefs().getServerSite() + urlShare;
-                Utils.printLogs("URL SHARE " + urlShare);
-                ImageLoader.getInstance().loadImage(urlShare, new SimpleImageLoadingListener() {
-                    @Override
-                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-
-                        /** SAVE FILE */
-                        String path = Utils.saveFile(loadedImage);
-                        Uri screenshotUri = Uri.parse("file:///" + path);
-                        try {
-                            final Intent intent = ShareCompat.IntentBuilder.from(mActivity)
-                                    .setType("image/*")
-                                    .setText("....")
-                                    .setSubject("Share image via...")
-                                    .setStream(screenshotUri)
-                                    .setChooserTitle("Share.")
-                                    .createChooserIntent()
-                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
-                                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-                            mActivity.startActivity(intent);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                    String path = Environment.getExternalStorageDirectory() + Constant.pathDownload + "/" + attachDTO.getFileName();
+                    final Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("image/jpg");
+                    final File photoFile = new File(path);
+                    if (!photoFile.exists()) {
+                        Utils.DownloadImage(mActivity, urlDownload1, attachDTO.getFileName());
                     }
-                });
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(photoFile));
+                    mActivity.startActivity(Intent.createChooser(shareIntent, "Share image using"));
+                }
+
+//                ImageLoader.getInstance().loadImage(url, new SimpleImageLoadingListener() {
+//                    @Override
+//                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+//
+//                        /** SAVE FILE */
+//                        String path = Utils.saveFile(loadedImage);
+//                        Uri screenshotUri = Uri.parse("file:///" + path);
+//                        try {
+//                            final Intent intent = ShareCompat.IntentBuilder.from(mActivity)
+//                                    .setType("image/*")
+//                                    .setText("....")
+//                                    .setSubject("Share image via...")
+//                                    .setStream(screenshotUri)
+//                                    .setChooserTitle("Share.")
+//                                    .createChooserIntent()
+//                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET)
+//                                    .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//
+//                            mActivity.startActivity(intent);
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//                        super.onLoadingFailed(imageUri, view, failReason);
+//                    }
+//                });
 
                 break;
 

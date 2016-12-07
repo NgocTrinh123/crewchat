@@ -52,7 +52,7 @@ import java.util.List;
  */
 
 // Custom recycle adapter to compacitice with the layout
-public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener, View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener{
+public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener, View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
 
 
     public static int FILTER_TYPE_NORMAL = 0;
@@ -78,7 +78,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     }
 
-    public NLevelRecycleAdapter(Context context, List<NLevelItem> list, int left20dp, OnGroupShowContextMenu callback){
+    public NLevelRecycleAdapter(Context context, List<NLevelItem> list, int left20dp, OnGroupShowContextMenu callback) {
         this.list = list;
         this.filtered = filterItems();
         this.left20dp = left20dp;
@@ -91,33 +91,35 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     }
 
-    private class UserViewHolder extends RecyclerView.ViewHolder{
+    private class UserViewHolder extends RecyclerView.ViewHolder {
         public View rootView;
-        public TextView title, position, tv_work_phone, tv_personal_phone, tv_user_status;
+        public TextView title, position, tv_work_phone, tv_personal_phone, tvPhone1, tvPhone2;
         public ImageView avatar_imv, status_imv;
-        public LinearLayout lnItemWraper;
+        public LinearLayout lnItemWraper, lnPhone;
         public RelativeLayout main;
 
-        public UserViewHolder(View currentView){
+        public UserViewHolder(View currentView) {
             super(currentView);
             rootView = currentView;
             title = (TextView) currentView.findViewById(R.id.name);
-			avatar_imv = (ImageView) currentView.findViewById(R.id.avatar);
+            avatar_imv = (ImageView) currentView.findViewById(R.id.avatar);
             status_imv = (ImageView) currentView.findViewById(R.id.status_imv);
             position = (TextView) currentView.findViewById(R.id.position);
             lnItemWraper = (LinearLayout) currentView.findViewById(R.id.item_org_wrapper);
             //status_tv = (TextView) currentView.findViewById(R.id.status_tv);
             //checkBox = (CheckBox) currentView.findViewById(R.id.row_check);
             tv_work_phone = (TextView) currentView.findViewById(R.id.tv_work_phone);
-            tv_personal_phone = (TextView) currentView.findViewById(R.id.tv_personal_phone) ;
-            tv_user_status = (TextView) currentView.findViewById(R.id.tv_user_status);
+            tv_personal_phone = (TextView) currentView.findViewById(R.id.tv_personal_phone);
+            tvPhone1 = (TextView) currentView.findViewById(R.id.tv_phone_1);
+            tvPhone2 = (TextView) currentView.findViewById(R.id.tv_phone_2);
+            lnPhone = (LinearLayout) currentView.findViewById(R.id.ln_phone);
             main = (RelativeLayout) currentView.findViewById(R.id.mainParent);
 
 
         }
     }
 
-    private class FolderViewHolder extends RecyclerView.ViewHolder{
+    private class FolderViewHolder extends RecyclerView.ViewHolder {
         public View rootView;
         public TextView title;
         public ImageView icon;
@@ -125,20 +127,21 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         public RelativeLayout main;
         public LinearLayout mLnTittle, lnl_child;
 
-        public FolderViewHolder(View currentView){
+        public FolderViewHolder(View currentView) {
             super(currentView);
             rootView = currentView;
             title = (TextView) currentView.findViewById(R.id.office_title);
 
-			title = (TextView) currentView.findViewById(R.id.office_title);
-			icon = (ImageView) currentView.findViewById(R.id.ic_folder);
-			main = (RelativeLayout) currentView.findViewById(R.id.mainParent);
-			mLnTittle = (LinearLayout) currentView.findViewById(R.id.layout_title);
+            title = (TextView) currentView.findViewById(R.id.office_title);
+            icon = (ImageView) currentView.findViewById(R.id.ic_folder);
+            main = (RelativeLayout) currentView.findViewById(R.id.mainParent);
+            mLnTittle = (LinearLayout) currentView.findViewById(R.id.layout_title);
         }
     }
 
-    private class EmptyViewHolder extends RecyclerView.ViewHolder{
+    private class EmptyViewHolder extends RecyclerView.ViewHolder {
         public TextView noData;
+
         public EmptyViewHolder(View itemView) {
             super(itemView);
             noData = (TextView) itemView.findViewById(R.id.tv_empty);
@@ -149,9 +152,9 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        switch (viewType){
+        switch (viewType) {
 
-            case TYPE_USER :
+            case TYPE_USER:
                 View userView = inflater.inflate(R.layout.tree_user_row, null);
                 return new UserViewHolder(userView);
 
@@ -168,8 +171,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     private void setupStatusImage(UserViewHolder holder, TreeUserDTO dto) {
 
-        switch (dto.getStatus())
-        {
+        switch (dto.getStatus()) {
             case Statics.USER_LOGIN:
                 holder.status_imv.setImageResource(R.drawable.home_big_status_01);
                 break;
@@ -185,22 +187,25 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    private void bindUserData(UserViewHolder holder, final TreeUserDTO dto){
+    private void bindUserData(UserViewHolder holder, final TreeUserDTO dto) {
         holder.title.setText(dto.getName());
 
         String avatarUrl = new Prefs().getServerSite() + dto.getAvatarUrl();
-        Utils.printLogs("Avatar url ="+avatarUrl);
+        Utils.printLogs("Avatar url =" + avatarUrl);
 
         ImageUtils.showCycleImageFromLinkScale(avatarUrl, holder.avatar_imv, R.dimen.button_height);
 
         holder.position.setText(dto.getPosition());
-        if (TextUtils.isEmpty(dto.getStatusString())){
-            holder.tv_user_status.setVisibility(View.GONE);
-            Utils.printLogs("Status string = Rong");
-        }else{
-            holder.tv_user_status.setVisibility(View.VISIBLE);
-            Utils.printLogs("Status string = "+dto.getStatusString());
-            holder.tv_user_status.setText(dto.getStatusString());
+        if (TextUtils.isEmpty(dto.getPhoneNumber())) {
+            holder.tvPhone1.setVisibility(View.GONE);
+        } else {
+            holder.tvPhone1.setText(dto.getPhoneNumber());
+
+        }
+        if (TextUtils.isEmpty(dto.getCompanyNumber())) {
+            holder.tvPhone2.setVisibility(View.GONE);
+        } else {
+            holder.tvPhone2.setText(dto.getCompanyNumber());
         }
         setupStatusImage(holder, dto);
         holder.avatar_imv.setOnClickListener(new View.OnClickListener() {
@@ -215,14 +220,14 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 //        holder.rootView.setOnCreateContextMenuListener(this);
     }
 
-    private void bindGroupData(FolderViewHolder holder, TreeUserDTO dto){
+    private void bindGroupData(FolderViewHolder holder, TreeUserDTO dto) {
         holder.title.setText(dto.getName());
 
         if (dto.getId() != 0) {
             holder.title.setText(dto.getItemName());
 
             if (dto.getIsHide() == 1) {
-               holder. icon.setImageResource(R.drawable.home_folder_close_ic);
+                holder.icon.setImageResource(R.drawable.home_folder_close_ic);
                 //holder.lnl_child.setVisibility(View.GONE);
             } else {
                 holder.icon.setImageResource(R.drawable.home_folder_open_ic);
@@ -236,12 +241,12 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         holder.mLnTittle.setOnCreateContextMenuListener(this);
     }
 
-    private int getMarginLeft(int level){
-        int marginLeft = level  * this.left20dp;
+    private int getMarginLeft(int level) {
+        int marginLeft = level * this.left20dp;
         return marginLeft;
     }
 
-    private void createChatRoom(final TreeUserDTO dto, int type){
+    private void createChatRoom(final TreeUserDTO dto, int type) {
         if (type == TYPE_USER) {
             if (dto.getId() != Utils.getCurrentId())
                 HttpRequest.getInstance().CreateOneUserChatRoom(dto.getId(), new ICreateOneUserChatRom() {
@@ -261,7 +266,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
                 });
             else
                 Utils.showMessage(Utils.getString(R.string.can_not_chat));
-        } else if (type == TYPE_FOLDER){
+        } else if (type == TYPE_FOLDER) {
 
             if (dto.getSubordinates() != null && dto.getSubordinates().size() > 0) {
                 getUser(dto.getSubordinates());
@@ -308,14 +313,14 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         NLevelListItem object = getItem(position);
         TreeUserDTO dto = null;
-        if (object != null){
+        if (object != null) {
             dto = object.getObject();
         }
 
-        switch (holder.getItemViewType()){
+        switch (holder.getItemViewType()) {
             case TYPE_USER:
 
-                if (dto != null){
+                if (dto != null) {
                     UserViewHolder holder2 = ((UserViewHolder) holder);
                     bindUserData(holder2, dto);
 
@@ -352,17 +357,17 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
                 // Calculate
                 DisplayMetrics metrics = new DisplayMetrics();
-                ((Activity)mContext).getWindowManager().getDefaultDisplay().getMetrics(metrics);
+                ((Activity) mContext).getWindowManager().getDefaultDisplay().getMetrics(metrics);
                 int width = metrics.widthPixels;
                 float w = holderEmppty.noData.getPaint().measureText("No data");
-                paramsEmpty.leftMargin = Math.round((width - w ) / 2 - w /2);
+                paramsEmpty.leftMargin = Math.round((width - w) / 2 - w / 2);
                 paramsEmpty.topMargin = 1000;
 
                 // Nothing to do now
                 break;
             case TYPE_FOLDER:
             default:
-                if (dto != null){
+                if (dto != null) {
                     FolderViewHolder holder3 = ((FolderViewHolder) holder);
                     bindGroupData(holder3, dto);
 
@@ -405,7 +410,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     public NLevelListItem getItem(int position) {
-        if (getItemCount() == 1 && filtered.size() == 0){
+        if (getItemCount() == 1 && filtered.size() == 0) {
             return null;
         }
         return filtered.get(position);
@@ -436,11 +441,11 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
     class NLevelFilter {
 
         public void filter() {
-                new AsyncFilter().execute();
+            new AsyncFilter().execute();
         }
 
         // Filter user when receive text string
-        public void filterUser(String text){
+        public void filterUser(String text) {
             new SearchUserFilter().execute(text);
         }
 
@@ -466,8 +471,8 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
             protected ArrayList<NLevelListItem> doInBackground(String... params) {
                 // Just filter user
                 ArrayList<NLevelListItem> items = (ArrayList<NLevelListItem>) filterUsers(params[0]);
-                Utils.printLogs("Text = "+params[0]+" Item size = "+items.size());
-                return  items;
+                Utils.printLogs("Text = " + params[0] + " Item size = " + items.size());
+                return items;
             }
 
             @Override
@@ -480,21 +485,21 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     // Filter user by UserName or User ID
-    public List<NLevelListItem> filterUsers(String textString){
+    public List<NLevelListItem> filterUsers(String textString) {
         List<NLevelListItem> tempfiltered = new ArrayList<NLevelListItem>();
-        if (TextUtils.isEmpty(textString)){
+        if (TextUtils.isEmpty(textString)) {
             tempfiltered.addAll(list);
         } else {
 
             for (NLevelListItem item : list) {
                 //add expanded items and top level items
                 //if parent is null then its a top level item
-                if(item.getParent() == null && item.getObject() != null && item.getObject().getName()!= null && item.getObject().getName().equals("Dazone")) {
+                if (item.getParent() == null && item.getObject() != null && item.getObject().getName() != null && item.getObject().getName().equals("Dazone")) {
                     tempfiltered.add(item);
                 } else {
                     TreeUserDTO object = item.getObject();
-                    if (object != null && object.getType() == Statics.TYPE_USER){
-                        if (object.getName().contains(textString)){
+                    if (object != null && object.getType() == Statics.TYPE_USER) {
+                        if (object.getName().contains(textString)) {
                             tempfiltered.add(item);
                         }
                     }
@@ -507,16 +512,17 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     public List<NLevelListItem> filterItems() {
         List<NLevelListItem> tempfiltered = new ArrayList<NLevelListItem>();
-        OUTER: for (NLevelListItem item : list) {
+        OUTER:
+        for (NLevelListItem item : list) {
             //add expanded items and top level items
             //if parent is null then its a top level item
-            if(item.getParent() == null) {
+            if (item.getParent() == null) {
                 tempfiltered.add(item);
             } else {
                 //go through each ancestor to make sure they are all expanded
                 NLevelListItem parent = item;
-                while ((parent = parent.getParent())!= null) {
-                    if (!parent.isExpanded()){
+                while ((parent = parent.getParent()) != null) {
+                    if (!parent.isExpanded()) {
                         //one parent was not expanded
                         //skip the rest and continue the OUTER for loop
                         continue OUTER;
@@ -539,7 +545,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         NLevelItem dto = null;
         try {
             dto = (NLevelItem) v.getTag();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -547,12 +553,14 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
             mTempDto = dto;
 
             if (dto.getObject().getType() == Statics.TYPE_USER) {
-                if(dto.getParent() != null) {
-                    if(dto.getParent().getObject() != null) {
-                        if( dto.getParent().getObject().getType() == 0 ) { return; }
+                if (dto.getParent() != null) {
+                    if (dto.getParent().getObject() != null) {
+                        if (dto.getParent().getObject().getType() == 0) {
+                            return;
+                        }
                     }
                 }
-                if (menu.size() == 0){
+                if (menu.size() == 0) {
                     Resources res = CrewChatApplication.getInstance().getResources();
                     MenuItem removeFavorite = menu.add(0, Statics.MENU_REMOVE_FROM_FAVORITE, 0, res.getString(R.string.remove_from_favorite));
                     MenuItem openChatRoom = menu.add(0, Statics.MENU_OPEN_CHAT_ROOM, 0, res.getString(R.string.open_chat_room));
@@ -561,9 +569,11 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
                     openChatRoom.setOnMenuItemClickListener(this);
                 }
             } else {
-                if(dto.getObject().getType() == 0) { return; }
+                if (dto.getObject().getType() == 0) {
+                    return;
+                }
 
-                if (menu.size() == 0){
+                if (menu.size() == 0) {
                     Resources res = CrewChatApplication.getInstance().getResources();
                     MenuItem registedUser = menu.add(0, Statics.MENU_REGISTERED_USERS, 0, res.getString(R.string.registered_users));
                     MenuItem modifyGroup = menu.add(0, Statics.MENU_MODIFYING_GROUP, 0, res.getString(R.string.modifying_group));
@@ -632,13 +642,13 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
             case Statics.MENU_REGISTERED_USERS:
 
                 ArrayList<Integer> uNos = new ArrayList<>();
-                for (NLevelItem u : list){
+                for (NLevelItem u : list) {
                     if (u.getParent() != null && u.getParent().equals(mTempDto))
-                    uNos.add(u.getObject().getId());
+                        uNos.add(u.getObject().getId());
                 }
 
                 // Callback to modify user
-                if (mCallback != null){
+                if (mCallback != null) {
                     mCallback.onShow(mTempDto, uNos);
                 }
 
@@ -650,7 +660,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
                 String confirm = res.getString(R.string.confirm);
                 String cancel = res.getString(R.string.cancel);
 
-                AlertDialogView.alertDialogComfirmWithEdittext(mContext, groupName, groupName, dto.getName() , confirm, cancel, new AlertDialogView.onAlertDialogViewClickEventData() {
+                AlertDialogView.alertDialogComfirmWithEdittext(mContext, groupName, groupName, dto.getName(), confirm, cancel, new AlertDialogView.onAlertDialogViewClickEventData() {
                     @Override
                     public void onOkClick(String groupName) {
                         // Call API to add group
@@ -666,7 +676,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
 
                 break;
             case Statics.MENU_DELETE_GROUP:
-                AlertDialogView.normalAlertDialogWithCancel(mContext, Utils.getString(R.string.app_name),Utils.getString(R.string.favorite_group_delete_warning), Utils.getString(R.string.no), Utils.getString(R.string.yes) , new AlertDialogView.OnAlertDialogViewClickEvent(){
+                AlertDialogView.normalAlertDialogWithCancel(mContext, Utils.getString(R.string.app_name), Utils.getString(R.string.favorite_group_delete_warning), Utils.getString(R.string.no), Utils.getString(R.string.yes), new AlertDialogView.OnAlertDialogViewClickEvent() {
                     @Override
                     public void onOkClick(DialogInterface alertDialog) {
                         onDeleteGroup(dto.getId());
@@ -684,7 +694,7 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
         return false;
     }
 
-    public void reloadData(){
+    public void reloadData() {
         filtered = filterItems();
         notifyDataSetChanged();
     }
@@ -693,16 +703,16 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
     /*
     * Delete group and delete all user of this group
     * */
-    private void onDeleteGroup(final long groupNo){
+    private void onDeleteGroup(final long groupNo) {
         HttpRequest.getInstance().deleteFavoriteGroup(groupNo, new BaseHTTPCallBack() {
             @Override
             public void onHTTPSuccess() {
                 // Delete favorite group in new thread
 
                 // notify local data
-                for (Iterator<NLevelItem> iterator = list.iterator(); iterator.hasNext();) {
+                for (Iterator<NLevelItem> iterator = list.iterator(); iterator.hasNext(); ) {
                     NLevelItem item = iterator.next();
-                    if (item.getParent() != null && item.getParent().getObject().getId() == mTempDto.getObject().getId()){
+                    if (item.getParent() != null && item.getParent().getObject().getId() == mTempDto.getObject().getId()) {
                         iterator.remove();
                     }
                 }
@@ -726,14 +736,14 @@ public class NLevelRecycleAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     /* Function to request to server to update favorite group */
-    private void updateFavoriteGroup(final NLevelItem item, final String groupNam, int sortNo){
+    private void updateFavoriteGroup(final NLevelItem item, final String groupNam, int sortNo) {
         final TreeUserDTO dto = item.getObject();
         HttpRequest.getInstance().updateFavoriteGroup(dto.getId(), groupNam, sortNo, new BaseHTTPCallbackWithJson() {
             @Override
             public void onHTTPSuccess(String jsonData) {
                 // refresh view again, find item to update
                 int indexof = list.indexOf(item);
-                if (indexof != -1){
+                if (indexof != -1) {
 
                     NLevelItem foundItem = list.get(indexof);
 

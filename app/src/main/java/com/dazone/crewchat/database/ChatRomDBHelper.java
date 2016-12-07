@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.text.TextUtils;
+
 import com.dazone.crewchat.dto.ChattingDto;
 import com.dazone.crewchat.utils.CrewChatApplication;
 import com.dazone.crewchat.utils.Utils;
@@ -57,7 +58,7 @@ public class ChatRomDBHelper {
 
     public static final String SQL_EXCUTE = "CREATE TABLE " + TABLE_NAME + "("
             + ID + " integer primary key autoincrement not null,"
-            + ROOM_NO +" integer,"
+            + ROOM_NO + " integer,"
             + MAKE_USER_NO + " integer, "
             + MOD_DATE + " text, "
             + IS_ONE + " integer, "
@@ -89,14 +90,16 @@ public class ChatRomDBHelper {
     /*
     * This function to add one of message line
     * */
-    public static boolean addChatRoom(ChattingDto dto){
+    public static boolean addChatRoom(ChattingDto dto) {
         try {
             ContentValues values = new ContentValues();
             values.put(ROOM_NO, dto.getRoomNo());
             values.put(MAKE_USER_NO, dto.getMakeUserNo());
             values.put(MOD_DATE, dto.getModdate());
             int isOne = 0;
-            if (dto.isOne()){isOne = 1;}
+            if (dto.isOne()) {
+                isOne = 1;
+            }
             values.put(IS_ONE, isOne);
             values.put(ROOM_TITLE, dto.getRoomTitle());
             values.put(LASTED_MSG, dto.getLastedMsg());
@@ -107,7 +110,7 @@ public class ChatRomDBHelper {
             values.put(LASTED_MSG_ATTACH_TYPE, dto.getLastedMsgAttachType());
 
             String userNos = TextUtils.join(",", dto.getUserNos());
-            Utils.printLogs("User nos = "+userNos);
+            Utils.printLogs("User nos = " + userNos);
             values.put(USER_NOS, userNos);
 
             values.put(WRITER_USER, dto.getWriterUser());
@@ -120,7 +123,9 @@ public class ChatRomDBHelper {
             values.put(REG_DATE, dto.getRegDate());
             values.put(UNREAD_COUNT, dto.getUnReadCount());
             int isCheck = 0;
-            if (dto.isCheckFromServer()){ isCheck = 1;}
+            if (dto.isCheckFromServer()) {
+                isCheck = 1;
+            }
             values.put(IS_CHECK_FROM_SERVER, isCheck);
 
             values.put(ATTACH_FILE_NAME, dto.getAttachFileName());
@@ -143,12 +148,12 @@ public class ChatRomDBHelper {
             return true;
         } catch (Exception e) {
             // TODO: handle exception
-            Utils.printLogs("Catch = "+e.getMessage());
+            Utils.printLogs("Catch = " + e.getMessage());
         }
         return false;
     }
 
-    public static boolean updateChatRoom(long roomNo, String lastedMsg, int lastedMsgType, int lastedMsgAttachType, String lastedMsgDate, int unreadCountTotal, int unreadCount, long lastMsgUserNo){
+    public static boolean updateChatRoom(long roomNo, String lastedMsg, int lastedMsgType, int lastedMsgAttachType, String lastedMsgDate, int unreadCountTotal, int unreadCount, long lastMsgUserNo) {
         try {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
@@ -173,7 +178,7 @@ public class ChatRomDBHelper {
         return false;
     }
 
-    public static boolean updateChatRoom(long roomNo, String roomTitle){
+    public static boolean updateChatRoom(long roomNo, String roomTitle) {
         try {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
@@ -192,23 +197,23 @@ public class ChatRomDBHelper {
         return false;
     }
 
-    public static int getUnreadCount(long roomNo){
-        String[] columns = new String[] { "*"};
+    public static int getUnreadCount(long roomNo) {
+        String[] columns = new String[]{"*"};
         ContentResolver resolver = CrewChatApplication.getInstance()
                 .getApplicationContext().getContentResolver();
         Cursor cursor = resolver.query(
                 AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, columns, ROOM_NO + "=" + roomNo,
                 null, null);
-        if(cursor!=null){
+        if (cursor != null) {
             cursor.moveToFirst();
             int unReadCount = Integer.parseInt(cursor.getString(cursor.getColumnIndex(UNREAD_TOTAL_COUNT)));
             cursor.close();
-            return  unReadCount;
+            return unReadCount;
         }
         return 0;
     }
 
-    public static boolean deleteChatRoom(long roomNo){
+    public static boolean deleteChatRoom(long roomNo) {
         try {
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
@@ -223,7 +228,7 @@ public class ChatRomDBHelper {
         return false;
     }
 
-    public static boolean updateUnreadTotalCountChatRoom(long roomNo, long unreadCountTotal){
+    public static boolean updateUnreadTotalCountChatRoom(long roomNo, long unreadCountTotal) {
         try {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
@@ -243,14 +248,14 @@ public class ChatRomDBHelper {
         return false;
     }
 
-    public static boolean updateChatRoomNotification(long roomNo, boolean isNotification){
+    public static boolean updateChatRoomNotification(long roomNo, boolean isNotification) {
         try {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
 
             ContentValues conValues = new ContentValues();
-            int notification = isNotification? 1: 0;
+            int notification = isNotification ? 1 : 0;
             conValues.put(IS_NOTIFICATION, notification);
 
             resolver.update(AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, conValues, ROOM_NO + "=" + roomNo, null);
@@ -264,14 +269,14 @@ public class ChatRomDBHelper {
         return false;
     }
 
-    public static boolean updateChatRoomFavorite(long roomNo, boolean isFavorite){
+    public static boolean updateChatRoomFavorite(long roomNo, boolean isFavorite) {
         try {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
 
             ContentValues conValues = new ContentValues();
-            int isFavoriteValue = isFavorite ? 1: 0;
+            int isFavoriteValue = isFavorite ? 1 : 0;
             conValues.put(IS_FAVORITE, isFavoriteValue);
             resolver.update(AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, conValues, ROOM_NO + "=" + roomNo, null);
             return true;
@@ -285,26 +290,22 @@ public class ChatRomDBHelper {
     }
 
 
-
-
-
     /*
     * This function to get all chat list, short by time
     * */
-    public static ArrayList<ChattingDto> getChatRooms(){
+    public static ArrayList<ChattingDto> getChatRooms() {
 
         ArrayList<ChattingDto> mesArray = new ArrayList<>();
-        String[] columns = new String[] { "*"};
+        String[] columns = new String[]{"*"};
         ContentResolver resolver = CrewChatApplication.getInstance()
                 .getApplicationContext().getContentResolver();
         Cursor cursor = resolver.query(
                 AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, columns, null,
                 null, null);
-        if(cursor!=null){
-            if(cursor.getCount()>0){
+        if (cursor != null) {
+            if (cursor.getCount() >= 0) {
                 try {
-                    while (cursor.moveToNext())
-                    {
+                    while (cursor.moveToNext()) {
                         ChattingDto chattingDto = new ChattingDto();
 
                         chattingDto.setId(parseInt(cursor.getString(cursor.getColumnIndex(ID))));
@@ -318,10 +319,10 @@ public class ChatRomDBHelper {
                         chattingDto.setLastedMsgDate(cursor.getString(cursor.getColumnIndex(LASTED_MSG_DATE)));
 
                         String sUserNos = cursor.getString(cursor.getColumnIndex(USER_NOS));
-                        if (sUserNos != null){
-                            String [] elements = sUserNos.split(",");
+                        if (sUserNos != null) {
+                            String[] elements = sUserNos.split(",");
                             ArrayList<Integer> userNosLList = new ArrayList<>();
-                            for(String temp : elements){
+                            for (String temp : elements) {
                                 userNosLList.add(parseInt(temp.trim()));
                             }
                             chattingDto.setUserNos(userNosLList);
@@ -357,7 +358,7 @@ public class ChatRomDBHelper {
                         mesArray.add(chattingDto);
                     }
 
-                }finally {
+                } finally {
                     cursor.close();
                 }
 
@@ -370,20 +371,19 @@ public class ChatRomDBHelper {
     /*
     * This function to get all chat list, short by time
     * */
-    public static ArrayList<ChattingDto> getFavoriteChatRooms(){
+    public static ArrayList<ChattingDto> getFavoriteChatRooms() {
 
         ArrayList<ChattingDto> mesArray = new ArrayList<>();
-        String[] columns = new String[] { "*"};
+        String[] columns = new String[]{"*"};
         ContentResolver resolver = CrewChatApplication.getInstance()
                 .getApplicationContext().getContentResolver();
         Cursor cursor = resolver.query(
-                AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, columns, IS_FAVORITE + " = "+ 1,
+                AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, columns, IS_FAVORITE + " = " + 1,
                 null, null);
-        if(cursor!=null){
-            if(cursor.getCount()>0){
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
                 try {
-                    while (cursor.moveToNext())
-                    {
+                    while (cursor.moveToNext()) {
                         ChattingDto chattingDto = new ChattingDto();
 
                         chattingDto.setId(parseInt(cursor.getString(cursor.getColumnIndex(ID))));
@@ -397,10 +397,10 @@ public class ChatRomDBHelper {
                         chattingDto.setLastedMsgDate(cursor.getString(cursor.getColumnIndex(LASTED_MSG_DATE)));
 
                         String sUserNos = cursor.getString(cursor.getColumnIndex(USER_NOS));
-                        if (sUserNos != null){
-                            String [] elements = sUserNos.split(",");
+                        if (sUserNos != null) {
+                            String[] elements = sUserNos.split(",");
                             ArrayList<Integer> userNosLList = new ArrayList<>();
-                            for(String temp : elements){
+                            for (String temp : elements) {
                                 userNosLList.add(parseInt(temp.trim()));
                             }
                             chattingDto.setUserNos(userNosLList);
@@ -436,7 +436,7 @@ public class ChatRomDBHelper {
                         mesArray.add(chattingDto);
                     }
 
-                }finally {
+                } finally {
                     cursor.close();
                 }
 
@@ -451,7 +451,7 @@ public class ChatRomDBHelper {
 
             ContentResolver resolver = CrewChatApplication.getInstance()
                     .getApplicationContext().getContentResolver();
-            resolver.delete(AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, null,null);
+            resolver.delete(AppContentProvider.GET_CHAT_ROOM_CONTENT_URI, null, null);
             return true;
         } catch (Exception e) {
             // TODO: handle exception

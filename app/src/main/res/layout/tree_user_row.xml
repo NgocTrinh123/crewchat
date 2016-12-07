@@ -107,17 +107,42 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_user_status"
-                style="@style/tv_tree_user_status_style"
+            <LinearLayout
+                android:id="@+id/ln_phone"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:gravity="center_vertical"
-                android:padding="10dp"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/tree_user_text_size" />
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dimen_3_6">
+
+                <com.dazone.crewchat.Views.AutoSizeTextView
+                    android:id="@+id/tv_phone_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/group_ic_phone_02"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/tree_user_text_size" />
+
+                <com.dazone.crewchat.Views.AutoSizeTextView
+                    android:id="@+id/tv_phone_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:drawableLeft="@drawable/group_ic_phone_01"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/tree_user_position_color"
+                    android:textSize="@dimen/tree_user_text_size"
+                    android:visibility="visible" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+
 import com.dazone.crewchat.HTTPs.HttpRequest;
 import com.dazone.crewchat.R;
 import com.dazone.crewchat.Tree.Dtos.TreeUserDTO;
@@ -20,6 +21,8 @@ import com.dazone.crewchat.test.OrganizationFragment;
 import com.dazone.crewchat.utils.Constant;
 import com.dazone.crewchat.utils.Prefs;
 import com.dazone.crewchat.utils.Utils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +42,7 @@ public class OrganizationActivity extends BaseSingleActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
     }
+
 
     @Override
     protected void addFragment(Bundle bundle) {
@@ -67,7 +71,7 @@ public class OrganizationActivity extends BaseSingleActivity {
         HiddenTitle();
         currentUserNo = new Prefs().getUserNo();
         if (currentUserNo == 0) {
-            currentUserNo =  UserDBHelper.getUser().Id;
+            currentUserNo = UserDBHelper.getUser().Id;
         }
         ivMore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +86,7 @@ public class OrganizationActivity extends BaseSingleActivity {
                             if (userNos != null && userNos.size() == 2) {
                                 List<Integer> listUserNos = new ArrayList<>();
                                 for (int i : userNos) {
-                                    if (i != currentUserNo ) {
+                                    if (i != currentUserNo) {
                                         listUserNos.add(i);
                                     }
                                 }
@@ -99,7 +103,7 @@ public class OrganizationActivity extends BaseSingleActivity {
 
                                         // Combine title for new user added to group
                                         TreeUserDTOTemp temp = AllUserDBHelper.getAUser(treeUserDTO.getId());
-                                        if (temp != null && treeUserDTO.getId() != currentUserNo){
+                                        if (temp != null && treeUserDTO.getId() != currentUserNo) {
                                             oldTitle += "," + temp.getName();
                                         }
                                     }
